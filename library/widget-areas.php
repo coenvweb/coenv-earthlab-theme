@@ -31,3 +31,20 @@ function foundationpress_sidebar_widgets() {
 
 add_action( 'widgets_init', 'foundationpress_sidebar_widgets' );
 endif;
+
+if ( ! function_exists( 'homepage_widgets' ) ) :
+function homepage_widgets() {
+	register_sidebar(array(
+	  'id' => 'homepage-widgets',
+	  'name' => __( 'Homepage widgets', 'foundationpress' ),
+	  'description' => __( 'Drag widgets to this homepage container.', 'foundationpress' ),
+	  'before_widget' => '<article id="%1$s" class="widget %2$s">',
+	  'after_widget' => '</article>',
+	  'before_title' => '<h2>',
+	  'after_title' => '</h2>',
+	));
+
+}
+
+add_action( 'widgets_init', 'homepage_widgets' );
+endif;
