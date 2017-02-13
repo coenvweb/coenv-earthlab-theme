@@ -6907,10 +6907,26 @@ a.thumbnail {
   -webkit-animation-delay: 700ms !important;
           animation-delay: 700ms !important; }
 
-/*
-  My custom styles:
-  Add your scss files below to structure your project styles
-*/
+/* Basic edits for content prototype */
+.home #page .main-content {
+  width: 100%;
+  float: left;
+  padding-right: 0.625rem;
+  padding-left: 0.625rem; }
+  @media print, screen and (min-width: 40em) {
+    .home #page .main-content {
+      padding-right: 0.9375rem;
+      padding-left: 0.9375rem; } }
+  .home #page .main-content:last-child:not(:first-child) {
+    float: right; }
+  .home #page .main-content li h3 {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 0; }
+
+.sidebar h6 {
+  font-size: 2em; }
+
 @media screen and (max-width: 39.9375em) {
   .desktop-menu, .top-bar-left {
     display: none !important; } }
