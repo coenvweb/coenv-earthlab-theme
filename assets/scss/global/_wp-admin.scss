@@ -4,8 +4,8 @@
 }
 
 // Make sure that the WP admin-bar does not overlap the sticky top bar
-body.admin-bar.f-topbar-fixed {
-  .sticky.fixed {
-    margin-top: rem-calc(32);
+body.admin-bar {
+  .sticky.is-stuck {
+    margin-top: rem-calc(32) !important;
   }
 }

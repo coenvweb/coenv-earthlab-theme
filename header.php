@@ -133,25 +133,27 @@
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 			</div>
 		</div>
-
-		<div class="top-bar-wrapper">
-			<div class="top-bar row">
-				<div class="top-bar-left">
-					<nav id="site-navigation" class="main-navigation" role="navigation">
-						<div class="nav-bar">
-							<ul class="menu">
-								<li class="home"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></li>
-							</ul>
-						</div>
-					</nav>
-				</div>
-				<div class="top-bar-right">
-					<?php foundationpress_top_bar_r() ?>
-					<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) === 'topbar' ) : ?>
-						<?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
-					<?php endif; ?>
-				</div>
-			</div>
+        
+        <div id="sticky-container" data-sticky-container>
+            <div class="top-bar-wrapper sticky" data-sticky data-margin-top="0" data-options="marign-top:0;" style="width:100%" data-top-anchor="sticky-container:top" data-btm-anchor="footer:top">
+                <div class="top-bar row">
+                    <div class="top-bar-left">
+                        <nav id="site-navigation" class="main-navigation" role="navigation">
+                            <div class="nav-bar">
+                                <ul class="menu">
+                                    <li class="home"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="top-bar-right">
+                        <?php foundationpress_top_bar_r() ?>
+                        <?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) === 'topbar' ) : ?>
+                            <?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
 		</div>
 
 
