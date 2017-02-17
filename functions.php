@@ -40,3 +40,8 @@ require_once( 'library/responsive-images.php' );
 
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 // require_once( 'library/protocol-relative-theme-assets.php' );
+
+// College customizations
+
+/** Define custom post types */
+require_once( 'library/content-types.php' );
