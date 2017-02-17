@@ -1,0 +1,49 @@
+.coenv-top-bar-wrapper {
+	background-color: $outer-space;
+	.coenv-top-bar {
+		@include grid-row();
+		overflow: hidden;
+		color: $light-gray;
+		padding: 0rem 1rem;
+		.coenv-top-bar-left {
+			float: left;
+			svg {
+				width: 3rem;
+				height: 3rem;
+				fill: $white;
+			}
+		}
+		.coenv-top-bar-right {
+			float: right;
+			width: 12rem;
+			.college-logo {
+				margin-top: 0.25rem;
+				margin-bottom: 0.5rem;
+				margin-left: 0px;
+				li {
+					display: block;
+					width: 10rem;
+					height: 0.75rem;
+					padding: 0 0 0 0 !important;
+					margin: 0 0 2px 0   !important;
+					list-style: none;
+				}
+				.uw-name {
+					width: 9rem;
+					fill: $white;
+				}
+				.college-name {
+					width: 12rem;
+					height: 0.75rem;
+					fill: $white;
+					border-bottom: 0.25px solid $light-gray;
+					padding-bottom: 0.1rem;
+				}
+			}
+		}
+	}
+}
+
+.top-bar-wrapper {
+	background-color: $outer-space;
+}
