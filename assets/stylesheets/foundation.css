@@ -2590,7 +2590,7 @@ body {
   margin: 0;
   padding: 0;
   background: #fefefe;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   line-height: 1.5;
   color: #0a0a0a;
@@ -3455,7 +3455,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   color: inherit;
@@ -7016,7 +7016,7 @@ a.thumbnail {
   color: #B9B9B9; }
 
 .top-bar .menu .home a {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #B9B9B9; }
 
 .top-bar .menu a {
@@ -7026,7 +7026,7 @@ a.thumbnail {
   padding-top: 0;
   padding-bottom: 0;
   font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 1rem;
   line-height: 1; }
   .top-bar .menu a:hover:not(.button) {
     background-color: #42525D; }
