@@ -27,6 +27,33 @@ function foundationpress_sidebar_widgets() {
 	  'before_title' => '<h6>',
 	  'after_title' => '</h6>',
 	));
+
+	/** 
+   	* Adds a widget area for each section.
+   	*/
+
+  	// this will return only top-level pages
+	$pages = get_pages('parent=0&sort_column=menu_order&sort_order=ASC');
+	$pages_to_remove = coenv_base_menu_exclude();
+
+	if ( empty( $pages ) ) { 
+		return false;
+	}
+
+	foreach( $pages as $page ) { 
+		// remove specific pages
+		if( !in_array( $page->ID, $pages_to_remove ) ) { 
+		register_sidebar( array(
+			'id' => 'sidebar-' . $page->ID,
+			'name' => 'Sidebar / ' . $page->post_title,
+			'description' => __('Drag widgets to this container.', 'foundationpress'),
+			'before_widget' => $before_widget,
+			'after_widget'  => $after_widget,
+			'before_title'  => $before_title,
+			'after_title' => $after_title
+		) );
+		}
+	}
 }
 
 add_action( 'widgets_init', 'foundationpress_sidebar_widgets' );

@@ -239,15 +239,9 @@ function coenv_base_section_title($id) {
         $section_title = '<div class="section-title"><h2><a href="'.get_site_url().'/about">About</a></h2></div>';
     }
 
-    if ( is_singular( 'courses' )) { //change news pages' section titles
+    if ( is_singular( 'case_study' )) { //change news pages' section titles
         unset ($section_title);
-        $section_title = '<div class="section-title"><h2><a href="'.get_site_url().'/education">Education</a></h2></div>';
+        $section_title = '<div class="section-title"><h2><a href="'.get_site_url().'/about/case-studies">Case Studies</a></h2></div>';
     }
-
-    // if ( is_page_template('templates/courses.php')) { //change news index' section titles
-       // unset ($section_title);
-        //$section_title = '<div class="columns large-12 section-title"><h1><a href="">Courses</a></h1></div>';
-    //}
-
     echo $section_title;
 }
