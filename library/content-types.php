@@ -54,7 +54,7 @@ function case_tax() {
         'show_in_nav_menus'          => true,
         'show_tagcloud'              => true,
     );
-    register_taxonomy( 'focus_area', array( 'case_study' ), $case_args );
+    register_taxonomy( 'focus_area', array( 'case_study', 'post' ), $case_args );
 }
 
 add_action('init', 'case_tax');

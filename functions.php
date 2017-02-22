@@ -51,3 +51,6 @@ require_once( 'library/coenv-helper.php' );
 
 /** Define custom post types */
 require_once( 'library/content-types.php' );
+
+/** Custom Widgets */
+require_once( 'library/widgets.php' );
