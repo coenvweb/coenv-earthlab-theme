@@ -32,6 +32,9 @@ require_once( 'library/theme-support.php' );
 /** Add Nav Options to Customer */
 require_once( 'library/custom-nav.php' );
 
+/** Add Nav Options to Customer */
+require_once( 'library/navigation-lvl2.php' );
+
 /** Change WP's sticky post class */
 require_once( 'library/sticky-posts.php' );
 
@@ -43,5 +46,19 @@ require_once( 'library/responsive-images.php' );
 
 // College customizations
 
+/** Utility Functions */
+require_once( 'library/coenv-helper.php' );
+
 /** Define custom post types */
 require_once( 'library/content-types.php' );
+
+/** Custom Widgets */
+require_once( 'library/widgets.php' );
+
+// Register nav menus
+add_action( 'after_setup_theme', 'setup_menus' );
+function setup_menus() {
+	register_nav_menus(array(
+		'footer-links' => 'Footer links',
+	));
+}

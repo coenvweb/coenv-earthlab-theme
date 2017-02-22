@@ -1,21 +1,9 @@
-<?php
-/**
- * The template for displaying search form
- *
- * @package FoundationPress
- * @since FoundationPress 1.0.0
- */
-
-do_action( 'foundationpress_before_searchform' ); ?>
-<form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-	<?php do_action( 'foundationpress_searchform_top' ); ?>
-	<div class="input-group">
-		<input type="text" class="input-group-field" value="" name="s" id="s" placeholder="<?php esc_attr_e( 'Search', 'foundationpress' ); ?>">
-		<?php do_action( 'foundationpress_searchform_before_search_button' ); ?>
-		<div class="input-group-button">
-			<input type="submit" id="searchsubmit" value="<?php esc_attr_e( 'Search', 'foundationpress' ); ?>" class="button">
-		</div>
-	</div>
-	<?php do_action( 'foundationpress_searchform_after_search_button' ); ?>
+<form role="search" method="get" class="search-form Form--inline" action="<?php echo home_url( '/' ); ?>">
+  <div class="field-wrap">
+    <?php if(get_query_var('post_type') != "") { ?>
+        <input type="hidden" name="post_type" value="<?php get_query_var('post_type') ?>" />
+    <?php } ?>
+	<input type="text" value="<?php echo get_search_query() ?>" name="s" placeholder="Search this site" aria-label="Search" title="Search"/>
+    <button type="submit"><i class="fa fa-search"></i><span>Search</span></button>
+  </div>
 </form>
-<?php do_action( 'foundationpress_after_searchform' );
