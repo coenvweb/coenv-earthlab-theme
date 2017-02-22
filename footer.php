@@ -15,6 +15,7 @@
 			<footer id="footer">
 				<?php do_action( 'foundationpress_before_footer' ); ?>
 				<?php dynamic_sidebar( 'footer-widgets' ); ?>
+                <a href="<?php echo wp_login_url(); ?>">Staff Login</a>
 				<?php do_action( 'foundationpress_after_footer' ); ?>
 			</footer>
 		</div>
