@@ -54,3 +54,11 @@ require_once( 'library/content-types.php' );
 
 /** Custom Widgets */
 require_once( 'library/widgets.php' );
+
+// Register nav menus
+add_action( 'after_setup_theme', 'setup_menus' );
+function setup_menus() {
+	register_nav_menus(array(
+		'footer-links' => 'Footer links',
+	));
+}
