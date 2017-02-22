@@ -32,6 +32,9 @@
                 background: #666;
                 color: #fff;
 				width: 95%;
+                @include breakpoint(medium only) {
+                    width: 82%;
+                }
                 @include placeholder {
                     color: #eee;
                 }

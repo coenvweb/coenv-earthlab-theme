@@ -109,20 +109,7 @@
                     </a>
 				</div>
 				<div class="coenv-top-bar-right">
-					<ul class="college-logo">
-						<li>
-							<a href="http://environment.uw.edu" title="UW College of the Environment">
-								<?php include("assets/images/college-of-the-environment.svg"); ?>
-								<span class="hide">College of the Environment Logo Text</span>
-							</a>
-						</li>
-						<li>
-							<a href="http://uw.edu" title="University of Washington">
-								<?php include("assets/images/university-of-washington-02.svg"); ?>
-								<span class="hide">University of Washington Logo Text</span>
-							</a>
-						</li>
-					</ul>
+					
 				</div>
 			</div>
 		</div>
