@@ -1,0 +1,14 @@
+.page-template-index {
+    .main-content {
+        .panel {
+            font-weight: bold;
+            padding: 1rem 0rem;
+            border-bottom: 1px solid $light-gray;
+            margin-bottom: 1rem;
+        }
+
+        .article__categories {
+            display: inline-block;
+        }
+    }
+}

@@ -7336,8 +7336,7 @@ a.thumbnail {
       width: 33.33333%;
       float: left;
       padding-right: 0.625rem;
-      padding-left: 0.625rem;
-      margin-top: 1rem; } }
+      padding-left: 0.625rem; } }
   @media print, screen and (min-width: 40em) and (min-width: 40em) {
     .sidebar {
       padding-right: 0.9375rem;
@@ -8018,5 +8017,14 @@ form .field-wrap {
     @media print, screen and (min-width: 40em) {
         #single-post .main-content:last-child:not(:first-child) {
           float: right; } }
+
+.page-template-index .main-content .panel {
+  font-weight: bold;
+  padding: 1rem 0rem;
+  border-bottom: 1px solid #d9d9d9;
+  margin-bottom: 1rem; }
+
+.page-template-index .main-content .article__categories {
+  display: inline-block; }
 
 /*# sourceMappingURL=foundation.css.map */
