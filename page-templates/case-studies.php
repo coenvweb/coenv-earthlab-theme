@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: News Index
+Template Name: Case Studies Index
 */
 
 // keep track of whether or not this is the index page
@@ -22,7 +22,7 @@ if(isset($wp_query->query_vars['focus-area'])){
 
 <?php get_template_part( 'template-parts/featured-image' ); ?>
 
-<div id="page" class="page-template-index page-template-news" role="main">
+<div id="page" class="page-template-index page-template-case-studies" role="main">
     <div class="row">
         <div <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
             <div class="entry-content">
@@ -42,7 +42,7 @@ if(isset($wp_query->query_vars['focus-area'])){
                     */
                     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     $query_args = array(
-                        'post_type'	=> 'post',
+                        'post_type'	=> 'case_study',
                         'post_status' => 'publish',
                         'posts_per_page' => 10,
                         'ignore_sticky_posts' => 1,
@@ -80,7 +80,7 @@ if(isset($wp_query->query_vars['focus-area'])){
                         <?php } ?>
                         </div>
                     <?php } else { ?>
-                        <p>We're sorry. Your crtieria did not match any posts. <a href="/about/news-and-events">Return to all posts &raquo;</a></p>
+                        <p>We're sorry. Your crtieria did not match any case studies. <a href="/about/case-studies">Return to all case studies &raquo;</a></p>
                     <?php } ?>
                 </div>		
                 <?php if ( is_active_sidebar( 'after-content' ) ) { ?>

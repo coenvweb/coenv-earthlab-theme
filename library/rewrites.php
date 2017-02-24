@@ -60,8 +60,7 @@ function add_cpt_rewrites($wp_rewrite) {
 add_action('generate_rewrite_rules', 'add_cpt_rewrites');
 
 function add_query_vars() {
-    add_rewrite_tag('%focus_area%', '(.+?)/');
-    add_rewrite_tag('%category%', '(.+?)/');
+    add_rewrite_tag('%focus-area%', '(.+?)/');
 }
 add_action('init', 'add_query_vars');
 

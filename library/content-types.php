@@ -53,8 +53,11 @@ function case_tax() {
         'show_admin_column'          => true,
         'show_in_nav_menus'          => true,
         'show_tagcloud'              => true,
+        //args below prevent default wp permalinks from messing up our index pages
+        'rewrite'                    => 'focus_area',
+        'query_var'                  => false,
     );
-    register_taxonomy( 'focus_area', array( 'case_study', 'post' ), $case_args );
+    register_taxonomy( 'focus-area', array( 'case_study', 'post' ), $case_args );
 }
 
 add_action('init', 'case_tax');

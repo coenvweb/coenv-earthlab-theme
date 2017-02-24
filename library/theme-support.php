@@ -66,7 +66,6 @@ function coenv_base_change_post_label() {
     $menu[5][0] = 'News';
     $submenu['edit.php'][5][0] = 'News';
     $submenu['edit.php'][10][0] = 'Add News';
-    $submenu['edit.php'][16][0] = 'News Tags';
     echo '';
 }
 

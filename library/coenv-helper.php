@@ -118,22 +118,23 @@ $cats_args  = array(
 );
 $cats = get_categories($cats_args);
     if ($cats) {
-        if ($tax == 'course_quarter') {
-            echo '<label class="visuallyhidden" for="select-category">Select a quarter:</label>';
+        if ($tax == 'focus-area') {
+            echo '<label class="hide" for="select-category">Select a Focus Area:</label>';
             echo '<div class="" data-url="'.get_the_permalink().'">';
         } else {
-            echo '<label class="visuallyhidden" for="select-category">Select a category:</label>';
+            echo '<label class="hide" for="select-category">Select a category:</label>';
         }
         echo '<select name="select-category" class="select-category" id="select-category">';
-        if ($tax != 'course_quarter') {
-          echo '<option class="level-0" value="">All ' . $tax_str . '</option>';
-        }
+        echo '<option class="level-0" value="' . get_the_permalink() . '">All ' . $tax_str . '</option>';
         foreach($cats as $cat) {
             $selected = $cat->slug == $tax_value ? ' selected="selected"' : '';
+            echo $cat->slug;
+            echo "</br>";
+            echo $tax_value;
             echo '<option value="' . $tax . '/' . $cat->slug . '/"' . $selected . '>' . $cat->name . '</option>';
         }
         echo '</select>';
-        if ($tax == 'course_quarter') {
+        if ($tax == 'focus-area') {
             echo '</div>';
         }
     }
@@ -170,5 +171,20 @@ function coenv_base_date_filter($post_type,$coenv_month,$coenv_year) {
     echo '</select>';
     wp_reset_postdata();
     wp_reset_query();
+}
+
+/**
+ * Remove default taxonomies
+ */
+
+add_action( 'init', 'coenv_unregister_taxonomies');
+function coenv_unregister_taxonomies(){
+	global $wp_taxonomies;
+	$taxonomies = array( 'category', 'post_tag', 'news_tag' );
+	foreach( $taxonomies as $taxonomy ) {
+		if ( taxonomy_exists( $taxonomy) ) {
+			unset( $wp_taxonomies[$taxonomy]);
+		}
+	}
 }
 ?>

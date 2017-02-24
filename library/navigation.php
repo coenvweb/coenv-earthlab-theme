@@ -11,8 +11,8 @@
 function coenv_base_menu_exclude() {
     // args
     $args = array(
-            'numberposts' => -1, 
-            'posts_per_page'=> -1, 
+            'numberposts' => -1,
+            'posts_per_page'=> -1,
             'post_type' => 'page',
             'meta_key'=>'menu_visibility',
             'meta_value'=> 'not-visible',
@@ -31,9 +31,7 @@ function coenv_base_menu_exclude() {
     endif;
 
     wp_reset_query();
-
     return $nav_exclude;
-    wp_reset_query();
 }
 
 register_nav_menus(array(
@@ -49,6 +47,7 @@ register_nav_menus(array(
  */
 if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
     function foundationpress_top_bar_r() {
+        $exclude = implode(',',coenv_base_menu_exclude());
         wp_nav_menu( array(
                     'container'      => false,
                     'menu_class'     => 'dropdown menu',
@@ -57,7 +56,7 @@ if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
                     'depth'          => 3,
                     'fallback_cb'    => false,
                     'walker'         => new Foundationpress_Top_Bar_Walker(),
-                    'exclude'        => coenv_base_menu_exclude(),
+                    'exclude'        => $exclude,
                     ));
     }
 }
@@ -68,6 +67,7 @@ if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
  */
 if ( ! function_exists( 'foundationpress_mobile_nav' ) ) {
     function foundationpress_mobile_nav() {
+        $exclude = implode(',',coenv_base_menu_exclude());
         wp_nav_menu( array(
                     'container'      => false,                         // Remove nav container
                     'menu'           => __( 'mobile-nav', 'foundationpress' ),
@@ -76,7 +76,7 @@ if ( ! function_exists( 'foundationpress_mobile_nav' ) ) {
                     'items_wrap'     => '<ul id="%1$s" class="%2$s" data-accordion-menu>%3$s</ul>',
                     'fallback_cb'    => false,
                     'walker'         => new Foundationpress_Mobile_Walker(),
-                    'exclude'        => coenv_base_menu_exclude(),
+                    'exclude'        => $exclude,
                     ));
     }
 }
