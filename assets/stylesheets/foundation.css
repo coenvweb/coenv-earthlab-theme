@@ -6989,13 +6989,14 @@ a.thumbnail {
           padding-bottom: 0.1rem; }
 
 .top-bar-wrapper {
-  background-color: #2c3840;
-  padding-top: 0.5rem;
-  -webkit-transition: all 0.25s linear;
-  transition: all 0.25s linear; }
+  background-color: #2c3840; }
 
 .shrink {
   padding-top: 0rem; }
+
+@media screen and (max-width: 39.9375em) {
+  .sticky-container {
+    display: none; } }
 
 .widget_coenv_base_news_cats, .widget_coenv_base_case_cats {
   margin-bottom: 2.5rem; }

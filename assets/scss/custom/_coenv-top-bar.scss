@@ -50,12 +50,13 @@
 
 .top-bar-wrapper {
 	background-color: $outer-space;
-    padding-top: 0.5rem;
-    -webkit-transition: all 0.25s linear;
-    -moz-transition: all 0.25s linear;
-    -o-transition: all 0.25s linear;
-    transition: all 0.25s linear;
 }
 .shrink {
     padding-top: 0rem;
+}
+
+.sticky-container {
+    @include breakpoint(small only) {
+        display: none;
+    }
 }
