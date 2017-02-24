@@ -6997,6 +6997,20 @@ a.thumbnail {
 .shrink {
   padding-top: 0rem; }
 
+.widget_coenv_base_news_cats, .widget_coenv_base_case_cats {
+  margin-bottom: 2.5rem; }
+  .widget_coenv_base_news_cats .widget-news-list, .widget_coenv_base_news_cats .widget-case-list, .widget_coenv_base_case_cats .widget-news-list, .widget_coenv_base_case_cats .widget-case-list {
+    list-style-type: none;
+    margin-left: 0px; }
+    .widget_coenv_base_news_cats .widget-news-list li, .widget_coenv_base_news_cats .widget-case-list li, .widget_coenv_base_case_cats .widget-news-list li, .widget_coenv_base_case_cats .widget-case-list li {
+      margin: 0.5rem 0rem;
+      overflow: hidden; }
+      .widget_coenv_base_news_cats .widget-news-list li .post-meta, .widget_coenv_base_news_cats .widget-case-list li .post-meta, .widget_coenv_base_case_cats .widget-news-list li .post-meta, .widget_coenv_base_case_cats .widget-case-list li .post-meta {
+        font-size: 0.75rem;
+        float: right;
+        margin-bottom: 0px;
+        line-height: 2rem; }
+
 /*	Fonts
 		======================================================================== */
 @font-face {

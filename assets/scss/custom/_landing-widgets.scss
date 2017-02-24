@@ -1,0 +1,17 @@
+.widget_coenv_base_news_cats, .widget_coenv_base_case_cats {
+    margin-bottom: 2.5rem;
+    .widget-news-list, .widget-case-list {
+        list-style-type: none;
+        margin-left: 0px;
+        li {
+            margin: 0.5rem 0rem;
+            overflow: hidden;
+            .post-meta {
+                font-size: 0.75rem;
+                float:  right;
+                margin-bottom: 0px;
+                line-height: 2rem;
+            }
+        }
+    }
+}

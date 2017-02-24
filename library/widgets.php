@@ -35,7 +35,7 @@ class coenv_base_case_cats extends WP_Widget {
             'post_status' => 'publish',
             'posts_per_page' => 3,
             'ignore_sticky_posts' => 1,
-			'taxonomy' => 'focus_area',
+			'taxonomy' => 'focus-area',
 			'term' => $focus_area,
         );
 
@@ -63,6 +63,10 @@ class coenv_base_case_cats extends WP_Widget {
 				endwhile;
 			echo "</ul>";
 
+            if($instance['more_link']) {
+                echo "See more <a href='/about/case-studies/focus-area/".$focus_area."'>".$focus_area." case studies</a>";
+            }
+
         	echo $args['after_widget'];
         }	
     }
@@ -82,14 +86,17 @@ class coenv_base_case_cats extends WP_Widget {
         if ( isset( $instance[ 'focus_area' ] ) ) {
             $focus_area = $instance[ 'focus_area' ];
         }
+        if ( isset( $instance[ 'more_link' ] ) ) {
+            $more_link = $instance[ 'more_link' ];
+        }
 
-        $focus_areas = get_terms('focus_area');
+        $focus_areas = get_terms('focus-area');
         ?>
         
-        <p>
+       <p>
             <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
             <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
-        </p>
+        </p> 
         <p>
             <label for="<?php echo $this->get_field_id( 'focus_area' ); ?>"><?php _e( 'Focus Area:' ); ?></label> 
             <select class="widefat" id="<?php echo $this->get_field_id( 'focus_area' ); ?>" name="<?php echo $this->get_field_name( 'focus_area' ); ?>">
@@ -99,7 +106,10 @@ class coenv_base_case_cats extends WP_Widget {
                 <?php } ?>
             </select>
         </p>
-     
+        <p>
+            <label for="<?php echo $this->get_field_id( 'more_link' ); ?>"><?php _e( 'Display a link to more related case studies?' ); ?></label> 
+            <input <?=($instance['more_link'] ? 'checked' : '')?> class="widefat" id="<?php echo $this->get_field_id( 'more_link' ); ?>" name="<?php echo $this->get_field_name( 'more_link' ); ?>" type="checkbox" >
+        </p> 
         <?php
     }
 
@@ -118,6 +128,7 @@ class coenv_base_case_cats extends WP_Widget {
 
         $instance['title'] = ( ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '');
         $instance['focus_area'] = ( ! empty( $new_instance['focus_area'] ) ? strip_tags( $new_instance['focus_area'] ) : '' );
+        $instance['more_link'] = ( ! empty( $new_instance['more_link'] ) ? strip_tags( $new_instance['more_link'] ) : '' );
 
         return $instance;
     }
@@ -226,7 +237,7 @@ class coenv_base_news_cats extends WP_Widget {
             'post_status' => 'publish',
             'posts_per_page' => 4,
             'ignore_sticky_posts' => 1,
-			'taxonomy' => 'focus_area',
+			'taxonomy' => 'focus-area',
 			'term' => $focus_area,
         );
 
@@ -244,18 +255,22 @@ class coenv_base_news_cats extends WP_Widget {
 					$wp_query->the_post();
 				?>
 					<li class="news-preview">
+						<p class="post-meta">
+							<?php echo get_the_date('M d, Y'); ?>
+						</p>
 						<h4><a href="<?php echo get_the_permalink(); ?>"><?php the_title(); ?></a></h4>
 						<p class="news-excerpt">
 							<?php the_excerpt(); ?>
-						</p>
-						<p class="post-meta">
-							<?php echo get_the_category_list(','); ?> | <?php echo get_the_date('M d, Y'); ?>
 						</p>
 					</li>
 
 				<?php
 				endwhile;
 			echo "</ul>";
+
+            if($instance['more_link']) {
+                echo "See more <a href='/about/case-studies/focus-area/".$focus_area."'>".$focus_area." news items</a>";
+            }
 
         	echo $args['after_widget'];
         }
@@ -276,7 +291,7 @@ class coenv_base_news_cats extends WP_Widget {
             $focus_area = $instance[ 'focus_area' ];
         }
 
-        $focus_areas = get_terms('focus_area');
+        $focus_areas = get_terms('focus-area');
       
         ?>
         <p>
@@ -292,6 +307,10 @@ class coenv_base_news_cats extends WP_Widget {
                 <?php } ?>
             </select>
         </p>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'more_link' ); ?>"><?php _e( 'Display a link to more related news items?' ); ?></label> 
+            <input <?=($instance['more_link'] ? 'checked' : '')?> class="widefat" id="<?php echo $this->get_field_id( 'more_link' ); ?>" name="<?php echo $this->get_field_name( 'more_link' ); ?>" type="checkbox" >
+        </p> 
          <?php
      }
 
@@ -310,6 +329,7 @@ class coenv_base_news_cats extends WP_Widget {
 
         $instance['title'] = ( ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '');
         $instance['focus_area'] = ( ! empty( $new_instance['focus_area'] ) ? strip_tags( $new_instance['focus_area'] ) : '' );
+        $instance['more_link'] = ( ! empty( $new_instance['more_link'] ) ? strip_tags( $new_instance['more_link'] ) : '' );
 
         return $instance;
      }
