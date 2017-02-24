@@ -1,7 +1,7 @@
                 </section>
                 <footer id="footer" role="contentinfo" class="site-footer">
 
-                    <div class="layout-container">
+                    <div id="footer-container" class="layout-container">
                         <div class="logo-headers row medium-collapse">
                             <div class="left-college medium-3 columns small-12">
                                <header class="site-footer__header">

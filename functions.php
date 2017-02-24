@@ -41,6 +41,9 @@ require_once( 'library/sticky-posts.php' );
 /** Configure responsive image sizes */
 require_once( 'library/responsive-images.php' );
 
+require_once( 'library/photos.php' );
+
+
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 // require_once( 'library/protocol-relative-theme-assets.php' );
 
@@ -55,10 +58,5 @@ require_once( 'library/content-types.php' );
 /** Custom Widgets */
 require_once( 'library/widgets.php' );
 
-// Register nav menus
-add_action( 'after_setup_theme', 'setup_menus' );
-function setup_menus() {
-	register_nav_menus(array(
-		'footer-links' => 'Footer links',
-	));
-}
+/** Configure responsive image sizes */
+require_once( 'library/rewrites.php' );
