@@ -1,0 +1,49 @@
+{
+    "key": "group_58b0742d96e11",
+    "title": "Page Visibility",
+    "fields": [
+        {
+            "key": "field_58b0743a56f01",
+            "label": "Menu Visibility",
+            "name": "menu_visibility",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "not-visible": "hide this page in the main menu",
+                "visible": "show this page in the main menu"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1487959956
+}

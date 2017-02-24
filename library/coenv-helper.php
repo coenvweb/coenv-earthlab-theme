@@ -86,36 +86,6 @@ function coenv_base_get_ancestor($attr = 'ID') {
     }
 }
 
-// page/post ids to exclude from the main menu
-function coenv_base_menu_exclude() {
-// args
-$args = array(
-    'numberposts' => -1,
-    'posts_per_page'=> -1,
-    'post_type' => 'page',
-    'meta_key'=>'menu_visibility',
-    'meta_value'=> 'not-visible',
-    'meta_compare'=>'='
-);
-
-// get results
-$nav_exclude = array();
-$nav_query = new WP_Query( $args );
-
-
-if( $nav_query->have_posts() ):
-    while ( $nav_query->have_posts() ) : $nav_query->the_post();
-        $nav_exclude[] = get_the_ID();
-    endwhile;
-endif;
-
-wp_reset_query();
-
-return $nav_exclude;
-wp_reset_query();
-}
-
-
 /* 
  * Remove underline from both Full and Basic TinyMCE toolbars in ACF
  */

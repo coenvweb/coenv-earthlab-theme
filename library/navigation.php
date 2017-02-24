@@ -26,7 +26,7 @@ function coenv_base_menu_exclude() {
 
     if( $nav_query->have_posts() ):
         while ( $nav_query->have_posts() ) : $nav_query->the_post();
-            nav_exclude[] = get_the_ID();
+            $nav_exclude[] = get_the_ID();
         endwhile;
     endif;
 

@@ -1,0 +1,62 @@
+{
+    "key": "group_58b072cbb28bd",
+    "title": "News Options",
+    "fields": [
+        {
+            "key": "field_58b072d40daa7",
+            "label": "Story Link (URL)",
+            "name": "story_link_(url)",
+            "type": "text",
+            "instructions": "Enter the full link url (e.g. http:\/\/coenv.uw.edu\/faculty).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_58b072ff0daa8",
+            "label": "Story Link Text",
+            "name": "story_source_name",
+            "type": "text",
+            "instructions": "Enter the text for the story link (e.g., Watch on YouTube, Read more at the New York Times)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 100
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1487959950
+}
