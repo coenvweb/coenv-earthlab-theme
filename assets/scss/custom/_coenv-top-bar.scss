@@ -1,5 +1,5 @@
 #masthead {
-    background-color: $outer-space;
+    background-color: $white;
 }
 .coenv-top-bar-wrapper {
 	background-color: $uw-purple;
@@ -7,49 +7,44 @@
 		@include grid-row();
 		overflow: hidden;
 		color: $light-gray;
-		padding: 0rem 1rem;
+		padding: 0rem 0.5rem;
 		.coenv-top-bar-left {
 			float: left;
-			margin-bottom: -5px;
-			svg {
+			
+		}
+		.coenv-top-bar-right {
+			float: right;
+            margin-bottom: -7px;
+			#desktop-logo {
 				margin-top: 10px;
 				width: 4.5rem;
 				height: 100%;
 				fill: $white;
 			}
-		}
-		.coenv-top-bar-right {
-			float: right;
-			width: 13.5rem;
-			.college-logo {
-				margin-top: 0.75rem;
-				margin-left: 0px;
-				li {
-					display: block;
-					width: 10rem;
-					height: 0.75rem;
-					padding: 0 0 0 0 !important;
-					margin: 0 0 2px 0   !important;
-					list-style: none;
-				}
-				.uw-name {
-					width: 10rem;
-					fill: $white;
-				}
-				.college-name {
-					width: 13.5rem;
-					height: 1rem;
-					fill: $white;
-					border-bottom: 0.25px solid $light-gray;
-					padding-bottom: 0.1rem;
-				}
-			}
+            #university_logo {
+                fill: $white;
+                margin-bottom: 1rem;
+                margin-left: 0.5rem;
+            }
 		}
 	}
 }
 
 .top-bar-wrapper {
-	background-color: $outer-space;
+	background-color: $white;
+    .top-bar-left {
+        .menu .home {
+            padding: 1.5rem 0rem;
+            @include encode-cb;
+            font-size: 2.5rem;
+            height: 2.5rem;
+        }
+    }
+    .top-bar-right {
+        .menu li {
+            padding: 1.5rem 0rem;
+        }
+    }
 }
 .shrink {
     padding-top: 0rem;

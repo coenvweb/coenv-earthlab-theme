@@ -30,63 +30,62 @@ Template Name: Homepage
 				$feature_caption = $feature_caption->post_excerpt;
 			}
 
-			echo '<div class="feature row">';
-				echo '<div class="feature-image" style="background-image:url(' . $feature_image[0] . ')">';
-
-					echo '<div class="feature-info-container small-offset-1 small-9 columns">';
+			echo '<div class="feature-image" style="background-image:url(' . $feature_image[0] . ')">';
+			    echo '<div class="feature row">';
+					echo '<div class="feature-info-container small-offset-1 small-10 columns">';
 						echo '<div class="feature-info">';
 							echo '<div class="feature-content">';
-								echo '<h2>' . get_the_title() . '</h2>';
-								echo '<p class="small-offset-6 small-6 columns feature-excerpt">' . $feature_excerpt . '</p>';
+                                echo '<div class="feature-title">';
+								    echo '<h2>' . get_the_title() . '</h2>';
+                                echo '</div>';
+                                echo '<div class="small-offset-6 small-6 columns feature-excerpt">';
+								    echo '<p>' . $feature_excerpt . '</p>';
+                                echo '</div>';
 							echo '</div><!-- .feature-content -->';
 
 						echo '</div><!-- .feature-info -->';
 					echo '</div><!-- .feature-info-container -->';
-				echo '</div>';
-
-
-			echo '</div><!-- .feature -->';
+			    echo '</div><!-- .feature -->';
+			echo '</div>';
 		endwhile;
 		wp_reset_postdata();
 		?>
 	</div>
 
 	<div class="focus-areas">
-		<div class="row collapse">
-			<div class="block-title focus-title">
-				<h3>
-					We<br>
-					Focus<br>
-					On
-				</h3>
-				<?php dynamic_sidebar('homepage-focus'); ?>
-			</div>
-		</div>	
+        <div class="row collapse">
+            <h3 class="small-offset-1 small-2 columns block-title do-title">
+                We<br>
+                Focus<br>
+                On
+            </h3>
+        </div>
+        <div class="row collapse">
+            <?php dynamic_sidebar('homepage-focus'); ?>
+        </div>
 	</div>
 
 	<div class="divider">
 	</div>
 
 	<div class="do-this">
-		<div class="row collapse">
-			<div class="block-title do-title">
-				<h3>
-					How<br>
-					Do We<br>
-					Do This
-				</h3>
-				<?php dynamic_sidebar('homepage-do'); ?>
-			</div>
-		</div>	
+        <div class="row collapse">
+            <h3 class="small-offset-1 small-2 columns block-title do-title">
+                How<br>
+                Do We<br>
+                Do This
+            </h3>
+        </div>
+        <div class="row collapse">
+            <?php dynamic_sidebar('homepage-do'); ?>
+        </div>
 	</div>
 
 	<div class="divider">
 	</div>
 
-
-	<article class="main-content">
-		<?php dynamic_sidebar( 'homepage-widgets' ); ?>
-	</article>
+    <!-- Homepage News and Events -->
+	
 </div>
 
 <?php get_footer();

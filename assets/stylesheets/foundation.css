@@ -5974,7 +5974,7 @@ a.thumbnail {
             transform: translateY(-50%); }
 
 .top-bar {
-  padding: 0; }
+  padding: 0rem; }
   .top-bar::before, .top-bar::after {
     display: table;
     content: ' '; }
@@ -5982,7 +5982,7 @@ a.thumbnail {
     clear: both; }
   .top-bar,
   .top-bar ul {
-    background-color: #2c3840; }
+    background-color: #fff; }
   .top-bar input {
     max-width: 200px;
     margin-right: 1rem; }
@@ -6010,7 +6010,7 @@ a.thumbnail {
 .top-bar-title {
   display: inline-block;
   float: left;
-  padding: 0.5rem 1rem 0.5rem 0; }
+  padding: 1rem; }
   .top-bar-title .menu-icon {
     bottom: 2px; }
 
@@ -6123,6 +6123,70 @@ a.thumbnail {
 .clearfix::after, .site-footer::after, .uw-footer::after {
   clear: both; }
 
+/*	Fonts
+		======================================================================== */
+@font-face {
+  font-family: encode-sans-normal;
+  src: url("../fonts/EncodeSansNormal-400-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: encode-sans-medium;
+  src: url("../fonts/EncodeSansNormal-600-SemiBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: encode-sans-condensed;
+  src: url("../fonts/EncodeSansCondensed-800-ExtraBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: open-sans-bold;
+  src: url("../fonts/OpenSans-800.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'uni-sans';
+  src: url("../fonts/fontfabric_-_unisansregular.otf");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'uni-sans-light';
+  src: url("../fonts/fontfabric_-_unisanslight-webfont.eot");
+  src: url("../fonts/fontfabric_-_unisanslight-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/fontfabric_-_unisanslight-webfont.woff2") format("woff2"), url("../fonts/fontfabric_-_unisanslight-webfont.woff") format("woff"), url("../fonts/fontfabric_-_unisanslight-webfont.ttf") format("truetype"), url("../fonts/fontfabric_-_unisanslight-webfont.svg#uni_sanslight") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'open-sans';
+  src: url("../fonts/opensans-regular-webfont.eot");
+  src: url("../fonts/opensans-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/opensans-regular-webfont.woff2") format("woff2"), url("../fonts/opensans-regular-webfont.woff") format("woff"), url("../fonts/opensans-regular-webfont.ttf") format("truetype"), url("../fonts/opensans-regular-webfont.svg#open_sansregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'open-sans-bold';
+  src: url("../fonts/opensans-600-webfont.eot");
+  src: url("../fonts/opensans-600-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/opensans-600-webfont.woff2") format("woff2"), url("../fonts/opensans-600-webfont.woff") format("woff"), url("../fonts/opensans-600-webfont.ttf") format("truetype"), url("../fonts/opensans-600-webfont.svg#open_sanssemibold") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'uni-sans-light-italic';
+  src: url("../fonts/fontfabric_-_unisanslightitalic-webfont.eot");
+  src: url("../fonts/fontfabric_-_unisanslightitalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/fontfabric_-_unisanslightitalic-webfont.woff2") format("woff2"), url("../fonts/fontfabric_-_unisanslightitalic-webfont.woff") format("woff"), url("../fonts/fontfabric_-_unisanslightitalic-webfont.ttf") format("truetype"), url("../fonts/fontfabric_-_unisanslightitalic-webfont.svg#uni_sanslight_italic") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/*	Base font size
+		======================================================================== */
+/*	Old Fonts
+		======================================================================== */
 .slide-in-down.mui-enter {
   -webkit-transition-duration: 500ms;
           transition-duration: 500ms;
@@ -6941,7 +7005,7 @@ a.thumbnail {
   padding-bottom: 3rem; }
 
 #masthead {
-  background-color: #2c3840; }
+  background-color: #fff; }
 
 .coenv-top-bar-wrapper {
   background-color: #4b2e83; }
@@ -6951,45 +7015,38 @@ a.thumbnail {
     margin-left: auto;
     overflow: hidden;
     color: #d9d9d9;
-    padding: 0rem 1rem; }
+    padding: 0rem 0.5rem; }
     .coenv-top-bar-wrapper .coenv-top-bar::before, .coenv-top-bar-wrapper .coenv-top-bar::after {
       display: table;
       content: ' '; }
     .coenv-top-bar-wrapper .coenv-top-bar::after {
       clear: both; }
     .coenv-top-bar-wrapper .coenv-top-bar .coenv-top-bar-left {
-      float: left;
-      margin-bottom: -5px; }
-      .coenv-top-bar-wrapper .coenv-top-bar .coenv-top-bar-left svg {
+      float: left; }
+    .coenv-top-bar-wrapper .coenv-top-bar .coenv-top-bar-right {
+      float: right;
+      margin-bottom: -7px; }
+      .coenv-top-bar-wrapper .coenv-top-bar .coenv-top-bar-right #desktop-logo {
         margin-top: 10px;
         width: 4.5rem;
         height: 100%;
         fill: #fff; }
-    .coenv-top-bar-wrapper .coenv-top-bar .coenv-top-bar-right {
-      float: right;
-      width: 13.5rem; }
-      .coenv-top-bar-wrapper .coenv-top-bar .coenv-top-bar-right .college-logo {
-        margin-top: 0.75rem;
-        margin-left: 0px; }
-        .coenv-top-bar-wrapper .coenv-top-bar .coenv-top-bar-right .college-logo li {
-          display: block;
-          width: 10rem;
-          height: 0.75rem;
-          padding: 0 0 0 0 !important;
-          margin: 0 0 2px 0   !important;
-          list-style: none; }
-        .coenv-top-bar-wrapper .coenv-top-bar .coenv-top-bar-right .college-logo .uw-name {
-          width: 10rem;
-          fill: #fff; }
-        .coenv-top-bar-wrapper .coenv-top-bar .coenv-top-bar-right .college-logo .college-name {
-          width: 13.5rem;
-          height: 1rem;
-          fill: #fff;
-          border-bottom: 0.25px solid #d9d9d9;
-          padding-bottom: 0.1rem; }
+      .coenv-top-bar-wrapper .coenv-top-bar .coenv-top-bar-right #university_logo {
+        fill: #fff;
+        margin-bottom: 1rem;
+        margin-left: 0.5rem; }
 
 .top-bar-wrapper {
-  background-color: #2c3840; }
+  background-color: #fff; }
+  .top-bar-wrapper .top-bar-left .menu .home {
+    padding: 1.5rem 0rem;
+    letter-spacing: .5px;
+    -webkit-font-smoothing: antialiased;
+    font-family: "encode-sans-condensed", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-size: 2.5rem;
+    height: 2.5rem; }
+  .top-bar-wrapper .top-bar-right .menu li {
+    padding: 1.5rem 0rem; }
 
 .shrink {
   padding-top: 0rem; }
@@ -7012,70 +7069,6 @@ a.thumbnail {
         margin-bottom: 0px;
         line-height: 2rem; }
 
-/*	Fonts
-		======================================================================== */
-@font-face {
-  font-family: encode-sans-normal;
-  src: url("../fonts/EncodeSansNormal-400-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: encode-sans-medium;
-  src: url("../fonts/EncodeSansNormal-600-SemiBold.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: encode-sans-condensed;
-  src: url("../fonts/EncodeSansCondensed-800-ExtraBold.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: open-sans-bold;
-  src: url("../fonts/OpenSans-800.ttf") format("truetype");
-  font-weight: 800;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'uni-sans';
-  src: url("../fonts/fontfabric_-_unisansregular.otf");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'uni-sans-light';
-  src: url("../fonts/fontfabric_-_unisanslight-webfont.eot");
-  src: url("../fonts/fontfabric_-_unisanslight-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/fontfabric_-_unisanslight-webfont.woff2") format("woff2"), url("../fonts/fontfabric_-_unisanslight-webfont.woff") format("woff"), url("../fonts/fontfabric_-_unisanslight-webfont.ttf") format("truetype"), url("../fonts/fontfabric_-_unisanslight-webfont.svg#uni_sanslight") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'open-sans';
-  src: url("../fonts/opensans-regular-webfont.eot");
-  src: url("../fonts/opensans-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/opensans-regular-webfont.woff2") format("woff2"), url("../fonts/opensans-regular-webfont.woff") format("woff"), url("../fonts/opensans-regular-webfont.ttf") format("truetype"), url("../fonts/opensans-regular-webfont.svg#open_sansregular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'open-sans-bold';
-  src: url("../fonts/opensans-600-webfont.eot");
-  src: url("../fonts/opensans-600-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/opensans-600-webfont.woff2") format("woff2"), url("../fonts/opensans-600-webfont.woff") format("woff"), url("../fonts/opensans-600-webfont.ttf") format("truetype"), url("../fonts/opensans-600-webfont.svg#open_sanssemibold") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'uni-sans-light-italic';
-  src: url("../fonts/fontfabric_-_unisanslightitalic-webfont.eot");
-  src: url("../fonts/fontfabric_-_unisanslightitalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/fontfabric_-_unisanslightitalic-webfont.woff2") format("woff2"), url("../fonts/fontfabric_-_unisanslightitalic-webfont.woff") format("woff"), url("../fonts/fontfabric_-_unisanslightitalic-webfont.ttf") format("truetype"), url("../fonts/fontfabric_-_unisanslightitalic-webfont.svg#uni_sanslight_italic") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-/*	Base font size
-		======================================================================== */
-/*	Old Fonts
-		======================================================================== */
 @media screen and (max-width: 39.9375em) {
   .desktop-menu, .top-bar-left {
     display: none !important; } }
@@ -7113,42 +7106,37 @@ a.thumbnail {
   font-size: 1rem;
   color: #B9B9B9; }
 
-.top-bar .menu .home a {
-  font-size: 1.2rem;
-  color: #B9B9B9; }
-
-.top-bar .menu a {
-  height: 45px;
-  line-height: 45px;
-  color: #e6e6e6;
-  padding-top: 0;
-  padding-bottom: 0;
-  font-weight: bold;
-  font-size: 1rem;
-  line-height: 1; }
-  .top-bar .menu a:hover:not(.button) {
-    background-color: #42525D; }
-
-.top-bar .menu .active > a {
-  background-color: #41525e; }
-
-.top-bar .menu > li:not(.menu-text) > a {
-  padding: 1rem; }
-
-.top-bar .menu li:not(:last-child) {
-  border-right: 1px solid #4e4e4e; }
-
-.top-bar .dropdown.menu .submenu {
-  border: 0; }
-
-.top-bar .dropdown.menu .has-submenu.is-down-arrow a {
-  padding-right: 1rem; }
-
-.top-bar .dropdown.menu .has-submenu.is-down-arrow > a::after {
-  border: 0; }
-
-.top-bar .dropdown.menu:first-child > li.is-dropdown-submenu-parent > a::after {
-  display: none; }
+.top-bar-wrapper {
+  border-bottom: 5px solid #d9d9d9; }
+  .top-bar-wrapper .top-bar .top-bar-right .menu a {
+    font-family: "encode-sans-normal", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    text-transform: uppercase;
+    height: 45px;
+    line-height: 45px;
+    color: #0a0a0a;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 1; }
+  .top-bar-wrapper .top-bar .top-bar-right .menu li:hover:not(.button) {
+    background-color: #d9d9d9; }
+  .top-bar-wrapper .top-bar .top-bar-right .menu .active > a {
+    background-color: #41525e; }
+  .top-bar-wrapper .top-bar .top-bar-right .menu > li:not(.menu-text) > a {
+    padding: 1rem; }
+  .top-bar-wrapper .top-bar .top-bar-right .dropdown.menu .submenu {
+    border: 0; }
+  .top-bar-wrapper .top-bar .top-bar-right .dropdown.menu .has-submenu.is-down-arrow a {
+    padding-right: 1rem; }
+  .top-bar-wrapper .top-bar .top-bar-right .dropdown.menu .has-submenu.is-down-arrow > a::after {
+    border: 0; }
+  .top-bar-wrapper .top-bar .top-bar-right .dropdown.menu:first-child > li.is-dropdown-submenu-parent > a::after {
+    display: none; }
+  .top-bar-wrapper .top-bar .menu .home a {
+    color: #0a0a0a;
+    line-height: 1.5rem; }
 
 .post-navigation:before,
 .post-navigation:after {
@@ -7460,319 +7448,45 @@ form .field-wrap {
     .flex-card-example .card .card-content {
       padding: 1rem; }
 
-#featured-hero {
-  -webkit-background-size: cover;
-          background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 6.25rem; }
-  @media print, screen and (min-width: 40em) {
-    #featured-hero {
-      height: 12.5rem; } }
-  @media screen and (min-width: 75em) {
-    #featured-hero {
-      height: 25rem; } }
-
-.dotted, .section-divider hr {
+.dotted {
   border-style: dashed;
   margin: 2rem 0; }
 
 [data-whatinput="mouse"] a:focus, button:focus [data-whatinput="touch"] a:focus, button:focus {
   outline: none; }
 
-#front-hero {
-  background: url("../images/demo/hero-bg-foundation-6-small.svg") bottom center;
+.home .homepage-features .feature-image {
+  padding-top: 5vw;
+  padding-bottom: 15vw;
+  height: 40vw;
   -webkit-background-size: cover;
-          background-size: cover;
-  background-position: bottom;
-  padding: 4.0625rem 0;
-  margin: 0 0 2rem;
-  height: auto;
-  position: relative;
-  text-align: left; }
-  #front-hero .marketing {
-    max-width: 75rem;
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 55rem; }
-    #front-hero .marketing::before, #front-hero .marketing::after {
-      display: table;
-      content: ' '; }
-    #front-hero .marketing::after {
-      clear: both; }
-  @media print, screen and (min-width: 40em) {
-    #front-hero {
-      background: url("../images/demo/hero-bg-foundation-6-large.svg") bottom center;
-      -webkit-background-size: cover;
-              background-size: cover;
-      background-position: center;
-      height: 42.8125rem;
-      margin: 0 0 4.5rem; } }
-  #front-hero #watch {
-    width: 58.33333%;
-    float: left;
-    padding-right: 0.625rem;
-    padding-left: 0.625rem;
-    position: relative;
-    left: -41.66667%; }
-    @media print, screen and (min-width: 40em) {
-      #front-hero #watch {
-        padding-right: 0.9375rem;
-        padding-left: 0.9375rem; } }
-    #front-hero #watch:last-child:not(:first-child) {
-      float: right; }
-    @media print, screen and (min-width: 40em) {
-      #front-hero #watch {
-        width: 100%;
-        float: left;
-        padding-right: 0.625rem;
-        padding-left: 0.625rem;
-        position: relative;
-        left: 0%; } }
-  @media print, screen and (min-width: 40em) and (min-width: 40em) {
-    #front-hero #watch {
-      padding-right: 0.9375rem;
-      padding-left: 0.9375rem; } }
-    @media print, screen and (min-width: 40em) {
-        #front-hero #watch:last-child:not(:first-child) {
-          float: right; } }
-    #front-hero #watch section {
-      display: inline; }
-    #front-hero #watch a {
-      color: #B4C9D1;
-      cursor: pointer;
-      font-weight: 400;
-      margin-right: 1.25rem; }
-    #front-hero #watch a:hover {
-      color: #fff; }
-    #front-hero #watch #stargazers :before {
-      content: "\f09b";
-      font-family: FontAwesome;
-      font-style: normal;
-      font-weight: normal;
-      text-decoration: inherit;
-      color: #B4C9D1;
-      margin-right: 0.5rem; }
-    #front-hero #watch #twitter :before {
-      content: "\f099";
-      font-family: FontAwesome;
-      font-style: normal;
-      font-weight: normal;
-      text-decoration: inherit;
-      color: #B4C9D1;
-      margin-right: 0.5rem; }
-  #front-hero .tagline {
-    width: 66.66667%;
-    float: left;
-    padding-right: 0.625rem;
-    padding-left: 0.625rem; }
-    @media print, screen and (min-width: 40em) {
-      #front-hero .tagline {
-        padding-right: 0.9375rem;
-        padding-left: 0.9375rem; } }
-    #front-hero .tagline:last-child:not(:first-child) {
-      float: right; }
-    @media print, screen and (min-width: 40em) {
-      #front-hero .tagline {
-        width: 41.66667%;
-        float: left;
-        padding-right: 0.625rem;
-        padding-left: 0.625rem;
-        padding-top: 6rem; } }
-  @media print, screen and (min-width: 40em) and (min-width: 40em) {
-    #front-hero .tagline {
-      padding-right: 0.9375rem;
-      padding-left: 0.9375rem; } }
-    @media print, screen and (min-width: 40em) {
-        #front-hero .tagline:last-child:not(:first-child) {
-          float: right; } }
-  #front-hero h1 {
-    color: #fff;
-    font-weight: 500;
-    font-size: 2.2rem; }
-    @media print, screen and (min-width: 40em) {
-      #front-hero h1 {
-        font-size: 2.875rem; } }
-  #front-hero h4 {
-    color: #fefefe;
-    font-weight: 300;
-    font-size: 1.3125rem; }
-  #front-hero .download {
-    margin-top: 1.25rem; }
+          background-size: cover; }
+  @media screen and (max-width: 39.9375em) {
+    .home .homepage-features .feature-image {
+      height: 60vw; } }
 
-.intro {
-  max-width: 75rem;
-  margin-right: auto;
-  margin-left: auto; }
-  .intro::before, .intro::after {
-    display: table;
-    content: ' '; }
-  .intro::after {
-    clear: both; }
-  .intro .fp-intro {
-    width: 100%;
-    float: left;
-    padding-right: 0.625rem;
-    padding-left: 0.625rem; }
-    @media print, screen and (min-width: 40em) {
-      .intro .fp-intro {
-        padding-right: 0.9375rem;
-        padding-left: 0.9375rem; } }
-    .intro .fp-intro:last-child:not(:first-child) {
-      float: right; }
-    @media print, screen and (min-width: 40em) {
-      .intro .fp-intro {
-        width: 83.33333%;
-        float: left;
-        padding-right: 0.625rem;
-        padding-left: 0.625rem;
-        margin-left: 8.33333%; } }
-  @media print, screen and (min-width: 40em) and (min-width: 40em) {
-    .intro .fp-intro {
-      padding-right: 0.9375rem;
-      padding-left: 0.9375rem; } }
-    @media print, screen and (min-width: 40em) {
-        .intro .fp-intro:last-child:not(:first-child) {
-          float: right; }
-        .intro .fp-intro h2 {
-          font-weight: 300;
-          margin-bottom: 1.5rem; }
-        .intro .fp-intro h4 {
-          font-size: 1.125rem;
-          line-height: 1.6;
-          color: #777;
-          margin-bottom: 2rem; } }
+.home .homepage-features .feature .feature-content {
+  color: #fff; }
+  .home .homepage-features .feature .feature-content .feature-title {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 5px solid #fff; }
+    .home .homepage-features .feature .feature-content .feature-title h2 {
+      letter-spacing: .5px;
+      -webkit-font-smoothing: antialiased;
+      font-family: "encode-sans-condensed", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+      text-align: center;
+      padding: 1rem;
+      margin-bottom: 0px; }
+  .home .homepage-features .feature .feature-content .feature-excerpt {
+    background-color: rgba(0, 0, 0, 0.6); }
+    .home .homepage-features .feature .feature-content .feature-excerpt p {
+      font-weight: 600;
+      line-height: 2rem;
+      padding: 2rem 2rem .5rem .5rem; }
 
-.section-divider {
-  max-width: 75rem;
-  margin-right: auto;
-  margin-left: auto; }
-  .section-divider::before, .section-divider::after {
-    display: table;
-    content: ' '; }
-  .section-divider::after {
-    clear: both; }
-  .section-divider hr {
-    width: 100%;
-    float: left;
-    padding-right: 0.625rem;
-    padding-left: 0.625rem;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box; }
-    @media print, screen and (min-width: 40em) {
-      .section-divider hr {
-        padding-right: 0.9375rem;
-        padding-left: 0.9375rem; } }
-    .section-divider hr:last-child:not(:first-child) {
-      float: right; }
-
-.benefits {
-  max-width: 75rem;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center; }
-  .benefits::before, .benefits::after {
-    display: table;
-    content: ' '; }
-  .benefits::after {
-    clear: both; }
-  .benefits header {
-    width: 100%;
-    float: left;
-    padding-right: 0.625rem;
-    padding-left: 0.625rem; }
-    @media print, screen and (min-width: 40em) {
-      .benefits header {
-        padding-right: 0.9375rem;
-        padding-left: 0.9375rem; } }
-    .benefits header:last-child:not(:first-child) {
-      float: right; }
-    .benefits header h2 {
-      font-weight: 300; }
-    .benefits header h4 {
-      font-size: 1.125rem;
-      line-height: 1.6;
-      color: #777; }
-  .benefits .semantic,
-  .benefits .responsive,
-  .benefits .customizable,
-  .benefits .professional {
-    width: 100%;
-    float: left;
-    padding-right: 0.625rem;
-    padding-left: 0.625rem; }
-    @media print, screen and (min-width: 40em) {
-      .benefits .semantic,
-      .benefits .responsive,
-      .benefits .customizable,
-      .benefits .professional {
-        padding-right: 0.9375rem;
-        padding-left: 0.9375rem; } }
-    .benefits .semantic:last-child:not(:first-child),
-    .benefits .responsive:last-child:not(:first-child),
-    .benefits .customizable:last-child:not(:first-child),
-    .benefits .professional:last-child:not(:first-child) {
-      float: right; }
-    @media print, screen and (min-width: 40em) {
-      .benefits .semantic,
-      .benefits .responsive,
-      .benefits .customizable,
-      .benefits .professional {
-        width: 25%;
-        float: left;
-        padding-right: 0.625rem;
-        padding-left: 0.625rem; } }
-  @media print, screen and (min-width: 40em) and (min-width: 40em) {
-    .benefits .semantic,
-    .benefits .responsive,
-    .benefits .customizable,
-    .benefits .professional {
-      padding-right: 0.9375rem;
-      padding-left: 0.9375rem; } }
-    @media print, screen and (min-width: 40em) {
-        .benefits .semantic:last-child:not(:first-child),
-        .benefits .responsive:last-child:not(:first-child),
-        .benefits .customizable:last-child:not(:first-child),
-        .benefits .professional:last-child:not(:first-child) {
-          float: right; } }
-    .benefits .semantic img,
-    .benefits .responsive img,
-    .benefits .customizable img,
-    .benefits .professional img {
-      padding: 1.25rem;
-      margin: 1rem auto 0 auto; }
-    .benefits .semantic h3,
-    .benefits .responsive h3,
-    .benefits .customizable h3,
-    .benefits .professional h3 {
-      color: #0a0a0a;
-      font-weight: 300;
-      font-size: 1.75rem; }
-    .benefits .semantic p,
-    .benefits .responsive p,
-    .benefits .customizable p,
-    .benefits .professional p {
-      font-size: 0.9375rem; }
-  .benefits .why-foundation {
-    max-width: 75rem;
-    margin-right: auto;
-    margin-left: auto;
-    width: 100%;
-    float: left;
-    padding-right: 0.625rem;
-    padding-left: 0.625rem;
-    margin-top: 4rem; }
-    .benefits .why-foundation::before, .benefits .why-foundation::after {
-      display: table;
-      content: ' '; }
-    .benefits .why-foundation::after {
-      clear: both; }
-    @media print, screen and (min-width: 40em) {
-      .benefits .why-foundation {
-        padding-right: 0.9375rem;
-        padding-left: 0.9375rem; } }
-    .benefits .why-foundation:last-child:not(:first-child) {
-      float: right; }
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  .home .focus-areas .focus-tile:nth-child(4), .home .focus-areas .do-this-tile:nth-child(4), .home .do-this .focus-tile:nth-child(4), .home .do-this .do-this-tile:nth-child(4) {
+    clear: both; } }
 
 #kitchen-sink {
   max-width: 75rem;

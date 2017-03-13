@@ -630,9 +630,9 @@ $tooltip-radius: $global-radius;
 // 37. Top Bar
 // -----------
 
-$topbar-padding: 0;
-$topbar-background: $outer-space;
-$topbar-submenu-background: $outer-space;
-$topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
+$topbar-padding: 0rem;
+$topbar-background: $white;
+$topbar-submenu-background: $white;
+$topbar-title-spacing: 1rem;
 $topbar-input-width: 200px;
 $topbar-unstack-breakpoint: medium;
