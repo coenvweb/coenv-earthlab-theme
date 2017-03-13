@@ -284,12 +284,12 @@ class coenv_base_news_cats extends WP_Widget {
       * @param array $instance Previously saved values from database.
       */
      public function form( $instance ) {
-        if ( isset( $instance[ 'title' ] ) ) {
+       if ( isset( $instance[ 'title' ] ) ) {
             $title = $instance[ 'title' ];
         }
         if ( isset( $instance[ 'focus_area' ] ) ) {
             $focus_area = $instance[ 'focus_area' ];
-        }
+        } 
 
         $focus_areas = get_terms('focus-area');
       
@@ -336,10 +336,100 @@ class coenv_base_news_cats extends WP_Widget {
 
 } 
 
+function register_coenv_focus_area_widget() {
+    register_widget( 'focus_area_widget' );
+}
+add_action( 'widgets_init', 'register_coenv_focus_area_widget' );
+
+class focus_area_widget extends WP_Widget {
+
+	/**
+	 * Sets up the widgets name etc
+	 */
+	public function __construct() {
+		$widget_ops = array( 
+			'classname' => 'focus-area-tile',
+			'description' => 'Display a single focus area tile for the homepage',
+		);
+		parent::__construct( 'focus_area_widget', 'Focus Area Widget', $widget_ops );
+	}
+
+	/**
+	 * Outputs the content of the widget
+	 *
+	 * @param array $args
+	 * @param array $instance
+	 */
+	public function widget( $args, $instance ) {
+        echo $args['before_widget'];
+	?>
+		<div class="focus_container">
+            <?php echo $args['before_title']; ?>
+                <?=$instance['title']?>
+            <?php echo $args['after_title']; ?>
+            <p class="focus_desc"><?=$instance['description']?></p>
+            <a class="button focus_link" href="<?=$instance['more_link']?>">Learn More</a>
+		</div>
+		
+	<?php	
+        echo $args['after_widget'];
+	}
+
+	/**
+	 * Outputs the options form on admin
+	 *
+	 * @param array $instance The widget options
+	 */
+	public function form( $instance ) {
+		// outputs the options form on admin
+		if ( isset( $instance[ 'title' ] ) ) {
+			$title = $instance[ 'title' ];
+		}
+		if ( isset( $instance[ 'description' ] ) ) {
+			$description = $instance[ 'description' ];
+		}
+		if ( isset( $instance[ 'more_link' ] ) ) {
+			$more_link = $instance[ 'more_link' ];
+		}
+		?>
+		<p>
+            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>"> 
+        </p>
+		<p>
+            <label for="<?php echo $this->get_field_id( 'description' ); ?>"><?php _e( 'Description:' ); ?></label>
+            <textarea class="widefat" id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>"><?php echo esc_attr( $description ); ?></textarea> 
+        </p>
+		<p>
+            <label for="<?php echo $this->get_field_id( 'more_link' ); ?>"><?php _e( 'Link to more (focus area page):' ); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id( 'more_link' ); ?>" name="<?php echo $this->get_field_name( 'more_link' ); ?>" type="text" value="<?php echo esc_attr( $more_link ); ?>"> 
+        </p>
+		<?php
+	}
+
+	/**
+	 * Processing widget options on save
+	 *
+	 * @param array $new_instance The new options
+	 * @param array $old_instance The previous options
+	 */
+	public function update( $new_instance, $old_instance ) {
+		// processes widget options to be saved
+		$instance = $old_instance;
+
+        $instance['title'] = ( ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '');
+        $instance['description'] = ( ! empty( $new_instance['description'] ) ? strip_tags( $new_instance['description'] ) : '' );
+        $instance['more_link'] = ( ! empty( $new_instance['more_link'] ) ? strip_tags( $new_instance['more_link'] ) : '' );
+
+        return $instance;
+	}
+}
+
 function register_coenv_base_news_cats() {
     register_widget( 'coenv_base_news_cats' );
 }
 add_action( 'widgets_init', 'register_coenv_base_news_cats' );
+
 
 // unregister all default WP Widgets
 function unregister_default_wp_widgets() {
