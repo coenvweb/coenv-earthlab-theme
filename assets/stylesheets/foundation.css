@@ -7047,6 +7047,8 @@ a.thumbnail {
     height: 2.5rem; }
   .top-bar-wrapper .top-bar-right .menu li {
     padding: 1.5rem 0rem; }
+    .top-bar-wrapper .top-bar-right .menu li .dropdown li {
+      padding: 0rem; }
 
 .shrink {
   padding-top: 0rem; }

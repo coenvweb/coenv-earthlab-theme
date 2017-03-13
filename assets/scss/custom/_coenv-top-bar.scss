@@ -43,6 +43,9 @@
     .top-bar-right {
         .menu li {
             padding: 1.5rem 0rem;
+            .dropdown li {
+                padding: 0rem;
+            }
         }
     }
 }

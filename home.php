@@ -53,15 +53,19 @@ Template Name: Homepage
 	</div>
 
 	<div class="focus-areas">
-        <div class="row collapse">
-            <h3 class="small-offset-1 small-2 columns block-title do-title">
-                We<br>
-                Focus<br>
-                On
-            </h3>
+        <div class="focus-texture">
+            <div class="row collapse">
+                <h3 class="small-offset-1 small-2 columns block-title do-title">
+                    We<br>
+                    Focus<br>
+                    On
+                </h3>
+            </div>
         </div>
         <div class="row collapse">
             <?php dynamic_sidebar('homepage-focus'); ?>
+        </div>
+        <div class="focus-texture">
         </div>
 	</div>
 
@@ -69,15 +73,19 @@ Template Name: Homepage
 	</div>
 
 	<div class="do-this">
-        <div class="row collapse">
-            <h3 class="small-offset-1 small-2 columns block-title do-title">
-                How<br>
-                Do We<br>
-                Do This
-            </h3>
+        <div class="do-this-texture">
+            <div class="row collapse">
+                <h3 class="small-offset-1 small-2 columns block-title do-title">
+                    How<br>
+                    Do We<br>
+                    Do This
+                </h3>
+            </div>
         </div>
         <div class="row collapse">
             <?php dynamic_sidebar('homepage-do'); ?>
+        </div>
+        <div class="do-this-texture">
         </div>
 	</div>
 
