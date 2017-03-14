@@ -155,7 +155,7 @@
 			</div>
 		</div>
 
-		<div class="title-bar" data-responsive-toggle="site-navigation">
+		<div class="title-bar" data-responsive-toggle="mobile-menu">
 			<button class="menu-icon" type="button" data-toggle="mobile-menu"></button>
 			<div class="title-bar-title">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
