@@ -7058,7 +7058,7 @@ a.thumbnail {
     .top-bar-wrapper .top-bar-right ul li:not(.is-dropdown-submenu-parent) a:after {
       content: '';
       position: absolute;
-      bottom: -6px;
+      bottom: -5px;
       left: 0px;
       height: 5px;
       background-color: #f86b61;
