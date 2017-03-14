@@ -7145,6 +7145,10 @@ a.thumbnail {
     padding-bottom: 2.5rem;
     font-size: 1rem;
     line-height: 1; }
+    @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+      .top-bar-wrapper .top-bar .top-bar-right .menu a {
+        font-size: 0.9rem;
+        padding: 2.5rem .5rem; } }
   .top-bar-wrapper .top-bar .top-bar-right .menu li:hover:not(.button) {
     background-color: #d9d9d9; }
   .top-bar-wrapper .top-bar .top-bar-right .menu .active > a {
@@ -7160,6 +7164,9 @@ a.thumbnail {
   .top-bar-wrapper .top-bar .menu .home a {
     color: #0a0a0a;
     line-height: 1.5rem; }
+    @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+      .top-bar-wrapper .top-bar .menu .home a {
+        font-size: 2.5rem; } }
 
 .post-navigation:before,
 .post-navigation:after {
@@ -7482,11 +7489,11 @@ form .field-wrap {
   background-color: #d9d9d9; }
   .homepage .homepage-features .feature-image {
     padding-top: 5vw;
-    padding-bottom: 15vw;
     height: 45vw;
     -webkit-background-size: cover;
             background-size: cover;
-    min-height: 600px; }
+    min-height: 600px;
+    max-height: 750px; }
     @media screen and (min-width: 40em) and (max-width: 63.9375em) {
       .homepage .homepage-features .feature-image {
         height: 60vw; } }
@@ -7520,34 +7527,67 @@ form .field-wrap {
           .homepage .homepage-features .feature .feature-content .feature-excerpt p {
             font-size: 0.8rem;
             padding: 1rem .5rem .5rem .5rem; } }
-  .homepage .focus-areas .row, .homepage .do-this .row {
-    position: relative;
-    height: 100%; }
-  .homepage .focus-areas .widgets-area, .homepage .do-this .widgets-area {
-    padding: 3rem 0rem; }
-  .homepage .focus-areas .focus-texture, .homepage .focus-areas .do-this-texture, .homepage .do-this .focus-texture, .homepage .do-this .do-this-texture {
-    height: 5rem; }
-  .homepage .focus-areas .block-title, .homepage .do-this .block-title {
-    text-align: center;
-    position: absolute;
-    top: -100%;
-    padding: 2rem 1.5rem;
-    max-width: 180px; }
-    .homepage .focus-areas .block-title h3, .homepage .do-this .block-title h3 {
-      font-size: 1.5rem;
-      text-transform: uppercase; }
-      @media screen and (max-width: 39.9375em) {
-        .homepage .focus-areas .block-title h3, .homepage .do-this .block-title h3 {
-          font-size: 1.3rem; } }
-  .homepage .focus-areas .focus-title, .homepage .do-this .focus-title {
-    background-color: #f86b61;
-    border: 5px solid #f86b61; }
-  .homepage .focus-areas .do-title, .homepage .do-this .do-title {
-    background-color: #b4e3f1;
-    border: 5px solid #b4e3f1; }
-  @media screen and (min-width: 40em) and (max-width: 63.9375em) {
-    .homepage .focus-areas .focus-tile:nth-child(4), .homepage .focus-areas .do-this-tile:nth-child(4), .homepage .do-this .focus-tile:nth-child(4), .homepage .do-this .do-this-tile:nth-child(4) {
-      clear: both; } }
+  .homepage .focus-areas, .homepage .do-this {
+    z-index: 1; }
+    .homepage .focus-areas .row, .homepage .do-this .row {
+      position: relative;
+      height: 100%; }
+    .homepage .focus-areas .widgets-area, .homepage .do-this .widgets-area {
+      padding: 3rem 0rem;
+      background: #d9d9d9; }
+    .homepage .focus-areas .focus-texture, .homepage .focus-areas .do-this-texture, .homepage .do-this .focus-texture, .homepage .do-this .do-this-texture {
+      height: 5rem; }
+    .homepage .focus-areas .block-title, .homepage .do-this .block-title {
+      text-align: center;
+      position: absolute;
+      top: -100%;
+      max-width: 180px;
+      z-index: 3;
+      padding: 2rem 1.5rem; }
+      .homepage .focus-areas .block-title h3, .homepage .do-this .block-title h3 {
+        font-size: 1.5rem;
+        text-transform: uppercase; }
+        @media screen and (max-width: 39.9375em) {
+          .homepage .focus-areas .block-title h3, .homepage .do-this .block-title h3 {
+            font-size: 1.3rem; } }
+    .homepage .focus-areas .focus-title, .homepage .do-this .focus-title {
+      background-color: #f86b61;
+      border: 5px solid #f86b61; }
+    .homepage .focus-areas .do-title, .homepage .do-this .do-title {
+      background-color: #b4e3f1;
+      border: 5px solid #b4e3f1; }
+    .homepage .focus-areas .focus-tile, .homepage .focus-areas .do-this-tile, .homepage .do-this .focus-tile, .homepage .do-this .do-this-tile {
+      text-align: center; }
+      @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+        .homepage .focus-areas .focus-tile:nth-child(3), .homepage .focus-areas .do-this-tile:nth-child(3), .homepage .do-this .focus-tile:nth-child(3), .homepage .do-this .do-this-tile:nth-child(3) {
+          clear: both; } }
+      .homepage .focus-areas .focus-tile .focus_area_title, .homepage .focus-areas .do-this-tile .focus_area_title, .homepage .do-this .focus-tile .focus_area_title, .homepage .do-this .do-this-tile .focus_area_title {
+        color: #0a0a0a;
+        padding: 2rem 0rem;
+        vertical-align: bottom;
+        position: relative;
+        margin-bottom: 1rem; }
+        @media screen and (max-width: 39.9375em) {
+          .homepage .focus-areas .focus-tile .focus_area_title, .homepage .focus-areas .do-this-tile .focus_area_title, .homepage .do-this .focus-tile .focus_area_title, .homepage .do-this .do-this-tile .focus_area_title {
+            font-size: 1.25rem; } }
+        .homepage .focus-areas .focus-tile .focus_area_title:after, .homepage .focus-areas .do-this-tile .focus_area_title:after, .homepage .do-this .focus-tile .focus_area_title:after, .homepage .do-this .do-this-tile .focus_area_title:after {
+          content: '';
+          width: 50%;
+          position: absolute;
+          height: 5px;
+          background-color: #f86b61;
+          bottom: 0px;
+          left: 25%;
+          z-index: 4; }
+  .homepage .focus-areas {
+    background-image: url("../images/focus-slant.png");
+    -webkit-background-size: contain;
+            background-size: contain;
+    -webkit-background-size: cover;
+            background-size: cover;
+    background-repeat: repeat-x; }
+  .homepage .divider {
+    height: 250px; }
 
 #kitchen-sink {
   max-width: 75rem;

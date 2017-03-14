@@ -66,7 +66,10 @@
             padding-bottom: 2.5rem;
             font-size: 1rem;
             line-height: 1;
-
+            @include breakpoint(medium only) {
+                font-size: 0.9rem;
+                padding: 2.5rem .5rem;
+            }
           }
 
           .menu li {
@@ -85,6 +88,9 @@
       .menu .home a {
         color: $black;
         line-height: 1.5rem;
+        @include breakpoint(medium only) {
+            font-size: 2.5rem;
+        }
       }
 
     }

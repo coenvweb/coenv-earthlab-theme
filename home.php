@@ -64,8 +64,10 @@ Template Name: Homepage
                 </div>
             </div>
         </div>
-        <div class="row widgets-area">
-            <?php dynamic_sidebar('homepage-focus'); ?>
+        <div class="widgets-area">
+            <div class="row">
+                <?php dynamic_sidebar('homepage-focus'); ?>
+            </div>
         </div>
         <div class="focus-texture">
         </div>
@@ -86,8 +88,10 @@ Template Name: Homepage
                 </div>
             </div>
         </div>
-        <div class="row widgets-area">
-            <?php dynamic_sidebar('homepage-do'); ?>
+        <div class="widgets-area">
+            <div class="row">
+                <?php dynamic_sidebar('homepage-do'); ?>
+            </div>
         </div>
         <div class="do-this-texture">
         </div>
