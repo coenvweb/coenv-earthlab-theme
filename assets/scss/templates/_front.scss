@@ -5,6 +5,7 @@
             padding-top: 5vw;
             height: 45vw;
             background-size: cover;
+            background-position: 50% 50%;
             @include breakpoint(medium only) {
                 height: 60vw;
             }
