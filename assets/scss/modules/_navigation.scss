@@ -54,14 +54,13 @@
     .top-bar {
       .top-bar-right {
         .menu a {
-            @include encode;
+            @include circular_sb;
             text-transform: uppercase;
             height: 45px;
             line-height: 45px;
             color: $black;
             padding-top: 0;
             padding-bottom: 0;
-            font-weight: bold;
             font-size: 1rem;
             line-height: 1;
 

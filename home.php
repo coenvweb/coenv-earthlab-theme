@@ -4,7 +4,7 @@ Template Name: Homepage
 */
 ?>
 <?php get_header(); ?>
-<div class="home">
+<div class="homepage">
 	<?php
 	/**
 	 * Loop for homepage features.
@@ -55,14 +55,16 @@ Template Name: Homepage
 	<div class="focus-areas">
         <div class="focus-texture">
             <div class="row collapse">
-                <h3 class="small-offset-1 small-2 columns block-title do-title">
-                    We<br>
-                    Focus<br>
-                    On
-                </h3>
+                <div class="large-offset-1 large-2 medium-offset-2 medium-4 small-offset-4 small-4 columns block-title focus-title">
+                    <h3>
+                        We<br>
+                        Focus<br>
+                        On
+                    </h3>
+                </div>
             </div>
         </div>
-        <div class="row collapse">
+        <div class="row collapse widgets-area">
             <?php dynamic_sidebar('homepage-focus'); ?>
         </div>
         <div class="focus-texture">
@@ -75,14 +77,16 @@ Template Name: Homepage
 	<div class="do-this">
         <div class="do-this-texture">
             <div class="row collapse">
-                <h3 class="small-offset-1 small-2 columns block-title do-title">
-                    How<br>
-                    Do We<br>
-                    Do This
-                </h3>
+                <div class="large-offset-9 large-2 columns medium-offset-6 medium-4 small-offset-4 small-4 block-title do-title">
+                    <h3>
+                        How<br>
+                        Do We<br>
+                        Do This
+                    </h3>
+                </div>
             </div>
         </div>
-        <div class="row collapse">
+        <div class="row collapse widgets-area">
             <?php dynamic_sidebar('homepage-do'); ?>
         </div>
         <div class="do-this-texture">

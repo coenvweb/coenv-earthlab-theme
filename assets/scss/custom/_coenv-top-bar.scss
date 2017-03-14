@@ -35,9 +35,9 @@
     .top-bar-left {
         .menu .home {
             padding: 1.5rem 0rem;
-            @include encode-cb;
-            font-size: 2.5rem;
+            font-size: 3rem;
             height: 2.5rem;
+            @include circular_sb;
         }
     }
     .top-bar-right {

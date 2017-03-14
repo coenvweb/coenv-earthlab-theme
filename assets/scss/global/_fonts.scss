@@ -38,6 +38,13 @@
 }
 
 @font-face {
+    font-family: circular-standard-bold;
+    src: url('../fonts/CircularStd-Bold.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'uni-sans-light';
     src: url('../fonts/fontfabric_-_unisanslight-webfont.eot');
     src: url('../fonts/fontfabric_-_unisanslight-webfont.eot?#iefix') format('embedded-opentype'),
@@ -116,6 +123,11 @@
     -webkit-font-smoothing: antialiased;
     font-family: "encode-sans-condensed", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif!important;
     //text-transform: uppercase;
+}
+
+@mixin circular_sb() {
+    font-family: "circular-standard-bold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
 @mixin uni() {

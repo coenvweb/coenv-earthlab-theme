@@ -64,6 +64,8 @@ $uw-purple: #4b2e83;
 $uw-gold: #e8e3d3;
 $focus-red: #f86b61;
 $focus-red-dark: #931a12;
+$do-this-blue: #b4e3f1;
+$news-yellow: #f1c845;
 $black: #0a0a0a;
 $white: #fefefe;
 $white: #fff;
@@ -124,7 +126,7 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: $body-font-family;
+$header-font-family: "circular-standard-bold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
