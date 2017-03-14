@@ -6,9 +6,14 @@
             padding-bottom: 15vw;
             height: 45vw;
             background-size: cover;
-            @include breakpoint(small only) {
+            @include breakpoint(medium only) {
                 height: 60vw;
             }
+            @include breakpoint(small only) {
+                padding-top: 15vw;
+                height: 100vw;
+            }
+            min-height: 600px;
         }
         .feature {
             .feature-content {
@@ -19,7 +24,15 @@
                     h2 {
                         text-align: center;
                         padding: 1rem;
-                        font-size: 2.7rem;
+                        @include breakpoint(small) {
+                            font-size: 1.5rem;
+                        }
+                        @include breakpoint(medium) {
+                            font-size: 2rem;
+                        }
+                        @include breakpoint(large) {
+                            font-size: 2.7rem;
+                        }
                         margin-bottom: 0px;
                     }
                 }
@@ -29,6 +42,10 @@
                         font-weight: 600;
                         line-height: 2rem;
                         padding: 2rem 2rem .5rem .5rem;
+                        @include breakpoint(small only) {
+                            font-size: 0.8rem;
+                            padding: 1rem .5rem .5rem .5rem;
+                        }
                     }
                 }
             }
@@ -51,8 +68,12 @@
             position: absolute;
             top: -100%;
             padding: 2rem 1.5rem;
+            max-width: 180px;
             h3 {
                 font-size: 1.5rem;
+                @include breakpoint(small only) {
+                    font-size: 1.3rem;
+                }
                 text-transform: uppercase;
             }
         }

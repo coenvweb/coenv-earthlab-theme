@@ -38,7 +38,7 @@ Template Name: Homepage
                                 echo '<div class="feature-title">';
 								    echo '<h2>' . get_the_title() . '</h2>';
                                 echo '</div>';
-                                echo '<div class="small-offset-6 small-6 columns feature-excerpt">';
+                                echo '<div class="medium-offset-4 medium-8 large-offset-6 large-6 columns feature-excerpt">';
 								    echo '<p>' . $feature_excerpt . '</p>';
                                 echo '</div>';
 							echo '</div><!-- .feature-content -->';
@@ -54,8 +54,8 @@ Template Name: Homepage
 
 	<div class="focus-areas">
         <div class="focus-texture">
-            <div class="row collapse">
-                <div class="large-offset-1 large-2 medium-offset-2 medium-4 small-offset-4 small-4 columns block-title focus-title">
+            <div class="row">
+                <div class="large-offset-1 large-2 medium-offset-2 medium-4 small-offset-3 small-6 columns block-title focus-title">
                     <h3>
                         We<br>
                         Focus<br>
@@ -64,7 +64,7 @@ Template Name: Homepage
                 </div>
             </div>
         </div>
-        <div class="row collapse widgets-area">
+        <div class="row widgets-area">
             <?php dynamic_sidebar('homepage-focus'); ?>
         </div>
         <div class="focus-texture">
@@ -76,8 +76,8 @@ Template Name: Homepage
 
 	<div class="do-this">
         <div class="do-this-texture">
-            <div class="row collapse">
-                <div class="large-offset-9 large-2 columns medium-offset-6 medium-4 small-offset-4 small-4 block-title do-title">
+            <div class="row ">
+                <div class="large-offset-9 large-2 columns medium-offset-6 medium-4 small-offset-3 small-6 block-title do-title">
                     <h3>
                         How<br>
                         Do We<br>
@@ -86,7 +86,7 @@ Template Name: Homepage
                 </div>
             </div>
         </div>
-        <div class="row collapse widgets-area">
+        <div class="row widgets-area">
             <?php dynamic_sidebar('homepage-do'); ?>
         </div>
         <div class="do-this-texture">

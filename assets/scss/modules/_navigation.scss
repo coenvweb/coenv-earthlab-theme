@@ -14,11 +14,14 @@
     padding: 1rem;
 
     a {
-      color: $white;
-      font-weight: 600;
+      @include circular_sb;
+      color: $black;
       font-size: rem-calc(18);
-      opacity: .75;
+      opacity: .80;
+      text-transform: uppercase;
     }
+
+
 
     .is-accordion-submenu-parent > a::after {
       display: block;
@@ -28,7 +31,7 @@
       content: '';
       border-bottom-width: 0;
       border-top-style: solid;
-      border-color: $white transparent transparent;
+      border-color: $black transparent transparent;
       position: absolute;
       top: 50%;
       margin-top: -3px;
@@ -36,15 +39,17 @@
       }
   }
 
-  .menu .active > a { background-color: lighten($outer-space, 10%); }
+  .menu .current_page_item a { background-color: $light-gray; }
+  .menu .active > a { background-color: $light-gray; }
 
 
 }
 
 .title-bar-title {
   a {
-    font-size: 1rem;
-    color: #B9B9B9;
+    @include circular_sb;
+    font-size: 2rem;
+    color: $black;
   }
 }
 
@@ -56,11 +61,9 @@
         .menu a {
             @include circular_sb;
             text-transform: uppercase;
-            height: 45px;
-            line-height: 45px;
             color: $black;
-            padding-top: 0;
-            padding-bottom: 0;
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
             font-size: 1rem;
             line-height: 1;
 
@@ -72,9 +75,7 @@
             }
           }
 
-          .menu .active > a { background-color: lighten($outer-space, 10%); }
-
-          .menu>li:not(.menu-text)>a { padding: 1rem; }
+          .menu .active > a { background-color: $light-gray; }
 
           .dropdown.menu .submenu { border: 0; }
           .dropdown.menu .has-submenu.is-down-arrow a { padding-right: 1rem; }
