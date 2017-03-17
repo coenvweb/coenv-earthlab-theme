@@ -32,7 +32,7 @@ Template Name: Homepage
 
 			echo '<div class="feature-image" style="background-image:url(' . $feature_image[0] . ')">';
 			    echo '<div class="feature row">';
-					echo '<div class="feature-info-container small-offset-1 small-10 columns">';
+					echo '<div class="feature-info-container medium-offset-1 medium-10 small-12 columns">';
 						echo '<div class="feature-info">';
 							echo '<div class="feature-content">';
                                 echo '<div class="feature-title">';
@@ -44,6 +44,8 @@ Template Name: Homepage
 							echo '</div><!-- .feature-content -->';
 
 						echo '</div><!-- .feature-info -->';
+                        echo '<div class="hero-texture">';
+                        echo '</div>';
 					echo '</div><!-- .feature-info-container -->';
 			    echo '</div><!-- .feature -->';
 			echo '</div>';
@@ -54,7 +56,7 @@ Template Name: Homepage
 
 	<div class="focus-areas">
         <div class="focus-texture">
-            <div class="row">
+           <div class="row">
                 <div class="large-offset-1 large-2 medium-offset-2 medium-4 small-offset-3 small-6 columns block-title focus-title">
                     <h3>
                         We<br>
@@ -62,7 +64,7 @@ Template Name: Homepage
                         On
                     </h3>
                 </div>
-            </div>
+            </div> 
         </div>
         <div class="widgets-area">
             <div class="row">
@@ -73,7 +75,7 @@ Template Name: Homepage
         </div>
 	</div>
 
-	<div class="divider">
+	<div class="divider do-this-divider">
 	</div>
 
 	<div class="do-this">
@@ -85,6 +87,7 @@ Template Name: Homepage
                         Do We<br>
                         Do This
                     </h3>
+                    <a class="button" href="">Learn More</a>
                 </div>
             </div>
         </div>
@@ -97,11 +100,150 @@ Template Name: Homepage
         </div>
 	</div>
 
-	<div class="divider">
+	<div class="divider news-divider">
 	</div>
 
+    <?php
+        $news_args = array(
+			'post_type' => 'post',
+            'post_status' => 'publish',
+            'posts_per_page' => 1,
+            'meta_key' => 'event',
+            'meta_value' => '0',
+        );
+        $news_query = new WP_Query($news_args);
+
+        $event_args = array(
+			'post_type' => 'post',
+            'post_status' => 'publish',
+            'posts_per_page' => 1,
+            'meta_key' => 'event',
+            'meta_value' => '1',
+        );
+        $event_query = new WP_Query($event_args);
+    ?>
+    <div class="news-events">
+        <div class="news-texture">
+            <div class="row">
+                <div class="large-offset-1 large-2 medium-offset-2 medium-4 small-offset-3 small-6 columns block-title news-title">
+                    <h3>
+                        News<br>
+                        And<br>
+                        Events
+                    </h3>
+                    <a class="button" href="">See Our News</a>
+                </div>
+            </div>
+        </div>
+        <div class="news">
+		<?php if($news_query->have_posts()) { 
+				while($news_query->have_posts()): 
+					$news_query->the_post();
+					if (get_field('story_link_url')) {
+						$post_link_url = get_field('story_link_url');
+						$post_link_target = ' target="_blank" ';
+						$post_link = '<p><a class="button full_button" href="' . $post_link_url . '"' . $post_link_target . '>' . get_field('story_source_name') . '</a></p>';
+					} else {
+						$post_link_url = get_the_permalink();
+						$post_link = '<a class="button full_button" href="' . $post_link_url . '">Read More</a>';
+					}
+			?>
+				<article class="home_article row">
+					<section class="article__image small-10 small-offset-1 medium-offset-0 medium-4 medium-push-8 columns">
+						<a href="<?php the_permalink() ?>"><?php the_post_thumbnail('fp-medium') ?></a>
+					</section>
+					<section class="article__content medium-pull-4 medium-offset-1 medium-7 small-12 columns">
+					    <div class="article__meta">
+                            NEWS |
+							<time class="article__time" datetime="<?php echo get_the_date('Y-m-d h:i:s') ?>"><?php echo get_the_date('M j, Y') ?></time>
+							<?php
+							$more_terms = wp_get_post_terms(get_the_id(), 'focus-area');
+							if (!empty($more_terms)) {
+								$more_terms_arr = array();
+
+								foreach ($more_terms as &$term) {
+									$more_terms_arr[] = '<a href="/about/news-and-events/focus-area/' . $term->slug . '">' . $term->name . '</a>';
+								}   
+							}   
+							?>  
+							|
+							<span class="article__categories">
+								 <?php echo implode(', ', $more_terms_arr) ?>
+							</span>
+					    </div>
+						<h4 class="article__title">
+							<a href="<?php the_permalink() ?>"><?php the_title() ?></a>
+						</h4>
+						<div class="article__teaser">
+							<?php the_excerpt() ?>
+							<?php echo $post_link; ?>
+						</div>	
+					</section>
+				</article>
+			<?php
+				endwhile;
+                wp_reset_query();
+			} ?>	
+        </div>
+        <div class="events">
+			<?php if($event_query->have_posts()) { 
+				while($event_query->have_posts()): 
+					$event_query->the_post();
+					if (get_field('story_link_url')) {
+						$post_link_url = get_field('story_link_url');
+						$post_link_target = ' target="_blank" ';
+						$post_link = '<p><a class="button full_button" href="' . $post_link_url . '"' . $post_link_target . '>' . get_field('story_source_name') . '</a></p>';
+					} else {
+						$post_link_url = get_the_permalink();
+						$post_link = '<a class="button full_button" href="' . $post_link_url . '">Learn More</a>';
+					}
+                    $event_date = new DateTime(get_field('event_date'));
+			?>
+				<article class="home_article row">
+					<section class="article__image small-offset-1 small-10 medium-4 medium-offset-1 columns">
+                        <a href="<?php the_permalink(); ?>">
+                            <div class="event_container">
+                                <span class="month"><?=$event_date->format('F');?></span>
+                                <span class="day"><?=$event_date->format('d');?></span>
+                            </div>
+                        </a>
+					</section>
+					<section class="article__content small-12 medium-7 columns">
+                        <div class="article__meta">
+                            EVENT |
+							<?php
+							$more_terms = wp_get_post_terms(get_the_id(), 'focus-area');
+							if (!empty($more_terms)) {
+								$more_terms_arr = array();
+
+								foreach ($more_terms as &$term) {
+									$more_terms_arr[] = '<a href="/about/news-and-events/focus-area/' . $term->slug . '">' . $term->name . '</a>';
+								}
+							}
+							?>
+							<span class="article__categories">
+								 <?php echo implode(', ', $more_terms_arr) ?>
+							</span>
+					    </div>
+						<h4 class="article__title">
+							<a href="<?php the_permalink() ?>"><?php the_title() ?></a>
+						</h4>
+						<div class="article__teaser">
+							<?php the_excerpt() ?>
+							<?php echo $post_link; ?>
+						</div> 
+					</section>
+				</article>
+			<?php
+				endwhile;
+			} ?>
+        </div>
+        <div class="news-texture">
+
+        </div>
+    </div>
     <!-- Homepage News and Events -->
-	
+
 </div>
 
 <?php get_footer();

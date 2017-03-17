@@ -162,8 +162,8 @@ $code-font-weight: $global-weight-normal;
 $code-background: $light-gray;
 $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
-$anchor-color: $primary-color;
-$anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
+$anchor-color: $focus-red;
+$anchor-color-hover: $focus-red-dark;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: $global-width;
@@ -261,14 +261,13 @@ $breadcrumbs-item-slash: true;
 // 11. Button
 // ----------
 
-$button-padding: 0.85em 1em;
+$button-padding: 0.5rem;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
-$button-background: $primary-color;
-$button-background-hover: scale-color($button-background, $lightness: -15%);
+$button-background: rgba(0, 0, 0, 0);
+$button-background-hover: $focus-red;
 $button-color: $white;
-$button-color-alt: $black;
-$button-radius: $global-radius;
+$button-radius: 0px;
 $button-sizes: (
   tiny: 0.6rem,
   small: 0.75rem,

@@ -453,6 +453,7 @@ class do_this_widget extends WP_Widget {
             <?php echo $args['before_title']; ?>
                 <?=$instance['title']?>
             <?php echo $args['after_title']; ?>
+            <hr>
             <p class="do-description"><?=$instance['description']?></p>
         </div>
 	<?php	
