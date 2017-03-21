@@ -58,5 +58,9 @@ require_once( 'library/content-types.php' );
 /** Custom Widgets */
 require_once( 'library/widgets.php' );
 
-/** Configure responsive image sizes */
+/** Configure url rewrites for cpts */
 require_once( 'library/rewrites.php' );
+
+/** Shortcodes */
+require_once( 'library/shortcodes.php' );
+

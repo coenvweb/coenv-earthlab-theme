@@ -187,4 +187,54 @@ function coenv_unregister_taxonomies(){
 		}
 	}
 }
+
+// Callback function to filter the MCE settings
+function add_two_column_list_format( $init_array ) {
+	// Define the style_formats array
+	$style_formats = array(
+        array(
+            'title' => 'Paragraph',
+            'block' => 'p',
+        ),  
+        array(
+            'title' => 'Introduction',
+            'block' => 'span',
+            'classes' => 'intro'
+        ),  
+       array(
+            'title' => 'Button',
+            'block' => 'span',
+            'classes' => 'button'
+        ),
+        array(
+            'title' => 'Heading 2',
+            'block' => 'h2',
+        ),  
+        array(
+            'title' => 'Heading 3',
+            'block' => 'h3'
+        ),  
+        array(
+            'title' => 'Heading 4',
+            'block' => 'h4'
+        ),  
+        array(
+            'title' => 'Small',
+            'block' => 'span',
+            'classes' => 'small'
+        ),  
+		array(
+			'title' => 'Two Column Ul',  
+			'selector' => 'ul',
+			'classes' => 'two-col',
+		),
+    );
+	// Insert the array, JSON ENCODED, into 'style_formats'
+	$init_array['style_formats'] = json_encode( $style_formats );  
+	
+	return $init_array;  
+  
+} 
+// Attach callback to 'tiny_mce_before_init' 
+add_filter( 'tiny_mce_before_init', 'add_two_column_list_format' );
 ?>

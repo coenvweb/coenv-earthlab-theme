@@ -33,9 +33,7 @@
 		} ?></title>
 
         <?php
-			$banner = coenv_banner();
-			$banner_class = $banner ? 'has-banner' : '';
-			$banner_class .= ' template-print';
+            $ancestor = coenv_get_ancestor();
             $post = get_queried_object();
 			$post_title = get_the_title().' | ' . get_bloginfo( 'name' );
 			if (!is_front_page() ) {
@@ -48,8 +46,8 @@
 			if ( has_post_thumbnail( $post->ID ) ) { 
 				$thumb_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 				$post_image = $thumb_src[0];
-			} elseif ( $banner ) {
-				$post_image = $banner['url'];
+            } elseif($ancestor) {
+                $post_image = get_the_post_thumbnail_url($ancestor, 'full');
 			} else {
 				$post_image = get_template_directory_uri().'/assets/images/logo-1200x1200.png';
 			}

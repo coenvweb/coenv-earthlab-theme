@@ -22,11 +22,10 @@ if(isset($wp_query->query_vars['focus-area'])){
 
 <?php get_template_part( 'template-parts/featured-image' ); ?>
 
-<div id="page" class="page-template-index page-template-news" role="main">
+<div id="page-sidebar-left" class="page-template-index page-template-news" role="main">
     <div class="row">
         <div <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
             <div class="entry-content">
-                <h1 class="article__title"><?php the_title(); ?></h1>
                 <?php the_content(); ?>
                 <div class="row filters">
                     <div class=" large-6 columns" data-url="<?php the_permalink() ?>" data-cat="focus-area">
