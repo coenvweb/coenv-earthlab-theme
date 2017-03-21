@@ -3991,7 +3991,7 @@ select {
   [data-whatinput='mouse'] .button {
     outline: 0; }
   .button:hover, .button:focus {
-    background-color: #f86b61;
+    background-color: #931a12;
     color: #fff; }
   .button.tiny {
     font-size: 0.6rem; }
@@ -7210,48 +7210,65 @@ a.thumbnail {
   .site-footer a:hover {
     color: #fff !important; }
   .site-footer .right-college {
-    margin-bottom: 14pxpx;
-    margin-bottom: 1rem; }
-    .site-footer .right-college form {
-      display: block; }
-      @media print, screen and (min-width: 40em) {
-        .site-footer .right-college form {
-          text-align: left; } }
-      @media print {
-        .site-footer .right-college form {
-          display: none; } }
-      .site-footer .right-college form input[type="text"] {
-        font-size: 12px;
-        font-size: 0.85714/pxrem;
-        background: #666;
-        color: #fff;
-        width: 95%;
-        margin-bottom: 0px; }
-        @media screen and (min-width: 40em) and (max-width: 63.9375em) {
-          .site-footer .right-college form input[type="text"] {
-            width: 82%; } }
-        .site-footer .right-college form input[type="text"]::-webkit-input-placeholder {
-          color: #eee; }
-        .site-footer .right-college form input[type="text"]:-moz-placeholder {
-          color: #eee; }
-        .site-footer .right-college form input[type="text"]::-moz-placeholder {
-          color: #eee; }
-        .site-footer .right-college form input[type="text"]:-ms-input-placeholder {
-          color: #eee; }
-      .site-footer .right-college form button[type="submit"] {
-        background: #666; }
-        .site-footer .right-college form button[type="submit"] i {
-          font-size: 16px;
-          font-size: 1.14286/pxrem;
-          color: #eee; }
-        .site-footer .right-college form button[type="submit"]:hover i {
-          color: #fff; }
-    @media print {
-      .site-footer .right-college {
-        display: none; } }
+    padding-top: 1rem; }
+    .site-footer .right-college #college_black_logo {
+      height: 20px;
+      width: 250px;
+      stroke: #fff;
+      fill: #fff;
+      border-bottom: 1px solid #fff; }
+    .site-footer .right-college #university_logo_black {
+      height: 16px;
+      width: 200px;
+      stroke: #fff;
+      fill: #fff; }
+    .site-footer .right-college #desktop-logo {
+      stroke: #fff;
+      fill: #fff;
+      float: left;
+      height: 40px;
+      width: 50px;
+      margin-right: .5rem; }
   .site-footer .left-college {
     margin-bottom: 14pxpx;
     margin-bottom: 1rem; }
+    .site-footer .left-college form {
+      display: block; }
+      @media print, screen and (min-width: 40em) {
+        .site-footer .left-college form {
+          text-align: left; } }
+      @media print {
+        .site-footer .left-college form {
+          display: none; } }
+      .site-footer .left-college form input[type="text"] {
+        font-size: 12px;
+        font-size: 0.85714/pxrem;
+        background: #fff;
+        color: #0a0a0a;
+        width: 95%;
+        margin-bottom: 0px; }
+        @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+          .site-footer .left-college form input[type="text"] {
+            width: 82%; } }
+        .site-footer .left-college form input[type="text"]::-webkit-input-placeholder {
+          color: #333; }
+        .site-footer .left-college form input[type="text"]:-moz-placeholder {
+          color: #333; }
+        .site-footer .left-college form input[type="text"]::-moz-placeholder {
+          color: #333; }
+        .site-footer .left-college form input[type="text"]:-ms-input-placeholder {
+          color: #333; }
+      .site-footer .left-college form button[type="submit"] {
+        background: #666; }
+        .site-footer .left-college form button[type="submit"] i {
+          font-size: 16px;
+          font-size: 1.14286/pxrem;
+          color: #eee; }
+        .site-footer .left-college form button[type="submit"]:hover i {
+          color: #fff; }
+    @media print {
+      .site-footer .left-college {
+        display: none; } }
   .site-footer .logo-headers {
     border-bottom: 1px solid #402770;
     margin-bottom: 14pxpx;
@@ -7286,11 +7303,11 @@ a.thumbnail {
         display: none; } }
     .site-footer .footer-nav ul a {
       text-decoration: none;
-      color: #bbb; }
+      color: #fff; }
   .site-footer .footer__info {
-    color: #eee; }
+    color: #fff; }
     .site-footer .footer__info a {
-      color: #bbb;
+      color: #fff;
       text-decoration: none; }
     .site-footer .footer__info p:first-of-type {
       margin: 0; }
@@ -7303,7 +7320,7 @@ a.thumbnail {
           display: none; } }
       .site-footer .footer__info .top-links a {
         text-decoration: none;
-        color: #bbb; }
+        color: #fff; }
 
 .uw-footer {
   background-image: url("../images/black-white-suz.jpg");
@@ -7395,8 +7412,7 @@ a.thumbnail {
     .sidebar .widget_coenv_base_news_cats .news-preview h4 {
       margin-top: 1.5rem; }
   .sidebar .widget_coenv_base_news_cats .news_thumb img {
-    border: 5px solid #0a0a0a;
-    border-top: 0px; }
+    border-bottom: 5px solid #0a0a0a; }
 
 .sidebar .widget_coenv_base_case_cats h4, .sidebar .widget_coenv_base_news_cats h4 {
   font-size: 1.25rem;
@@ -7414,9 +7430,8 @@ a.thumbnail {
 .sidebar .widget_coenv_base_case_cats .button, .sidebar .widget_coenv_base_news_cats .button {
   border: 3px solid #cacaca; }
   .sidebar .widget_coenv_base_case_cats .button:hover, .sidebar .widget_coenv_base_news_cats .button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    border: 3px solid #0a0a0a; }
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff; }
 
 .sidebar .widget_coenv_base_case_cats {
   background-color: #fff;
@@ -7515,8 +7530,6 @@ form .field-wrap {
   background-color: transparent;
   font-family: "circular-standard-bold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased; }
-  .button:hover {
-    border: 3px solid #931a12; }
 
 .flex-card-example {
   display: -webkit-box;

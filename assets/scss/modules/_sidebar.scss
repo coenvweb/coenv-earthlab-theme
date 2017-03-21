@@ -21,8 +21,7 @@
         }
         .news_thumb {
             img {
-                border: 5px solid $black;
-                border-top: 0px;
+                border-bottom: 5px solid $black;
             }
         }
     }
@@ -46,9 +45,8 @@
         .button {
             border: 3px solid $medium-gray;
             &:hover {
-                background-color: rgba(0, 0, 0, 0.8);
+                background-color: rgba(0, 0, 0, 0.75);
                 color: $white;
-                border: 3px solid $black;
             }
         } 
     }

@@ -16,8 +16,33 @@
 	}
     
     .right-college {
+        padding-top: 1rem;
+        #college_black_logo {
+            height: 20px;
+            width: 250px;
+            stroke: $white;
+            fill: $white;
+            border-bottom: 1px solid $white;
+        }
+        #university_logo_black {
+            height: 16px;
+            width: 200px;
+            stroke: $white;
+            fill: $white;
+        }
+        #desktop-logo {
+            stroke: $white;
+            fill: $white;
+            float: left;
+            height: 40px;
+            width: 50px;
+            margin-right: .5rem;
+        }
+    }
+    
+    .left-college {
         @include rem('margin-bottom', 1);
-        form {
+       form {
             display: block;
 			@include breakpoint(medium) {
 				text-align: left;
@@ -29,15 +54,15 @@
 
             input[type="text"] {
                 @include font-size(12);
-                background: #666;
-                color: #fff;
+                background: #fff;
+                color: $black;
 				width: 95%;
                 margin-bottom: 0px;
                 @include breakpoint(medium only) {
                     width: 82%;
                 }
                 @include placeholder {
-                    color: #eee;
+                    color: #333;
                 }
             }
 
@@ -58,11 +83,7 @@
         } // form
         @media print {
             display: none;
-        }
-    }
-    
-    .left-college {
-        @include rem('margin-bottom', 1);
+        } 
     }
     
     .logo-headers {
@@ -111,7 +132,7 @@
 
             a { 
                 text-decoration: none;
-                color: #bbb;
+                color: $white;
             }   
 
         }
@@ -121,10 +142,10 @@
     
 
 	.footer__info {
-		color: $text-very-lt;
+		color: $white;
         
         a {
-            color: #bbb;
+            color: #fff;
             text-decoration: none;
         }
         
@@ -145,7 +166,7 @@
 
 			a {
 				text-decoration: none;
-				color: #bbb;
+				color: $white;
 			}
 
 		} // .top-links
