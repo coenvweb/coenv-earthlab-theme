@@ -94,10 +94,7 @@
         <div class="coenv-top-bar-wrapper show-for-medium">
 			<div class="coenv-top-bar">
 				<div class="coenv-top-bar-left">
-                    
-				</div>
-				<div class="coenv-top-bar-right">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                   <a href="uw.edu">
                         <svg id="desktop-logo" width="108" height="73" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 108 73" enable-background="new 0 0 108 73" xml:space="preserve" role="img" aria-label="Wlogo">
                           <title>UW W Logo</title>
                           <path d="M79.343,0.112c0,0.858,0,12.238,0,13.098c0.856,0,9.206,0,9.206,0L78.271,51.461
@@ -108,7 +105,7 @@
                             C107.176,0.112,80.251,0.112,79.343,0.112z"/>
                         </svg>
                     </a>
-                    <a href="">
+                    <a href="uw.edu">
 						 <svg version="1.1" id="university_logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 						 width="215px" height="14px" class="uw-name" viewBox="-70 381.4 469.1 31.6" style="enable-background:new -70 381.4 469.1 31.6;"
 						 xml:space="preserve" alt="University of Washington">
@@ -148,7 +145,10 @@
 							V400.1z"/>
 					</g>
 					</svg>
-                    </a>
+                    </a> 
+				</div>
+				<div class="coenv-top-bar-right">
+                    
 				</div>
 			</div>
 		</div>

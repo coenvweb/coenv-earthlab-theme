@@ -12,11 +12,7 @@
 		padding: 0rem 0.5rem;
 		.coenv-top-bar-left {
 			float: left;
-			
-		}
-		.coenv-top-bar-right {
-			float: right;
-            margin-bottom: -7px;
+		    margin-bottom: -7px;
 			#desktop-logo {
 				margin-top: 10px;
 				width: 4.5rem;
@@ -27,7 +23,10 @@
                 fill: $white;
                 margin-bottom: 1rem;
                 margin-left: 0.5rem;
-            }
+            }	
+		}
+		.coenv-top-bar-right {
+			float: right;
 		}
 	}
 }

@@ -11,7 +11,7 @@ function focus_directors($args) {
     $output .= '<ul class="directors_list">';
     foreach($directors as $i => $director) {
         $link = $links[$i];
-        $output .= '<li class="director_item"><a href="'.trim($link).'" target="_blank">'.trim($director).'</a></li>';
+        $output .= '<li class="director_item"><a href="'.trim($link).'" target="_blank">'.trim($director).'<hr></a></li>';
     }
     $output .= '</ul>';
     return $output;
