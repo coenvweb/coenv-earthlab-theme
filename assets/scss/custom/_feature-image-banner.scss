@@ -1,0 +1,36 @@
+#featured-hero {
+    padding: 8vw 0vw;
+    @include breakpoint(small only) {
+        padding: 10vw 0vw;
+    }
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    h1.page-title {
+        background-color: rgba(0, 0, 0, 0.9);
+        border: 5px solid $white;
+		color: $white;
+		text-align: center;
+		padding: 1rem;
+		@include breakpoint(small) {
+			font-size: 1.5rem;
+		}   
+		@include breakpoint(medium) {
+			font-size: 2rem;
+		}   
+		@include breakpoint(large) {
+			font-size: 2.7rem;
+		}   
+		margin-bottom: 0px;
+        position: relative;
+        &:after {
+            content: '';
+            background-image: url('../images/hero-slant.png');
+            width: 66%;
+            height: 4rem;
+            position: absolute;
+            bottom: -4.25rem;
+            right: -5px;
+        }
+    }
+}

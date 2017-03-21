@@ -82,7 +82,7 @@ $text-md: #444;
 $text-lt: #666;
 $text-very-lt: #eee;
 $outer-space: #2c3840;
-$body-background: $white;
+$body-background: $light-gray;
 $body-font-color: $black;
 $body-font-family: "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $body-antialiased: true;
@@ -142,11 +142,11 @@ $header-styles: (
     'h6': ('font-size': 16),
   ),
   medium: (
-    'h1': ('font-size': 48),
-    'h2': ('font-size': 40),
-    'h3': ('font-size': 31),
-    'h4': ('font-size': 25),
-    'h5': ('font-size': 20),
+    'h1': ('font-size': 46),
+    'h2': ('font-size': 32),
+    'h3': ('font-size': 26),
+    'h4': ('font-size': 22),
+    'h5': ('font-size': 18),
     'h6': ('font-size': 16),
   ),
 );

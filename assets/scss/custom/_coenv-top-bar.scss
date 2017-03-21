@@ -1,4 +1,6 @@
 #masthead {
+    position: relative;
+    z-index: 1000;
     background-color: $white;
 }
 .coenv-top-bar-wrapper {

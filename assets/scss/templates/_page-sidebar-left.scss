@@ -1,4 +1,4 @@
-#page-sidebar-left {
+#page-sidebar-left, #single-post {
   @include grid-row();
   margin-top: 3rem;
 
@@ -21,6 +21,11 @@
     @include breakpoint(medium) {
       @include grid-column(4);
       @include grid-col-pos(-8);
+      margin-top: 1rem;
+    }
+    @include breakpoint(large) {
+      @include grid-column(3);
+      @include grid-col-pos(-9);
       margin-top: 1rem;
     }
   }

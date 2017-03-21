@@ -1,9 +1,78 @@
 .sidebar {
-  @include breakpoint(small) {
-    @include grid-column(12);
-  }
 
-  @include breakpoint(medium) {
-    @include grid-column(4);
-  }
+    .widget_coenv_base_news_cats{
+        overflow: hidden;
+        .post-meta {
+            @include circular_sb;
+            @include grid-column(10);
+            font-size: .8rem;
+            padding-top: 1rem;
+            padding-bottom: .5rem;
+            background-color: $black;
+            color: $white;
+            text-transform: uppercase;
+        }
+        .news-preview {
+            background-color: #fff;
+            border: 5px solid $black;
+            h4 {
+                margin-top: 1.5rem;
+            }
+        }
+        .news_thumb {
+            img {
+                border: 5px solid $black;
+                border-top: 0px;
+            }
+        }
+    }
+
+    .widget_coenv_base_case_cats, .widget_coenv_base_news_cats {
+        h4 {
+            font-size: 1.25rem;
+            line-height: 2rem;
+            &:after {
+                content: '';
+                display: block;
+                margin-top: .5rem;
+                width: 33%;
+                height: 3px;
+                background-color: $light-gray;
+            }
+            a {
+                color: $black;
+            }
+        }
+        .button {
+            border: 3px solid $medium-gray;
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+                color: $white;
+                border: 3px solid $black;
+            }
+        } 
+    }
+
+    .widget_coenv_base_case_cats {
+        background-color: #fff;
+        margin-top: 5rem;
+        border: 5px solid $news-yellow;
+        position: relative;
+        h3 {
+            position: absolute;
+            top: -4rem;
+            font-size: 1.3rem;
+            width: 8rem;
+            border: 3px solid $news-yellow;
+            background: url('../images/news-title.png');
+            text-transform: uppercase;
+            text-align: center;
+            padding: 1rem 0rem;
+        }
+        ul.widget-case-list {
+            margin-top: 5rem;
+            li.case-preview {
+            }
+        }
+    }
 }
