@@ -389,9 +389,12 @@ class focus_area_widget extends WP_Widget {
     ?>
         <a href="<?=$instance['more_link']?>">
             <div class="focus_container">
+                <img class="focus-icon" src="<?=$instance['image_uri']?>" />
+                <hr>
                 <?php echo $args['before_title']; ?>
                     <?=$instance['title']?>
                 <?php echo $args['after_title']; ?>
+                <img class="focus-plus" src="<?php echo get_template_directory_uri() ?>/assets/images/focus-plus.png" />
             </div>
         </a>
     <?php   
@@ -420,6 +423,13 @@ class focus_area_widget extends WP_Widget {
             <label for="<?php echo $this->get_field_id( 'more_link' ); ?>"><?php _e( 'Link to more (focus area page):' ); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'more_link' ); ?>" name="<?php echo $this->get_field_name( 'more_link' ); ?>" type="text" value="<?php echo esc_attr( $more_link ); ?>"> 
         </p>
+
+		<p>
+		    <label for="<?php echo $this->get_field_id('image_uri'); ?>">Icon</label><br />
+			<img class="custom_media_image" src="<?php if(!empty($instance['image_uri'])){echo $instance['image_uri'];} ?>" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" />
+			<input type="text" class="widefat custom_media_url" name="<?php echo $this->get_field_name('image_uri'); ?>" id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php echo $instance['image_uri']; ?>">
+            <input type="button" value="<?php _e( 'Upload Image' ); ?>" class="button custom_media_upload" id="custom_image_uploader<?php echo $this->id; ?>"/>
+    	</p>
         <?php
     }
 
@@ -435,6 +445,7 @@ class focus_area_widget extends WP_Widget {
 
         $instance['title'] = ( ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '');
         $instance['more_link'] = ( ! empty( $new_instance['more_link'] ) ? strip_tags( $new_instance['more_link'] ) : '' );
+        $instance['image_uri'] = ( ! empty( $new_instance['image_uri'] ) ? strip_tags( $new_instance['image_uri'] ) : '' );
 
         return $instance;
     }
@@ -515,6 +526,83 @@ class do_this_widget extends WP_Widget {
 
         $instance['title'] = ( ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '');
         $instance['description'] = ( ! empty( $new_instance['description'] ) ? strip_tags( $new_instance['description'] ) : '' );
+
+        return $instance;
+    }
+}
+function register_coenv_quote_widget() {
+    register_widget( 'quote_widget' );
+}
+add_action( 'widgets_init', 'register_coenv_quote_widget' );
+
+class quote_widget extends WP_Widget {
+
+    /**
+     * Sets up the widgets name etc
+     */
+    public function __construct() {
+        $widget_ops = array( 
+            'classname' => 'quote-widget',
+            'description' => 'Display a single box in the sidebar',
+        );
+        parent::__construct( 'quote_widget', 'Sidebar Quote Widget', $widget_ops );
+    }
+
+    /**
+     * Outputs the content of the widget
+     *
+     * @param array $args
+     * @param array $instance
+     */
+    public function widget( $args, $instance ) {
+        echo $args['before_widget'];
+    ?>
+        <div class="quote-box">
+            <i class="fa fa-quote-left"></i>
+            <p class="quote"><?=$instance['quote']?></p>
+            <p class="quote-author"><?=$instance['author']?></p>
+        </div>
+    <?php   
+        echo $args['after_widget'];
+    }
+
+    /**
+     * Outputs the options form on admin
+     *
+     * @param array $instance The widget options
+     */
+    public function form( $instance ) {
+        // outputs the options form on admin
+        if ( isset( $instance[ 'author' ] ) ) {
+            $author = $instance[ 'author' ];
+        }
+        if ( isset( $instance[ 'quote' ] ) ) {
+            $quote = $instance[ 'quote' ];
+        }
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'quote' ); ?>"><?php _e( 'Quote:' ); ?></label>
+            <textarea class="widefat" id="<?php echo $this->get_field_id( 'quote' ); ?>" name="<?php echo $this->get_field_name( 'quote' ); ?>"><?php echo esc_attr( $quote ); ?></textarea> 
+        </p>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'author' ); ?>"><?php _e( 'Author:' ); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id( 'author' ); ?>" name="<?php echo $this->get_field_name( 'author' ); ?>" type="text" value="<?php echo esc_attr( $author ); ?>"> 
+        </p>
+        <?php
+    }
+
+    /**
+     * Processing widget options on save
+     *
+     * @param array $new_instance The new options
+     * @param array $old_instance The previous options
+     */
+    public function update( $new_instance, $old_instance ) {
+        // processes widget options to be saved
+        $instance = $old_instance;
+
+        $instance['author'] = ( ! empty( $new_instance['author'] ) ? strip_tags( $new_instance['author'] ) : '');
+        $instance['quote'] = ( ! empty( $new_instance['quote'] ) ? strip_tags( $new_instance['quote'] ) : '' );
 
         return $instance;
     }

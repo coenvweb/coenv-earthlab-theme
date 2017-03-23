@@ -1,4 +1,64 @@
 .sidebar {
+    @include breakpoint(medium) {
+        margin-top: 0rem !important;
+    }
+
+    .quote-widget {
+        .quote-box {
+            @include circular_sb;
+            padding: 1rem;
+            background-color: $black;
+            color: $white;
+            i {
+                font-size: 1.5rem;
+            }
+            p {
+                text-align: center;
+                font-style: italic;
+            }
+        }
+    }
+
+    .coenv_base_subnav {
+        @include circular_sb;
+        margin-bottom: 1rem;
+        h2 {
+            text-transform: uppercase;
+            font-size: 2rem;
+            border-bottom: 5px solid $focus-red;
+            margin-bottom: 0rem;
+            &.active, &:hover {
+                background-color: $white;
+                border-bottom: 5px solid $focus-red;
+            }
+            a {
+                display: block;
+                width: 100%;
+                padding: .5rem;
+                padding-bottom: 0rem;
+                color: $black;
+            }
+        }
+        ul.side-nav {
+            list-style-type: none;
+            margin: 0px;
+            li {
+                border-bottom: 3px solid $white;
+                font-size: 1.1rem;
+                &.active, &:hover {
+                    background-color: $white;
+                    border-bottom: 3px solid $focus-red;
+                }
+                a {
+                    display: block;
+                    width: 100%;
+                    padding: .5rem;
+                    color: $black;
+                }
+            }
+            
+        }
+    }
 
     .widget_coenv_base_news_cats{
         overflow: hidden;

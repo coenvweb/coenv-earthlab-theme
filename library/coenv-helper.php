@@ -224,7 +224,7 @@ function add_two_column_list_format( $init_array ) {
             'classes' => 'small'
         ),  
 		array(
-			'title' => 'Two Column Ul',  
+			'title' => 'Two Column Ul',
 			'selector' => 'ul',
 			'classes' => 'two-col',
 		),

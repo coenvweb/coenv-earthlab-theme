@@ -3509,11 +3509,11 @@ h6 {
   h1 {
     font-size: 2.875rem; }
   h2 {
-    font-size: 2rem; }
-  h3 {
     font-size: 1.625rem; }
+  h3 {
+    font-size: 1.4375rem; }
   h4 {
-    font-size: 1.375rem; }
+    font-size: 1.25rem; }
   h5 {
     font-size: 1.125rem; }
   h6 {
@@ -7023,6 +7023,20 @@ a.thumbnail {
         margin-left: 0.5rem; }
     .coenv-top-bar-wrapper .coenv-top-bar .coenv-top-bar-right {
       float: right; }
+      .coenv-top-bar-wrapper .coenv-top-bar .coenv-top-bar-right ul#menu-el-universal {
+        margin-top: .5rem; }
+        .coenv-top-bar-wrapper .coenv-top-bar .coenv-top-bar-right ul#menu-el-universal li {
+          font-family: "circular-standard-bold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          border: 3px solid #fff; }
+          .coenv-top-bar-wrapper .coenv-top-bar .coenv-top-bar-right ul#menu-el-universal li a {
+            padding: .5rem;
+            color: #fff; }
+            .coenv-top-bar-wrapper .coenv-top-bar .coenv-top-bar-right ul#menu-el-universal li a:before {
+              content: "\f004";
+              font-family: FontAwesome;
+              color: #fff;
+              margin-right: .25rem; }
 
 .top-bar-wrapper {
   background-color: #fff; }
@@ -7078,7 +7092,10 @@ a.thumbnail {
   border: 5px solid #0a0a0a;
   padding: .5rem 1rem;
   display: inline-block;
-  margin-top: 2rem; }
+  margin-top: 2rem;
+  margin-bottom: 0rem !important; }
+  .entry-content .focus_director:after {
+    display: none; }
 
 .entry-content ul.directors_list {
   border: 5px solid #f86b61;
@@ -7122,10 +7139,12 @@ a.thumbnail {
       left: 0%;
       z-index: -1;
       background: url(../images/directors-slant.png);
-      -webkit-background-size: contain;
-              background-size: contain; }
+      -webkit-background-size: cover;
+              background-size: cover; }
     .entry-content ul.directors_list li.director_item a {
-      padding: 2rem 0rem 1rem 0rem !important; }
+      padding: 2rem 0rem 1rem 0rem !important;
+      display: block;
+      color: #0a0a0a; }
       .entry-content ul.directors_list li.director_item a hr {
         width: 25%;
         border-bottom: 3px solid #fff; }
@@ -7171,10 +7190,18 @@ a.thumbnail {
       content: '';
       background-image: url("../images/hero-slant.png");
       width: 66%;
-      height: 4rem;
+      height: 1.5rem;
+      bottom: -1.75rem;
       position: absolute;
-      bottom: -4.25rem;
       right: -5px; }
+      @media print, screen and (min-width: 40em) {
+        #featured-hero h1.page-title:after {
+          height: 3rem;
+          bottom: -3.25rem; } }
+      @media print, screen and (min-width: 64em) {
+        #featured-hero h1.page-title:after {
+          height: 4rem;
+          bottom: -4.25rem; } }
 
 @media screen and (max-width: 39.9375em) {
   .desktop-menu, .top-bar-left {
@@ -7455,6 +7482,55 @@ a.thumbnail {
       text-align: center; }
     .uw-footer .menu-footer-links {
       text-align: center; } }
+
+@media print, screen and (min-width: 40em) {
+  .sidebar {
+    margin-top: 0rem !important; } }
+
+.sidebar .quote-widget .quote-box {
+  font-family: "circular-standard-bold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding: 1rem;
+  background-color: #0a0a0a;
+  color: #fff; }
+  .sidebar .quote-widget .quote-box i {
+    font-size: 1.5rem; }
+  .sidebar .quote-widget .quote-box p {
+    text-align: center;
+    font-style: italic; }
+
+.sidebar .coenv_base_subnav {
+  font-family: "circular-standard-bold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  margin-bottom: 1rem; }
+  .sidebar .coenv_base_subnav h2 {
+    text-transform: uppercase;
+    font-size: 2rem;
+    border-bottom: 5px solid #f86b61;
+    margin-bottom: 0rem; }
+    .sidebar .coenv_base_subnav h2.active, .sidebar .coenv_base_subnav h2:hover {
+      background-color: #fff;
+      border-bottom: 5px solid #f86b61; }
+    .sidebar .coenv_base_subnav h2 a {
+      display: block;
+      width: 100%;
+      padding: .5rem;
+      padding-bottom: 0rem;
+      color: #0a0a0a; }
+  .sidebar .coenv_base_subnav ul.side-nav {
+    list-style-type: none;
+    margin: 0px; }
+    .sidebar .coenv_base_subnav ul.side-nav li {
+      border-bottom: 3px solid #fff;
+      font-size: 1.1rem; }
+      .sidebar .coenv_base_subnav ul.side-nav li.active, .sidebar .coenv_base_subnav ul.side-nav li:hover {
+        background-color: #fff;
+        border-bottom: 3px solid #f86b61; }
+      .sidebar .coenv_base_subnav ul.side-nav li a {
+        display: block;
+        width: 100%;
+        padding: .5rem;
+        color: #0a0a0a; }
 
 .sidebar .widget_coenv_base_news_cats {
   overflow: hidden; }
@@ -7758,36 +7834,34 @@ form .field-wrap {
       .homepage .focus-areas .focus-tile:nth-child(3), .homepage .focus-areas .do-this-tile:nth-child(3), .homepage .do-this .focus-tile:nth-child(3), .homepage .do-this .do-this-tile:nth-child(3), .homepage .news-events .focus-tile:nth-child(3), .homepage .news-events .do-this-tile:nth-child(3) {
         clear: both; } }
   .homepage .focus-areas .focus-tile, .homepage .do-this .focus-tile, .homepage .news-events .focus-tile {
-    margin-bottom: 2.5rem;
-    background-repeat: no-repeat;
-    background-position: center center;
-    -webkit-background-size: contain;
-            background-size: contain;
-    padding: 4rem 0rem; }
-    @media print, screen and (min-width: 64em) {
-      .homepage .focus-areas .focus-tile, .homepage .do-this .focus-tile, .homepage .news-events .focus-tile {
-        -webkit-background-size: auto 60%;
-                background-size: auto 60%;
-        margin-bottom: 1rem; } }
-    .homepage .focus-areas .focus-tile .focus_area_title, .homepage .do-this .focus-tile .focus_area_title, .homepage .news-events .focus-tile .focus_area_title {
-      color: #0a0a0a;
-      text-transform: uppercase;
-      vertical-align: middle;
-      margin: 1rem; }
-      @media screen and (max-width: 39.9375em) {
-        .homepage .focus-areas .focus-tile .focus_area_title, .homepage .do-this .focus-tile .focus_area_title, .homepage .news-events .focus-tile .focus_area_title {
-          font-size: 1.25rem; } }
-      @media print, screen and (min-width: 64em) {
-        .homepage .focus-areas .focus-tile .focus_area_title, .homepage .do-this .focus-tile .focus_area_title, .homepage .news-events .focus-tile .focus_area_title {
-          min-height: 105px; } }
-    .homepage .focus-areas .focus-tile:nth-of-type(1), .homepage .do-this .focus-tile:nth-of-type(1), .homepage .news-events .focus-tile:nth-of-type(1) {
-      background-image: url("../images/climate_icon.svg"); }
-    .homepage .focus-areas .focus-tile:nth-of-type(2), .homepage .do-this .focus-tile:nth-of-type(2), .homepage .news-events .focus-tile:nth-of-type(2) {
-      background-image: url("../images/ocean_icon.svg"); }
-    .homepage .focus-areas .focus-tile:nth-of-type(3), .homepage .do-this .focus-tile:nth-of-type(3), .homepage .news-events .focus-tile:nth-of-type(3) {
-      background-image: url("../images/hazards_icon.svg"); }
-    .homepage .focus-areas .focus-tile:nth-of-type(4), .homepage .do-this .focus-tile:nth-of-type(4), .homepage .news-events .focus-tile:nth-of-type(4) {
-      background-image: url("../images/ecosystems_icon.svg"); }
+    border-right: 3px solid #fff; }
+    .homepage .focus-areas .focus-tile:first-child, .homepage .do-this .focus-tile:first-child, .homepage .news-events .focus-tile:first-child {
+      border-left: 3px solid #fff; }
+    .homepage .focus-areas .focus-tile:hover, .homepage .do-this .focus-tile:hover, .homepage .news-events .focus-tile:hover {
+      background-color: #0a0a0a; }
+      .homepage .focus-areas .focus-tile:hover a .focus_area_title, .homepage .do-this .focus-tile:hover a .focus_area_title, .homepage .news-events .focus-tile:hover a .focus_area_title {
+        color: #fff; }
+      .homepage .focus-areas .focus-tile:hover a hr, .homepage .do-this .focus-tile:hover a hr, .homepage .news-events .focus-tile:hover a hr {
+        border-bottom: 3px solid #fff; }
+    .homepage .focus-areas .focus-tile a, .homepage .do-this .focus-tile a, .homepage .news-events .focus-tile a {
+      display: block;
+      padding: 4rem 0rem; }
+      .homepage .focus-areas .focus-tile a .focus-icon, .homepage .do-this .focus-tile a .focus-icon, .homepage .news-events .focus-tile a .focus-icon {
+        height: 7rem; }
+      .homepage .focus-areas .focus-tile a hr, .homepage .do-this .focus-tile a hr, .homepage .news-events .focus-tile a hr {
+        border-bottom: 3px solid #cacaca;
+        width: 33%; }
+      .homepage .focus-areas .focus-tile a .focus_area_title, .homepage .do-this .focus-tile a .focus_area_title, .homepage .news-events .focus-tile a .focus_area_title {
+        color: #0a0a0a;
+        text-transform: uppercase;
+        vertical-align: middle;
+        margin: .5rem; }
+        @media screen and (max-width: 39.9375em) {
+          .homepage .focus-areas .focus-tile a .focus_area_title, .homepage .do-this .focus-tile a .focus_area_title, .homepage .news-events .focus-tile a .focus_area_title {
+            font-size: 1.25rem; } }
+        @media print, screen and (min-width: 64em) {
+          .homepage .focus-areas .focus-tile a .focus_area_title, .homepage .do-this .focus-tile a .focus_area_title, .homepage .news-events .focus-tile a .focus_area_title {
+            min-height: 5.5rem; } }
   .homepage .focus-areas .do-this-tile, .homepage .do-this .do-this-tile, .homepage .news-events .do-this-tile {
     font-size: 1.1rem;
     margin-top: 1rem;
@@ -7881,6 +7955,8 @@ form .field-wrap {
     -webkit-background-size: cover;
             background-size: cover;
     background-repeat: repeat-x; }
+    .homepage .focus-areas .widgets-area {
+      padding: 0rem; }
   .homepage .divider {
     height: 350px;
     -webkit-background-size: cover;
@@ -8037,40 +8113,40 @@ form .field-wrap {
       margin-left: 0px;
       font-family: "circular-standard-bold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
       -webkit-font-smoothing: antialiased; }
-      @media print, screen and (min-width: 40em) {
-        #page .main-content ul, #page-sidebar-left .main-content ul {
-          font-size: 1.15rem; } }
       #page .main-content ul li:not(.director_item), #page-sidebar-left .main-content ul li:not(.director_item) {
         -webkit-box-shadow: 0px -3px 0px #fff inset;
         box-shadow: 0px -3px 0px #fff inset; }
       #page .main-content ul li, #page-sidebar-left .main-content ul li {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        position: relative; }
+        padding-top: .75rem;
+        padding-bottom: .75rem; }
         #page .main-content ul li:before, #page-sidebar-left .main-content ul li:before {
           content: url("../images/ellipse.png");
           margin-right: .5rem;
-          display: inline-block;
-          clear: both;
-          position: absolute;
-          height: 100%; }
+          display: inline-block; }
         #page .main-content ul li a, #page-sidebar-left .main-content ul li a {
-          display: block;
-          padding-left: 1.5rem;
-          color: #0a0a0a; }
+          clear: both; }
     #page .main-content ul.two-col, #page-sidebar-left .main-content ul.two-col {
       overflow: hidden;
       padding-left: 0px; }
-      @media print, screen and (min-width: 40em) {
-        #page .main-content ul.two-col li, #page-sidebar-left .main-content ul.two-col li {
-          width: 45%;
-          margin-right: 5%;
-          float: left; } }
+      #page .main-content ul.two-col li, #page-sidebar-left .main-content ul.two-col li {
+        width: 100%; }
+        @media print, screen and (min-width: 40em) {
+          #page .main-content ul.two-col li, #page-sidebar-left .main-content ul.two-col li {
+            width: 45%;
+            margin-right: 4%; } }
     #page .main-content h2, #page-sidebar-left .main-content h2 {
-      padding-bottom: .5rem;
-      margin-bottom: 0rem; }
+      padding-bottom: .75rem;
+      margin-bottom: .75rem;
+      position: relative;
+      text-transform: uppercase; }
       #page .main-content h2:after, #page-sidebar-left .main-content h2:after {
-        width: 3rem; }
+        position: absolute;
+        bottom: 0rem;
+        left: 0rem;
+        content: '';
+        width: 5rem;
+        height: 3px;
+        background-color: #f86b61; }
 
 #page-sidebar-left, #single-post {
   max-width: 75rem;

@@ -131,7 +131,7 @@ Template Name: Homepage
                         And<br>
                         Events
                     </h3>
-                    <a class="button" href="">See Our News</a>
+                    <a class="button" href="/about/news-and-events/">More News</a>
                 </div>
             </div>
         </div>

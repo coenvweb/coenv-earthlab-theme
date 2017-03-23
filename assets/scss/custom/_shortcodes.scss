@@ -6,6 +6,10 @@
         padding: .5rem 1rem;
         display: inline-block;
         margin-top: 2rem;
+        margin-bottom: 0rem !important;
+        &:after {
+            display: none;
+        }
     }
     ul.directors_list {
         border: 5px solid $focus-red;
@@ -31,10 +35,12 @@
                 left: 0%;
                 z-index: -1;
                 background: url(../images/directors-slant.png);
-                background-size: contain;
+                background-size: cover;
             }
             a {
                 padding: 2rem 0rem 1rem 0rem !important;
+                display: block;
+                color: $black;
                 hr {
                     width: 25%;
                     border-bottom: 3px solid $white;

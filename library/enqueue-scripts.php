@@ -34,3 +34,9 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 
 	add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
 endif;
+
+function widgetUploadScripts() {
+    wp_enqueue_media();
+    wp_enqueue_script('widgetUploadScript', get_template_directory_uri() . '/assets/javascript/widget_upload_script.js');
+}
+add_action('admin_enqueue_scripts', 'widgetUploadScripts');

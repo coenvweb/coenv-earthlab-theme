@@ -146,39 +146,47 @@
             }
         }
         .focus-tile {
-            margin-bottom: 2.5rem;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            @include breakpoint(large) {
-                background-size: auto 60%;
-                margin-bottom: 1rem;
+            border-right: 3px solid $white;
+            &:first-child {
+                border-left: 3px solid $white;
             }
-            padding: 4rem 0rem;
-            .focus_area_title {
-                @include breakpoint(small only) {
-                    font-size: 1.25rem;
+            &:hover {
+                background-color: $black;
+                a {
+                    .focus_area_title {
+                        color: $white;
+                    }
+                    hr {
+                        border-bottom: 3px solid $white;
+                    }
                 }
-                color: $black;
-                text-transform: uppercase;
-                vertical-align: middle;
-                margin: 1rem;
+            }
+            a {
+                display: block;
+                padding: 4rem 0rem;
+                
                 @include breakpoint(large) {
-                    min-height: 105px;
+                }
+                .focus-icon {
+                    height: 7rem;
+                }
+                hr {
+                    border-bottom: 3px solid $medium-gray;
+                    width: 33%;
+                }
+                .focus_area_title {
+                    @include breakpoint(small only) {
+                        font-size: 1.25rem;
+                    }
+                    color: $black;
+                    text-transform: uppercase;
+                    vertical-align: middle;
+                    margin: .5rem;
+                    @include breakpoint(large) {
+                        min-height: 5.5rem;
+                    }
                 }
             }
-            &:nth-of-type(1) {
-                background-image: url('../images/climate_icon.svg');
-            }
-            &:nth-of-type(2) {
-                background-image: url('../images/ocean_icon.svg');
-            }
-            &:nth-of-type(3) {
-                background-image: url('../images/hazards_icon.svg');
-            }
-            &:nth-of-type(4) {
-                background-image: url('../images/ecosystems_icon.svg');
-            } 
         }
         .do-this-tile {
             &:nth-of-type(1) {
@@ -299,6 +307,9 @@
         background-image: url('../images/focus-slant.png');
         background-size: cover;
         background-repeat: repeat-x;
+        .widgets-area {
+            padding: 0rem;
+        }
     }
     .divider {
         height: 350px;

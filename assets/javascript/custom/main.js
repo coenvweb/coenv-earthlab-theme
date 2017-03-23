@@ -3,6 +3,10 @@ jQuery(function ($) {
 
 	$(document).ready(function() {
 		var sticky = new Foundation.Sticky($('.sticky'));
+
+        var masonry = $('.two-col').masonry({
+            itemSelector: 'li',
+        });
 	});
 
 	if (!$('body').hasClass('lt-ie8')) {

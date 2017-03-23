@@ -37,8 +37,32 @@ function coenv_base_menu_exclude() {
 register_nav_menus(array(
             'top-bar-r'  => 'Right Top Bar',
             'mobile-nav' => 'Mobile',
+            'el-top-bar' => 'EarthLab Top Bar',
             ));
 
+
+
+
+/**
+ * UL Universal Navigation - top bar
+ *
+ * @link http://codex.wordpress.org/Function_Reference/wp_nav_menu
+ */
+if ( ! function_exists( 'EL_universal_top_bar' ) ) {
+    function EL_universal_top_bar() {
+        $exclude = implode(',',coenv_base_menu_exclude());
+        wp_nav_menu( array(
+                    'container'      => true,
+                    'container_class'=> 'universal-top-bar',
+                    'menu_class'     => 'menu',
+                    'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu">%3$s</ul>',
+                    'theme_location' => 'el-top-bar',
+                    'depth'          => 1,
+                    'fallback_cb'    => false,
+                    'exclude'        => $exclude,
+                    ));
+    }
+}
 
 /**
  * Desktop navigation - right top bar

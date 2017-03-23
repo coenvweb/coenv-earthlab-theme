@@ -91,7 +91,7 @@
 	<?php do_action( 'foundationpress_layout_start' ); ?>
 
 	<header id="masthead" class="site-header" role="banner">
-        <div class="coenv-top-bar-wrapper show-for-medium">
+        <div class="coenv-top-bar-wrapper">
 			<div class="coenv-top-bar">
 				<div class="coenv-top-bar-left">
                    <a href="uw.edu">
@@ -148,7 +148,7 @@
                     </a> 
 				</div>
 				<div class="coenv-top-bar-right">
-                    
+                    <?php EL_universal_top_bar(); ?>
 				</div>
 			</div>
 		</div>

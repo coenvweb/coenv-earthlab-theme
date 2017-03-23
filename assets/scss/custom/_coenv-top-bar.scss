@@ -27,6 +27,23 @@
 		}
 		.coenv-top-bar-right {
 			float: right;
+            ul#menu-el-universal {
+                margin-top: .5rem;
+                li {
+                    @include circular_sb;
+                    border: 3px solid $white;
+                    a {
+                        padding: .5rem;
+                        color: $white;
+                        &:before {
+                            content: "\f004";
+                            font-family: FontAwesome;
+                            color: $white;
+                            margin-right: .25rem;
+                        }
+                    }
+                }
+            }
 		}
 	}
 }
