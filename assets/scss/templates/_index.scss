@@ -1,14 +1,30 @@
 .page-template-index {
     .main-content {
         .panel {
-            font-weight: bold;
             padding: 1rem 0rem;
-            border-bottom: 1px solid $light-gray;
+            overflow: hidden;
+            border-bottom: 3px solid $medium-gray;
             margin-bottom: 1rem;
-        }
-
-        .article__categories {
-            display: inline-block;
+            .term {
+                @include circular_sb;
+                font-weight: bold;
+            }
+            .right, .left {
+                display: inline-block;
+            }
+            .left {
+                margin-top: .5rem;
+            }
+            .right {
+                float: right;
+                .button {
+                    margin-bottom: 0px;
+                }
+            }
         }
     }
+}
+
+.main-content {
+    margin-bottom: 4rem;
 }

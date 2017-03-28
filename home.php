@@ -17,6 +17,7 @@ Template Name: Homepage
 		);
 	$feature_query = new WP_Query( $feature_args ); ?>
 	<div class="homepage-features">
+        <div class="playpause"><i class="fa fa-pause running"></i></div>
 		<?php
 		# The Loop
 		while ( $feature_query->have_posts() ) : 
@@ -24,31 +25,36 @@ Template Name: Homepage
 			if (get_field('feature_excerpt')) {
 				$feature_excerpt = get_field('feature_excerpt');
 			}
-			if (get_the_post_thumbnail()) {
-				$feature_image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail-size', true);
-				$feature_caption = get_post(get_post_thumbnail_id());
-				$feature_caption = $feature_caption->post_excerpt;
-			}
+            $feature_images = get_field('hero_images');
+			$images = array();
+			$count = 0;
+			while(have_rows('hero_images')) : the_row();
+				$image = get_sub_field('image');
+				if($count == 0) {
+					echo '<div class="feature-image active" id="'.$image['id'].'" style="background-image:url('.$image['url'].');" >';
+				} else {
+					echo '<div class="feature-image inactive" id="'.$image['id'].'" style="background-image:url('.$image['url'].');" >';
+				}
+				echo '</div>';
+				$count++;
+			endwhile;
+			echo '<div class="feature row">';
+				echo '<div class="feature-info-container medium-offset-1 medium-10 small-12 columns">';
+					echo '<div class="feature-info">';
+						echo '<div class="feature-content">';
+							echo '<div class="feature-title">';
+								echo '<h2>' . get_the_title() . '</h2>';
+							echo '</div>';
+							echo '<div class="medium-offset-4 medium-8 large-offset-6 large-6 columns feature-excerpt">';
+								echo '<p>' . $feature_excerpt . '</p>';
+							echo '</div>';
+						echo '</div><!-- .feature-content -->';
 
-			echo '<div class="feature-image" style="background-image:url(' . $feature_image[0] . ')">';
-			    echo '<div class="feature row">';
-					echo '<div class="feature-info-container medium-offset-1 medium-10 small-12 columns">';
-						echo '<div class="feature-info">';
-							echo '<div class="feature-content">';
-                                echo '<div class="feature-title">';
-								    echo '<h2>' . get_the_title() . '</h2>';
-                                echo '</div>';
-                                echo '<div class="medium-offset-4 medium-8 large-offset-6 large-6 columns feature-excerpt">';
-								    echo '<p>' . $feature_excerpt . '</p>';
-                                echo '</div>';
-							echo '</div><!-- .feature-content -->';
-
-						echo '</div><!-- .feature-info -->';
-                        echo '<div class="hero-texture">';
-                        echo '</div>';
-					echo '</div><!-- .feature-info-container -->';
-			    echo '</div><!-- .feature -->';
-			echo '</div>';
+					echo '</div><!-- .feature-info -->';
+					echo '<div class="hero-texture">';
+					echo '</div>';
+				echo '</div><!-- .feature-info-container -->';
+			echo '</div><!-- .feature -->';	
 		endwhile;
 		wp_reset_postdata();
 		?>
@@ -153,7 +159,7 @@ Template Name: Homepage
 						<a href="<?php the_permalink() ?>"><?php the_post_thumbnail('fp-medium') ?></a>
 					</section>
 					<section class="article__content medium-pull-4 medium-offset-1 medium-7 small-12 columns">
-					    <div class="article__meta">
+						<div class="article__meta">
                             NEWS |
 							<time class="article__time" datetime="<?php echo get_the_date('Y-m-d h:i:s') ?>"><?php echo get_the_date('M j, Y') ?></time>
 							<?php
@@ -170,7 +176,7 @@ Template Name: Homepage
 							<span class="article__categories">
 								 <?php echo implode(', ', $more_terms_arr) ?>
 							</span>
-					    </div>
+						</div>
 						<h4 class="article__title">
 							<a href="<?php the_permalink() ?>"><?php the_title() ?></a>
 						</h4>
@@ -224,7 +230,7 @@ Template Name: Homepage
 							<span class="article__categories">
 								 <?php echo implode(', ', $more_terms_arr) ?>
 							</span>
-					    </div>
+						</div>
 						<h4 class="article__title">
 							<a href="<?php the_permalink() ?>"><?php the_title() ?></a>
 						</h4>

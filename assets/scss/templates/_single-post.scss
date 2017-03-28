@@ -10,5 +10,17 @@
     @include breakpoint(medium) {
       @include grid-column(8);
     }
+
+    .article__header {
+        .article__meta {
+            font-size: 1rem;
+            .entry-title {
+                font-size: 1.75rem !important;
+                &:after {
+                    
+                }
+            }
+        }
+    }
   }
 }

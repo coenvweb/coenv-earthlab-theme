@@ -7,6 +7,29 @@ jQuery(function ($) {
         var masonry = $('.two-col').masonry({
             itemSelector: 'li',
         });
+
+		if($('.feature-image').length) {
+			function slideSwitch() {
+				var active = $('.homepage-features .active');
+				var images = $('.homepage-features .feature-image');
+				var next =  active.next('.feature-image').length ? active.next('.feature-image') : $('.feature-image:first');
+				next.addClass('active');
+				active.removeClass('active');
+			}
+			$('.playpause').find('i').click(function () {
+                if($(this).hasClass('fa-play')) {
+					t = setInterval(slideSwitch, 10000 );
+                    $(this).removeClass('fa-play');
+                    $(this).addClass('fa-pause');
+                } else {
+					t = window.clearInterval(t);
+                    $(this).addClass('fa-play');
+                    $(this).removeClass('fa-pause');
+				}
+			});
+
+			var t = setInterval(slideSwitch, 10000 );
+		}
 	});
 
 	if (!$('body').hasClass('lt-ie8')) {

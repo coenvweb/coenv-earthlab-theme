@@ -16,6 +16,10 @@ if(isset($wp_query->query_vars['focus-area'])){
     $coenv_cat_2 = $coenv_cat_term_2 = null;
 }
 
+if(isset($wp_query->query_vars['news-search'])) {
+    $search = urldecode($wp_query->query_vars['news-search']);
+}
+
 ?>
 
 <?php get_header(); ?>
@@ -31,6 +35,15 @@ if(isset($wp_query->query_vars['focus-area'])){
                     <div class=" large-6 columns" data-url="<?php the_permalink() ?>" data-cat="focus-area">
                         <?php coenv_base_cat_filter('focus-area', $coenv_cat_term_2); // Category filter ?>
                     </div>
+                    <div class="news-search large-6 columns" data-url="<?php the_permalink() ?>" data-cat="news-search">
+                        <form role="search" method="get" class="search-form" action="<?php the_permalink() ?>">
+                            <div class="field-wrap">
+                                <label for="news-search">Search news</label>
+                                <input value="<?= $search ?>" name="news-search" id="s" placeholder="Search news" aria-label="Search" title="Search" type="text">
+                                <button type="submit"><i class="fa fa-search"></i><span>Search</span></button>
+                            </div>
+                        </form>
+                    </div>
                     <div class="small-12 columns">
                         <hr>
                     </div>
@@ -41,7 +54,7 @@ if(isset($wp_query->query_vars['focus-area'])){
                     */
                     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     $query_args = array(
-                        'post_type'	=> 'post',
+                        'post_type' => 'post',
                         'post_status' => 'publish',
                         'posts_per_page' => 10,
                         'ignore_sticky_posts' => 1,
@@ -53,11 +66,20 @@ if(isset($wp_query->query_vars['focus-area'])){
                         $query_args['term'] = $coenv_cat_term_2;
                     }
 
+                    if($search) {
+                        $query_args['s'] = $search;
+                    }
+
                     $wp_query = new WP_Query( $query_args );
                     if ($wp_query->have_posts()) {
                         if ($coenv_cat_term_2) { // Category filter ?>
                             <div class="panel">
-                                <div class="left"><?php echo $wp_query->found_posts; ?> post<?=($wp_query->found_posts > 1 ? 's' : '')?> focusing on <?php echo $coenv_cat_term_2_val; ?></div>
+                                <div class="left"><?php echo $wp_query->found_posts; ?> post<?=($wp_query->found_posts > 1 ? 's' : '')?> focusing on <span class="term"><?php echo $coenv_cat_term_2_val; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">All News</a></div>
+                            </div>
+                        <?php } 
+                        if ($search) { // Category filter ?>
+                            <div class="panel">
+                                <div class="left"><?php echo $wp_query->found_posts; ?> post<?=($wp_query->found_posts > 1 ? 's' : '')?> matching <span class="term"><?php echo $search; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">All News</a></div>
                             </div>
                         <?php } ?>
                         <?php
@@ -65,7 +87,7 @@ if(isset($wp_query->query_vars['focus-area'])){
                         while ( $wp_query->have_posts() ) {
                             $wp_query->the_post(); ?>
                             <div class="blog clearfix">
-                                <?php get_template_part( 'template-parts/story' ); ?>
+                                <?php get_template_part( 'template-parts/excerpt' ); ?>
                             </div>
                         <?php } ?>
                         <div class="pager">
@@ -79,16 +101,15 @@ if(isset($wp_query->query_vars['focus-area'])){
                         <?php } ?>
                         </div>
                     <?php } else { ?>
-                        <p>We're sorry. Your crtieria did not match any posts. <a href="/about/news-and-events">Return to all posts &raquo;</a></p>
+                        <p>We're sorry. Your crtieria did not match any news. <a href="/about/news-and-events">Return to all news &raquo;</a></p>
                     <?php } ?>
-                </div>		
+                </div>      
                 <?php if ( is_active_sidebar( 'after-content' ) ) { ?>
                     <?php do_action('foundationPress_after_content'); ?>
                     <ul class="widget-area after-content">
                         <?php dynamic_sidebar("after-content"); ?>
                     </ul>
                 <?php } ?>
-                <a href="#" class="back-to-top">Back to Top</a>
                 <?php do_action('foundationPress_after_content'); ?>
             </div>
             <?php wp_reset_postdata();

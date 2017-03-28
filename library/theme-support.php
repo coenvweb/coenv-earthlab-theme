@@ -233,14 +233,10 @@ function coenv_base_section_title($id) {
         $section_title = '<div class="section-title"><h2><a href="' . get_site_url() . '/' . $coenv_post_section->post_name . '">' . $coenv_post_section->post_title . '</a></h2></div>';
     endif;
 
-    if ( is_singular( 'post' )) { //change news pages' section titles
+    if ( is_singular( 'post' ) || is_singular( 'case_study' )) { //change news pages' section titles
         unset ($section_title);
         $section_title = '<div class="section-title"><h2><a href="'.get_site_url().'/about">About</a></h2></div>';
     }
 
-    if ( is_singular( 'case_study' )) { //change news pages' section titles
-        unset ($section_title);
-        $section_title = '<div class="section-title"><h2><a href="'.get_site_url().'/about/case-studies">Case Studies</a></h2></div>';
-    }
     echo $section_title;
 }

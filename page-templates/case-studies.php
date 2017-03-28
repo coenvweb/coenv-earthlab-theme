@@ -16,6 +16,10 @@ if(isset($wp_query->query_vars['focus-area'])){
     $coenv_cat_2 = $coenv_cat_term_2 = null;
 }
 
+if(isset($wp_query->query_vars['case-search'])) {
+    $search = urldecode($wp_query->query_vars['case-search']);
+}
+
 ?>
 
 <?php get_header(); ?>
@@ -30,6 +34,15 @@ if(isset($wp_query->query_vars['focus-area'])){
                 <div class="row filters">
                     <div class=" large-6 columns" data-url="<?php the_permalink() ?>" data-cat="focus-area">
                         <?php coenv_base_cat_filter('focus-area', $coenv_cat_term_2); // Category filter ?>
+                    </div>
+					<div class="case-search large-6 columns" data-url="<?php the_permalink() ?>" data-cat="case-search">
+                        <form role="search" method="get" class="search-form" action="<?php the_permalink() ?>">
+                            <div class="field-wrap">
+                                <label for="case-search">Search case</label>
+                                <input value="<?= $search ?>" name="case-search" id="s" placeholder="Search case studies" aria-label="Search" title="Search" type="text">
+                                <button type="submit"><i class="fa fa-search"></i><span>Search</span></button>
+                            </div>
+                        </form>
                     </div>
                     <div class="small-12 columns">
                         <hr>
@@ -53,11 +66,20 @@ if(isset($wp_query->query_vars['focus-area'])){
                         $query_args['term'] = $coenv_cat_term_2;
                     }
 
+					if($search) {
+						$query_args['s'] = $search;
+					}
+
                     $wp_query = new WP_Query( $query_args );
                     if ($wp_query->have_posts()) {
-                        if ($coenv_cat_term_2) { // Category filter ?>
+						if ($coenv_cat_term_2) { // Category filter ?>
                             <div class="panel">
-                                <div class="left"><?php echo $wp_query->found_posts; ?> post<?=($wp_query->found_posts > 1 ? 's' : '')?> focusing on <?php echo $coenv_cat_term_2_val; ?></div>
+                                <div class="left"><?php echo $wp_query->found_posts; ?> case stud<?=($wp_query->found_posts > 1 ? 'ies' : 'y')?> focusing on <span class="term"><?php echo $coenv_cat_term_2_val; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">All Case Studies</a></div>
+                            </div>
+                        <?php }
+                        if ($search) { // Category filter ?>
+                            <div class="panel">
+                                <div class="left"><?php echo $wp_query->found_posts; ?> case stud<?=($wp_query->found_posts > 1 ? 'ies' : 'y')?> matching <span class="term"><?php echo $search; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">All Case Studies</a></div>
                             </div>
                         <?php } ?>
                         <?php
@@ -65,7 +87,7 @@ if(isset($wp_query->query_vars['focus-area'])){
                         while ( $wp_query->have_posts() ) {
                             $wp_query->the_post(); ?>
                             <div class="blog clearfix">
-                                <?php get_template_part( 'template-parts/story' ); ?>
+                                <?php get_template_part( 'template-parts/excerpt' ); ?>
                             </div>
                         <?php } ?>
                         <div class="pager">
@@ -88,7 +110,6 @@ if(isset($wp_query->query_vars['focus-area'])){
                         <?php dynamic_sidebar("after-content"); ?>
                     </ul>
                 <?php } ?>
-                <a href="#" class="back-to-top">Back to Top</a>
                 <?php do_action('foundationPress_after_content'); ?>
             </div>
             <?php wp_reset_postdata();

@@ -39,8 +39,9 @@ function coenv_earthlab_post_types_init() {
     'public' => true,
     'has_archive' => false,
     'show_ui' => true,
-    'rewrite' => array('slug' => 'about/case-study'),
+    'rewrite' => array('slug' => 'about/case-studies'),
     'menu_icon' => 'dashicons-slides',
+	'parent_page' => 'about/case-studies',
     )
   );
 }
@@ -81,3 +82,45 @@ function case_tax() {
 }
 
 add_action('init', 'case_tax');
+
+
+define( 'CASE_PAGE_PARENT_ID', '97' );
+define( 'NEWS_PAGE_PARENT_ID', '42' );
+
+/**
+ * save case_study parent
+ */
+function coenv_base_case_parent( $data, $postarr ) {
+    global $post;
+
+    // verify if this is an auto save routine.
+    // If it is our form has not been submitted, so we dont want to do anything
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+        return $data;
+
+    if ( $post->post_type == "case_study" ){
+        $data['post_parent'] = CASE_PAGE_PARENT_ID;
+    }
+
+    return $data;
+}
+add_action( 'wp_insert_post_data', 'coenv_base_case_parent', '104', 2  );
+
+/**
+ * save case_study parent
+ */
+function coenv_base_news_parent( $data, $postarr ) {
+    global $post;
+
+    // verify if this is an auto save routine.
+    // If it is our form has not been submitted, so we dont want to do anything
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+        return $data;
+
+    if ( $post->post_type == "post" ){
+        $data['post_parent'] = NEWS_PAGE_PARENT_ID;
+    }
+
+    return $data;
+}
+add_action( 'wp_insert_post_data', 'coenv_base_news_parent', '104', 2  );

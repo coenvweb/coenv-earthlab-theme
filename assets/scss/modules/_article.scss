@@ -1,0 +1,45 @@
+.article__header {
+	.article__meta {
+		font-size: .8rem;
+		@include circular_sb;
+		text-transform: uppercase;
+		margin-bottom: .25rem;
+        .article__categories {
+            display: inline-block;
+        }
+	}
+	.article__title {
+        &:after {
+            display: none;
+        }
+		a {
+			color: $black;
+            text-transform: none;
+		}
+		position: relative;
+		padding-bottom: .75rem;
+		&:after {
+			position: absolute;
+			content: '';
+			height: 3px;
+			width: 3rem;
+			background-color: $medium-gray;
+			bottom: 0px;
+			left: 0px;
+		}
+	}
+	.article__teaser {
+		margin-top: .75rem;
+	}
+}
+.article__content {
+	.coenv-thumb {
+        img {
+            margin: 0rem 0rem .5rem .5rem;
+		    border: 5px solid $medium-gray;
+        }
+	}
+	@include breakpoint(small only) {
+		margin-bottom: 1rem;
+	}
+}
