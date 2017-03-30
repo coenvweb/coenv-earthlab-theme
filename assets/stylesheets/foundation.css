@@ -7878,9 +7878,7 @@ form .field-wrap {
     margin-top: -.5rem;
     height: .5rem; }
     .homepage .progress .progress-meter {
-      background-color: rgba(255, 255, 255, 0.8);
-      -webkit-transition: width linear .7s;
-      transition: width linear .7s; }
+      background-color: rgba(255, 255, 255, 0.8); }
   .homepage .focus-areas .row, .homepage .do-this .row, .homepage .news-events .row {
     position: relative;
     height: 100%; }

@@ -12,19 +12,10 @@ jQuery(function ($) {
             //how often to rotate img in milliseconds
             var imageTime = 8000;
 
-            function makeProgress() {
-                var width = $('.progress-meter')[0].style.width;
-                //remove the percent value
-                width = width.substring(0, width.length - 1);
-                if(width < 100) {
-                    width = parseInt(width) + 10;
-                } else {
-                    width = 0;
-                }
-                $('.progress-meter').css('width', width + '%');
-            }
-
 			function slideSwitch() {
+                $('.progress-meter').stop();
+                $('.progress-meter').animate({width: '0%'}, 1, 'linear');
+                $('.progress-meter').animate({width: '100%'}, imageTime, 'linear');
 				var active = $('.homepage-features .active');
 				var images = $('.homepage-features .feature-image');
 				var next =  active.next('.feature-image').length ? active.next('.feature-image') : $('.feature-image:first');
@@ -35,23 +26,27 @@ jQuery(function ($) {
 
 			$('.playpause').find('i').click(function () {
                 if($(this).hasClass('fa-play')) {
-                    p = setInterval(makeProgress, imageTime/11);
+                    $('.progress-meter').stop();
+                    $('.progress-meter').animate({width: '100%'}, imageTime, 'linear');
 					t = setInterval(slideSwitch, imageTime);
                     $(this).removeClass('fa-play');
                     $(this).addClass('fa-pause');
                 } else {
 					t = window.clearInterval(t);
-                    p = window.clearInterval(p);
-                    $('.progress-meter').css('width', '0%');
+                    $('.progress-meter').stop();
+                    $('.progress-meter').animate({width: '0%'}, 1, 'linear');
                     $(this).addClass('fa-play');
                     $(this).removeClass('fa-pause');
 				}
 			});
 
 			var t = setInterval(slideSwitch, imageTime );
-            var p = setInterval(makeProgress, imageTime/11);
+            $('.progress-meter').stop();
+            $('.progress-meter').animate({width: '100%'}, imageTime, 'linear');
 
 		}
+
+        
 	});
 
 	if (!$('body').hasClass('lt-ie8')) {
