@@ -8,41 +8,56 @@
 
 get_header(); ?>
 
-<div class="row">
-	<div class="small-12 large-8 columns" role="main">
+<?php get_template_part( 'template-parts/featured-image' ); ?>
 
-		<?php do_action( 'foundationpress_before_content' ); ?>
+	<div id="search" class="row" role="main">
+        <?php do_action('foundationPress_before_content'); ?>
 
-		<h2><?php _e( 'Search Results for', 'foundationpress' ); ?> "<?php echo get_search_query(); ?>"</h2>
 
-	<?php if ( have_posts() ) : ?>
+        <div class="main-content">
+            <form role="search" method="get" class="search-form" action="<?php echo home_url('/'); ?>">
+				<div class="field-wrap">
+					<label for="s">Search Field</label>
+					<input type="text" value="<?php echo get_search_query(); ?>" name="s" id="s" placeholder="Search this site">
+					<button type="submit"><i class="fa fa-search"></i><span>Search</span></button>
+				</div>
+			</form>
+			<?php if ($wp_query->found_posts): ?>
+				<div class="panel">
+					<div class="left"><?php echo $wp_query->found_posts; ?> results for <strong>"<?php echo get_search_query(); ?>"</strong></div>
+				</div>
+			<?php endif; ?>
+            <?php if ( have_posts() ) : ?>
 
-		<?php while ( have_posts() ) : the_post(); ?>
-			<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
-		<?php endwhile; ?>
+                <?php while ( have_posts() ) : the_post(); ?>
+                   <h2><a href="<?php echo the_permalink(); ?>"><?php echo the_title(); ?></a></h2>
+                    <div class="search-excerpt">
+					<?php
+						$teaser_limited = get_the_excerpt();
+						$teaser_limited = strip_tags($teaser_limited);
+						$teaser_limited = trim($teaser_limited, '!,?.&nbsp;');
+						echo $teaser_limited . '...';
+					?>
+                    </div>
+                <?php endwhile; ?>
 
-		<?php else : ?>
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
+            <?php else : ?>
+                <?php get_template_part( 'content', 'none' ); ?>
 
-	<?php endif;?>
+            <?php endif;?>
 
-	<?php do_action( 'foundationpress_before_pagination' ); ?>
+            <?php do_action('foundationPress_before_pagination'); ?>
 
-	<?php
-	if ( function_exists( 'foundationpress_pagination' ) ) :
-		foundationpress_pagination();
-	elseif ( is_paged() ) :
-	?>
+            <?php if ( function_exists('FoundationPress_pagination') ) { FoundationPress_pagination(); } else if ( is_paged() ) { ?>
 
-		<nav id="post-nav">
-			<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
-			<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
-		</nav>
-	<?php endif; ?>
+                <nav id="post-nav">
+                    <div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'FoundationPress' ) ); ?></div>
+                    <div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'FoundationPress' ) ); ?></div>
+                </nav>
+            <?php } ?>
+        </div>
 
-	<?php do_action( 'foundationpress_after_content' ); ?>
+        <?php do_action('foundationPress_after_content'); ?>
 
 	</div>
-	<?php get_sidebar(); ?>
-</div>
 <?php get_footer();

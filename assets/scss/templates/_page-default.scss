@@ -1,17 +1,18 @@
 #page, #page-sidebar-left {
     @include grid-row();
     margin-top: 3rem;
+    .main-content {
+        @include breakpoint(small) {
+            @include grid-column(12);
+        }
+
+        @include breakpoint(medium) {
+            @include grid-column(8);
+        } 
+    }
 }
 
 .main-content {
-    @include breakpoint(small) {
-        @include grid-column(12);
-    }
-
-    @include breakpoint(medium) {
-        @include grid-column(8);
-    }
-
     .intro {
         @include circular_sb;
         font-size: 1.1rem;
@@ -158,4 +159,88 @@
             border: none;
         }
     }
+}
+
+#search, #not-found {
+    margin-top: 3rem;
+    @include grid-row();
+
+    .main-content {
+        @include grid-column(12);
+        .panel {
+            background-color: $focus-red;
+            color: $white;
+            padding: .5rem;
+            padding-left: 1rem;
+            vertical-align: bottom;
+            font-size: .9rem;
+            text-transform: uppercase;
+            @include circular_sb;
+        }
+
+        h2 {
+            margin-top: 1rem;
+            margin-bottom: 0px;
+            a {
+                color: #101010;
+                text-decoration: underline;
+                &:hover {
+                    color: #000000;
+                }
+            }
+            &:after {
+                display: none;
+            }
+        }
+    }
+}
+
+#not-found {
+    ul {
+        font-family: $body-font-family;
+        font-size: 1rem;
+        @include breakpoint(small) {
+            width: 100%;
+        }
+        @include breakpoint(medium) {
+            width: 50%;
+        }
+        @include breakpoint(large) {
+            width: 33%;
+        }
+    }
+}
+#search, #not-found {
+	.field-wrap {
+        // .field-wrap is weird, doesn't cover submit
+        width: 100%;
+
+		input[type="text"] {
+			border-bottom: solid 1px #cccccc;
+			border-left: solid 1px #ccc;
+			border-right: 0;
+			border-top: solid 1px #999;
+			font-size: 16px;
+			height: 42px;
+			margin-bottom: 1rem;
+			padding-left: rem-calc(15);
+			width: %;
+			@include placeholder() {
+				color: $dark-gray;
+			}
+		}
+		button {
+			height: auto;
+			padding: 3px 0;
+			background-color: $medium-gray;
+		}
+		button[type="submit"] {
+			max-width: 80px;
+			margin-left: -15%;
+			height: 2.6rem;
+			@include breakpoint(medium) {
+				margin-left: -80px;
+			}   
+		}
+	}
 }
