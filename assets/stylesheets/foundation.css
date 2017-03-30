@@ -7944,6 +7944,13 @@ form .field-wrap {
     border-right: 3px solid #fff; }
     .homepage .focus-areas .focus-tile:first-child, .homepage .do-this .focus-tile:first-child, .homepage .news-events .focus-tile:first-child {
       border-left: 3px solid #fff; }
+    @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+      .homepage .focus-areas .focus-tile, .homepage .do-this .focus-tile, .homepage .news-events .focus-tile {
+        border-bottom: 3px solid #fff;
+        min-height: 375px; } }
+    @media screen and (max-width: 39.9375em) {
+      .homepage .focus-areas .focus-tile, .homepage .do-this .focus-tile, .homepage .news-events .focus-tile {
+        border-bottom: 3px solid #fff; } }
     .homepage .focus-areas .focus-tile:hover, .homepage .do-this .focus-tile:hover, .homepage .news-events .focus-tile:hover {
       background-color: rgba(0, 0, 0, 0.85); }
       .homepage .focus-areas .focus-tile:hover a .focus_area_title, .homepage .do-this .focus-tile:hover a .focus_area_title, .homepage .news-events .focus-tile:hover a .focus_area_title {

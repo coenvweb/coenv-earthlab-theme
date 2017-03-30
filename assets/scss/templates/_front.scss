@@ -204,6 +204,13 @@
             &:first-child {
                 border-left: 3px solid $white;
             }
+            @include breakpoint(medium only) {
+                border-bottom: 3px solid $white;
+                min-height: 375px;
+            }
+            @include breakpoint(small only) {
+                border-bottom: 3px solid $white;
+            }
             &:hover {
                 background-color: rgba(0, 0, 0, 0.85);
                 a {
