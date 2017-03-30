@@ -1,26 +1,35 @@
 #single-post {
-  @include grid-row();
-  margin-top: 3rem;
+   @include grid-row();
+   margin-top: 3rem;
 
-  .main-content {
-    @include breakpoint(small) {
-      @include grid-column(12);
-    }
+   .main-content {
+		@include breakpoint(small) {
+			@include grid-column(12);
+		}
 
-    @include breakpoint(medium) {
-      @include grid-column(8);
-    }
+		@include breakpoint(medium) {
+			@include grid-column(8);
+		}
 
-    .article__header {
-        .article__meta {
-            font-size: 1rem;
-            .entry-title {
-                font-size: 1.75rem !important;
-                &:after {
-                    
-                }
-            }
-        }
-    }
-  }
+		.article__header {
+			.article__meta {
+				font-size: 1rem;
+			}
+			h2.entry-title {
+				font-size: 1.75rem !important;
+				padding-bottom: .75rem;
+				margin-bottom: .75rem;
+				position: relative;
+				&:after {
+					position: absolute;
+					bottom: 0rem;
+					left: 0rem;
+					content: '';
+					width: 5rem;
+					height: 3px;
+					background-color: $focus-red;
+				}
+			}
+		}
+	}
 }

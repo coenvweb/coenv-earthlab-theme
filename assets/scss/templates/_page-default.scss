@@ -1,69 +1,161 @@
 #page, #page-sidebar-left {
     @include grid-row();
     margin-top: 3rem;
+}
 
-    .main-content {
-        @include breakpoint(small) {
-            @include grid-column(12);
+.main-content {
+    @include breakpoint(small) {
+        @include grid-column(12);
+    }
+
+    @include breakpoint(medium) {
+        @include grid-column(8);
+    }
+
+    .intro {
+        @include circular_sb;
+        font-size: 1.1rem;
+    }
+
+    figure {
+        margin-bottom: 1rem;
+        .source {
+            text-align: right;
+            background-color: rgba(0, 0, 0, 0.6);
+            font-size: 0.8rem;
+            padding-right: 0.5rem;
+            margin-top: -1rem;
+            z-index: -1;
         }
-
-        @include breakpoint(medium) {
-            @include grid-column(8);
-        }
-
-        .intro {
+        figcaption.wp-caption-text {
+            text-align: center;
+            color: $white;
+            padding: .5rem;
+            background-color: rgba(0, 0, 0, 0.6);
             @include circular_sb;
-            font-size: 1.1rem;
         }
+    }
 
-        ul {
-            list-style-type: none;
-            margin-left: 0px;
-            @include circular_sb;
-            li:not(.director_item) {
-                -webkit-box-shadow: 0px -3px 0px #fff inset;
-                -moz-box-shadow: 0px -3px 0px #fff inset;
-                box-shadow: 0px -3px 0px #fff inset;
-            }
-            li {
-                padding-top: .75rem;
-                padding-bottom: .75rem;
-                &:before {
-                    content: url('../images/ellipse.png');
-                    margin-right: .5rem;
-                    display: inline-block;
-                }
-                a {
-                    clear: both;
-                }
-            }
+    ul, ol {
+       list-style-position: inside;
+       margin-left: 0px;
+        @include circular_sb;
+        li:not(.director_item) {
+            -webkit-box-shadow: 0px -3px 0px #fff inset;
+            -moz-box-shadow: 0px -3px 0px #fff inset;
+            box-shadow: 0px -3px 0px #fff inset;
         }
-        ul.two-col {
-            overflow: hidden;
-            padding-left: 0px;
-            li {
-                width: 100%;
-                @include breakpoint(medium) {
-                    width: 45%;
-                    margin-right: 4%;
-                }
-            }
-        }
-
-        h2 {
+        li {
+            padding-top: .75rem;
             padding-bottom: .75rem;
-            margin-bottom: .75rem;
-            position: relative;
-            text-transform: uppercase;
-            &:after {
-                position: absolute;
-                bottom: 0rem;
-                left: 0rem;
-                content: '';
-                width: 5rem;
-                height: 3px;
-                background-color: $focus-red;
+        }
+        
+    }
+    ul {
+       list-style-type: none;
+       li {
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+            &:before {
+                content: url('../images/ellipse.png');
+                margin-right: .5rem;
+                display: inline-block;
             }
+            a {
+                clear: both;
+            }
+        } 
+    }
+    ul.two-col {
+        overflow: hidden;
+        padding-left: 0px;
+        li {
+            width: 100%;
+            @include breakpoint(medium) {
+                width: 45%;
+                margin-right: 4%;
+            }
+        }
+    }
+
+    h2 {
+        padding-bottom: .75rem;
+        margin-bottom: .75rem;
+        position: relative;
+        text-transform: uppercase;
+        &:after {
+            position: absolute;
+            bottom: 0rem;
+            left: 0rem;
+            content: '';
+            width: 5rem;
+            height: 3px;
+            background-color: $focus-red;
+        }
+    }
+
+    blockquote {
+    	@include circular_sb;
+		padding: 1rem;
+		background-color: $black;
+		color: $white;
+		width: 45%;
+		overflow: hidden;
+        float: left;
+        position: relative;
+        margin-right: 1rem;
+		@include breakpoint(small only) {
+			width: 100%;
+		}
+        &:after {
+            content: '\f10d';
+            font-family: FontAwesome;
+            position: absolute;
+            width: 1.5rem;
+            top: .25rem;
+            left: .5rem;
+        }
+		p {
+            text-align: center;
+            font-style: italic;
+			color: $white;
+			margin-bottom: 0rem;
+		}
+		h2 {
+			text-transform: none;
+			&:after {
+				display: none;
+			}
+		}
+    }
+
+    .accordion {
+        .accordion-title {
+            border: none;
+            border-top: 3px solid $focus-red;
+            margin-bottom: 0rem;
+        }
+        margin-bottom: 1rem;
+    }
+
+    table {
+        width: 100%;
+        border: 1px solid $medium-gray;
+        th,
+        td {
+            @include rem('padding', 0.25, 0.25, 0.25, 0.5);
+            text-align: left;
+        }
+
+        th {
+            background: #D9D9D9;
+            border-bottom: 1px solid $medium-gray;
+        }
+
+        tbody th {
+            background: #eee;
+            font-weight: 400;
+            border: none;
         }
     }
 }

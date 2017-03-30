@@ -115,6 +115,18 @@
             }
         }
     }
+    .progress {
+        margin-bottom: 0rem;
+        margin-top: -.5rem;
+        height: .5rem;
+        .progress-meter {
+            background-color: rgba(255, 255, 255, 0.8);
+            -webkit-transition: width linear .7s;
+            -moz-transition: width linear .7s;
+            -o-transition: width linear .7s;
+            transition: width linear .7s;
+        }
+    }
     .focus-areas, .do-this, .news-events {
         .row {
             position: relative;

@@ -36,9 +36,20 @@
 
     </header>
     <section class="article__content">
-        <?php if(has_post_thumbnail()) { ?>
-            <div class="coenv-thumb"><a style="float: right;" href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'med_sq' ) ?></a></div>
-        <?php } ?>
+		<?php if(get_field('event_date')) {
+            $event_date = new DateTime(get_field('event_date'));
+        ?>
+            <div class="event">
+                <div class="event_container">
+                    <span class="month"><?=$event_date->format('F');?></span>
+                    <span class="day"><?=$event_date->format('d');?></span>
+                </div>
+            </div>
+        <?php } else {
+        	if(has_post_thumbnail()) { ?>
+            	<div class="coenv-thumb"><a style="float: right;" href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'med_sq' ) ?></a></div>
+        	<?php }
+		} ?>
         <?php the_excerpt(); ?>
         <?php if ( get_field('story_link_url') && get_field('story_source_name') ): ?>
             <a href="<?php the_field('story_link_url'); ?>" class="button" target="_blank"><?php the_field('story_source_name'); ?></a> 

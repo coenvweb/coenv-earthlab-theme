@@ -9,6 +9,21 @@ jQuery(function ($) {
         });
 
 		if($('.feature-image').length) {
+            //how often to rotate img in milliseconds
+            var imageTime = 8000;
+
+            function makeProgress() {
+                var width = $('.progress-meter')[0].style.width;
+                //remove the percent value
+                width = width.substring(0, width.length - 1);
+                if(width < 100) {
+                    width = parseInt(width) + 10;
+                } else {
+                    width = 0;
+                }
+                $('.progress-meter').css('width', width + '%');
+            }
+
 			function slideSwitch() {
 				var active = $('.homepage-features .active');
 				var images = $('.homepage-features .feature-image');
@@ -16,19 +31,26 @@ jQuery(function ($) {
 				next.addClass('active');
 				active.removeClass('active');
 			}
+
+
 			$('.playpause').find('i').click(function () {
                 if($(this).hasClass('fa-play')) {
-					t = setInterval(slideSwitch, 10000 );
+                    p = setInterval(makeProgress, imageTime/11);
+					t = setInterval(slideSwitch, imageTime);
                     $(this).removeClass('fa-play');
                     $(this).addClass('fa-pause');
                 } else {
 					t = window.clearInterval(t);
+                    p = window.clearInterval(p);
+                    $('.progress-meter').css('width', '0%');
                     $(this).addClass('fa-play');
                     $(this).removeClass('fa-pause');
 				}
 			});
 
-			var t = setInterval(slideSwitch, 10000 );
+			var t = setInterval(slideSwitch, imageTime );
+            var p = setInterval(makeProgress, imageTime/11);
+
 		}
 	});
 

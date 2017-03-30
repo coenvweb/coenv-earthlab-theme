@@ -1,5 +1,8 @@
 .page-template-index {
     .main-content {
+        .filters {
+            margin: 0rem -1rem;
+        }
         .panel {
             padding: 1rem 0rem;
             overflow: hidden;
@@ -21,6 +24,19 @@
                     margin-bottom: 0px;
                 }
             }
+        }
+        .event {
+            @include breakpoint(small) {
+                width: 100%;
+            }
+            @include breakpoint(medium) {
+                width: 45%;
+            }
+            @include breakpoint(large) {
+                width: 33%;
+            }
+            float: right;
+            margin-left: 1rem;
         }
     }
 }

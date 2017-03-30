@@ -25,7 +25,7 @@ function coenv_base_get_ancestor($attr = 'ID') {
         return false;
     }
 
-    if ( ($post->post_type == 'post' || is_archive() || is_search())) {
+    if ( (is_archive() || is_search())) {
 
         $page_for_posts = get_option( 'page_for_posts' );
 
@@ -33,8 +33,14 @@ function coenv_base_get_ancestor($attr = 'ID') {
             return false;
         }
 
-        $ancestor = get_post( $page_for_posts );
+        $ancestor = get_post( 42 );
         return $ancestor->$attr;
+    }
+
+    if($post->post_type == 'post') {
+        $post_page = get_page_by_path( 'about/news-and-events' );
+        $parent = get_post($post_page->post_parent);
+        return $parent->$attr;
     }
 
     // test for pages
