@@ -389,12 +389,12 @@ class focus_area_widget extends WP_Widget {
     ?>
         <a href="<?=$instance['more_link']?>">
             <div class="focus_container">
-                <img class="focus-icon" src="<?=$instance['image_uri']?>" />
+                <img class="focus-icon" src="<?=$instance['image_uri']?>" alt="<?=$instance['image_alt']?>" />
                 <hr>
                 <?php echo $args['before_title']; ?>
                     <?=$instance['title']?>
                 <?php echo $args['after_title']; ?>
-                <img class="focus-plus" src="<?php echo get_template_directory_uri() ?>/assets/images/focus-plus.png" />
+                <img class="focus-plus" src="<?php echo get_template_directory_uri() ?>/assets/images/focus-plus.png" alt="more" />
             </div>
         </a>
     <?php   
@@ -414,6 +414,9 @@ class focus_area_widget extends WP_Widget {
         if ( isset( $instance[ 'more_link' ] ) ) {
             $more_link = $instance[ 'more_link' ];
         }
+        if ( isset( $instance[ 'image_alt' ] ) ) {
+            $image_alt = $instance[ 'image_alt' ];
+        }
         ?>
         <p>
             <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
@@ -430,6 +433,10 @@ class focus_area_widget extends WP_Widget {
 			<input type="text" class="widefat custom_media_url" name="<?php echo $this->get_field_name('image_uri'); ?>" id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php echo $instance['image_uri']; ?>">
             <input type="button" value="<?php _e( 'Upload Image' ); ?>" class="button custom_media_upload" id="custom_image_uploader<?php echo $this->id; ?>"/>
     	</p>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'image_alt' ); ?>"><?php _e( 'Image Alt Text:' ); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id( 'image_alt' ); ?>" name="<?php echo $this->get_field_name( 'image_alt' ); ?>" type="text" value="<?php echo esc_attr( $image_alt ); ?>"> 
+        </p>
         <?php
     }
 
@@ -446,6 +453,7 @@ class focus_area_widget extends WP_Widget {
         $instance['title'] = ( ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '');
         $instance['more_link'] = ( ! empty( $new_instance['more_link'] ) ? strip_tags( $new_instance['more_link'] ) : '' );
         $instance['image_uri'] = ( ! empty( $new_instance['image_uri'] ) ? strip_tags( $new_instance['image_uri'] ) : '' );
+        $instance['image_alt'] = ( ! empty( $new_instance['image_alt'] ) ? strip_tags( $new_instance['image_alt'] ) : '' );
 
         return $instance;
     }
