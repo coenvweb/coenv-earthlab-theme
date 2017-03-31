@@ -37,11 +37,19 @@
 
 }
 
+
 @font-face {
-    font-family: circular-standard-bold;
-    src: url('../fonts/CircularStd-Bold.otf');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'circular-standard-bold';
+  src: url('../fonts/CircularStd-Bold.eot') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'circular-standard-bold';
+  src: url('../fonts/CircularStd-Bold.otf') format('opentype'), url('../fonts/CircularStd-Bold.woff') format('woff'), url('../fonts/CircularStd-Bold.ttf')  format('truetype'), url('../fonts/CircularStd-Bold.svg#CircularStd-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {

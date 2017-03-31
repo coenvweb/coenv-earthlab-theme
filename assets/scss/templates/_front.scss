@@ -64,15 +64,10 @@
             }
         }
         .feature {
-            position: absolute;
-            top: 8vw;
+            margin-top: 3rem;
             @include breakpoint(small only) {
-                top: 20vw;
+                margin-top: 5rem;
             }
-            margin-left: auto;
-            margin-right: auto;
-            left: 0;
-            right: 0;
             .feature-info-container {
                 position: relative;
                 z-index: 0;
