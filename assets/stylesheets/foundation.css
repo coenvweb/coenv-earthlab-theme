@@ -19,16 +19,8 @@
 body.admin-bar .sticky.is-stuck {
   margin-top: 2rem !important; }
 
-.wp-caption > figcaption {
-  max-width: 100%;
-  font-size: 0.8rem;
-  color: #999;
-  padding: 0.25rem 0; }
-
-p.wp-caption-text {
-  font-size: 90%;
-  color: #666;
-  padding: 0.625rem 0; }
+body.admin-bar #mobile-menu {
+  margin-top: 2rem !important; }
 
 .alignleft {
   float: left;
@@ -7789,8 +7781,8 @@ form .field-wrap {
     max-height: 750px; }
     .homepage .homepage-features .playpause {
       z-index: 500;
-      width: 3rem;
-      font-size: 2rem;
+      width: 2.5rem;
+      font-size: 1.5rem;
       position: absolute;
       top: 2vw;
       right: 10vw;
@@ -7811,8 +7803,7 @@ form .field-wrap {
         height: 60vw; } }
     @media screen and (max-width: 39.9375em) {
       .homepage .homepage-features {
-        padding-top: 15vw;
-        height: 100vw; } }
+        height: 700px; } }
     .homepage .homepage-features .feature-image {
       position: absolute;
       top: 0;
@@ -7834,8 +7825,7 @@ form .field-wrap {
           height: 60vw; } }
       @media screen and (max-width: 39.9375em) {
         .homepage .homepage-features .feature-image {
-          padding-top: 15vw;
-          height: 100vw; } }
+          height: 700px; } }
       .homepage .homepage-features .feature-image.active {
         opacity: 1; }
     .homepage .homepage-features .feature {
@@ -7845,6 +7835,9 @@ form .field-wrap {
       margin-right: auto;
       left: 0;
       right: 0; }
+      @media screen and (max-width: 39.9375em) {
+        .homepage .homepage-features .feature {
+          top: 20vw; } }
       .homepage .homepage-features .feature .feature-info-container {
         position: relative;
         z-index: 0; }
@@ -7904,8 +7897,11 @@ form .field-wrap {
     padding: 1rem 1.5rem; }
     @media screen and (max-width: 39.9375em) {
       .homepage .focus-areas .block-title, .homepage .do-this .block-title, .homepage .news-events .block-title {
-        max-width: 200px;
-        min-width: 180px; } }
+        width: 190px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        float: none; } }
     @media print, screen and (min-width: 40em) {
       .homepage .focus-areas .block-title, .homepage .do-this .block-title, .homepage .news-events .block-title {
         width: 200px; } }
@@ -7957,7 +7953,9 @@ form .field-wrap {
         min-height: 375px; } }
     @media screen and (max-width: 39.9375em) {
       .homepage .focus-areas .focus-tile, .homepage .do-this .focus-tile, .homepage .news-events .focus-tile {
-        border-bottom: 3px solid #fff; } }
+        border-bottom: 3px solid #fff; }
+        .homepage .focus-areas .focus-tile:first-child, .homepage .do-this .focus-tile:first-child, .homepage .news-events .focus-tile:first-child {
+          border-top: 3px solid #fff; } }
     .homepage .focus-areas .focus-tile:hover, .homepage .do-this .focus-tile:hover, .homepage .news-events .focus-tile:hover {
       background-color: rgba(0, 0, 0, 0.85); }
       .homepage .focus-areas .focus-tile:hover a .focus_area_title, .homepage .do-this .focus-tile:hover a .focus_area_title, .homepage .news-events .focus-tile:hover a .focus_area_title {
@@ -8602,6 +8600,9 @@ form .field-wrap {
 
 .page-template-index .main-content .filters {
   margin: 0rem -1rem; }
+
+.page-template-index .main-content form .field-wrap input[type="text"] {
+  width: 85%; }
 
 .page-template-index .main-content .panel {
   padding: 1rem 0rem;

@@ -44,7 +44,7 @@ Template Name: Homepage
 				$count++;
 			endwhile;
 			echo '<div class="feature row">';
-				echo '<div class="feature-info-container medium-offset-1 medium-10 small-12 columns">';
+				echo '<div class="feature-info-container small-offset-1 small-10 columns">';
 					echo '<div class="feature-info">';
 						echo '<div class="feature-content">';
 							echo '<div class="feature-title">';
