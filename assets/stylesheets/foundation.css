@@ -7789,12 +7789,23 @@ form .field-wrap {
     max-height: 750px; }
     .homepage .homepage-features .playpause {
       z-index: 500;
+      width: 3rem;
+      font-size: 2rem;
       position: absolute;
       top: 2vw;
-      right: 10vw; }
+      right: 10vw;
+      text-align: center; }
+      @media screen and (max-width: 39.9375em) {
+        .homepage .homepage-features .playpause {
+          margin: auto; } }
       .homepage .homepage-features .playpause i {
         color: #fff;
         cursor: pointer; }
+      .homepage .homepage-features .playpause .progress {
+        margin-bottom: 0rem;
+        height: .5rem; }
+        .homepage .homepage-features .playpause .progress .progress-meter {
+          background-color: white; }
     @media screen and (min-width: 40em) and (max-width: 63.9375em) {
       .homepage .homepage-features {
         height: 60vw; } }
@@ -7877,12 +7888,6 @@ form .field-wrap {
           @media print, screen and (min-width: 64em) {
             .homepage .homepage-features .feature .feature-info-container .hero-texture {
               width: 55%; } }
-  .homepage .progress {
-    margin-bottom: 0rem;
-    margin-top: -.25rem;
-    height: .25rem; }
-    .homepage .progress .progress-meter {
-      background-color: rgba(255, 255, 255, 0.6); }
   .homepage .focus-areas .row, .homepage .do-this .row, .homepage .news-events .row {
     position: relative;
     height: 100%; }
@@ -8012,7 +8017,7 @@ form .field-wrap {
     .homepage .focus-areas .news .home_article, .homepage .focus-areas .events .home_article, .homepage .do-this .news .home_article, .homepage .do-this .events .home_article, .homepage .news-events .news .home_article, .homepage .news-events .events .home_article {
       padding-top: 2rem; }
       .homepage .focus-areas .news .home_article .article__content .article__meta, .homepage .focus-areas .events .home_article .article__content .article__meta, .homepage .do-this .news .home_article .article__content .article__meta, .homepage .do-this .events .home_article .article__content .article__meta, .homepage .news-events .news .home_article .article__content .article__meta, .homepage .news-events .events .home_article .article__content .article__meta {
-        font-size: .8rem;
+        font-size: .95rem;
         font-family: "circular-standard-bold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         text-transform: uppercase;
@@ -8021,6 +8026,7 @@ form .field-wrap {
         position: relative;
         padding-bottom: .75rem; }
         .homepage .focus-areas .news .home_article .article__content .article__title a, .homepage .focus-areas .events .home_article .article__content .article__title a, .homepage .do-this .news .home_article .article__content .article__title a, .homepage .do-this .events .home_article .article__content .article__title a, .homepage .news-events .news .home_article .article__content .article__title a, .homepage .news-events .events .home_article .article__content .article__title a {
+          font-size: 1.75rem;
           color: #0a0a0a; }
         .homepage .focus-areas .news .home_article .article__content .article__title:after, .homepage .focus-areas .events .home_article .article__content .article__title:after, .homepage .do-this .news .home_article .article__content .article__title:after, .homepage .do-this .events .home_article .article__content .article__title:after, .homepage .news-events .news .home_article .article__content .article__title:after, .homepage .news-events .events .home_article .article__content .article__title:after {
           position: absolute;

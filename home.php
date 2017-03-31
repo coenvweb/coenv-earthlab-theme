@@ -17,7 +17,12 @@ Template Name: Homepage
 		);
 	$feature_query = new WP_Query( $feature_args ); ?>
 	<div class="homepage-features">
-        <div class="playpause"><i class="fa fa-pause running"></i></div>
+        <div class="playpause">
+            <i class="fa fa-pause running"></i>
+            <div class="progress" role="progressbar" tabindex="0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-meter" style="width: 0%;"></div>
+            </div>
+        </div>
 		<?php
 		# The Loop
 		while ( $feature_query->have_posts() ) : 
@@ -59,9 +64,7 @@ Template Name: Homepage
 		wp_reset_postdata();
 		?>
 	</div>
-    <div class="progress" role="progressbar" tabindex="0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-      <div class="progress-meter" style="width: 0%;"></div>
-    </div>
+    
 
 	<div class="focus-areas">
         <div class="focus-texture">

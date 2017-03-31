@@ -3,12 +3,25 @@
     .homepage-features {
         .playpause {
             z-index: 500;
+            width: 3rem;
+            font-size: 2rem;
             position: absolute;
             top: 2vw;
             right: 10vw;
+            @include breakpoint(small only) {
+                margin: auto;
+            }
+            text-align: center;
             i {
                 color: $white;
                 cursor: pointer;
+            }
+            .progress {
+                margin-bottom: 0rem;
+                height: .5rem;
+                .progress-meter {
+                    background-color: rgb(255, 255, 255);
+                }
             }
         }
         position: relative;
@@ -115,14 +128,7 @@
             }
         }
     }
-    .progress {
-        margin-bottom: 0rem;
-        margin-top: -.25rem;
-        height: .25rem;
-        .progress-meter {
-            background-color: rgba(255, 255, 255, 0.6);
-        }
-    }
+    
     .focus-areas, .do-this, .news-events {
         .row {
             position: relative;
@@ -287,13 +293,14 @@
                 padding-top: 2rem;
                 .article__content {
                     .article__meta {
-                        font-size: .8rem;
+                        font-size: .95rem;
                         @include circular_sb;
                         text-transform: uppercase;
                         margin-bottom: .25rem;
                     }
                     .article__title {
                         a {
+                            font-size: 1.75rem;
                             color: $black;
                         }
                         position: relative;
