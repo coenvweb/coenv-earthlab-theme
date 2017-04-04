@@ -10,8 +10,6 @@
 // Mobile menu
 .off-canvas {
   > ul.menu {
-    height: 100vh;
-    padding: 1rem;
 
     a {
       @include montserrat_b;
@@ -19,9 +17,22 @@
       font-size: rem-calc(18);
       opacity: .80;
       text-transform: uppercase;
+      &:hover {
+        background-color: $light-gray;
+      }
     }
 
+    > li:not(.is-accordion-submenu-parent) {
+        > a {
+            border-left: 3px solid $focus-red;
+        }
+    }
 
+    > .is-accordion-submenu-parent {
+        > a {
+            border-left: 3px solid $medium-gray;
+        }
+    }
 
     .is-accordion-submenu-parent > a::after {
       display: block;
@@ -39,9 +50,13 @@
       }
   }
 
-  .menu .current_page_item a { background-color: $light-gray; }
-  .menu .active > a { background-color: $light-gray; }
+  .menu .current_page_item a {
+    background-color: $light-gray;
+  }
 
+  .menu .active > a {
+    background-color: $light-gray;
+  }
 
 }
 
