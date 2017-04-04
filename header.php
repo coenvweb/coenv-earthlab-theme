@@ -94,8 +94,8 @@
         <div class="coenv-top-bar-wrapper">
 			<div class="coenv-top-bar">
 				<div class="coenv-top-bar-left">
-                   <a class="desktop_logo" href="uw.edu">
-                        <svg id="desktop-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 108 73" enable-background="new 0 0 108 73" xml:space="preserve" role="img" aria-label="Wlogo">
+                   <a class="desktop_logo" href="https://uw.edu">
+                        <svg id="desktop-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 108 73" role="img" aria-label="Wlogo">
                           <title>UW Logo</title>
                           <path d="M79.343,0.112c0,0.858,0,12.238,0,13.098c0.856,0,9.206,0,9.206,0L78.271,51.461
                             c0,0-12.577-50.636-12.756-51.349c-0.687,0-12.626,0-13.303,0c-0.188,0.696-13.796,51.352-13.796,51.352L28.95,13.21
@@ -105,10 +105,9 @@
                             C107.176,0.112,80.251,0.112,79.343,0.112z"/>
                         </svg>
                     </a>
-                    <a class="university_logo" href="uw.edu">
+                    <a class="university_logo" href="https://uw.edu">
 						 <svg version="1.1" id="university_logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-						 class="uw-name" viewBox="-70 381.4 469.1 31.6" style="enable-background:new -70 381.4 469.1 31.6;"
-						 xml:space="preserve" alt="University of Washington">
+						 class="uw-name" viewBox="-70 381.4 469.1 31.6" xml:space="preserve" alt="University of Washington">
                          <title>University of Washington</title>
 					<g>
 						<path d="M384.6,404.3v-17.4l12.1,19.4h1.2v-21.3l2-2h-6.1l2,2v14.8l-10.5-16.8h-4.8l2,2v19.2l-2,2h6.1L384.6,404.3z M366.6,405.1

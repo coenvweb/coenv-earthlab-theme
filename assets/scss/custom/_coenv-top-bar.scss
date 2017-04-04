@@ -14,10 +14,12 @@
 			float: left;
 		    margin-bottom: -7px;
             a.desktop_logo {
+                width: 4.5rem;
+                height: 49px;
                 display: inline-block;
+                margin-top: 10px;
                 #desktop-logo {
-                    margin-top: 10px;
-                    width: 4.5rem;
+                    width: 100%;
                     height: 100%;
                     fill: $white;
                 }
@@ -25,10 +27,12 @@
             a.university_logo {
                 display: inline-block;
                 margin-left: 0.5rem;
+                width: 215px;
+                height: 15px;
                 #university_logo {
                     fill: $white;
                     width: 100%;
-                    height: 15px;
+                    height: 100%;
                     margin-bottom: 1rem;
                 }
             }

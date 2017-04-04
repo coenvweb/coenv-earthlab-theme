@@ -99,7 +99,7 @@ Template Name: Homepage
                         Do We<br>
                         Do This
                     </h3>
-                    <a class="button" href="">Learn More</a>
+                    <a class="button" href="/about/">Learn More</a>
                 </div>
             </div>
         </div>
