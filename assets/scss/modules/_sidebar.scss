@@ -5,7 +5,7 @@
 
     .quote-widget {
         .quote-box {
-            @include circular_sb;
+            @include montserrat_b;
             padding: 1rem;
             background-color: $black;
             color: $white;
@@ -20,7 +20,7 @@
     }
 
     .coenv_base_subnav {
-        @include circular_sb;
+        @include montserrat_b;
         margin-bottom: 3rem;
         h2 {
             background-color: $black;
@@ -66,7 +66,7 @@
         overflow: hidden;
         margin-top: 3rem;
         .post-meta {
-            @include circular_sb;
+            @include montserrat_b;
             @include grid-column(10);
             font-size: .8rem;
             padding-top: 1rem;

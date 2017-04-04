@@ -16,7 +16,7 @@
             border-bottom: 3px solid $medium-gray;
             margin-bottom: 1rem;
             .term {
-                @include circular_sb;
+                @include montserrat_b;
                 font-weight: bold;
             }
             .right, .left {

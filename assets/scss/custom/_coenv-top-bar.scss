@@ -13,24 +13,32 @@
 		.coenv-top-bar-left {
 			float: left;
 		    margin-bottom: -7px;
-			#desktop-logo {
-				margin-top: 10px;
-				width: 4.5rem;
-				height: 100%;
-				fill: $white;
-			}
-            #university_logo {
-                fill: $white;
-                margin-bottom: 1rem;
+            a.desktop_logo {
+                display: inline-block;
+                #desktop-logo {
+                    margin-top: 10px;
+                    width: 4.5rem;
+                    height: 100%;
+                    fill: $white;
+                }
+            }
+            a.university_logo {
+                display: inline-block;
                 margin-left: 0.5rem;
-            }	
+                #university_logo {
+                    fill: $white;
+                    width: 100%;
+                    height: 15px;
+                    margin-bottom: 1rem;
+                }
+            }
 		}
 		.coenv-top-bar-right {
 			float: right;
             ul#menu-el-universal {
                 margin-top: .5rem;
                 li {
-                    @include circular_sb;
+                    @include montserrat_b;
                     border: 3px solid $white;
                     a {
                         padding: .5rem;
@@ -55,7 +63,7 @@
             padding: 1.5rem 0rem;
             font-size: 3rem;
             height: 2.5rem;
-            @include circular_sb;
+            @include montserrat_b;
         }
     }
     .top-bar-right {

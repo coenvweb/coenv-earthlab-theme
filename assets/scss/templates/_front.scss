@@ -165,7 +165,7 @@
             .button {
                 border: 3px solid $black;
                 font-size: 1rem;
-                @include circular_sb;
+                @include montserrat_b;
                 color: $black;
                 padding: 0.5rem;
                 background-color: rgba(0, 0, 0, 0);
@@ -285,7 +285,7 @@
                     width: 33%;
                 }
                 .do-description {
-                    @include circular_sb;
+                    @include montserrat_b;
                 }
             }
         }
@@ -296,7 +296,7 @@
                 .article__content {
                     .article__meta {
                         font-size: .95rem;
-                        @include circular_sb;
+                        @include montserrat_b;
                         text-transform: uppercase;
                         margin-bottom: .25rem;
                     }
@@ -347,7 +347,7 @@
                     background-position: center center;
                     color: $white;
                     text-transform: uppercase;
-                    @include circular_sb;
+                    @include montserrat_b;
                     span {
                         display: block;
                     }
