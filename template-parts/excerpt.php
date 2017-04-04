@@ -40,10 +40,16 @@
             $event_date = new DateTime(get_field('event_date'));
         ?>
             <div class="event">
-                <div class="event_container">
-                    <span class="month"><?=$event_date->format('F');?></span>
-                    <span class="day"><?=$event_date->format('d');?></span>
-                </div>
+                <?php if ( get_field('story_link_url') && get_field('story_source_name') ) { ?>
+                    <a href="<?php the_field('story_link_url') ?>">
+                <?php } else { ?>
+                    <a href="<?php the_permalink() ?>">
+                <?php } ?>
+                    <div class="event_container">
+                        <span class="month"><?=$event_date->format('F');?></span>
+                        <span class="day"><?=$event_date->format('d');?></span>
+                    </div>
+                </a>
             </div>
         <?php } else {
         	if(has_post_thumbnail()) { ?>

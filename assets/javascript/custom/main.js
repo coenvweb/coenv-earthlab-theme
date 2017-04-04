@@ -49,37 +49,34 @@ jQuery(function ($) {
         
 	});
 
-	if (!$('body').hasClass('lt-ie8')) {
-		
-		// share buttons
-		$('.share').coenvshare();
-		
-		// lightbox
-        $('a').each(function() {
-            if (!this.href.match('/.*youtube.com/channel/.*')) {
-                $(this).nivoLightbox();
-            }
-        });
+    // share buttons
+    $('.share').coenvshare();
+    
+    // lightbox
+    $('a').each(function() {
+        if (!this.href.match('/.*youtube.com/channel/.*')) {
+            $(this).nivoLightbox();
+        }
+    });
 
-		// lightbox captions
-        $('figure a img').each(function () {
-            var $this = $(this);
-            $this.parent().attr('title', $this.attr('alt'));
-		});
-		$('div.gallery img').each(function () {
-            var $this = $(this);
-            $this.parent().attr('title', $this.attr('alt'));
-		});
+    // lightbox captions
+    $('figure a img').each(function () {
+        var $this = $(this);
+        $this.parent().attr('title', $this.attr('alt'));
+    });
+    $('div.gallery img').each(function () {
+        var $this = $(this);
+        $this.parent().attr('title', $this.attr('alt'));
+    });
 
-		//$(".wp-caption-text.gallery-caption").hide();
-		//$("div.gallery dl:gt(0)").hide();
+    //$(".wp-caption-text.gallery-caption").hide();
+    //$("div.gallery dl:gt(0)").hide();
 
-        // split galleries using parent id 
-		$('div.gallery a').each(function () {
-            var $this = $(this);
-            $this.attr('data-lightbox-gallery', $this.closest('div').attr('id'));
-		});
-    }
+    // split galleries using parent id 
+    $('div.gallery a').each(function () {
+        var $this = $(this);
+        $this.attr('data-lightbox-gallery', $this.closest('div').attr('id'));
+    });
 
     // Category filter for custom post type indicies
     $("select.select-category").on( 'change', function () {
