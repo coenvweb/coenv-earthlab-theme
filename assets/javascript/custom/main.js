@@ -1,12 +1,14 @@
 jQuery(function ($) {
 	'use strict';
 
-	$(document).ready(function() {
-		var sticky = new Foundation.Sticky($('.sticky'));
-
+    $(window).load(function(){
         var masonry = $('.two-col').masonry({
             itemSelector: 'li',
         });
+    });
+
+	$(document).ready(function() {
+		var sticky = new Foundation.Sticky($('.sticky'));
 
 		if($('.feature-image').length) {
             //how often to rotate img in milliseconds
