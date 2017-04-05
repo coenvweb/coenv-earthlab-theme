@@ -87,8 +87,8 @@
             }
           }
 
-          .menu li {
-            &:hover:not(.button) {
+          li {
+            &:hover:not(.button), &.current-menu-item {
               background-color: $light-gray;
             }
           }

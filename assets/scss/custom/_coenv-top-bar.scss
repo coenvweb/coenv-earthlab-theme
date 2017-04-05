@@ -76,7 +76,7 @@
                 margin-bottom: -1px;
                 position: relative;
                 &:not(.is-dropdown-submenu-parent) {
-                    &:hover {
+                    &:hover, &.current-menu-item {
                         a::after {
                             background-color: $focus-red-dark;
                         }
