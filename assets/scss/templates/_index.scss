@@ -32,6 +32,9 @@
                 }
             }
         }
+        article {
+            margin-bottom: 1.5rem;
+        }
         .event {
             @include breakpoint(small) {
                 width: 100%;

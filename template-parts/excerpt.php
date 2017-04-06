@@ -57,11 +57,7 @@
         	<?php }
 		} ?>
         <?php the_excerpt(); ?>
-        <?php if ( get_field('story_link_(url)') && get_field('story_source_name') ): ?>
-            <a href="<?php the_field('story_link_(url)'); ?>" class="button" target="_blank"><?php the_field('story_source_name'); ?></a> 
-        <?php else: ?>
-            <a href="<?php echo the_permalink(); ?>" class="button">Read more</a>
-        <?php endif; ?>
+        <a href="<?php echo the_permalink(); ?>" class="button">Read more</a>
 
     </section>
     <?php remove_filter( 'the_title', 'wptexturize' );

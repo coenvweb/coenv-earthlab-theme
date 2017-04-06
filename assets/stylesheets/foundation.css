@@ -8679,6 +8679,9 @@ form .field-wrap {
     .page-template-index .main-content .panel .right .button {
       margin-bottom: 0px; }
 
+.page-template-index .main-content article {
+  margin-bottom: 1.5rem; }
+
 .page-template-index .main-content .event {
   width: 100%;
   float: right;
