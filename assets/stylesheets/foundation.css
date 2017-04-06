@@ -8046,7 +8046,7 @@ form .field-wrap {
       background-image: url("../images/4.png"); }
     @media print, screen and (min-width: 64em) {
       .homepage .focus-areas .do-this-tile, .homepage .do-this .do-this-tile, .homepage .news-events .do-this-tile {
-        min-height: 365px; } }
+        min-height: 320px; } }
     .homepage .focus-areas .do-this-tile .do_container, .homepage .do-this .do-this-tile .do_container, .homepage .news-events .do-this-tile .do_container {
       padding: 0rem; }
       @media screen and (max-width: 39.9375em) {

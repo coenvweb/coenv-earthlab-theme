@@ -273,7 +273,7 @@
             background-size: contain;
             background-repeat: no-repeat;
             @include breakpoint(large) {
-                min-height: 365px;
+                min-height: 320px;
             }
             .do_container {
                 padding: 0rem;
