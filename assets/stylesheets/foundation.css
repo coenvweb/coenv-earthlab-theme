@@ -7124,8 +7124,8 @@ a.thumbnail {
 .entry-content .focus_director {
   color: #fff;
   background-color: rgba(0, 0, 0, 0.8);
-  border: 5px solid #0a0a0a;
-  padding: .5rem 1rem;
+  border: 0;
+  padding: 1rem;
   display: inline-block;
   margin-top: 2rem;
   margin-bottom: 0rem !important; }
@@ -8046,7 +8046,7 @@ form .field-wrap {
       background-image: url("../images/4.png"); }
     @media print, screen and (min-width: 64em) {
       .homepage .focus-areas .do-this-tile, .homepage .do-this .do-this-tile, .homepage .news-events .do-this-tile {
-        min-height: 320px; } }
+        min-height: 275px; } }
     .homepage .focus-areas .do-this-tile .do_container, .homepage .do-this .do-this-tile .do_container, .homepage .news-events .do-this-tile .do_container {
       padding: 0rem; }
       @media screen and (max-width: 39.9375em) {
@@ -8059,7 +8059,7 @@ form .field-wrap {
         margin-bottom: 0rem; }
         @media print, screen and (min-width: 40em) {
           .homepage .focus-areas .do-this-tile .do_container .do_area_title, .homepage .do-this .do-this-tile .do_container .do_area_title, .homepage .news-events .do-this-tile .do_container .do_area_title {
-            min-height: 100px; } }
+            min-height: 75px; } }
       .homepage .focus-areas .do-this-tile .do_container hr, .homepage .do-this .do-this-tile .do_container hr, .homepage .news-events .do-this-tile .do_container hr {
         border-bottom: 3px solid #cacaca !important;
         width: 33%; }
