@@ -65,7 +65,7 @@ class coenv_base_case_cats extends WP_Widget {
                     echo "</ul>";
 
                     if($instance['more_link']) {
-                        echo "<a class='button' href='/about/case-studies/focus-area/".$focus_area."'>See more ".$focus_area." case studies</a>";
+                        echo "<a class='button' href='/about/case-studies/focus-area/".$focus_area."'>More ".$focus_area." case studies</a>";
                     }
 
                 echo '</div>';
@@ -253,7 +253,7 @@ class coenv_base_news_cats extends WP_Widget {
                     ?>
                     <div class="row">
                         <div class="post-meta small-8 columns">
-                            <?php echo $focus_area; ?> News | <?php echo get_the_date('M d, Y'); ?>
+                            <a href="/about/news-and-events/focus-area/<?php echo $focus_area; ?>"> <?php echo $focus_area; ?> News</a> |<br> <?php echo get_the_date('M d, Y'); ?>
                         </div>
                     </div>
                 <?php
@@ -281,7 +281,7 @@ class coenv_base_news_cats extends WP_Widget {
                             <?php
                             echo '<div class="small-12 columns">';
                                 if($instance['more_link']) {
-                                    echo "<a class='button' href='/about/case-studies/focus-area/".$focus_area."'>See more ".$focus_area." news items</a>";
+                                    echo "<a class='button' href='/about/case-studies/focus-area/".$focus_area."'>More ".$focus_area." news items</a>";
                                 }
                             echo '</div>';
                             ?>
