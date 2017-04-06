@@ -28,8 +28,8 @@
         <?php endif ?>
         </div>
 
-        <?php if ( get_field('story_link_url') && get_field('story_source_name') ): ?>
-            <h2 class="article__title"><a href="<?php the_field('story_link_url') ?>" rel="bookmark"><?php the_title() ?></a></h2>
+        <?php if ( get_field('story_link_(url)') && get_field('story_source_name') ): ?>
+            <h2 class="article__title"><a href="<?php the_field('story_link_(url)') ?>" rel="bookmark"><?php the_title() ?></a></h2>
         <?php else: ?>
             <h2 class="article__title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title() ?></a></h2>
         <?php endif; ?>
@@ -40,8 +40,8 @@
             $event_date = new DateTime(get_field('event_date'));
         ?>
             <div class="event">
-                <?php if ( get_field('story_link_url') && get_field('story_source_name') ) { ?>
-                    <a href="<?php the_field('story_link_url') ?>">
+                <?php if ( get_field('story_link_(url)') && get_field('story_source_name') ) { ?>
+                    <a href="<?php the_field('story_link_(url)') ?>">
                 <?php } else { ?>
                     <a href="<?php the_permalink() ?>">
                 <?php } ?>
@@ -57,8 +57,8 @@
         	<?php }
 		} ?>
         <?php the_excerpt(); ?>
-        <?php if ( get_field('story_link_url') && get_field('story_source_name') ): ?>
-            <a href="<?php the_field('story_link_url'); ?>" class="button" target="_blank"><?php the_field('story_source_name'); ?></a> 
+        <?php if ( get_field('story_link_(url)') && get_field('story_source_name') ): ?>
+            <a href="<?php the_field('story_link_(url)'); ?>" class="button" target="_blank"><?php the_field('story_source_name'); ?></a> 
         <?php else: ?>
             <a href="<?php echo the_permalink(); ?>" class="button">Read more</a>
         <?php endif; ?>

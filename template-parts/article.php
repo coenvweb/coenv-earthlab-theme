@@ -46,8 +46,8 @@
 	<div class="entry-content article__content">
         
 		<?php the_content(); ?>
-		<?php if ( get_field('story_link_url') && get_field('story_source_name') ): ?>
-            <a href="<?php the_field('story_link_url'); ?>" class="button" target="_blank"><?php the_field('story_source_name'); ?></a>
+		<?php if ( get_field('story_link_(url)') && get_field('story_source_name') ): ?>
+            <a href="<?php the_field('story_link_(url)'); ?>" class="button" target="_blank"><?php the_field('story_source_name'); ?></a>
         <?php endif; ?>
 	</div>
 	<?php do_action( 'foundationpress_post_after_entry_content' ); ?>

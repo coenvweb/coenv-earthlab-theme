@@ -151,8 +151,8 @@ Template Name: Homepage
 		<?php if($news_query->have_posts()) { 
 				while($news_query->have_posts()): 
 					$news_query->the_post();
-					if (get_field('story_link_url')) {
-						$post_link_url = get_field('story_link_url');
+					if (get_field('story_link_(url)')) {
+						$post_link_url = get_field('story_link_(url)');
 						$post_link_target = ' target="_blank" ';
 						$post_link = '<p><a class="button full_button" href="' . $post_link_url . '"' . $post_link_target . '>' . get_field('story_source_name') . '</a></p>';
 					} else {
@@ -201,8 +201,8 @@ Template Name: Homepage
 			<?php if($event_query->have_posts()) { 
 				while($event_query->have_posts()): 
 					$event_query->the_post();
-					if (get_field('story_link_url')) {
-						$post_link_url = get_field('story_link_url');
+					if (get_field('story_link_(url)')) {
+						$post_link_url = get_field('story_link_(url)');
 						$post_link_target = ' target="_blank" ';
 						$post_link = '<p><a class="button full_button" href="' . $post_link_url . '"' . $post_link_target . '>' . get_field('story_source_name') . '</a></p>';
 					} else {
