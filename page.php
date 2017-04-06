@@ -21,6 +21,7 @@
    <article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
        <?php do_action( 'foundationpress_page_before_entry_content' ); ?>
        <div class="entry-content">
+           <h2 class="page-title"><?php the_title(); ?></h2>
            <?php the_content(); ?>
        </div>
        <footer>

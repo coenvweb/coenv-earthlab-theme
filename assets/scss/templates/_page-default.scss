@@ -96,6 +96,14 @@
         }
     }
 
+    h2.page-title {
+        margin-bottom: 1.5rem;
+        font-size: 2.25rem;
+        &:after {
+            width: 8rem;
+        }
+    }
+
     blockquote {
     	@include montserrat_b;
 		padding: 1rem;

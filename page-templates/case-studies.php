@@ -29,6 +29,7 @@ if(isset($wp_query->query_vars['case-search'])) {
 <div id="page-sidebar-left" class="page-template-index page-template-case-studies" role="main">
     <div <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
         <div class="entry-content">
+            <h2 class="page-title"><?php the_title(); ?></h2>
             <?php the_content(); ?>
             <div class="row filters">
                 <div class=" large-6 columns" data-url="<?php the_permalink() ?>" data-cat="focus-area">
