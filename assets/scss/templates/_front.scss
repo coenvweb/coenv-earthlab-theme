@@ -272,13 +272,22 @@
             background-position: center center;
             background-size: contain;
             background-repeat: no-repeat;
+            @include breakpoint(large) {
+                min-height: 365px;
+            }
             .do_container {
-                padding: 0rem 10%;
+                padding: 0rem;
+                @include breakpoint(small only) {
+                    padding: 0rem 5%;
+                }
                 .do_area_title {
-                    font-size: 1.1rem;
+                    font-size: 1.5rem;
                     padding-top: 1rem;
                     vertical-align: bottom;
                     margin-bottom: 0rem;
+                    @include breakpoint(medium) {
+                        min-height: 100px;
+                    }
                 }
                 hr {
                     border-bottom: 3px solid $medium-gray !important;
@@ -302,7 +311,7 @@
                     }
                     .article__title {
                         a {
-                            font-size: 1.75rem;
+                            font-size: 1.5rem;
                             color: $black;
                         }
                         position: relative;

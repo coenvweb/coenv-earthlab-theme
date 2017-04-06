@@ -8044,13 +8044,22 @@ form .field-wrap {
       background-image: url("../images/3.png"); }
     .homepage .focus-areas .do-this-tile:nth-of-type(4), .homepage .do-this .do-this-tile:nth-of-type(4), .homepage .news-events .do-this-tile:nth-of-type(4) {
       background-image: url("../images/4.png"); }
+    @media print, screen and (min-width: 64em) {
+      .homepage .focus-areas .do-this-tile, .homepage .do-this .do-this-tile, .homepage .news-events .do-this-tile {
+        min-height: 365px; } }
     .homepage .focus-areas .do-this-tile .do_container, .homepage .do-this .do-this-tile .do_container, .homepage .news-events .do-this-tile .do_container {
-      padding: 0rem 10%; }
+      padding: 0rem; }
+      @media screen and (max-width: 39.9375em) {
+        .homepage .focus-areas .do-this-tile .do_container, .homepage .do-this .do-this-tile .do_container, .homepage .news-events .do-this-tile .do_container {
+          padding: 0rem 5%; } }
       .homepage .focus-areas .do-this-tile .do_container .do_area_title, .homepage .do-this .do-this-tile .do_container .do_area_title, .homepage .news-events .do-this-tile .do_container .do_area_title {
-        font-size: 1.1rem;
+        font-size: 1.5rem;
         padding-top: 1rem;
         vertical-align: bottom;
         margin-bottom: 0rem; }
+        @media print, screen and (min-width: 40em) {
+          .homepage .focus-areas .do-this-tile .do_container .do_area_title, .homepage .do-this .do-this-tile .do_container .do_area_title, .homepage .news-events .do-this-tile .do_container .do_area_title {
+            min-height: 100px; } }
       .homepage .focus-areas .do-this-tile .do_container hr, .homepage .do-this .do-this-tile .do_container hr, .homepage .news-events .do-this-tile .do_container hr {
         border-bottom: 3px solid #cacaca !important;
         width: 33%; }
@@ -8071,7 +8080,7 @@ form .field-wrap {
         position: relative;
         padding-bottom: .75rem; }
         .homepage .focus-areas .news .home_article .article__content .article__title a, .homepage .focus-areas .events .home_article .article__content .article__title a, .homepage .do-this .news .home_article .article__content .article__title a, .homepage .do-this .events .home_article .article__content .article__title a, .homepage .news-events .news .home_article .article__content .article__title a, .homepage .news-events .events .home_article .article__content .article__title a {
-          font-size: 1.75rem;
+          font-size: 1.5rem;
           color: #0a0a0a; }
         .homepage .focus-areas .news .home_article .article__content .article__title:after, .homepage .focus-areas .events .home_article .article__content .article__title:after, .homepage .do-this .news .home_article .article__content .article__title:after, .homepage .do-this .events .home_article .article__content .article__title:after, .homepage .news-events .news .home_article .article__content .article__title:after, .homepage .news-events .events .home_article .article__content .article__title:after {
           position: absolute;
