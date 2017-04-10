@@ -2,7 +2,6 @@
     background-color: $light-gray;
     .homepage-features {
         .playpause {
-            background: rgba(0, 0, 0, 0.4);
             z-index: 500;
             width: 3rem;
             padding: 0.25rem;
@@ -15,14 +14,14 @@
             }
             text-align: center;
             i {
-                color: $white;
+                color: rbga(0, 0, 0, 0.6);
                 cursor: pointer;
             }
             .progress {
                 margin-bottom: 0rem;
                 height: .5rem;
                 .progress-meter {
-                    background-color: rgb(255, 255, 255);
+                    background-color: rgba(0, 0, 0, 0.6);
                 }
             }
         }

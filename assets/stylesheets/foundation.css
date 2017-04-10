@@ -7887,7 +7887,6 @@ form .field-wrap {
     min-height: 600px;
     max-height: 750px; }
     .homepage .homepage-features .playpause {
-      background: rgba(0, 0, 0, 0.4);
       z-index: 500;
       width: 3rem;
       padding: 0.25rem;
@@ -7900,13 +7899,13 @@ form .field-wrap {
         .homepage .homepage-features .playpause {
           margin: auto; } }
       .homepage .homepage-features .playpause i {
-        color: #fff;
+        color: rbga(0, 0, 0, 0.6);
         cursor: pointer; }
       .homepage .homepage-features .playpause .progress {
         margin-bottom: 0rem;
         height: .5rem; }
         .homepage .homepage-features .playpause .progress .progress-meter {
-          background-color: white; }
+          background-color: rgba(0, 0, 0, 0.6); }
     @media screen and (min-width: 40em) and (max-width: 63.9375em) {
       .homepage .homepage-features {
         height: 60vw; } }
