@@ -253,23 +253,31 @@ class coenv_base_news_cats extends WP_Widget {
                     ?>
                     <div class="row">
                         <div class="post-meta small-8 columns">
-                            <a href="/about/news-and-events/focus-area/<?php echo $focus_area; ?>"> <?php echo $focus_area; ?> News</a> |<br> <?php echo get_the_date('M d, Y'); ?>
+                            <a href="/about/news-and-events/focus-area/<?php echo $focus_area; ?>"> <?php echo $focus_area; ?> News</a>
                         </div>
                     </div>
                 <?php
 
                     ?>
                     <div class="news-preview">
-                        <?php
-                        if(has_post_thumbnail()) {
-                            ?>
+						<?php if(get_field('event_date')) {
+							$event_date = new DateTime(get_field('event_date'));
+						?>  
+							<div class="row collapse event">
+								<div class="event_container news_thumb small-12 columns">
+									<span class="month"><?=$event_date->format('F');?></span>
+									<span class="day"><?=$event_date->format('d');?></span>
+								</div>
+							</div>
+						<?php } ?>
+                        <?php if(has_post_thumbnail()) { ?>
                             <div class="row collapse">
                                 <div class="news_thumb small-12 columns">
                                     <?php the_post_thumbnail('fp-medium'); ?>
                                 </div>
                             </div>
                             <?php
-                        }
+                        } 
                         ?>
                         <div class="row">
                             <div class="small-12 columns">

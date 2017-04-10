@@ -26,8 +26,13 @@
                         </div>
                         <div class="row medium-collapse">
                             <div class="footer__info medium-3 columns small-12">
-                                <p><a href="http://maps.google.com/?q=1492+NE+Boat+St" title="Google Maps link">1492 NE Boat St., Seattle, WA 98105</a></p>
-                                <p><a href="mailto:<?=antispambot("earthlab@uw.edu")?>" title="Send us an Email"><?php echo antispambot("earthlab@uw.edu") ?></a></p>
+                                <?php if( have_rows('address', 'options') ): ?>
+                                    <?php while( have_rows('address', 'options') ): the_row(); ?>
+                                        <p><a href="<?php echo get_sub_field('maps_link'); ?>" title="Google Maps link"><?php echo get_sub_field('mail_address'); ?></a></p>
+                                    <?php endwhile; ?>
+                                <?php endif; ?>
+                                <p><a href="mailto:<?=antispambot(get_field('email', 'options'))?>" title="Send us an Email"><?php echo antispambot(get_field('email', 'options')) ?></a></p>
+                                <p><a href="tel:<?=antispambot(get_field('phone_number', 'options'))?>" title="Call us"><?php echo antispambot(get_field('phone_number', 'options')) ?></a></p>
                             </div>
 
                             <nav class="footer-nav medium-2 columns offset-medium-7 small-12">

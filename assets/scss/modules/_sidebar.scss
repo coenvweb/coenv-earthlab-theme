@@ -64,7 +64,6 @@
 
     .widget_coenv_base_news_cats{
         overflow: hidden;
-        margin-top: 3rem;
         .post-meta {
             a {
                 color: $white;
@@ -92,6 +91,31 @@
         .news_thumb {
             img {
                 border-bottom: 5px solid $black;
+            }
+        }
+        .event {
+            background-image: url('../images/event_background.png');
+            background-size: cover;
+            border-bottom: 5px solid $black;
+			text-align: center;
+            .event_container {
+				padding: 3rem 0rem;
+				background-image: url('../images/calendar_icon_home.png');
+				background-repeat: no-repeat;
+				background-position: center center;
+				color: $white;
+				text-transform: uppercase;
+				@include montserrat_b;
+				span {
+					display: block;
+				}
+				.month {
+					font-size: 1.5rem;
+				}
+				.day {
+					font-size: 5rem;
+					line-height: 3.5rem;
+				}
             }
         }
     }

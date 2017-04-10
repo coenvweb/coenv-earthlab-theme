@@ -161,36 +161,40 @@ Template Name: Homepage
 					}
 			?>
 				<article class="home_article row">
-					<section class="article__image small-10 small-offset-1 medium-offset-0 medium-4 medium-push-8 columns">
-						<a href="<?php the_permalink() ?>"><?php the_post_thumbnail('fp-medium') ?></a>
-					</section>
-					<section class="article__content medium-pull-4 medium-offset-1 medium-7 small-12 columns">
-						<div class="article__meta">
-                            NEWS |
-							<time class="article__time" datetime="<?php echo get_the_date('Y-m-d h:i:s') ?>"><?php echo get_the_date('M j, Y') ?></time>
-							<?php
-							$more_terms = wp_get_post_terms(get_the_id(), 'focus-area');
-							if (!empty($more_terms)) {
-								$more_terms_arr = array();
+                    <?php if(has_post_thumbnail()) { ?>
+                        <section class="article__image small-10 small-offset-1 medium-offset-0 medium-4 medium-push-8 columns">
+                            <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('fp-medium') ?></a>
+                        </section>
+                        <section class="article__content medium-pull-4 medium-offset-1 medium-7 small-12 columns">
+                    <?php } else { ?>
+					    <section class="article__content medium-offset-1 medium-11 small-12 columns">
+                    <?php } ?>
+                            <div class="article__meta">
+                                NEWS |
+                                <time class="article__time" datetime="<?php echo get_the_date('Y-m-d h:i:s') ?>"><?php echo get_the_date('M j, Y') ?></time>
+                                <?php
+                                $more_terms = wp_get_post_terms(get_the_id(), 'focus-area');
+                                if (!empty($more_terms)) {
+                                    $more_terms_arr = array();
 
-								foreach ($more_terms as &$term) {
-									$more_terms_arr[] = '<a href="/about/news-and-events/focus-area/' . $term->slug . '">' . $term->name . '</a>';
-								}   
-							}   
-							?>  
-							|
-							<span class="article__categories">
-								 <?php echo implode(', ', $more_terms_arr) ?>
-							</span>
-						</div>
-						<h4 class="article__title">
-							<a href="<?php the_permalink() ?>"><?php the_title() ?></a>
-						</h4>
-						<div class="article__teaser">
-							<?php the_excerpt() ?>
-							<?php echo $post_link; ?>
-						</div>	
-					</section>
+                                    foreach ($more_terms as &$term) {
+                                        $more_terms_arr[] = '<a href="/about/news-and-events/focus-area/' . $term->slug . '">' . $term->name . '</a>';
+                                    }   
+                                }   
+                                ?>  
+                                |
+                                <span class="article__categories">
+                                     <?php echo implode(', ', $more_terms_arr) ?>
+                                </span>
+                            </div>
+                            <h4 class="article__title">
+                                <a href="<?php the_permalink() ?>"><?php the_title() ?></a>
+                            </h4>
+                            <div class="article__teaser">
+                                <?php the_excerpt() ?>
+                                <?php echo $post_link; ?>
+                            </div>	
+                        </section>
 				</article>
 			<?php
 				endwhile;

@@ -64,3 +64,6 @@ require_once( 'library/rewrites.php' );
 /** Shortcodes */
 require_once( 'library/shortcodes.php' );
 
+if( function_exists('acf_add_options_page')) {
+    acf_add_options_page();
+}

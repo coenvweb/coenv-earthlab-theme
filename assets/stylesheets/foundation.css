@@ -7477,7 +7477,7 @@ a.thumbnail {
     .site-footer .footer__info a {
       color: #fff;
       text-decoration: none; }
-    .site-footer .footer__info p:first-of-type {
+    .site-footer .footer__info p {
       margin: 0; }
     .site-footer .footer__info .top-links {
       margin: 0;
@@ -7605,8 +7605,7 @@ a.thumbnail {
         color: #0a0a0a; }
 
 .sidebar .widget_coenv_base_news_cats {
-  overflow: hidden;
-  margin-top: 3rem; }
+  overflow: hidden; }
   .sidebar .widget_coenv_base_news_cats .post-meta {
     font-family: "montserratbold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -7638,6 +7637,28 @@ a.thumbnail {
       margin-top: 1.5rem; }
   .sidebar .widget_coenv_base_news_cats .news_thumb img {
     border-bottom: 5px solid #0a0a0a; }
+  .sidebar .widget_coenv_base_news_cats .event {
+    background-image: url("../images/event_background.png");
+    -webkit-background-size: cover;
+            background-size: cover;
+    border-bottom: 5px solid #0a0a0a;
+    text-align: center; }
+    .sidebar .widget_coenv_base_news_cats .event .event_container {
+      padding: 3rem 0rem;
+      background-image: url("../images/calendar_icon_home.png");
+      background-repeat: no-repeat;
+      background-position: center center;
+      color: #fff;
+      text-transform: uppercase;
+      font-family: "montserratbold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased; }
+      .sidebar .widget_coenv_base_news_cats .event .event_container span {
+        display: block; }
+      .sidebar .widget_coenv_base_news_cats .event .event_container .month {
+        font-size: 1.5rem; }
+      .sidebar .widget_coenv_base_news_cats .event .event_container .day {
+        font-size: 5rem;
+        line-height: 3.5rem; }
 
 .sidebar .widget_coenv_base_case_cats h4, .sidebar .widget_coenv_base_news_cats h4 {
   font-size: 1.25rem;
