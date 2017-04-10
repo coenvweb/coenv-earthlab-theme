@@ -1,0 +1,45 @@
+@media print {
+    body {
+        background: white;
+        color: black;
+        margin: 0;
+    }
+
+    .divider {
+        display: none;
+        height: 0;
+    }
+    
+    .uw-footer {
+        padding-top: 0;
+
+        .boundless-logo {
+            padding: 0;
+            height: auto;
+        }
+
+    }
+
+    form {
+        display: none;
+    }
+
+    .menu-footer-links {
+        display: none;
+    }
+
+    .footer-nav {
+        display: none;
+    }
+
+    .site-footer__header {
+        display: none;
+    }
+
+    .site-footer {
+        padding-bottom: 0;
+        .right-college {
+            display: none;
+        }
+    }
+}

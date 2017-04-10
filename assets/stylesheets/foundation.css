@@ -5343,7 +5343,7 @@ select {
   .pagination li {
     margin-right: 0.0625rem;
     border-radius: 2px;
-    font-size: 0.875rem;
+    font-size: 1rem;
     display: none; }
     .pagination li:last-child, .pagination li:first-child {
       display: inline-block; }
@@ -5358,15 +5358,15 @@ select {
     color: #0a0a0a; }
     .pagination a:hover,
     .pagination button:hover {
-      background: #f0f0f0; }
+      background: #f86b61; }
   .pagination .current {
     padding: 0.1875rem 0.625rem;
-    background: #1779ba;
+    background: #f86b61;
     color: #fff;
     cursor: default; }
   .pagination .disabled {
     padding: 0.1875rem 0.625rem;
-    color: #cacaca;
+    color: #444444;
     cursor: not-allowed; }
     .pagination .disabled:hover {
       background: transparent; }
@@ -7241,6 +7241,32 @@ a.thumbnail {
           height: 4rem;
           bottom: -4.25rem; } }
 
+@media print {
+  body {
+    background: white;
+    color: black;
+    margin: 0; }
+  .divider {
+    display: none;
+    height: 0; }
+  .uw-footer {
+    padding-top: 0; }
+    .uw-footer .boundless-logo {
+      padding: 0;
+      height: auto; }
+  form {
+    display: none; }
+  .menu-footer-links {
+    display: none; }
+  .footer-nav {
+    display: none; }
+  .site-footer__header {
+    display: none; }
+  .site-footer {
+    padding-bottom: 0; }
+    .site-footer .right-college {
+      display: none; } }
+
 @media screen and (max-width: 39.9375em) {
   .desktop-menu, .top-bar-left {
     display: none !important; } }
@@ -7840,8 +7866,10 @@ form .field-wrap {
     min-height: 600px;
     max-height: 750px; }
     .homepage .homepage-features .playpause {
+      background: rgba(0, 0, 0, 0.4);
       z-index: 500;
-      width: 2.5rem;
+      width: 3rem;
+      padding: 0.25rem;
       font-size: 1.5rem;
       position: absolute;
       top: 2vw;
@@ -8357,6 +8385,20 @@ form .field-wrap {
       .main-content ul.two-col li {
         width: 45%;
         margin-right: 4%; } }
+
+.main-content .pager {
+  margin-top: 0.5rem; }
+  .main-content .pager .pagination {
+    text-align: center; }
+    .main-content .pager .pagination li {
+      padding: 0px; }
+      .main-content .pager .pagination li:before {
+        display: none; }
+      .main-content .pager .pagination li:not(.director_item) {
+        -webkit-box-shadow: none;
+        box-shadow: none; }
+      .main-content .pager .pagination li a {
+        padding: .375rem 1.25rem; }
 
 .main-content h2 {
   padding-bottom: .75rem;
