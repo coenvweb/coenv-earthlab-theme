@@ -11,17 +11,18 @@
             right: 10vw;
             @include breakpoint(small only) {
                 margin: auto;
+                margin-top: 1rem;
             }
             text-align: center;
             i {
-                color: $dark-gray;
+                color: $white;
                 cursor: pointer;
             }
             .progress {
                 margin-bottom: 0rem;
                 height: .5rem;
                 .progress-meter {
-                    background-color: rgba(0, 0, 0, 0.6);
+                    background-color: $white;
                 }
             }
         }

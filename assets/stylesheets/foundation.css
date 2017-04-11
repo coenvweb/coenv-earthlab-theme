@@ -7873,15 +7873,16 @@ form .field-wrap {
       text-align: center; }
       @media screen and (max-width: 39.9375em) {
         .homepage .homepage-features .playpause {
-          margin: auto; } }
+          margin: auto;
+          margin-top: 1rem; } }
       .homepage .homepage-features .playpause i {
-        color: #444444;
+        color: #fff;
         cursor: pointer; }
       .homepage .homepage-features .playpause .progress {
         margin-bottom: 0rem;
         height: .5rem; }
         .homepage .homepage-features .playpause .progress .progress-meter {
-          background-color: rgba(0, 0, 0, 0.6); }
+          background-color: #fff; }
     @media screen and (min-width: 40em) and (max-width: 63.9375em) {
       .homepage .homepage-features {
         height: 60vw; } }
