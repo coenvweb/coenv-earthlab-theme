@@ -8382,20 +8382,6 @@ form .field-wrap {
         width: 45%;
         margin-right: 4%; } }
 
-.main-content .pager {
-  margin-top: 0.5rem; }
-  .main-content .pager .pagination {
-    text-align: center; }
-    .main-content .pager .pagination li {
-      padding: 0px; }
-      .main-content .pager .pagination li:before {
-        display: none; }
-      .main-content .pager .pagination li:not(.director_item) {
-        -webkit-box-shadow: none;
-        box-shadow: none; }
-      .main-content .pager .pagination li a {
-        padding: .375rem 1.25rem; }
-
 .main-content h2 {
   padding-bottom: .75rem;
   margin-bottom: .75rem;
@@ -8534,7 +8520,7 @@ form .field-wrap {
     height: 42px;
     margin-bottom: 1rem;
     padding-left: 0.9375rem;
-    width: %; }
+    width: 85%; }
     #search .field-wrap input[type="text"]::-webkit-input-placeholder, #not-found .field-wrap input[type="text"]::-webkit-input-placeholder {
       color: #444444; }
     #search .field-wrap input[type="text"]:-moz-placeholder, #not-found .field-wrap input[type="text"]:-moz-placeholder {
@@ -8548,12 +8534,21 @@ form .field-wrap {
     padding: 3px 0;
     background-color: #cacaca; }
   #search .field-wrap button[type="submit"], #not-found .field-wrap button[type="submit"] {
-    max-width: 80px;
-    margin-left: -15%;
+    width: 15%;
     height: 2.6rem; }
-    @media print, screen and (min-width: 40em) {
-      #search .field-wrap button[type="submit"], #not-found .field-wrap button[type="submit"] {
-        margin-left: -80px; } }
+
+.pagination {
+  margin-top: 0.5rem;
+  text-align: center; }
+  .pagination li {
+    padding: 0px !important; }
+    .pagination li:before {
+      display: none !important; }
+    .pagination li:not(.director_item) {
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important; }
+    .pagination li a {
+      padding: .375rem 1.25rem !important; }
 
 #page-sidebar-left, #single-post {
   max-width: 75rem;
