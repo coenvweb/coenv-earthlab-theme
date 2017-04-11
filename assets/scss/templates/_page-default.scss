@@ -89,6 +89,9 @@
         color: $black;
         a {
             color: $black;
+            &:hover {
+                color: $focus-red-dark;
+            }
         }
         &:after {
             position: absolute;
