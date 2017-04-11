@@ -2,27 +2,6 @@
 		======================================================================== */
 
 @font-face {
-	font-family: encode-sans-normal;  
-	src: url("../fonts/EncodeSansNormal-400-Regular.ttf") format('truetype');  
-	font-weight: normal;
-    font-style: normal;  
-}
-
-@font-face {
-	font-family: encode-sans-medium;  
-	src: url("../fonts/EncodeSansNormal-600-SemiBold.ttf") format('truetype');  
-	font-weight: normal;
-    font-style: normal;  
-}
-
-@font-face {
-	font-family: encode-sans-condensed;  
-	src: url("../fonts/EncodeSansCondensed-800-ExtraBold.ttf") format('truetype');  
-	font-weight: normal;
-    font-style: normal;  
-}
-
-@font-face {
 	font-family: open-sans-bold;  
 	src: url("../fonts/OpenSans-800.ttf") format('truetype');  
 	font-weight: 800;
@@ -105,24 +84,6 @@
     font-family: "open-sans-bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     letter-spacing: .5px;
-}
-
-@mixin encode() {
-    font-family: "encode-sans-normal", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif!important;
-    -webkit-font-smoothing: antialiased;
-}
-
-@mixin encode_med() {
-    letter-spacing: .5px;
-    font-family: "encode-sans-medium", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif!important;
-    -webkit-font-smoothing: antialiased;
-}
-
-@mixin encode_cb() {
-    letter-spacing: .5px;
-    -webkit-font-smoothing: antialiased;
-    font-family: "encode-sans-condensed", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif!important;
-    //text-transform: uppercase;
 }
 
 @mixin montserrat_b() {
