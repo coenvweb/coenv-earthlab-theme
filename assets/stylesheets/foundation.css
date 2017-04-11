@@ -7813,7 +7813,9 @@ form .field-wrap {
   border-radius: 0px;
   background-color: transparent;
   font-family: "montserratbold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease; }
 
 .flex-card-example {
   display: -webkit-box;
