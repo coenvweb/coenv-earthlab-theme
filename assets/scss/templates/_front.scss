@@ -274,7 +274,7 @@
             background-size: contain;
             background-repeat: no-repeat;
             @include breakpoint(large) {
-                min-height: 275px;
+                min-height: 280px;
             }
             .do_container {
                 padding: 0rem;
@@ -282,12 +282,12 @@
                     padding: 0rem 5%;
                 }
                 .do_area_title {
-                    font-size: 1.5rem;
+                    font-size: 1.4rem;
                     padding-top: 1rem;
                     vertical-align: bottom;
                     margin-bottom: 0rem;
                     @include breakpoint(medium) {
-                        min-height: 75px;
+                        min-height: 70px;
                     }
                 }
                 hr {

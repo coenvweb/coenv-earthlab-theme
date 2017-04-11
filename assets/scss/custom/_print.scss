@@ -5,11 +5,30 @@
         margin: 0;
     }
 
+    .playpause {
+        display: none;
+    }
+
     .divider {
         display: none;
         height: 0;
     }
-    
+
+    .sticky {
+        position: relative !important;
+    }
+
+    ul.two-col {
+        li {
+            width: 100%;
+            position: relative;
+        }
+    }
+
+    hr {
+        display: none;
+    }
+
     .uw-footer {
         padding-top: 0;
 

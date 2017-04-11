@@ -7241,32 +7241,6 @@ a.thumbnail {
           height: 4rem;
           bottom: -4.25rem; } }
 
-@media print {
-  body {
-    background: white;
-    color: black;
-    margin: 0; }
-  .divider {
-    display: none;
-    height: 0; }
-  .uw-footer {
-    padding-top: 0; }
-    .uw-footer .boundless-logo {
-      padding: 0;
-      height: auto; }
-  form {
-    display: none; }
-  .menu-footer-links {
-    display: none; }
-  .footer-nav {
-    display: none; }
-  .site-footer__header {
-    display: none; }
-  .site-footer {
-    padding-bottom: 0; }
-    .site-footer .right-college {
-      display: none; } }
-
 @media screen and (max-width: 39.9375em) {
   .desktop-menu, .top-bar-left {
     display: none !important; } }
@@ -8102,20 +8076,20 @@ form .field-wrap {
       background-image: url("../images/4.png"); }
     @media print, screen and (min-width: 64em) {
       .homepage .focus-areas .do-this-tile, .homepage .do-this .do-this-tile, .homepage .news-events .do-this-tile {
-        min-height: 275px; } }
+        min-height: 280px; } }
     .homepage .focus-areas .do-this-tile .do_container, .homepage .do-this .do-this-tile .do_container, .homepage .news-events .do-this-tile .do_container {
       padding: 0rem; }
       @media screen and (max-width: 39.9375em) {
         .homepage .focus-areas .do-this-tile .do_container, .homepage .do-this .do-this-tile .do_container, .homepage .news-events .do-this-tile .do_container {
           padding: 0rem 5%; } }
       .homepage .focus-areas .do-this-tile .do_container .do_area_title, .homepage .do-this .do-this-tile .do_container .do_area_title, .homepage .news-events .do-this-tile .do_container .do_area_title {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         padding-top: 1rem;
         vertical-align: bottom;
         margin-bottom: 0rem; }
         @media print, screen and (min-width: 40em) {
           .homepage .focus-areas .do-this-tile .do_container .do_area_title, .homepage .do-this .do-this-tile .do_container .do_area_title, .homepage .news-events .do-this-tile .do_container .do_area_title {
-            min-height: 75px; } }
+            min-height: 70px; } }
       .homepage .focus-areas .do-this-tile .do_container hr, .homepage .do-this .do-this-tile .do_container hr, .homepage .news-events .do-this-tile .do_container hr {
         border-bottom: 3px solid #cacaca !important;
         width: 33%; }
@@ -8771,5 +8745,40 @@ form .field-wrap {
 
 .main-content {
   margin-bottom: 4rem; }
+
+@media print {
+  body {
+    background: white;
+    color: black;
+    margin: 0; }
+  .playpause {
+    display: none; }
+  .divider {
+    display: none;
+    height: 0; }
+  .sticky {
+    position: relative !important; }
+  ul.two-col li {
+    width: 100%;
+    position: relative; }
+  hr {
+    display: none; }
+  .uw-footer {
+    padding-top: 0; }
+    .uw-footer .boundless-logo {
+      padding: 0;
+      height: auto; }
+  form {
+    display: none; }
+  .menu-footer-links {
+    display: none; }
+  .footer-nav {
+    display: none; }
+  .site-footer__header {
+    display: none; }
+  .site-footer {
+    padding-bottom: 0; }
+    .site-footer .right-college {
+      display: none; } }
 
 /*# sourceMappingURL=foundation.css.map */
