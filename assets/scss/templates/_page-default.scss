@@ -86,7 +86,10 @@
         margin-bottom: .75rem;
         position: relative;
         text-transform: uppercase;
-        color: $black !important;
+        color: $black;
+        a {
+            color: $black;
+        }
         &:after {
             position: absolute;
             bottom: 0rem;
