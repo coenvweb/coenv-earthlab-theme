@@ -7899,7 +7899,7 @@ form .field-wrap {
         .homepage .homepage-features .playpause {
           margin: auto; } }
       .homepage .homepage-features .playpause i {
-        color: rbga(0, 0, 0, 0.6);
+        color: #444444;
         cursor: pointer; }
       .homepage .homepage-features .playpause .progress {
         margin-bottom: 0rem;

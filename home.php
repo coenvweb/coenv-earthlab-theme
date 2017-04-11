@@ -95,9 +95,9 @@ Template Name: Homepage
             <div class="row ">
                 <div class="large-offset-9 large-2 columns medium-offset-6 medium-4 small-offset-3 small-6 block-title do-title">
                     <h3>
-                        How<br>
-                        Do We<br>
-                        Do This
+                        How<br> 
+                        We Do<br>
+                        This
                     </h3>
                     <a class="button" href="/about/">Learn More</a>
                 </div>
