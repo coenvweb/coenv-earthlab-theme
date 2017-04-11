@@ -7942,7 +7942,9 @@ form .field-wrap {
                 .homepage .homepage-features .feature .feature-info-container .feature-content .feature-title h2 {
                   font-size: 2.7rem; } }
           .homepage .homepage-features .feature .feature-info-container .feature-content .feature-excerpt {
-            background-color: rgba(0, 0, 0, 0.8); }
+            background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.85)), to(black));
+            background: -webkit-linear-gradient(rgba(0, 0, 0, 0.85), black);
+            background: linear-gradient(rgba(0, 0, 0, 0.85), black); }
             .homepage .homepage-features .feature .feature-info-container .feature-content .feature-excerpt p {
               font-weight: 600;
               line-height: 2rem;
