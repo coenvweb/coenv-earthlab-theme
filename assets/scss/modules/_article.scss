@@ -1,31 +1,31 @@
 .article {
-	.event { 
-		display: block;
-		border: 5px solid $medium-gray;
-		background-image: url('../images/event_background.png');
-		background-size: cover;
-		margin-bottom: 1rem;
-		.event_container {
-			padding: 3rem 0rem;
-			background-image: url('../images/calendar_icon_home.png');
-			background-repeat: no-repeat;
-			background-position: center center;
-			color: $white;
-			text-transform: uppercase;
-			@include montserrat_b;
-			span {
-				display: block;
-			}   
-			.month {
-				font-size: 1.5rem;
-			}   
-			.day {
-				font-size: 5rem;
-				line-height: 3.5rem;
-			}   
-		}   
-		text-align: center;
-	} 
+    .event { 
+        display: block;
+        border: 5px solid $medium-gray;
+        background-image: url('../images/event_background.png');
+        background-size: cover;
+        margin-bottom: 1rem;
+        .event_container {
+            padding: 3rem 0rem;
+            background-image: url('../images/calendar_icon_home.png');
+            background-repeat: no-repeat;
+            background-position: center center;
+            color: $white;
+            text-transform: uppercase;
+            @include montserrat_b;
+            span {
+                display: block;
+            }   
+            .month {
+                font-size: 1.5rem;
+            }   
+            .day {
+                font-size: 5rem;
+                line-height: 3.5rem;
+            }   
+        }   
+        text-align: center;
+    } 
     .article__header {
         .article__meta {
             font-size: .8rem;

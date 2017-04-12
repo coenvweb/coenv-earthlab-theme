@@ -28,11 +28,7 @@
         <?php endif ?>
         </div>
 
-        <?php if ( get_field('story_link_(url)') && get_field('story_source_name') ): ?>
-            <h2 class="article__title"><a href="<?php the_field('story_link_(url)') ?>" rel="bookmark"><?php the_title() ?></a></h2>
-        <?php else: ?>
-            <h2 class="article__title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title() ?></a></h2>
-        <?php endif; ?>
+        <h2 class="article__title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title() ?></a></h2>
 
     </header>
     <section class="article__content">
