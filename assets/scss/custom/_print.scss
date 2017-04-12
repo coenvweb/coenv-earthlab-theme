@@ -18,16 +18,56 @@
         position: relative !important;
     }
 
+    #featured-hero {
+        padding: 4vw;
+        h1 {
+            &:after {
+                display: none;
+            }
+        }
+    }
+
     ul.two-col {
+        height: 110% !important;
         li {
-            width: 100%;
-            position: relative;
+            width: 100% !important;
+            padding: 0px !important;
+            margin: 0px !important;
+            position: relative !important;
+            left: 0px !important;
+            top: 0px !important;
+        }
+    }
+
+    .director_item {
+        background: $focus-red;
+        background-image: none;
+        a {
+            background-image: none;
         }
     }
 
     hr {
         display: none;
     }
+
+    .sidebar {
+        .widget_coenv_base_case_cats {
+            border-top: 0px;
+            h3 {
+                border: 0px;
+            }
+        }
+    }
+
+    .top-bar-left {
+        width: 100px;
+        .home {
+            width: 50px;
+        }
+    }
+
+
 
     .uw-footer {
         padding-top: 0;
@@ -37,6 +77,10 @@
             height: auto;
         }
 
+    }
+
+    #university-of-washington-svg {
+        display: none;
     }
 
     form {

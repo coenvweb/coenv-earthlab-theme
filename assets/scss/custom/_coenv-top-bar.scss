@@ -44,6 +44,16 @@
                 li {
                     @include montserrat_b;
                     border: 3px solid $white;
+                    transition: all .5s ease;
+                    &:hover {
+                        background-color: $white;
+                        a {
+                            color: $uw-purple;
+                            &:before {
+                                color: $uw-purple;
+                            }
+                        }
+                    }
                     a {
                         padding: .5rem;
                         color: $white;
