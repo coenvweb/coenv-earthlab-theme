@@ -40,32 +40,27 @@
 
     ul, ol {
        list-style-position: inside;
+       list-style-type: none;
        margin-left: 0px;
         @include montserrat_b;
         li:not(.director_item) {
             -webkit-box-shadow: 0px -3px 0px #fff inset;
             -moz-box-shadow: 0px -3px 0px #fff inset;
             box-shadow: 0px -3px 0px #fff inset;
+            padding-left: 1.5rem;
+            &:before {
+                content: url('../images/ellipse.png');
+                margin-left: -1.5rem;
+                margin-right: .5rem;
+            }
+            a {
+                clear: both;
+            }
         }
         li {
             padding-top: .75rem;
             padding-bottom: .75rem;
         }
-    }
-    ul {
-       list-style-type: none;
-       li {
-            padding-top: .75rem;
-            padding-bottom: .75rem;
-            &:before {
-                content: url('../images/ellipse.png');
-                margin-right: .5rem;
-                display: inline-block;
-            }
-            a {
-                clear: both;
-            }
-        } 
     }
     ul.two-col {
         overflow: hidden;
