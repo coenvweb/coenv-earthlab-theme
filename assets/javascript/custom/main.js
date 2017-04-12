@@ -10,6 +10,8 @@ jQuery(function ($) {
 	$(document).ready(function() {
 		var sticky = new Foundation.Sticky($('.sticky'));
 
+        $('a').nivoLightbox();
+
 		if($('.feature-image').length) {
             //how often to rotate img in milliseconds
             var imageTime = 8000;
