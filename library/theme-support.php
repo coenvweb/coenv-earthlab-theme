@@ -240,3 +240,16 @@ function coenv_base_section_title($id) {
 
     echo $section_title;
 }
+
+/*
+ * Serve images over SSL, if enabled
+ */
+function coenv_url_ssl($url)
+{
+  if( function_exists('is_ssl') && is_ssl() )
+  {
+    return str_replace('http://', 'https://', $url);
+  }
+  return $url;
+}
+add_filter('wp_get_attachment_url', 'coenv_url_ssl');
