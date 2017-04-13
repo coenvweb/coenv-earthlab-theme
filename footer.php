@@ -2,7 +2,7 @@
                 <footer id="footer" role="contentinfo" class="site-footer">
 
                     <div id="footer-container" class="layout-container">
-                        <div class="logo-headers row medium-collapse">
+                        <div class="logo-headers row">
                             <div class="left-college medium-3 columns small-12">
                                <header class="site-footer__header">
                                     <h1><span><?php bloginfo('name') ?></span></h1>
@@ -24,7 +24,7 @@
                                 <?php include('assets/images/university-of-washington-02.svg'); ?>
                             </div>
                         </div>
-                        <div class="row medium-collapse">
+                        <div class="row">
                             <div class="footer__info medium-3 columns small-12">
                                 <?php if( have_rows('address', 'options') ): ?>
                                     <?php while( have_rows('address', 'options') ): the_row(); ?>
