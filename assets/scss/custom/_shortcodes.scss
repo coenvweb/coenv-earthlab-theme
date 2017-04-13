@@ -27,6 +27,9 @@
             position: relative;
             overflow: hidden;
             background-size: cover;
+            &:hover {
+                background: rgba(0, 0, 0, 0.2);
+            }
             &:before {
                 content: "" !important;
                 position: absolute;
