@@ -76,6 +76,7 @@
 		<link rel="manifest" href="<?php echo get_template_directory_uri() ?>/assets/images/manifest.json">
 		<meta name="msapplication-TileColor" content="#4b2e84">
 		<meta name="theme-color" content="#4b2e84">
+        <meta name="keywords" content="EarthLab, Earth Lab, UW, Environment, Climate, Ocean, Ecosystems, Hazards" />
 
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
