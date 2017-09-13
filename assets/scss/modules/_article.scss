@@ -68,5 +68,24 @@
         @include breakpoint(small only) {
             margin-bottom: 1rem;
         }
+
+        .content_block {
+            padding: .5rem .94rem;
+            border: 5px solid $black;
+            background-color: $white;
+            .button {
+                margin-bottom: .25rem;
+                &:hover {
+                    a {
+                        color: $white;
+                    }
+                }
+            }
+            @include breakpoint(medium) {
+                width: 37.5%;
+                margin: 0rem 0rem .5rem .94rem;
+                float: right;
+            }
+        }
     }
 }

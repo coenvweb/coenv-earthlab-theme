@@ -7813,6 +7813,20 @@ form .field-wrap {
   .article .article__content {
     margin-bottom: 1rem; } }
 
+.article .article__content .content_block {
+  padding: .5rem .94rem;
+  border: 5px solid #0a0a0a;
+  background-color: #fff; }
+  .article .article__content .content_block .button {
+    margin-bottom: .25rem; }
+    .article .article__content .content_block .button:hover a {
+      color: #fff; }
+  @media print, screen and (min-width: 40em) {
+    .article .article__content .content_block {
+      width: 37.5%;
+      margin: 0rem 0rem .5rem .94rem;
+      float: right; } }
+
 .button {
   padding: .5rem;
   color: #0a0a0a;
