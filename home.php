@@ -122,6 +122,8 @@ Template Name: Homepage
             'posts_per_page' => 1,
             'meta_key' => 'event',
             'meta_value' => '0',
+            'post__in'  => get_option( 'sticky_posts' ),
+            'ignore_sticky_posts' => 1,
         );
         $news_query = new WP_Query($news_args);
 
@@ -131,6 +133,7 @@ Template Name: Homepage
             'posts_per_page' => 1,
             'meta_key' => 'event',
             'meta_value' => '1',
+            'ignore_sticky_posts' => 1,
         );
         $event_query = new WP_Query($event_args);
     ?>
