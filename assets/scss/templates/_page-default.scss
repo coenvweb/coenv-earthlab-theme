@@ -171,6 +171,69 @@
             border: none;
         }
     }
+
+    .contact {
+        @include breakpoint(small) {
+            width: 100%;
+        }
+        @include breakpoint(large) {
+            width: 48%;
+            float: left;
+            padding: 0px 2% 0px 0%;
+        }
+        .profile-image {
+            width: 130px;
+            padding-right: 0px;
+        }
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 1rem;
+        .contact-info {
+            margin-left: 130px;
+            .contact-title {
+                position: absolute;
+                top: 0;
+                padding-left: .75rem;
+                h3 {
+                    padding: 0rem;
+                    margin: 0rem;
+                    font-size: 120%;
+                }
+                h4{
+                    padding: 0rem;
+                    font-size: 75%;
+                    text-transform: uppercase;
+                }
+            }
+            .contact-list {
+                box-shadow: 0px 3px 0px #fff inset;
+                font-size: 85%;
+                position: absolute;
+                @include breakpoint(small) {
+                    top: 50%;
+                }
+                @include breakpoint(medium) {
+                    top: 60%;
+                }
+                padding: .5rem;
+                padding-left: .75rem;
+                li {
+                    padding: .0rem;
+                    box-shadow: none;
+                    &:before {
+                        width: 0px;
+                        display: none;
+                    }
+                    i {
+                        padding-right: .5rem;
+                    }
+                    a {
+                        
+                    }
+                }
+            }
+        }
+    }
 }
 
 #search, #not-found {

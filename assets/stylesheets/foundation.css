@@ -8485,6 +8485,54 @@ form .field-wrap {
     font-weight: 400;
     border: none; }
 
+.main-content .contact {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1rem; }
+  @media print, screen and (min-width: 64em) {
+    .main-content .contact {
+      width: 48%;
+      float: left;
+      padding: 0px 2% 0px 0%; } }
+  .main-content .contact .profile-image {
+    width: 130px;
+    padding-right: 0px; }
+  .main-content .contact .contact-info {
+    margin-left: 130px; }
+    .main-content .contact .contact-info .contact-title {
+      position: absolute;
+      top: 0;
+      padding-left: .75rem; }
+      .main-content .contact .contact-info .contact-title h3 {
+        padding: 0rem;
+        margin: 0rem;
+        font-size: 120%; }
+      .main-content .contact .contact-info .contact-title h4 {
+        padding: 0rem;
+        font-size: 75%;
+        text-transform: uppercase; }
+    .main-content .contact .contact-info .contact-list {
+      -webkit-box-shadow: 0px 3px 0px #fff inset;
+              box-shadow: 0px 3px 0px #fff inset;
+      font-size: 85%;
+      position: absolute;
+      top: 50%;
+      padding: .5rem;
+      padding-left: .75rem; }
+      @media print, screen and (min-width: 40em) {
+        .main-content .contact .contact-info .contact-list {
+          top: 60%; } }
+      .main-content .contact .contact-info .contact-list li {
+        padding: .0rem;
+        -webkit-box-shadow: none;
+                box-shadow: none; }
+        .main-content .contact .contact-info .contact-list li:before {
+          width: 0px;
+          display: none; }
+        .main-content .contact .contact-info .contact-list li i {
+          padding-right: .5rem; }
+
 #search, #not-found {
   margin-top: 3rem;
   max-width: 75rem;

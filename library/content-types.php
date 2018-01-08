@@ -40,10 +40,29 @@ function coenv_earthlab_post_types_init() {
     'has_archive' => false,
     'show_ui' => true,
     'rewrite' => array('slug' => 'about/case-studies'),
-    'menu_icon' => 'dashicons-slides',
+    'menu_icon' => 'dashicons-format-image',
 	'parent_page' => 'about/case-studies',
     )
   );
+  register_post_type( 'staff',
+    array(
+      'labels' => array(
+      'name' => __( 'Staff' ),
+      'singular_name' => __( 'Staff Member' ),
+      'add_new_item' => __( 'Add Staff Member'),
+      'edit_item' => __( 'Edit Staff Member'),
+      'new_item' => __( 'New Staff Member'),
+      ),
+    'hierarchical' => false,
+    'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+    'public' => true,
+    'has_archive' => false,
+    'show_ui' => true,
+    'rewrite' => array('slug' => 'about/staff'),
+    'menu_icon' => 'dashicons-admin-users',
+	'parent_page' => 'about/staff',
+    )
+  ); 
 }
 
 add_action( 'init', 'coenv_earthlab_post_types_init' );
@@ -75,8 +94,7 @@ function case_tax() {
         'show_in_nav_menus'          => true,
         'show_tagcloud'              => true,
         //args below prevent default wp permalinks from messing up our index pages
-        'rewrite'                    => 'focus_area',
-        'query_var'                  => false,
+        'rewrite'                    => false,
     );
     register_taxonomy( 'focus-area', array( 'case_study', 'post' ), $case_args );
 }
