@@ -201,7 +201,7 @@
                 }
                 h4{
                     padding: 0rem;
-                    font-size: 75%;
+                    font-size: 70%;
                     text-transform: uppercase;
                 }
             }
@@ -211,9 +211,6 @@
                 position: absolute;
                 @include breakpoint(small) {
                     top: 50%;
-                }
-                @include breakpoint(medium) {
-                    top: 60%;
                 }
                 padding: .5rem;
                 padding-left: .75rem;
@@ -225,10 +222,10 @@
                         display: none;
                     }
                     i {
+                        font-style: normal;
                         padding-right: .5rem;
                     }
                     a {
-                        
                     }
                 }
             }

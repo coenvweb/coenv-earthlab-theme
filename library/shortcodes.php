@@ -57,7 +57,9 @@ function staff_member($args) {
                     $output .= '</div>';
                     $output .= '<ul class="contact-list">';
                         $output .= '<li><i class="fa fa-envelope"></i><a href="mailto:'.get_field('email').'">'.get_field('email').'</a></li>';
-                        $output .= '<li><i class="fa fa-phone"></i><a href="tel:'.get_field('phone_number').'">'.get_field('phone_number').'</a></li>';
+                        foreach (get_field('phone_number') as $row) {
+                            $output .= '<li><i>' . $row['label'] . ':</i><a href="tel:'.$row['number'].'">'.$row['number'].'</a> </li>';
+                        }
                     $output .= '</ul>';
                 $output .= '</div>';
             $output .= "</div>";
