@@ -25,23 +25,23 @@ function coenv_earthlab_post_types_init() {
   	'menu_icon' => 'dashicons-slides',
     )   
   );
-  register_post_type( 'case_study',
+  register_post_type( 'project',
     array(
       'labels' => array(
-      'name' => __( 'Case Studies' ),
-      'singular_name' => __( 'Case Study' ),
-      'add_new_item' => __( 'Add Case Study'),
-      'edit_item' => __( 'Edit Case Study'),
-      'new_item' => __( 'New Case Study'),
+      'name' => __( 'Projects' ),
+      'singular_name' => __( 'Project' ),
+      'add_new_item' => __( 'Add Project'),
+      'edit_item' => __( 'Edit Project'),
+      'new_item' => __( 'New Project'),
       ),
     'hierarchical' => false,
     'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
     'public' => true,
     'has_archive' => false,
     'show_ui' => true,
-    'rewrite' => array('slug' => 'about/case-studies'),
+    'rewrite' => array('slug' => 'projects'),
     'menu_icon' => 'dashicons-format-image',
-	'parent_page' => 'about/case-studies',
+	'parent_page' => 'projects',
     )
   );
   register_post_type( 'staff',
@@ -67,8 +67,8 @@ function coenv_earthlab_post_types_init() {
 
 add_action( 'init', 'coenv_earthlab_post_types_init' );
 
-function case_tax() {
-    $case_labels = array(
+function project_tax() {
+    $project_labels = array(
         'name'                       => _x( 'Focus Areas', 'Taxonomy General Name', 'text_domain' ),
         'singular_name'              => _x( 'Focus Area', 'Taxonomy Singular Name', 'text_domain' ),
         'menu_name'                  => __( 'Focus Areas', 'text_domain' ),
@@ -85,8 +85,8 @@ function case_tax() {
         'choose_from_most_used'      => __( 'Choose from the most popular focus areas', 'text_domain' ),
         'not_found'                  => __( 'Not Found', 'text_domain' ),
     );
-    $case_args = array(
-        'labels'                     => $case_labels,
+    $project_args = array(
+        'labels'                     => $project_labels,
         'hierarchical'               => true,
         'public'                     => true,
         'show_ui'                    => true,
@@ -96,19 +96,19 @@ function case_tax() {
         //args below prevent default wp permalinks from messing up our index pages
         'rewrite'                    => false,
     );
-    register_taxonomy( 'focus-area', array( 'case_study', 'post' ), $case_args );
+    register_taxonomy( 'focus-area', array( 'project', 'post' ), $project_args );
 }
 
-add_action('init', 'case_tax');
+add_action('init', 'project_tax');
 
 
-define( 'CASE_PAGE_PARENT_ID', '97' );
+define( 'PROJECT_PAGE_PARENT_ID', '97' );
 define( 'NEWS_PAGE_PARENT_ID', '42' );
 
 /**
- * save case_study parent
+ * save project parent
  */
-function coenv_base_case_parent( $data, $postarr ) {
+function coenv_base_project_parent( $data, $postarr ) {
     global $post;
 
     // verify if this is an auto save routine.
@@ -116,16 +116,16 @@ function coenv_base_case_parent( $data, $postarr ) {
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
         return $data;
 
-    if ( $post->post_type == "case_study" ){
-        $data['post_parent'] = CASE_PAGE_PARENT_ID;
+    if ( $post->post_type == "project" ){
+        $data['post_parent'] = PROJECT_PAGE_PARENT_ID;
     }
 
     return $data;
 }
-add_action( 'wp_insert_post_data', 'coenv_base_case_parent', '104', 2  );
+add_action( 'wp_insert_post_data', 'coenv_base_project_parent', '104', 2  );
 
 /**
- * save case_study parent
+ * save news parent
  */
 function coenv_base_news_parent( $data, $postarr ) {
     global $post;

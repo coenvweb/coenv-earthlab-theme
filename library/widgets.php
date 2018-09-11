@@ -1,19 +1,19 @@
 <?php
 
 /*
- * Case Study Focus Areas
+ * Project Focus Areas
  */
 
-class coenv_base_case_cats extends WP_Widget {
+class coenv_base_project_cats extends WP_Widget {
 
     /**
     * Register widget with WordPress.
     */
     function __construct() {
       parent::__construct(
-           'coenv_base_case_cats', // Base ID
-           __('Case Studies by Focus Area', 'text_domain'), // Name
-           array( 'description' => __( 'Display short previews of case studies based on focus area', 'text_domain' ), ) // Args
+           'coenv_base_project_cats', // Base ID
+           __('Projects by Focus Area', 'text_domain'), // Name
+           array( 'description' => __( 'Display short previews of projects based on focus area', 'text_domain' ), ) // Args
       );
     }
 
@@ -30,7 +30,7 @@ class coenv_base_case_cats extends WP_Widget {
         $focus_area = $instance['focus_area'];
 
         $query_args = array(
-            'post_type' => 'case_study',
+            'post_type' => 'project',
             'post_status' => 'publish',
             'posts_per_page' => 1,
             'ignore_sticky_posts' => 1,
@@ -49,13 +49,13 @@ class coenv_base_case_cats extends WP_Widget {
                         echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
                     }
 
-                    echo "<ul class='widget-case-list'>";
+                    echo "<ul class='widget-project-list'>";
                         while ( $wp_query->have_posts() ) :
                             $wp_query->the_post();
                         ?>
-                            <li class="case-preview">
+                            <li class="project-preview">
                                 <h4><a href="<?php echo get_the_permalink(); ?>"><?php the_title(); ?></a></h4>
-                                <p class="case-excerpt">
+                                <p class="project-excerpt">
                                     <?php the_excerpt(); ?>
                                 </p>
                             </li>
@@ -65,7 +65,7 @@ class coenv_base_case_cats extends WP_Widget {
                     echo "</ul>";
 
                     if($instance['more_link']) {
-                        echo "<a class='button' href='/about/case-studies/focus-area/".$focus_area."'>More ".$focus_area." case studies</a>";
+                        echo "<a class='button' href='/projects/focus-area/".$focus_area."'>More ".$focus_area." projects</a>";
                     }
 
                 echo '</div>';
@@ -110,7 +110,7 @@ class coenv_base_case_cats extends WP_Widget {
             </select>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'more_link' ); ?>"><?php _e( 'Display a link to more related case studies?' ); ?></label> 
+            <label for="<?php echo $this->get_field_id( 'more_link' ); ?>"><?php _e( 'Display a link to more related projects?' ); ?></label> 
             <input <?=($instance['more_link'] ? 'checked' : '')?> class="widefat" id="<?php echo $this->get_field_id( 'more_link' ); ?>" name="<?php echo $this->get_field_name( 'more_link' ); ?>" type="checkbox" >
         </p> 
         <?php
@@ -136,13 +136,13 @@ class coenv_base_case_cats extends WP_Widget {
         return $instance;
     }
 
-} // class coenv_base_case_cats
+} // class coenv_base_project_cats
 
-// register coenv_base_case_cats widget
-function register_coenv_base_case_cats() {
-    register_widget( 'coenv_base_case_cats' );
+// register coenv_base_project_cats widget
+function register_coenv_base_project_cats() {
+    register_widget( 'coenv_base_project_cats' );
 }
-add_action( 'widgets_init', 'register_coenv_base_case_cats' );
+add_action( 'widgets_init', 'register_coenv_base_project_cats' );
 
 /*
  * Sub-navigation
@@ -289,7 +289,7 @@ class coenv_base_news_cats extends WP_Widget {
                             <?php
                             echo '<div class="small-12 columns">';
                                 if($instance['more_link']) {
-                                    echo "<a class='button' href='/about/case-studies/focus-area/".$focus_area."'>More ".$focus_area." news items</a>";
+                                    echo "<a class='button' href='/project/focus-area/".$focus_area."'>More ".$focus_area." news items</a>";
                                 }
                             echo '</div>';
                             ?>

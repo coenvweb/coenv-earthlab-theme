@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Case Studies Index
+Template Name: Projects Index
 */
 
 // keep track of whether or not this is the index page
@@ -26,7 +26,7 @@ if(isset($wp_query->query_vars['case-search'])) {
 
 <?php get_template_part( 'template-parts/featured-image' ); ?>
 
-<div id="page-sidebar-left" class="page-template-index page-template-case-studies" role="main">
+<div id="page-sidebar-left" class="page-template-index page-template-projects" role="main">
     <div <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
         <div class="entry-content">
             <h2 class="page-title"><?php the_title(); ?></h2>
@@ -38,7 +38,7 @@ if(isset($wp_query->query_vars['case-search'])) {
                 <div class="case-search large-6 columns" data-url="<?php the_permalink() ?>" data-cat="case-search">
                     <form role="search" method="get" class="search-form" action="<?php the_permalink() ?>">
                         <div class="field-wrap">
-                            <label for="case-search">Search case</label>
+                            <label for="case-search">Search projects</label>
                             <input value="<?= $search ?>" name="case-search" id="s" placeholder="Search case studies" aria-label="Search" title="Search" type="text">
                             <button type="submit"><i class="fa fa-search"></i><span>Search</span></button>
                         </div>
@@ -54,7 +54,7 @@ if(isset($wp_query->query_vars['case-search'])) {
                 */
                 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                 $query_args = array(
-                    'post_type'	=> 'case_study',
+                    'post_type'	=> 'project',
                     'post_status' => 'publish',
                     'posts_per_page' => 10,
                     'ignore_sticky_posts' => 1,
@@ -74,12 +74,12 @@ if(isset($wp_query->query_vars['case-search'])) {
                 if ($wp_query->have_posts()) {
                     if ($coenv_cat_term_2) { // Category filter ?>
                         <div class="panel">
-                            <div class="left"><?php echo $wp_query->found_posts; ?> case stud<?=($wp_query->found_posts > 1 ? 'ies' : 'y')?> focusing on <span class="term"><?php echo $coenv_cat_term_2_val; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">All Case Studies</a></div>
+                            <div class="left"><?php echo $wp_query->found_posts; ?> project<?=($wp_query->found_posts > 1 ? 's' : '')?> focusing on <span class="term"><?php echo $coenv_cat_term_2_val; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">All Projects</a></div>
                         </div>
                     <?php }
                     if ($search) { // Category filter ?>
                         <div class="panel">
-                            <div class="left"><?php echo $wp_query->found_posts; ?> case stud<?=($wp_query->found_posts > 1 ? 'ies' : 'y')?> matching <span class="term"><?php echo $search; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">All Case Studies</a></div>
+                            <div class="left"><?php echo $wp_query->found_posts; ?> project<?=($wp_query->found_posts > 1 ? 's' : '')?> matching <span class="term"><?php echo $search; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">All Projects</a></div>
                         </div>
                     <?php } ?>
                     <?php
@@ -101,7 +101,7 @@ if(isset($wp_query->query_vars['case-search'])) {
                     <?php } ?>
                     </div>
                 <?php } else { ?>
-                    <p>We're sorry. Your crtieria did not match any case studies. <a href="/about/case-studies">Return to all case studies &raquo;</a></p>
+                    <p>We're sorry. Your crtieria did not match any projects. <a href="/projects">Return to all projects &raquo;</a></p>
                 <?php } ?>
             </div>		
             <?php if ( is_active_sidebar( 'after-content' ) ) { ?>
