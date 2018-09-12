@@ -39,7 +39,7 @@ function coenv_earthlab_post_types_init() {
     'public' => true,
     'has_archive' => false,
     'show_ui' => true,
-    'rewrite' => array('slug' => 'projects'),
+    'rewrite' => array('slug' => 'project'),
     'menu_icon' => 'dashicons-format-image',
 	'parent_page' => 'projects',
     )
