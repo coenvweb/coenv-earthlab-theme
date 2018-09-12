@@ -97,6 +97,36 @@ function project_tax() {
         'rewrite'                    => false,
     );
     register_taxonomy( 'focus-area', array( 'project', 'post' ), $project_args );
+    
+    $affiliated_members_labels = array(
+        'name'                       => _x( 'Member/Affiliates', 'Taxonomy General Name', 'text_domain' ),
+        'singular_name'              => _x( 'Member/Affiliates', 'Taxonomy Singular Name', 'text_domain' ),
+        'menu_name'                  => __( 'Member/Affiliates', 'text_domain' ),
+        'all_items'                  => __( 'All Member/Affiliates', 'text_domain' ),
+        'parent_item'                => __( 'Parent Member', 'text_domain' ),
+        'parent_item_colon'          => __( 'Parent Member:', 'text_domain' ),
+        'new_item_name'              => __( 'New Member', 'text_domain' ),
+        'add_new_item'               => __( 'Add Member', 'text_domain' ),
+        'edit_item'                  => __( 'Edit Member', 'text_domain' ),
+        'update_item'                => __( 'Update Member', 'text_domain' ),
+        'separate_items_with_commas' => __( 'Separate items with commas', 'text_domain' ),
+        'search_items'               => __( 'Search Member/Affiliates', 'text_domain' ),
+        'add_or_remove_items'        => __( 'Add or remove affiliated members', 'text_domain' ),
+        'choose_from_most_used'      => __( 'Choose from the most popular affiliated members', 'text_domain' ),
+        'not_found'                  => __( 'Not Found', 'text_domain' ),
+    );
+    $affiliated_members_args = array(
+        'labels'                     => $affiliated_members_labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+        //args below prevent default wp permalinks from messing up our index pages
+        'rewrite'                    => false,
+    );
+    register_taxonomy( 'member-affiliates', array( 'project', 'post' ), $affiliated_members_args );
 }
 
 add_action('init', 'project_tax');
