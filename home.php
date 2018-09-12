@@ -52,6 +52,7 @@ Template Name: Homepage
 							echo '</div>';
 							echo '<div class="medium-offset-4 medium-8 large-offset-6 large-6 columns feature-excerpt">';
 								echo '<p>' . $feature_excerpt . '</p>';
+                echo '<a class="button" href="#do-this">▼ Learn more</i></a>';
 							echo '</div>';
 						echo '</div><!-- .feature-content -->';
 
@@ -71,29 +72,79 @@ Template Name: Homepage
            <div class="row">
                 <div class="large-offset-1 large-2 medium-offset-2 medium-4 small-offset-3 small-6 columns block-title focus-title">
                     <h3>
-                        We<br>
-                        Focus<br>
-                        On
+                       News &<br>
+                       Events
                     </h3>
+                    <a href="button">More News</a>
                 </div>
             </div> 
         </div>
         <div class="widgets-area">
             <div class="row">
-                <?php dynamic_sidebar('homepage-focus'); ?>
+                <div class="columns large-8 news-main">
+                    <?php
+                        /**
+                        * Blog loop
+                        */
+                        $query_args = array(
+                            'post_type' => 'post',
+                            'post_status' => 'publish',
+                            'posts_per_page' => 2,
+                        );
+
+                        $wp_query = new WP_Query( $query_args );
+                        if ($wp_query->have_posts()) {
+                            # The Loop
+                            while ( $wp_query->have_posts() ) {
+                                $wp_query->the_post(); ?>
+                                <div class="blog clearfix">
+                                    <?php get_template_part( 'template-parts/excerpt' ); ?>
+                                </div>
+                            <?php } ?>
+                        <?php }; ?>
+                </div>
+                <div class="columns large-4 news-sidebar">
+                    <?php
+                        /**
+                        * Blog loop
+                        */
+                        $query_args = array(
+                            'post_type' => 'post',
+                            'post_status' => 'publish',
+                            'posts_per_page' => 3,
+                            'offset' => 3,
+                        );
+
+                        $wp_query = new WP_Query( $query_args );
+                        if ($wp_query->have_posts()) {
+                            # The Loop
+                            while ( $wp_query->have_posts() ) {
+                                $wp_query->the_post(); ?>
+                                <div class="blog clearfix">
+                                    <?php get_template_part( 'template-parts/mini-excerpt' ); ?>
+                                </div>
+                            <?php } ?>
+                        <?php }; ?>
+                    <div class="widget">
+                        <h3>Signup for Earthlab News</h3>
+                    </div>
+                    <div class="widget">
+                        <h3>Grants</h3>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="focus-texture">
         </div>
 	</div>
 
-	<div class="divider do-this-divider">
+	<div id="do-this" class="divider do-this-divider">
 	</div>
 
 	<div class="do-this">
         <div class="do-this-texture">
             <div class="row ">
-                <div class="large-offset-9 large-2 columns medium-offset-6 medium-4 small-offset-3 small-6 block-title do-title">
+                <div class="large-offset-1 large-2 medium-offset-2 medium-4 small-offset-3 small-6 columns block-title do-title">
                     <h3>
                         How<br> 
                         We Do<br>
@@ -112,7 +163,7 @@ Template Name: Homepage
         </div>
 	</div>
 
-	<div class="divider news-divider">
+	<!--<div class="divider news-divider">
 	</div>
 
     <?php
@@ -128,7 +179,7 @@ Template Name: Homepage
         $news_query = new WP_Query($news_args);
 
         $event_args = array(
-			'post_type' => 'post',
+			     'post_type' => 'post',
             'post_status' => 'publish',
             'posts_per_page' => 1,
             'meta_key' => 'event',
