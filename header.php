@@ -13,6 +13,7 @@
 <html class="no-js" <?php language_attributes(); ?> >
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
+        <meta name="twitter:dnt" content="on">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title><?php if ( is_category() ) { 
 		  echo 'Category Archive for &quot;'; single_cat_title(); echo '&quot; | '; bloginfo( 'name' );
