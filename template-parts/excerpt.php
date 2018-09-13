@@ -1,5 +1,7 @@
     <article id="post-<?php the_ID() ?>" <?php post_class( 'article' ) ?>>
-
+        <?php if(has_post_thumbnail()) { ?>
+            	<div class="coenv-thumb"><a style="float: right;" href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'excerpt' ) ?></a></div>
+        <?php }; ?>
     <header class="article__header">
         <div class="article__meta">
         <?php if ( !is_page() ) : ?>
@@ -48,9 +50,6 @@
                 </a>
             </div>
         <?php } else {
-        	if(has_post_thumbnail()) { ?>
-            	<div class="coenv-thumb"><a style="float: right;" href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'med_sq' ) ?></a></div>
-        	<?php }
 		} ?>
         <?php the_excerpt(); ?>
         <a href="<?php echo the_permalink(); ?>" class="button">Read more</a>

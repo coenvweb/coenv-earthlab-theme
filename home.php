@@ -79,7 +79,7 @@ Template Name: Homepage
                 </div>
             </div> 
         </div>
-        <div class="widgets-area">
+        <div class="news">
             <div class="row">
                 <div class="columns large-8 news-main">
                     <?php

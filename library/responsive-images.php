@@ -16,6 +16,8 @@ add_image_size( 'featured-medium', 1280, 800, true );
 add_image_size( 'featured-large', 1440, 800, true );
 add_image_size( 'featured-xlarge', 1920, 800, true );
 
+add_image_size( 'excerpt', 770, 300, true );
+
 // Add additional image sizes
 add_image_size( 'fp-small', 640 );
 add_image_size( 'fp-medium', 1024 );

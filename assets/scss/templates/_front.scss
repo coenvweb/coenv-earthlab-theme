@@ -315,42 +315,51 @@
         }
         .news, .events {
             margin-top: 4rem;
-            .home_article {
-                padding-top: 2rem;
-                .article__content {
-                    .article__meta {
-                        font-size: .95rem;
-                        @include montserrat_b;
-                        text-transform: uppercase;
-                        margin-bottom: .25rem;
-                    }
-                    .article__title {
-                        a {
-                            font-size: 1.5rem;
-                            color: $black;
+            .news-main {
+                .article {
+                    .coenv-thumb {
+                        img {
+                            width: 100%;
+                            margin-bottom: 1rem;
                         }
-                        position: relative;
-                        padding-bottom: .75rem;
-                        &:after {
-                            position: absolute;
-                            content: '';
-                            height: 3px;
-                            width: 3rem;
-                            background-color: $medium-gray;
-                            bottom: 0px;
-                            left: 0px;
+                        @include breakpoint(small only) {
+                            margin-bottom: 1rem;
                         }
                     }
-                    .article__teaser {
-                        margin-top: .75rem;
+                    .article__content {
+                        .article__meta {
+                            font-size: .95rem;
+                            @include montserrat_b;
+                            text-transform: uppercase;
+                            margin-bottom: .25rem;
+                        }
+                        .article__title {
+                            a {
+                                font-size: 1.5rem;
+                                color: $black;
+                            }
+                            position: relative;
+                            padding-bottom: .75rem;
+                            &:after {
+                                position: absolute;
+                                content: '';
+                                height: 3px;
+                                width: 3rem;
+                                background-color: $medium-gray;
+                                bottom: 0px;
+                                left: 0px;
+                            }
+                        }
+                        .article__teaser {
+                            margin-top: .75rem;
+                        }
                     }
                 }
-                .article__image {
-                    img {
-                        border: 5px solid $medium-gray;
-                    }
-                    @include breakpoint(small only) {
-                        margin-bottom: 1rem;
+            }
+            .news-sidebar {
+                .article {
+                    .article__title {
+                        @include montserrat_b;
                     }
                 }
             }
