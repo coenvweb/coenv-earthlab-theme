@@ -7683,7 +7683,7 @@ a.thumbnail {
 
 .widget-newsletter-signup, .widget-earthlab-text {
   margin-bottom: 1rem; }
-  .widget-newsletter-signup .widget-title, .widget-earthlab-text .widget-title {
+  .widget-newsletter-signup .widget-title, .widget-newsletter-signup h3, .widget-earthlab-text .widget-title, .widget-earthlab-text h3 {
     font-family: "montserratbold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     width: 83.33333%;
@@ -7698,16 +7698,16 @@ a.thumbnail {
     background-color: #f86b61;
     color: #fff;
     text-transform: uppercase; }
-    .widget-newsletter-signup .widget-title a, .widget-earthlab-text .widget-title a {
+    .widget-newsletter-signup .widget-title a, .widget-newsletter-signup h3 a, .widget-earthlab-text .widget-title a, .widget-earthlab-text h3 a {
       color: #fff; }
-      .widget-newsletter-signup .widget-title a:hover, .widget-earthlab-text .widget-title a:hover {
+      .widget-newsletter-signup .widget-title a:hover, .widget-newsletter-signup h3 a:hover, .widget-earthlab-text .widget-title a:hover, .widget-earthlab-text h3 a:hover {
         color: #fff;
         text-decoration: underline; }
     @media print, screen and (min-width: 40em) {
-      .widget-newsletter-signup .widget-title, .widget-earthlab-text .widget-title {
+      .widget-newsletter-signup .widget-title, .widget-newsletter-signup h3, .widget-earthlab-text .widget-title, .widget-earthlab-text h3 {
         padding-right: 0.9375rem;
         padding-left: 0.9375rem; } }
-    .widget-newsletter-signup .widget-title:last-child:not(:first-child), .widget-earthlab-text .widget-title:last-child:not(:first-child) {
+    .widget-newsletter-signup .widget-title:last-child:not(:first-child), .widget-newsletter-signup h3:last-child:not(:first-child), .widget-earthlab-text .widget-title:last-child:not(:first-child), .widget-earthlab-text h3:last-child:not(:first-child) {
       float: right; }
   .widget-newsletter-signup .text-box, .widget-earthlab-text .text-box {
     border: 5px solid #f86b61; }

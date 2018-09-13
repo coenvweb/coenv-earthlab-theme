@@ -16,7 +16,7 @@
                         if(get_post_type() == 'post') {
                             $more_terms_arr[] = '<a href="/about/news-and-events/focus-area/' . $term->slug . '">' . $term->name . '</a>';
                         }
-                        if(get_post_type() == 'case_study') {
+                        if(get_post_type() == 'project') {
                             $more_terms_arr[] = '<a href="/about/case-studies/focus-area/' . $term->slug . '">' . $term->name . '</a>';
                         }
                     }

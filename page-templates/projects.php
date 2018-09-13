@@ -66,7 +66,7 @@ if(isset($wp_query->query_vars['case-search'])) {
                     $query_args['term'] = $coenv_cat_term_2;
                 }
 
-                if($search) {
+                if (isset($search)) {
                     $query_args['s'] = $search;
                 }
 
@@ -77,7 +77,7 @@ if(isset($wp_query->query_vars['case-search'])) {
                             <div class="left"><?php echo $wp_query->found_posts; ?> project<?=($wp_query->found_posts > 1 ? 's' : '')?> focusing on <span class="term"><?php echo $coenv_cat_term_2_val; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">All Projects</a></div>
                         </div>
                     <?php }
-                    if ($search) { // Category filter ?>
+                    if (isset($search)) { // Category filter ?>
                         <div class="panel">
                             <div class="left"><?php echo $wp_query->found_posts; ?> project<?=($wp_query->found_posts > 1 ? 's' : '')?> matching <span class="term"><?php echo $search; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">All Projects</a></div>
                         </div>
