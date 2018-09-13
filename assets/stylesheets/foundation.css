@@ -7712,7 +7712,9 @@ a.thumbnail {
   .widget-newsletter-signup .text-box, .widget-earthlab-text .text-box {
     border: 5px solid #f86b61; }
     .widget-newsletter-signup .text-box .text-box-inner, .widget-earthlab-text .text-box .text-box-inner {
-      padding: 1rem 1rem 0 1rem; }
+      padding: 1rem 1rem 0 1rem;
+      font-family: "montserratbold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased; }
       .widget-newsletter-signup .text-box .text-box-inner .button, .widget-earthlab-text .text-box .text-box-inner .button {
         margin-bottom: 0; }
 

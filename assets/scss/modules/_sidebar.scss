@@ -198,6 +198,7 @@
         border: 5px solid $focus-red;
         .text-box-inner {
             padding: 1rem 1rem 0 1rem;
+            @include montserrat_b;
             .button {
                 margin-bottom: 0;
             }
