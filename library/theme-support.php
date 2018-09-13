@@ -117,8 +117,12 @@ function coenv_get_ancestor($attr = 'ID') {
     if ( is_search() ) {
         return false;
     }
+    
+    if (empty($post->post_type)) {
+        return false;
+    }
 
-    if ( ($post->post_type == 'post' || is_archive() || is_search()) && !is_post_type_archive( array( 'case_study' ) ) ) {
+    if ( ($post->post_type == 'post' || is_archive() || is_search()) && !is_post_type_archive( array( 'projects' ) ) ) {
 
         $page_for_posts = get_option( 'page_for_posts' );
 
