@@ -104,10 +104,18 @@
                             font-weight: 600;
                             line-height: 2rem;
                             padding: 2rem 2rem .5rem .5rem;
+                            margin-bottom: 0;
                             @include breakpoint(small only) {
                                 font-size: 0.8rem;
                                 padding: 1rem .5rem .5rem .5rem;
                             }
+                        }
+                        .button {
+                            border-color: white;
+                            color: white;
+                            margin-left: .5rem;
+                            margin-bottom: 1.5rem;
+                            margin-top: 0;
                         }
                     }
                 }
@@ -182,7 +190,7 @@
                 }
             }
         }
-        .focus-title {
+        .news-title {
             background: url('../images/focus-title.png');
             background-size: cover;
             border: 5px solid $focus-red;
@@ -190,9 +198,9 @@
             padding-bottom: 2rem;
         }
         .do-title {
-            background-color: $do-this-blue;
-            border: 5px solid $do-this-blue;
-            background-image: url('../images/how-title.png');
+            background-color: $news-yellow;
+            border: 5px solid $news-yellow;
+            background-image: url('../images/how-2-title.png');
         }
         .news-title {
             background-color: $news-yellow;
@@ -276,11 +284,13 @@
             font-size: 1.1rem;
             margin-top: 2rem;
             margin-bottom: 2rem;
-            background-position: center center;
+            background-position: top left;
             background-size: contain;
             background-repeat: no-repeat;
+            text-align: left;
+            padding-left: 5rem;
             @include breakpoint(large) {
-                min-height: 280px;
+                min-height: 220px;
             }
             .do_container {
                 padding: 0rem;
@@ -297,8 +307,11 @@
                     }
                 }
                 hr {
-                    border-bottom: 3px solid $medium-gray !important;
+                    border-top: 3px solid $medium-gray !important;
                     width: 33%;
+                    margin-left: 0;
+                    margin-top: 0;
+                    margin-bottom: 2.25rem;
                 }
                 .do-description {
                     @include montserrat_b;

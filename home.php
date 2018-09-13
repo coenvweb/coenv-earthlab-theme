@@ -70,12 +70,12 @@ Template Name: Homepage
 	<div class="focus-areas">
         <div class="focus-texture">
            <div class="row">
-                <div class="large-offset-1 large-2 medium-offset-2 medium-4 small-offset-3 small-6 columns block-title focus-title">
+                <div class="large-offset-1 large-2 medium-offset-2 medium-4 small-offset-3 small-6 columns block-title news-title">
                     <h3>
                        News &<br>
                        Events
                     </h3>
-                    <a href="button">More News</a>
+                    <a class="button" href="/news-and-events">More News</a>
                 </div>
             </div> 
         </div>
