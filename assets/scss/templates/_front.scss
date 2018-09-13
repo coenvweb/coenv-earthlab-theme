@@ -202,11 +202,6 @@
             border: 5px solid $news-yellow;
             background-image: url('../images/how-2-title.png');
         }
-        .news-title {
-            background-color: $news-yellow;
-            border: 5px solid $news-yellow;
-            background-image: url('../images/news-title.png');
-        }
         .focus-tile, .do-this-tile {
             text-align: center;
             &:nth-child(3) {
@@ -396,8 +391,9 @@
         background-image: url('../images/how-cross.png');
     }
     .news-texture {
-        background-image: url('../images/news-slant.png');
-        background-size: contain;
+        background-image: url('../images/focus-slant.png');
+        background-size: cover;
+        background-repeat: repeat-x;
     }
     .focus-areas {
         background-image: url('../images/focus-slant.png');

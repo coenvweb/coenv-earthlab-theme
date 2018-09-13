@@ -8048,10 +8048,6 @@ form .field-wrap {
     background-color: #f1c845;
     border: 5px solid #f1c845;
     background-image: url("../images/how-2-title.png"); }
-  .homepage .focus-areas .news-title, .homepage .do-this .news-title, .homepage .news-events .news-title {
-    background-color: #f1c845;
-    border: 5px solid #f1c845;
-    background-image: url("../images/news-title.png"); }
   .homepage .focus-areas .focus-tile, .homepage .focus-areas .do-this-tile, .homepage .do-this .focus-tile, .homepage .do-this .do-this-tile, .homepage .news-events .focus-tile, .homepage .news-events .do-this-tile {
     text-align: center; }
     @media screen and (min-width: 40em) and (max-width: 63.9375em) {
@@ -8197,9 +8193,10 @@ form .field-wrap {
   .homepage .do-this-texture {
     background-image: url("../images/how-cross.png"); }
   .homepage .news-texture {
-    background-image: url("../images/news-slant.png");
-    -webkit-background-size: contain;
-            background-size: contain; }
+    background-image: url("../images/focus-slant.png");
+    -webkit-background-size: cover;
+            background-size: cover;
+    background-repeat: repeat-x; }
   .homepage .focus-areas {
     background-image: url("../images/focus-slant.png");
     -webkit-background-size: cover;

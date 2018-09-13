@@ -67,8 +67,8 @@ Template Name: Homepage
 	</div>
     
 
-	<div class="focus-areas">
-        <div class="focus-texture">
+	<div class="news-events">
+        <div class="news-texture">
            <div class="row">
                 <div class="large-offset-1 large-2 medium-offset-2 medium-4 small-offset-3 small-6 columns block-title news-title">
                     <h3>
@@ -134,7 +134,7 @@ Template Name: Homepage
                 </div>
             </div>
         </div>
-        <div class="focus-texture">
+        <div class="news-texture">
         </div>
 	</div>
 
