@@ -125,11 +125,8 @@ Template Name: Homepage
                                 </div>
                             <?php } ?>
                         <?php }; ?>
-                    <div class="widget">
-                        <h3>Signup for Earthlab News</h3>
-                    </div>
-                    <div class="widget">
-                        <h3>Grants</h3>
+                    <div class="widgets-area">
+                        <?php dynamic_sidebar('homepage-news-sidebar'); ?>
                     </div>
                 </div>
             </div>

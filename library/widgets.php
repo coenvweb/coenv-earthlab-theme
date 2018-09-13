@@ -467,6 +467,218 @@ class focus_area_widget extends WP_Widget {
     }
 }
 
+function register_coenv_newsletter_widget() {
+    register_widget( 'newsletter_widget' );
+}
+add_action( 'widgets_init', 'register_coenv_newsletter_widget' );
+
+class newsletter_widget extends WP_Widget {
+
+    /**
+     * Sets up the widgets name etc
+     */
+    public function __construct() {
+        $widget_ops = array( 
+            'classname' => 'newsletter-tile',
+            'description' => 'A signup form for the EarthLab Newsletter',
+        );
+        parent::__construct( 'newsletter_widget', 'Newsletter Widget', $widget_ops );
+    }
+
+    /**
+     * Outputs the content of the widget
+     *
+     * @param array $args
+     * @param array $instance
+     */
+    public function widget( $args, $instance ) {
+        echo $args['before_widget'];
+    ?>
+            <div class="newsletter-signup widget widget-newsletter-signup">
+                <?php echo $args['before_title']; ?>
+                    <?=$instance['title']?>
+                <?php echo $args['after_title']; ?>
+                <div class="text-box">
+                    <img class="widget-image" src="<?=$instance['image_uri']?>" alt="<?=$instance['image_alt']?>" />
+                    <div class="text-box-inner">
+                        <p>Get monthly updates in your inbox.</p>
+                        <p>First Name</p>
+                        <p>Last Name</p>
+                        <p>Email</p>
+                        <p><a class="button" href="#">Sign Up</a></p>
+                    </div>
+                </div>
+            </div>
+    <?php   
+        echo $args['after_widget'];
+    }
+
+    /**
+     * Outputs the options form on admin
+     *
+     * @param array $instance The widget options
+     */
+    public function form( $instance ) {
+        // outputs the options form on admin
+        if ( isset( $instance[ 'title' ] ) ) {
+            $title = $instance[ 'title' ];
+        }
+        
+        if ( isset( $instance[ 'image_alt' ] ) ) {
+            $image_alt = $instance[ 'image_alt' ];
+        }
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>"> 
+        </p>
+
+		<p>
+		    <label for="<?php echo $this->get_field_id('image_uri'); ?>">Icon</label><br />
+			<img class="custom_media_image" src="<?php if(!empty($instance['image_uri'])){echo $instance['image_uri'];} ?>" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" />
+			<input type="text" class="widefat custom_media_url" name="<?php echo $this->get_field_name('image_uri'); ?>" id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php echo $instance['image_uri']; ?>">
+            <input type="button" value="<?php _e( 'Upload Image' ); ?>" class="button custom_media_upload" id="custom_image_uploader<?php echo $this->id; ?>"/>
+    	</p>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'image_alt' ); ?>"><?php _e( 'Image Alt Text:' ); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id( 'image_alt' ); ?>" name="<?php echo $this->get_field_name( 'image_alt' ); ?>" type="text" value="<?php echo esc_attr( $image_alt ); ?>"> 
+        </p>
+        <?php
+    }
+
+    /**
+     * Processing widget options on save
+     *
+     * @param array $new_instance The new options
+     * @param array $old_instance The previous options
+     */
+    public function update( $new_instance, $old_instance ) {
+        // processes widget options to be saved
+        $instance = $old_instance;
+
+        $instance['title'] = ( ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '');
+        $instance['image_uri'] = ( ! empty( $new_instance['image_uri'] ) ? strip_tags( $new_instance['image_uri'] ) : '' );
+        $instance['image_alt'] = ( ! empty( $new_instance['image_alt'] ) ? strip_tags( $new_instance['image_alt'] ) : '' );
+
+        return $instance;
+    }
+}
+
+function register_earthlab_text_widget() {
+    register_widget( 'earthlab_text_widget' );
+}
+add_action( 'widgets_init', 'register_earthlab_text_widget' );
+
+class earthlab_text_widget extends WP_Widget {
+
+    /**
+     * Sets up the widgets name etc
+     */
+    public function __construct() {
+        $widget_ops = array( 
+            'classname' => 'text-tile',
+            'description' => 'A panel of information',
+        );
+        parent::__construct( 'text_widget', 'Earthlab Text Widget', $widget_ops );
+    }
+
+    /**
+     * Outputs the content of the widget
+     *
+     * @param array $args
+     * @param array $instance
+     */
+    public function widget( $args, $instance ) {
+        echo $args['before_widget'];
+    ?>
+            <div class="earthlab-text widget widget-earthlab-text">
+                <?php echo $args['before_title']; ?>
+                    <?=$instance['title']?>
+                <?php echo $args['after_title']; ?>
+                <div class="text-box">
+                    <?php if ( !empty( $instance[ 'image_alt' ] ) ) { ?>
+                        <img class="widget-image" src="<?=$instance['image_uri']?>" alt="<?=$instance['image_alt']?>" />
+                    <?php }; ?>
+                    <div class="text-box-inner">
+                        <p><?=$instance['description']?></p>
+                        <p><a class="button" href="<?=$instance['more_link']?>">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+    <?php   
+        echo $args['after_widget'];
+    }
+
+    /**
+     * Outputs the options form on admin
+     *
+     * @param array $instance The widget options
+     */
+    public function form( $instance ) {
+        // outputs the options form on admin
+        if ( isset( $instance[ 'title' ] ) ) {
+            $title = $instance[ 'title' ];
+        }
+        
+        if ( isset( $instance[ 'image_alt' ] ) ) {
+            $image_alt = $instance[ 'image_alt' ];
+        }
+        
+        if ( isset( $instance[ 'description' ] ) ) {
+            $description = $instance[ 'description' ];
+        }
+        
+        if ( isset( $instance[ 'more_link' ] ) ) {
+            $more_link = $instance[ 'more_link' ];
+        }
+        
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>"> 
+        </p>
+
+		<p>
+		    <label for="<?php echo $this->get_field_id('image_uri'); ?>">Icon</label><br />
+			<img class="custom_media_image" src="<?php if(!empty($instance['image_uri'])){echo $instance['image_uri'];} ?>" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" />
+			<input type="text" class="widefat custom_media_url" name="<?php echo $this->get_field_name('image_uri'); ?>" id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php echo $instance['image_uri']; ?>">
+            <input type="button" value="<?php _e( 'Upload Image' ); ?>" class="button custom_media_upload" id="custom_image_uploader<?php echo $this->id; ?>"/>
+    	</p>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'image_alt' ); ?>"><?php _e( 'Image Alt Text:' ); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id( 'image_alt' ); ?>" name="<?php echo $this->get_field_name( 'image_alt' ); ?>" type="text" value="<?php echo esc_attr( $image_alt ); ?>"> 
+        </p>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'description' ); ?>"><?php _e( 'Description' ); ?></label>
+            <textarea class="widefat" id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>"><?php echo esc_attr( $description ); ?></textarea> 
+        </p>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'more_link' ); ?>"><?php _e( 'Link to learn more:' ); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id( 'more_link' ); ?>" name="<?php echo $this->get_field_name( 'more_link' ); ?>" type="text" value="<?php echo esc_attr( $more_link ); ?>"> 
+        </p>
+        <?php
+    }
+
+    /**
+     * Processing widget options on save
+     *
+     * @param array $new_instance The new options
+     * @param array $old_instance The previous options
+     */
+    public function update( $new_instance, $old_instance ) {
+        // processes widget options to be saved
+        $instance = $old_instance;
+
+        $instance['title'] = ( ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '');
+        $instance['image_uri'] = ( ! empty( $new_instance['image_uri'] ) ? strip_tags( $new_instance['image_uri'] ) : '' );
+        $instance['image_alt'] = ( ! empty( $new_instance['image_alt'] ) ? strip_tags( $new_instance['image_alt'] ) : '' );
+        $instance['description'] = ( ! empty( $new_instance['description'] ) ? strip_tags( $new_instance['description'] ) : '' );
+        $instance['more_link'] = ( ! empty( $new_instance['more_link'] ) ? strip_tags( $new_instance['more_link'] ) : '' );
+
+        return $instance;
+    }
+}
+
 function register_coenv_do_this_widget() {
     register_widget( 'do_this_widget' );
 }

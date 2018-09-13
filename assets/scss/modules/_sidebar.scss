@@ -172,3 +172,35 @@
         }
     }
 }
+
+.widget-newsletter-signup, .widget-earthlab-text {
+    margin-bottom: 1rem;
+    .widget-title {
+        a {
+            color: $white;
+            &:hover {
+                color: $white;
+                text-decoration: underline;
+            }
+        }
+        @include montserrat_b;
+        @include grid-column(10);
+        float: none;
+        margin-bottom: 0;
+        font-size: .8rem;
+        padding-top: 1rem;
+        padding-bottom: .5rem;
+        background-color: $focus-red;
+        color: $white;
+        text-transform: uppercase;
+    }
+    .text-box {
+        border: 5px solid $focus-red;
+        .text-box-inner {
+            padding: 1rem 1rem 0 1rem;
+            .button {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
