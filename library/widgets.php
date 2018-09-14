@@ -502,10 +502,17 @@ class newsletter_widget extends WP_Widget {
                     <img class="widget-image" src="<?=$instance['image_uri']?>" alt="<?=$instance['image_alt']?>" />
                     <div class="text-box-inner">
                         <p>Get monthly updates in your inbox.</p>
-                        <p>First Name</p>
-                        <p>Last Name</p>
-                        <p>Email</p>
-                        <p><a class="button" href="#">Sign Up</a></p>
+                        <script type="text/javascript" src="https://subscribe.gifts.washington.edu/Scripts/SubManBuilder/submanbuilder.js" id="uwSubscriptionManager"></script>
+                        <script type="text/javascript">
+                            SUBMANBUILDER.makeIframe({
+                                subscriptionID: [378],           //REQUIRED: Subscription ID(s) for sign up e.g. [25, 27] for sign up to multiple sub prefs
+                                fromName: "UW Email Sign Up",   //RECOMMENDED: From name of the confirmation email
+                                fromEmail: "mktosubp@uw.edu",   //RECOMMENDED: From email of the confirmation email
+                                showPlaceHolders: false,        //OPTIONAL: Show placeholder text inside the text boxes
+                                hideLabels: false,              //OPTIONAL: Hide form labels
+                                returnURL: "",                  //OPTIONAL: Set if confirmation page is different than sign up page
+                            });
+                        </script>
                     </div>
                 </div>
             </div>
