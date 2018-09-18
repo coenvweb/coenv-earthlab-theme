@@ -181,6 +181,7 @@
                             <div class="nav-bar">
                                 <ul class="menu">
                                     <li class="home"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></li>
+                                   
                                 </ul>
                             </div>
                         </nav>
