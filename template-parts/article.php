@@ -57,7 +57,7 @@
         <a href="<?php the_field('story_link_(url)'); ?>" class="button" target="_blank"><?php the_field('story_source_name'); ?></a>
     <?php endif; ?>  
     <?php if(get_post_type() == 'project') {
-        echo implode(', ', $member_info);
+        echo implode( ,$member_info);
     } ?>
 	</div>
 	<?php do_action( 'foundationpress_post_after_entry_content' ); ?>
