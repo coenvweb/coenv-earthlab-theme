@@ -59,15 +59,19 @@ form {
 		button[type="submit"] {
             @include rem('padding', 0, 0.5);
             @include breakpoint(small) {
-                width: 10%;
+                width: 15%;
             }
             @include breakpoint(medium) {
-                width: 15%;
+                width: 20%;
             }
             text-align: center;
             background: #ddd;
             border-radius: 0 1px 1px 0;
 
+            &:hover {
+                cursor: pointer;
+            }
+            
             span {
                 display: none;
             }

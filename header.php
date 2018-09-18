@@ -186,11 +186,15 @@
                             </div>
                         </nav>
                     </div>
-                    <div class="top-bar-right">
+                    <div class="menu-item menu-item-search-button top-bar-right"><i class="fa-search fa"></i><i class="fa-times fa hide"></i></div>
+                    <div class="top-bar-right desktop-main-menu">
                         <?php foundationpress_top_bar_r() ?>
                         <?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) === 'topbar' ) : ?>
                             <?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
                         <?php endif; ?>
+                    </div>
+                    <div class="top-bar-right search-bar show-for-sr">
+                        <?php get_search_form(); ?>
                     </div>
                 </div>
             </div>
