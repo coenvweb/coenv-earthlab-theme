@@ -39,7 +39,6 @@
                         $member_info[] = '<div class="more-about-member"><a href="' . site_url() . '/projects/member-affiliates/' . $member_term->slug . '"><h3>' . $member_term->name . '</h3></a> <hr> <p>' . $member_term->description . '</p><a class="button" href="' . site_url() . '/members-and-affiliates/' . $member_term->slug . '">Learn more</a></div>';
                     }
                 }
-            print_r ($member_terms);
                 ?>
             <div class="article__categories">
                  <?php echo implode(', ', $more_terms_arr) ?>
