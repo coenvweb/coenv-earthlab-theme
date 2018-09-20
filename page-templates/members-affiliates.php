@@ -1,0 +1,49 @@
+<?php
+/**
+ * Template Name: Members and Affiliates
+ * The template for displaying members and affiliates
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages and that
+ * other "pages" on your WordPress site will use a different template.
+ *
+ * @package FoundationPress
+ * @since FoundationPress 1.0.0
+ */
+
+ get_header(); ?>
+
+ <?php get_template_part( 'template-parts/featured-image' ); ?>
+
+ <div id="page-sidebar-left" role="main">
+
+ <?php do_action( 'foundationpress_before_content' ); ?>
+ <?php while ( have_posts() ) : the_post(); ?>
+   <article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
+       <?php do_action( 'foundationpress_page_before_entry_content' ); ?>
+       <div class="entry-content">
+           <?php if(get_the_ID() != 22) { ?>
+            <h2 class="page-title"><?php the_title(); ?></h2>
+           <?php } ?>
+           <?php the_content(); ?>
+           <?php 
+           $member_terms = get_terms('member-affiliates');
+                foreach ($member_terms as $member_term) {
+                    $member_terms_arr[] = '<div><h2>' . $member_term->name . '</h2> <div class="text-box"> <div class="text-box-inner"><p>' . $member_term->description . '</p><a class="button" href="' . site_url() . '/members-and-affiliates/' . $member_term->slug . '">Learn more</a></div></div></div>';
+                }
+           echo implode('<br />', $member_terms_arr);
+           ?>
+       </div>
+       <footer>
+           <?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>
+           <p><?php the_tags(); ?></p>
+       </footer>
+   </article>
+ <?php endwhile;?>
+
+ <?php do_action( 'foundationpress_after_content' ); ?>
+ <?php get_sidebar(); ?>
+
+ </div>
+
+ <?php get_footer();
