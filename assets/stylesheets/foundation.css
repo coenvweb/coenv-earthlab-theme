@@ -7381,24 +7381,8 @@ a.thumbnail {
     color: #fff !important; }
   .site-footer .right-college {
     padding-top: 1rem; }
-    .site-footer .right-college #college_black_logo {
-      height: 20px;
-      width: 225px;
-      stroke: #fff;
-      fill: #fff;
-      border-bottom: 1px solid #fff; }
-    .site-footer .right-college #university_logo_black {
-      height: 16px;
-      width: 200px;
-      stroke: #fff;
-      fill: #fff; }
-    .site-footer .right-college #desktop-logo {
-      stroke: #fff;
-      fill: #fff;
-      float: left;
-      height: 40px;
-      width: 50px;
-      margin-right: .5rem; }
+    .site-footer .right-college svg {
+      width: 250px; }
   .site-footer .left-college {
     margin-bottom: 14pxpx;
     margin-bottom: 1rem; }
@@ -7885,6 +7869,47 @@ form .field-wrap {
       width: 37.5%;
       margin: 0rem 0rem .5rem .94rem;
       float: right; } }
+
+.article .more-about-member {
+  margin-bottom: 1rem; }
+  .article .more-about-member h3 {
+    font-family: "montserratbold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    width: 83.33333%;
+    float: left;
+    padding-right: 0.625rem;
+    padding-left: 0.625rem;
+    float: none;
+    margin-bottom: 0;
+    font-size: .8rem;
+    padding-top: 1rem;
+    padding-bottom: .5rem;
+    background-color: #f1c845;
+    color: #333;
+    text-transform: uppercase; }
+    .article .more-about-member h3 a {
+      color: #333; }
+      .article .more-about-member h3 a:hover {
+        color: #333;
+        text-decoration: underline; }
+    @media print, screen and (min-width: 40em) {
+      .article .more-about-member h3 {
+        padding-right: 0.9375rem;
+        padding-left: 0.9375rem; } }
+    .article .more-about-member h3:last-child:not(:first-child) {
+      float: right; }
+  .article .more-about-member .text-box {
+    background: white;
+    border: 5px solid #f1c845; }
+    .article .more-about-member .text-box .text-box-inner {
+      padding: 1.5rem;
+      font-family: "montserratbold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased; }
+      .article .more-about-member .text-box .text-box-inner .button {
+        margin-bottom: 0;
+        border-color: #f1c845; }
+        .article .more-about-member .text-box .text-box-inner .button:hover {
+          background-color: #d9a910; }
 
 .button {
   padding: .5rem;

@@ -17,26 +17,8 @@
     
     .right-college {
         padding-top: 1rem;
-        #college_black_logo {
-            height: 20px;
-            width: 225px;
-            stroke: $white;
-            fill: $white;
-            border-bottom: 1px solid $white;
-        }
-        #university_logo_black {
-            height: 16px;
-            width: 200px;
-            stroke: $white;
-            fill: $white;
-        }
-        #desktop-logo {
-            stroke: $white;
-            fill: $white;
-            float: left;
-            height: 40px;
-            width: 50px;
-            margin-right: .5rem;
+        svg {
+            width: 250px;
         }
     }
     

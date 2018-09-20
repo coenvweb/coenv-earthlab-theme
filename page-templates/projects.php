@@ -69,7 +69,7 @@ if(isset($wp_query->query_vars['case-search'])) {
                     $query_args['term'] = $coenv_cat_term_2;
                 }
                      
-                 if($coenv_cat_term_2) {
+                 if($coenv_cat_term_3) {
                     $query_args['taxonomy'] = 'member-affiliates';
                     $query_args['term'] = $coenv_cat_term_3;
                 }
