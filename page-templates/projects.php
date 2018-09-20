@@ -82,17 +82,17 @@ if(isset($wp_query->query_vars['case-search'])) {
                 if ($wp_query->have_posts()) {
                     if ($coenv_cat_term_2) { // Category filter ?>
                         <div class="panel">
-                            <div class="left"><?php echo $wp_query->found_posts; ?> project<?=($wp_query->found_posts > 1 ? 's' : '')?> focusing on <span class="term"><?php echo $coenv_cat_term_2_val; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">All Projects</a></div>
+                            <div class="left"><?php echo $wp_query->found_posts; ?> project<?=($wp_query->found_posts > 1 ? 's' : '')?> focusing on <span class="term"><?php echo $coenv_cat_term_2_val; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">See All Projects</a></div>
                         </div>
                     <?php }
                     if ($coenv_cat_term_3) { // Category filter ?>
                         <div class="panel">
-                            <div class="left"><?php echo $wp_query->found_posts; ?> project<?=($wp_query->found_posts > 1 ? 's' : '')?> by <span class="term"><?php echo $coenv_cat_term_3_val; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">All Projects</a></div>
+                            <div class="left"><?php echo $wp_query->found_posts; ?> project<?=($wp_query->found_posts > 1 ? 's' : '')?> by <span class="term"><?php echo $coenv_cat_term_3_val; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">See All Projects</a></div>
                         </div>
                     <?php }
                     if (isset($search)) { // Category filter ?>
                         <div class="panel">
-                            <div class="left"><?php echo $wp_query->found_posts; ?> project<?=($wp_query->found_posts > 1 ? 's' : '')?> matching <span class="term"><?php echo $search; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">All Projects</a></div>
+                            <div class="left"><?php echo $wp_query->found_posts; ?> project<?=($wp_query->found_posts > 1 ? 's' : '')?> matching <span class="term"><?php echo $search; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">See All Projects</a></div>
                         </div>
                     <?php } ?>
                     <?php

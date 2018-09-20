@@ -39,7 +39,7 @@ if(isset($wp_query->query_vars['news-search'])) {
                     <form role="search" method="get" class="search-form" action="<?php the_permalink() ?>">
                         <div class="field-wrap">
                             <label for="news-search">Search news</label>
-                            <input value="<?= $search ?>" name="news-search" id="s" placeholder="Search news" aria-label="Search" title="Search" type="text">
+                            <input value="<?php if(!empty($search)) { echo $search; }; ?>" name="news-search" id="s" placeholder="Search news" aria-label="Search" title="Search" type="text">
                             <button type="submit"><i class="fa fa-search"></i><span>Search</span></button>
                         </div>
                     </form>
@@ -61,12 +61,12 @@ if(isset($wp_query->query_vars['news-search'])) {
                     'paged' => $paged
                 );
 
-                if($coenv_cat_term_2) {
+                if(!empty($coenv_cat_term_2)) {
                     $query_args['taxonomy'] = 'focus-area';
                     $query_args['term'] = $coenv_cat_term_2;
                 }
 
-                if($search) {
+                if(!empty($search)) {
                     $query_args['s'] = $search;
                 }
 
@@ -74,12 +74,12 @@ if(isset($wp_query->query_vars['news-search'])) {
                 if ($wp_query->have_posts()) {
                     if ($coenv_cat_term_2) { // Category filter ?>
                         <div class="panel">
-                            <div class="left"><?php echo $wp_query->found_posts; ?> post<?=($wp_query->found_posts > 1 ? 's' : '')?> focusing on <span class="term"><?php echo $coenv_cat_term_2_val; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">All News</a></div>
+                            <div class="left"><?php echo $wp_query->found_posts; ?> post<?=($wp_query->found_posts > 1 ? 's' : '')?> focusing on <span class="term"><?php echo $coenv_cat_term_2_val; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">See All News</a></div>
                         </div>
                     <?php } 
-                    if ($search) { // Category filter ?>
+                     if(!empty($search)) { // Category filter ?>
                         <div class="panel">
-                            <div class="left"><?php echo $wp_query->found_posts; ?> post<?=($wp_query->found_posts > 1 ? 's' : '')?> matching <span class="term"><?php echo $search; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">All News</a></div>
+                            <div class="left"><?php echo $wp_query->found_posts; ?> post<?=($wp_query->found_posts > 1 ? 's' : '')?> matching <span class="term"><?php echo $search; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">See All News</a></div>
                         </div>
                     <?php } ?>
                     <?php

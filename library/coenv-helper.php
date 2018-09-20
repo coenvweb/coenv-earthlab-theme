@@ -137,7 +137,7 @@ $cats = get_categories($cats_args);
             echo $cat->slug;
             echo "</br>";
             echo $tax_value;
-            echo '<option value="' . $tax . '/' . $cat->slug . '/"' . $selected . '>' . $cat->name . '</option>';
+            echo '<option value="' . $tax . '/' . $cat->slug . '/#page-sidebar-left"' . $selected . '>' . $cat->name . '</option>';
         }
         echo '</select>';
         if ($tax == 'focus-area') {
@@ -167,7 +167,7 @@ function coenv_base_date_filter($post_type,$coenv_month,$coenv_year) {
                 } else {
                     $selected = '';
                 }
-                echo '<option value="coenv-year/' . $year_num . '/coenv-month/' . $month_num  . '"' . $selected . '>' . $month_str . ' ' . $year_num . '</option>';
+                echo '<option value="coenv-year/' . $year_num . '/coenv-month/' . $month_num  . '/#page-sidebar-left"' . $selected . '>' . $month_str . ' ' . $year_num . '</option>';
                // echo "\n".get_the_date('F Y');
                 $ref_month = get_the_date('mY');
                 $counter = 0;

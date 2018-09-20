@@ -1,7 +1,4 @@
     <article id="post-<?php the_ID() ?>" <?php post_class( 'article' ) ?>>
-        <?php if(has_post_thumbnail()) { ?>
-            	<div class="coenv-thumb"><a style="float: right;" href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'excerpt' ) ?></a></div>
-        <?php }; ?>
     <header class="article__header">
         <div class="article__meta">
         <?php if ( !is_page() ) : ?>
@@ -34,6 +31,9 @@
             </div>
         <?php endif ?>
         </div>
+        <?php if(has_post_thumbnail()) { ?>
+            	<div class="coenv-thumb"><a style="float: right;" href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'excerpt' ) ?></a></div>
+        <?php }; ?>
 
         <h2 class="article__title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title() ?></a></h2>
 
