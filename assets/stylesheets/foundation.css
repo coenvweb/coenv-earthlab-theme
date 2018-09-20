@@ -7922,6 +7922,8 @@ form .field-wrap {
   -webkit-font-smoothing: antialiased;
   -webkit-transition: all .5s ease;
   transition: all .5s ease; }
+  .button:hover a {
+    color: white; }
 
 .flex-card-example {
   display: -webkit-box;
