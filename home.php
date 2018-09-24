@@ -143,9 +143,8 @@ Template Name: Homepage
             <div class="row ">
                 <div class="large-offset-1 large-2 medium-offset-2 medium-4 small-offset-3 small-6 columns block-title do-title">
                     <h3>
-                        How<br> 
-                        We Do<br>
-                        This
+                        Our<br> 
+                        Approach
                     </h3>
                     <a class="button" href="/about/">Learn More</a>
                 </div>
