@@ -45,11 +45,7 @@
                     </div>
                 </a>
             </div>
-        <?php } else {
-        	if(has_post_thumbnail()) { ?>
-            	<div class="coenv-thumb"><a style="float: right;" href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'med_sq' ) ?></a></div>
-        	<?php }
-		} ?>
+        <?php }; ?>
 
     </section>
     <?php remove_filter( 'the_title', 'wptexturize' );
