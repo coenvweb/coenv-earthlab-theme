@@ -90,6 +90,8 @@ Template Name: Homepage
                             'post_type' => 'post',
                             'post_status' => 'publish',
                             'posts_per_page' => 2,
+                            'post__in'  => get_option( 'sticky_posts' ),
+                            'ignore_sticky_posts' => 1,
                         );
 
                         $wp_query = new WP_Query( $query_args );
@@ -112,7 +114,8 @@ Template Name: Homepage
                             'post_type' => 'post',
                             'post_status' => 'publish',
                             'posts_per_page' => 3,
-                            'offset' => 3,
+                            'ignore_sticky_posts' => 1,
+                            'post__not_in'  => get_option( 'sticky_posts' ),
                         );
 
                         $wp_query = new WP_Query( $query_args );
