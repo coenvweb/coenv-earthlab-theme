@@ -34,7 +34,7 @@ class coenv_base_project_cats extends WP_Widget {
             'post_status' => 'publish',
             'posts_per_page' => 1,
             'ignore_sticky_posts' => 1,
-            'taxonomy' => 'focus-area',
+            'taxonomy' => 'topic',
             'term' => $focus_area,
         );
 
@@ -65,7 +65,7 @@ class coenv_base_project_cats extends WP_Widget {
                     echo "</ul>";
 
                     if($instance['more_link']) {
-                        echo "<a class='button' href='/projects/focus-area/".$focus_area."'>More ".$focus_area." projects</a>";
+                        echo "<a class='button' href='/projects/topic/".$focus_area."'>More ".$focus_area." projects</a>";
                     }
 
                 echo '</div>';
@@ -93,7 +93,7 @@ class coenv_base_project_cats extends WP_Widget {
             $more_link = $instance[ 'more_link' ];
         }
 
-        $focus_areas = get_terms('focus-area');
+        $focus_areas = get_terms('topic');
         ?>
         
        <p>
@@ -240,7 +240,7 @@ class coenv_base_news_cats extends WP_Widget {
             'post_status' => 'publish',
             'posts_per_page' => 1,
             'ignore_sticky_posts' => 1,
-            'taxonomy' => 'focus-area',
+            'taxonomy' => 'topic',
             'term' => $focus_area,
         );
 
@@ -253,7 +253,7 @@ class coenv_base_news_cats extends WP_Widget {
                     ?>
                     <div class="row">
                         <div class="post-meta small-8 columns">
-                            <a href="/about/news-and-events/focus-area/<?php echo $focus_area; ?>"> <?php echo $focus_area; ?> News</a>
+                            <a href="/about/news-and-events/topic/<?php echo $focus_area; ?>"> <?php echo $focus_area; ?> News</a>
                         </div>
                     </div>
                 <?php
@@ -289,7 +289,7 @@ class coenv_base_news_cats extends WP_Widget {
                             <?php
                             echo '<div class="small-12 columns">';
                                 if($instance['more_link']) {
-                                    echo "<a class='button' href='/project/focus-area/".$focus_area."'>More ".$focus_area." news items</a>";
+                                    echo "<a class='button' href='/project/topic/".$focus_area."'>More ".$focus_area." news items</a>";
                                 }
                             echo '</div>';
                             ?>
@@ -317,7 +317,7 @@ class coenv_base_news_cats extends WP_Widget {
             $focus_area = $instance[ 'focus_area' ];
         } 
 
-        $focus_areas = get_terms('focus-area');
+        $focus_areas = get_terms('topic');
       
         ?>
         <p>

@@ -124,7 +124,7 @@ $cats_args  = array(
 );
 $cats = get_categories($cats_args);
     if ($cats) {
-        if ($tax == 'focus-area') {
+        if ($tax == 'topic') {
             echo '<label class="hide" for="select-category">Select a Focus Area:</label>';
             echo '<div class="" data-url="'.get_the_permalink().'">';
         } else {
@@ -140,7 +140,7 @@ $cats = get_categories($cats_args);
             echo '<option value="' . $tax . '/' . $cat->slug . '/#page-sidebar-left"' . $selected . '>' . $cat->name . '</option>';
         }
         echo '</select>';
-        if ($tax == 'focus-area') {
+        if ($tax == 'topic') {
             echo '</div>';
         }
     }
