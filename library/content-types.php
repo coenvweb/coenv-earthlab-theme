@@ -98,6 +98,36 @@ function project_tax() {
     );
     register_taxonomy( 'focus-area', array( 'project', 'post' ), $project_args );
     
+    $topic_labels = array(
+        'name'                       => _x( 'Topics', 'Taxonomy General Name', 'text_domain' ),
+        'singular_name'              => _x( 'Topic', 'Taxonomy Singular Name', 'text_domain' ),
+        'menu_name'                  => __( 'Topics', 'text_domain' ),
+        'all_items'                  => __( 'All Topics', 'text_domain' ),
+        'parent_item'                => __( 'Parent Topic', 'text_domain' ),
+        'parent_item_colon'          => __( 'Parent Topic:', 'text_domain' ),
+        'new_item_name'              => __( 'New Topic', 'text_domain' ),
+        'add_new_item'               => __( 'Add Topic', 'text_domain' ),
+        'edit_item'                  => __( 'Edit Topic', 'text_domain' ),
+        'update_item'                => __( 'Update Topic', 'text_domain' ),
+        'separate_items_with_commas' => __( 'Separate topics with commas', 'text_domain' ),
+        'search_items'               => __( 'Search Topics', 'text_domain' ),
+        'add_or_remove_items'        => __( 'Add or remove topics', 'text_domain' ),
+        'choose_from_most_used'      => __( 'Choose from the most popular topics', 'text_domain' ),
+        'not_found'                  => __( 'Not Found', 'text_domain' ),
+    );
+    $topic_args = array(
+        'labels'                     => $topic_labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+        //args below prevent default wp permalinks from messing up our index pages
+        'rewrite'                    => false,
+    );
+    register_taxonomy( 'topic', array( 'project', 'post' ), $topic_args );
+    
     $affiliated_members_labels = array(
         'name'                       => _x( 'Member/Affiliates', 'Taxonomy General Name', 'text_domain' ),
         'singular_name'              => _x( 'Member/Affiliates', 'Taxonomy Singular Name', 'text_domain' ),
