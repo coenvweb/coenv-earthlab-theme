@@ -242,7 +242,7 @@ function coenv_base_section_title($id) {
 
     if ( is_singular( 'post' ) || $coenv_post_section->ID == NEWS_PAGE_PARENT_ID) { //change news pages' section titles
         unset ($section_title);
-        $section_title = '<div class="section-title"><h2><a href="'.get_site_url().'/about/">News and Events</a></h2></div>';
+        $section_title = '<div class="section-title"><h2><a href="'.get_site_url().'/news-and-events/">News and Events</a></h2></div>';
     }
     
 
