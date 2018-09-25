@@ -42,7 +42,7 @@ if(isset($wp_query->query_vars['case-search'])) {
             <?php the_content(); ?>
             <div class="row filters">
                 <div class=" large-6 columns" data-url="<?php the_permalink() ?>" data-cat="focus-area">
-                    <?php coenv_base_cat_filter('focus-area', $coenv_cat_term_2); // Category filter ?>
+                    <?php coenv_base_cat_filter('topic', $coenv_cat_term_2); // Category filter ?>
                 </div>
                 <div class="case-search large-6 columns" data-url="<?php the_permalink() ?>" data-cat="case-search">
                     <?php coenv_base_cat_filter('member-affiliates', $coenv_cat_term_3); // Category filter ?>
