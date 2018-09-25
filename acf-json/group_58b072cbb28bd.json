@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_58caf6fe846eb",
-            "label": "Is this news item and event?",
+            "label": "Is this news item an event?",
             "name": "event",
             "type": "true_false",
             "instructions": "",
@@ -25,7 +25,7 @@
             "key": "field_58caf77c846ec",
             "label": "Event Date",
             "name": "event_date",
-            "type": "date_picker",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
@@ -42,9 +42,11 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "F j, Y",
-            "return_format": "m\/d\/Y",
-            "first_day": 1
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_58b072d40daa7",
@@ -102,5 +104,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1489775582
+    "modified": 1537912973
 }

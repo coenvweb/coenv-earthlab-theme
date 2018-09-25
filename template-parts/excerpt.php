@@ -30,32 +30,20 @@
                 </div>
             </div>
         <?php endif ?>
-        </div>
+        
         <?php if(has_post_thumbnail()) { ?>
             	<div class="coenv-thumb"><a style="float: right;" href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'excerpt' ) ?></a></div>
         <?php }; ?>
-
-        <h2 class="article__title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title() ?></a></h2>
+        <?php if(get_field('event_date')) {
+            echo '<div class="post-info"><i class="fa fa-calendar"></i> ' . get_field('event_date') . '</div>';
+        } else {
+            $event_date = '';
+        }; ?>
+            </div>
+        <h2 class="article__title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 
     </header>
     <section class="article__content">
-		<?php if(get_field('event_date')) {
-            $event_date = new DateTime(get_field('event_date'));
-        ?>
-            <div class="event">
-                <?php if ( get_field('story_link_(url)') && get_field('story_source_name') ) { ?>
-                    <a href="<?php the_field('story_link_(url)') ?>">
-                <?php } else { ?>
-                    <a href="<?php the_permalink() ?>">
-                <?php } ?>
-                    <div class="event_container">
-                        <span class="month"><?=$event_date->format('F');?></span>
-                        <span class="day"><?=$event_date->format('d');?></span>
-                    </div>
-                </a>
-            </div>
-        <?php } else {
-		} ?>
         <?php the_excerpt(); ?>
         <a href="<?php echo the_permalink(); ?>" class="button">Read more</a>
 
