@@ -39,7 +39,7 @@
                 background: #fff;
                 color: $black;
 				width: 95%;
-                margin-bottom: 0px;
+                margin-bottom: .75rem;
                 @include breakpoint(medium only) {
                     width: 82%;
                 }
@@ -69,18 +69,7 @@
     }
     
     .logo-headers {
-        border-bottom: 1px solid darken( $uw-purple, 5% );
         @include rem('margin-bottom', 1);
-        &:after {
-            content: "";
-            display: block;
-            z-index: -1;
-            top: 50%;
-            width: 100%;
-            height: 1px;
-            background: lighten( $uw-purple, 5% );
-
-        }
     }
 	
     .site-footer__header {
@@ -98,32 +87,30 @@
 
 	} // header
 
-	.footer-nav {
-
-		.footer-nav__title {
-			display: none;
-		}
+    .member-org-title {
+        margin-top: .75rem;
+        margin-bottom: .25rem;
+        font-size: .9rem;
+        @include o_sans_bold;
+    }
 		ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
+        margin: 0;
+        padding: 0;
+        list-style: none;
 
-            @media print {
-                display: none;
-            }   
+        @media print {
+            display: none;
+        }   
 
-            a { 
-                text-decoration: none;
-                color: $white;
-            }   
+        a { 
+            text-decoration: none;
+            color: $white;
+        }   
 
-        }
-
-	} // .footer-nav
+    }
 
     
 
-	.footer__info {
 		color: $white;
         
         a {
@@ -153,7 +140,6 @@
 
 		} // .top-links
         
-	} // .footer__info
 
 } // .site-footer
 

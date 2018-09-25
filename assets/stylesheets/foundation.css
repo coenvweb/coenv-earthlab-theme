@@ -7373,7 +7373,8 @@ a.thumbnail {
   padding: 2rem 0;
   background: #4b2e83;
   font-size: 12px;
-  font-size: 0.85714/pxrem; }
+  font-size: 0.85714/pxrem;
+  color: #fff; }
   @media print {
     .site-footer {
       padding-bottom: 0; } }
@@ -7400,7 +7401,7 @@ a.thumbnail {
         background: #fff;
         color: #0a0a0a;
         width: 95%;
-        margin-bottom: 0px; }
+        margin-bottom: .75rem; }
         @media screen and (min-width: 40em) and (max-width: 63.9375em) {
           .site-footer .left-college form input[type="text"] {
             width: 82%; } }
@@ -7424,17 +7425,8 @@ a.thumbnail {
       .site-footer .left-college {
         display: none; } }
   .site-footer .logo-headers {
-    border-bottom: 1px solid #402770;
     margin-bottom: 14pxpx;
     margin-bottom: 1rem; }
-    .site-footer .logo-headers:after {
-      content: "";
-      display: block;
-      z-index: -1;
-      top: 50%;
-      width: 100%;
-      height: 1px;
-      background: #563596; }
   .site-footer .site-footer__header h1 {
     font-family: "montserratbold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -7445,35 +7437,38 @@ a.thumbnail {
     font-size: 2.57143/pxrem;
     font-weight: 800;
     color: #fff; }
-  .site-footer .footer-nav .footer-nav__title {
-    display: none; }
-  .site-footer .footer-nav ul {
+  .site-footer .member-org-title {
+    margin-top: .75rem;
+    margin-bottom: .25rem;
+    font-size: .9rem;
+    font-family: "open-sans-bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: .5px; }
+  .site-footer ul {
     margin: 0;
     padding: 0;
     list-style: none; }
     @media print {
-      .site-footer .footer-nav ul {
+      .site-footer ul {
         display: none; } }
-    .site-footer .footer-nav ul a {
+    .site-footer ul a {
       text-decoration: none;
       color: #fff; }
-  .site-footer .footer__info {
-    color: #fff; }
-    .site-footer .footer__info a {
-      color: #fff;
-      text-decoration: none; }
-    .site-footer .footer__info p {
-      margin: 0; }
-    .site-footer .footer__info .top-links {
-      margin: 0;
-      padding: 0;
-      list-style: none; }
-      @media print {
-        .site-footer .footer__info .top-links {
-          display: none; } }
-      .site-footer .footer__info .top-links a {
-        text-decoration: none;
-        color: #fff; }
+  .site-footer a {
+    color: #fff;
+    text-decoration: none; }
+  .site-footer p {
+    margin: 0; }
+  .site-footer .top-links {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    @media print {
+      .site-footer .top-links {
+        display: none; } }
+    .site-footer .top-links a {
+      text-decoration: none;
+      color: #fff; }
 
 .uw-footer {
   background-image: url("../images/black-white-suz.jpg");
