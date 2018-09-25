@@ -7,9 +7,9 @@ Template Name: Projects Index
 $filtered = false;
 
 //Focus Areas
-if(isset($wp_query->query_vars['focus-area'])){
-    $coenv_cat_term_2 = urlencode(htmlentities($wp_query->query_vars['focus-area']));
-    $coenv_cat_term_2_arr = get_term_by('slug',$coenv_cat_term_2,'focus-area');
+if(isset($wp_query->query_vars['topic'])){
+    $coenv_cat_term_2 = urlencode(htmlentities($wp_query->query_vars['topic']));
+    $coenv_cat_term_2_arr = get_term_by('slug',$coenv_cat_term_2,'topic');
     $coenv_cat_term_2_val = $coenv_cat_term_2_arr->name;
     $filtered = true;
 } else {
@@ -41,7 +41,7 @@ if(isset($wp_query->query_vars['case-search'])) {
             <h2 class="page-title"><?php the_title(); ?></h2>
             <?php the_content(); ?>
             <div class="row filters">
-                <div class=" large-6 columns" data-url="<?php the_permalink() ?>" data-cat="focus-area">
+                <div class=" large-6 columns" data-url="<?php the_permalink() ?>" data-cat="topic">
                     <?php coenv_base_cat_filter('topic', $coenv_cat_term_2); // Category filter ?>
                 </div>
                 <div class="case-search large-6 columns" data-url="<?php the_permalink() ?>" data-cat="case-search">
@@ -65,7 +65,7 @@ if(isset($wp_query->query_vars['case-search'])) {
                 );
 
                 if($coenv_cat_term_2) {
-                    $query_args['taxonomy'] = 'focus-area';
+                    $query_args['taxonomy'] = 'topic';
                     $query_args['term'] = $coenv_cat_term_2;
                 }
                      
