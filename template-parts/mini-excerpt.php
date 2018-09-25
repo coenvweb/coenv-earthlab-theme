@@ -11,10 +11,10 @@
 
                     foreach ($more_terms as &$term) {
                         if(get_post_type() == 'post') {
-                            $more_terms_arr[] = '<a href="/about/news-and-events/topic/' . $term->slug . '">' . $term->name . '</a>';
+                            $more_terms_arr[] = '<a href="' . site_url() . '/news-and-events/topic/' . $term->slug . '">' . $term->name . '</a>';
                         }
                         if(get_post_type() == 'project') {
-                            $more_terms_arr[] = '<a href="/about/case-studies/topic/' . $term->slug . '">' . $term->name . '</a>';
+                            $more_terms_arr[] = '<a href="' . site_url() . '/about/case-studies/topic/' . $term->slug . '">' . $term->name . '</a>';
                         }
                     }
                 }
