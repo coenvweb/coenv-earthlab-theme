@@ -118,7 +118,7 @@ function news_section($args) {
     $wp_query = new WP_Query( $query_args );
     if ($wp_query->have_posts()) {
         ob_start();
-        ?><div class="related-news clearfix"><h2>News</h2>
+        ?><div class="related-news clearfix">
         <?php
         # The Loop
         while ( $wp_query->have_posts() ) {
