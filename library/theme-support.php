@@ -201,7 +201,7 @@ function coenv_banner() {
 
     if ( is_singular( 'post' )) { //change news pages' section titles
         unset ($ancestor_id);
-        $ancestor_id = 42;
+        $ancestor_id = 606;
     }
 
     if ( has_post_thumbnail( $ancestor_id ) ) {
@@ -240,9 +240,9 @@ function coenv_base_section_title($id) {
         $section_title = '<div class="section-title"><h2><a href="' . get_site_url() . '/' . $coenv_post_section->post_name . '">' . $coenv_post_section->post_title . '</a></h2></div>';
     endif;
 
-    if ( is_singular( 'post' ) || $coenv_post_section->ID == 22) { //change news pages' section titles
+    if ( is_singular( 'post' ) || $coenv_post_section->ID == NEWS_PAGE_PARENT_ID) { //change news pages' section titles
         unset ($section_title);
-        $section_title = '<div class="section-title"><h2><a href="'.get_site_url().'/about/">About</a></h2></div>';
+        $section_title = '<div class="section-title"><h2><a href="'.get_site_url().'/about/">News and Events</a></h2></div>';
     }
     
 

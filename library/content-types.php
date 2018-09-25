@@ -134,7 +134,7 @@ add_action('init', 'project_tax');
 
 
 define( 'PROJECT_PAGE_PARENT_ID', '598' );
-define( 'NEWS_PAGE_PARENT_ID', '42' );
+define( 'NEWS_PAGE_PARENT_ID', '606' );
 
 /**
  * save project parent

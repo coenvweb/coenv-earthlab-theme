@@ -16,7 +16,7 @@
                     <?php if(get_field('event')) { ?>
                         Event
                     <?php } elseif(get_post_type() == 'post') { ?>
-					    <time class="article__time" datetime="<?php echo get_the_date('Y-m-d h:i:s') ?>"><?php echo get_the_date('M j, Y') ?></time>
+					    <time class="article__time" datetime="<?php echo get_the_date('Y-m-d h:i:s') ?>"><?php echo get_the_date('M j, Y') ?></time> |
                     <?php } ?>
 					<?php
                 $more_terms = get_the_terms(get_the_id(), 'topic');

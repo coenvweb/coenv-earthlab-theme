@@ -12,10 +12,10 @@
 	do_action( 'foundationpress_before_sidebar' );
 	$menu_id = $GLOBALS['post']->ID;
 	if (is_singular('post')) {
-		$menu_id = 42;
+		$menu_id = NEWS_PAGE_PARENT_ID;
 	}
-	if (is_singular('case_study')) {
-		$menu_id = 97;
+	if (is_singular('projects')) {
+		$menu_id = PROJECT_PAGE_PARENT_ID;
 	}
 	if (!is_front_page() && !is_page_template('page-templates/focus-page.php')) {
 		echo '<div class="coenv_base_subnav show-for-medium">';
