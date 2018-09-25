@@ -1,4 +1,4 @@
-.article {
+article {
     
     .event { 
         display: block;
@@ -94,6 +94,12 @@
                 margin: 0rem 0rem .5rem .94rem;
                 float: right;
             }
+        }    
+    }
+    
+    .related-news {
+        .article__title {
+            @include montserrat_b();
         }
     }
     

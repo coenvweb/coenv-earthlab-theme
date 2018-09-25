@@ -78,4 +78,60 @@ function gift_frame($args) {
     return $output;
 }
 add_shortcode('make_a_gift', 'gift_frame');
+
+function news_section($args) {
+    global $wp_query, $post;
+    $atts = shortcode_atts(array(
+        'topic' => '',
+        'member' => '',
+        'number' => '3',
+    ), $args);
+    if (!empty($atts['topic'])) {
+        $taxonomy = 'topic';
+        $term = $atts['topic'];
+    } elseif (!empty($atts['member'])) {
+        $taxonomy = 'member-affiliates';
+        $term = $atts['member'];
+    } elseif (get_term_by('slug', $post->post_name, 'member-affiliates')) {
+        $taxonomy = 'member-affiliates';
+        $term = $post->post_name;
+    }
+    $full_term = get_term_by('slug', $term, $taxonomy);
+    
+    /**
+    * Blog loop
+    */
+    $query_args = array(
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'posts_per_page' => 3,
+        'ignore_sticky_posts' => 1,
+        'tax_query' => array(
+            array(
+              'taxonomy' => $taxonomy,
+              'field' => 'slug',
+              'terms' => $term,
+            )
+          )
+    );
+
+    $wp_query = new WP_Query( $query_args );
+    if ($wp_query->have_posts()) {
+        ob_start();
+        ?><div class="related-news clearfix"><h2>News</h2>
+        <?php
+        # The Loop
+        while ( $wp_query->have_posts() ) {
+            $wp_query->the_post();
+                get_template_part( 'template-parts/mini-excerpt' );
+        }; ?>
+        <a class="button" href="<?php echo '/news-and-events/' . $taxonomy . '/' . $term . '/' ?>">More <?php echo $full_term->name; ?> news</a>
+        </div>
+        <?php wp_reset_query();
+        return ob_get_clean();
+    } else {
+        return false;
+    };
+}
+add_shortcode('news_section', 'news_section');
 ?>
