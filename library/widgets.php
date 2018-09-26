@@ -501,7 +501,7 @@ class newsletter_widget extends WP_Widget {
                 <div class="text-box">
                     <img class="widget-image" src="<?=$instance['image_uri']?>" alt="<?=$instance['image_alt']?>" />
                     <div class="text-box-inner">
-                        <p>Get monthly updates in your inbox.</p>
+                        <p>Sign up for our newsletter</p>
                         <script type="text/javascript" src="https://subscribe.gifts.washington.edu/Scripts/SubManBuilder/submanbuilder.js" id="uwSubscriptionManager"></script>
                         <script type="text/javascript">
                             SUBMANBUILDER.makeIframe({
@@ -513,6 +513,11 @@ class newsletter_widget extends WP_Widget {
                                 returnURL: "",                  //OPTIONAL: Set if confirmation page is different than sign up page
                             });
                         </script>
+                        <div class="social-area">
+                        <p>Follow EarthLab <span class="social-icon-box right"><a class="social-icon" href="https://www.facebook.com/UWEarthLab/"><i class="fa fa-facebook"></i></a> <a class="social-icon" href="https://twitter.com/earthlabuw"><i class="fa fa-twitter"></i></a></span></p>
+                        
+                        </div>
+                        
                     </div>
                 </div>
             </div>
