@@ -32,7 +32,7 @@
         <?php endif ?>
         
         <?php if(has_post_thumbnail()) { ?>
-            	<div class="coenv-thumb"><a style="float: right;" href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'excerpt' ) ?></a></div>
+            	<div class="coenv-thumb"><a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'excerpt' ) ?></a></div>
         <?php }; ?>
         <?php if(get_field('event_date')) {
             echo '<div class="post-info"><i class="fa fa-calendar"></i> ' . get_field('event_date') . '</div>';
