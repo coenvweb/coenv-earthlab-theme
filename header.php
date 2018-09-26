@@ -14,6 +14,7 @@
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="twitter:dnt" content="on">
 		<title><?php if ( is_category() ) { 
 		  echo 'Category Archive for &quot;'; single_cat_title(); echo '&quot; | '; bloginfo( 'name' );
 		} elseif ( is_tag() ) { 
