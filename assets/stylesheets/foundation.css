@@ -7431,6 +7431,12 @@ a.thumbnail {
     @media print {
       .site-footer .left-college {
         display: none; } }
+  .site-footer .social-icon-box {
+    margin-top: .5rem;
+    margin-bottom: .5rem; }
+    .site-footer .social-icon-box .social-icon {
+      font-size: 1.2rem;
+      margin-right: .5rem; }
   .site-footer .logo-headers {
     margin-bottom: 14pxpx;
     margin-bottom: 1rem; }

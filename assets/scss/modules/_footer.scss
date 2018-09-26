@@ -67,7 +67,14 @@
             display: none;
         } 
     }
-    
+    .social-icon-box {
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+        .social-icon {
+            font-size: 1.2rem;
+            margin-right: .5rem;
+        }
+    }
     .logo-headers {
         @include rem('margin-bottom', 1);
     }
