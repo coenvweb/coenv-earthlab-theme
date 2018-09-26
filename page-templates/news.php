@@ -44,9 +44,9 @@ if(isset($wp_query->query_vars['news-search'])) {
                 <div class=" large-6 columns" data-url="<?php the_permalink() ?>" data-cat="topic">
                     <?php coenv_base_cat_filter('topic', $coenv_cat_term_2); // Category filter ?>
                 </div>
-                <div class=" large-6 columns" data-url="<?php the_permalink() ?>" data-cat="member-affiliates">
+                <!--<div class=" large-6 columns" data-url="<?php the_permalink() ?>" data-cat="member-affiliates">
                     <?php coenv_base_cat_filter('member-affiliates', $coenv_cat_term_3); // Category filter ?>
-                </div>
+                </div>-->
                 <!--<div class="news-search large-6 columns" data-url="<?php the_permalink() ?>" data-cat="news-search">
                     <form role="search" method="get" class="search-form" action="<?php the_permalink() ?>">
                         <div class="field-wrap">

@@ -17,12 +17,12 @@
                         }
                     }
                 }
-                if(get_post_type() == 'project') {
-                    $member_terms = get_the_terms(get_the_id(), 'member-affiliates');
-                    foreach ($member_terms as &$member_term) {
-                        $member_terms_arr[] = '<a href="' . site_url() . '/projects/member-affiliates/' . $member_term->slug . '">' . $member_term->name . '</a>';
-                    }
-                }
+                //if(get_post_type() == 'project') {
+                //    $member_terms = get_the_terms(get_the_id(), 'member-affiliates');
+                //    foreach ($member_terms as &$member_term) {
+                //        $member_terms_arr[] = '<a href="' . site_url() . '/projects/member-affiliates/' . $member_term->slug . '">' . $member_term->name . '</a>';
+                //    }
+                //}
                 ?>
                 <div class="article__categories">
                      <?php echo implode(', ', $more_terms_arr) ?>

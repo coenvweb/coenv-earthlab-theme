@@ -41,13 +41,13 @@
                         }
                     }
                 }
-                if(get_post_type() == 'project') {
-                    $member_terms = get_the_terms(get_the_id(), 'member-affiliates');
-                    foreach ($member_terms as &$member_term) {
-                        $member_terms_arr[] = '<a href="' . site_url() . '/projects/member-affiliates/' . $member_term->slug . '">' . $member_term->name . '</a>';
-                        $member_info[] = '<div class="more-about-member"><a href="' . site_url() . '/projects/member-affiliates/' . $member_term->slug . '"><h3>More about the ' . $member_term->name . '</h3></a> <div class="text-box"> <div class="text-box-inner"><p>' . $member_term->description . '</p><a class="button" href="' . site_url() . '/members-and-affiliates/' . $member_term->slug . '">Learn more</a></div></div></div>';
-                    }
-                }
+                //if(get_post_type() == 'project') {
+                //    $member_terms = get_the_terms(get_the_id(), 'member-affiliates');
+                //    foreach ($member_terms as &$member_term) {
+                //        $member_terms_arr[] = '<a href="' . site_url() . '/projects/member-affiliates/' . $member_term->slug . '">' . $member_term->name . '</a>';
+                //        $member_info[] = '<div class="more-about-member"><a href="' . site_url() . '/projects/member-affiliates/' . $member_term->slug . '"><h3>More about the ' . $member_term->name . '</h3></a> <div class="text-box"> <div class="text-box-inner"><p>' . $member_term->description . '</p><a class="button" href="' . site_url() . '/members-and-affiliates/' . $member_term->slug . '">Learn more</a></div></div></div>';
+                //    }
+                //}
                 ?>
             <div class="article__categories">
                  <?php echo implode(', ', $more_terms_arr) ?>
