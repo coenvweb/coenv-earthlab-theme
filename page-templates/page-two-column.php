@@ -38,7 +38,7 @@ $size = 'large';
                            ?>
 
                            <?php if ($caption) { ?>
-                            <figure id="<?php echo $image_id; ?>" class="wp-caption">
+                            <figure id="<?php echo $image_id; ?>" class="wp-caption" itemscope>
 
                                 <a href="<?php echo $image_url; ?>" title="<?php echo $alt; ?>"><?php echo wp_get_attachment_image( $image['ID'], $size ); ?></a>
 
