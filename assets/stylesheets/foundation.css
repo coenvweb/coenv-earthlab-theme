@@ -8647,6 +8647,7 @@ article .more-about-member {
     .main-content .contact .contact-info .contact-list {
       -webkit-box-shadow: 0px 3px 0px #fff inset;
               box-shadow: 0px 3px 0px #fff inset;
+      min-width: 175px;
       font-size: 85%;
       position: absolute;
       top: 47%;
@@ -8949,6 +8950,12 @@ article .more-about-member {
 
 .main-content {
   margin-bottom: 4rem; }
+
+.page-content-two-column .entry-content.columns {
+  padding-left: 0; }
+
+.page-content-two-column .two-col-images-column.columns {
+  padding-right: 0; }
 
 @media print {
   body {
