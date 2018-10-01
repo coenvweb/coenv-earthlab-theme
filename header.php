@@ -19,9 +19,13 @@
         $post_link = get_permalink();
         $meta_title = get_field('meta_title');
         $meta_description = get_field('meta_description');
+        $facebook_image_size = 'featured-medium';
         $facebook_share_title = get_field('facebook_share_title');
         $facebook_share_description = get_field('facebook_share_description');
-        $facebook_share_image = get_field('facebook_share_image');
+        $facebook_share_image_full = get_field('facebook_share_image');
+        $facebook_share_image = $facebook_share_image_full['sizes'][$facebook_image_size];
+        $facebook_share_width = $facebook_share_image_full['sizes'][$facebook_image_size . '-width'];
+        $facebook_share_height = $facebook_share_image_full['sizes'][$facebook_image_size . '-height'];
         
         // Default Image for Social/FB Meta
         $post = get_queried_object();
@@ -35,10 +39,10 @@
             $ancestor = coenv_get_ancestor();
         }
         if ( has_post_thumbnail( get_the_id() )) { 
-            $thumb_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+            $thumb_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), $facebook_image_size );
             $post_image = $thumb_src[0];
         } elseif($ancestor) {
-            $post_image = get_the_post_thumbnail_url($ancestor, 'full');
+            $post_image = get_the_post_thumbnail_url($ancestor, $facebook_image_size);
         }
         else {
             $post_image = null;
@@ -47,7 +51,7 @@
         <meta charset="<?php bloginfo( 'charset' ); ?>" />
         <meta name="twitter:dnt" content="on">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-       
+      
         <title><?php 
         // if home or front page
         if ( is_home() || is_front_page() ) {
@@ -67,7 +71,7 @@
         } 
         echo '</title>'; ?>
         
-        <?php         
+        <?php           
         // custom meta description for homepage
         if ( is_home() || is_front_page() ) {
             echo '<meta name="description" content="Equal parts research engine and community catalyst, EarthLab harnesses the power of co-created solutions to our most imminent environmental challenges."/>';
@@ -97,9 +101,13 @@
      
        <?php
         if ($facebook_share_image) {
-            echo '<meta property="og:image" content="' . $facebook_share_image . '"/>'; 
+            echo '<meta property="og:image" content="' . $facebook_share_image . '"/>
+            <meta property="og:image:width" content="' . $facebook_share_width . '" />
+            <meta property="og:image:height" content="' . $facebook_share_height . '" />';
         } elseif ($post_image) {
-            echo '<meta property="og:image" content="' . $post_image . '"/>';  
+            echo '<meta property="og:image" content="' . $post_image . '"/>
+            <meta property="og:image:width" content="1280" />
+            <meta property="og:image:height" content="800" />';  
         } ?>
     
         <?php
