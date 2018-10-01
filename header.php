@@ -12,13 +12,11 @@
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?> >
 	<head>
-	   <?php global $wp;
-        
+	    <?php global $wp;
+        $site_url = home_url( $wp->request );
+
         // Post info
-        $post_link = home_url( $wp->request );
-        $post_title = get_the_title();
-        
-        // SEO and Social Meta Customizations
+        $post_link = get_permalink();
         $meta_title = get_field('meta_title');
         $meta_description = get_field('meta_description');
         $facebook_share_title = get_field('facebook_share_title');
@@ -41,9 +39,10 @@
             $post_image = $thumb_src[0];
         } elseif($ancestor) {
             $post_image = get_the_post_thumbnail_url($ancestor, 'full');
-        } else {
-            $post_image = get_template_directory_uri().'/assets/images/logo-1200x1200.png';
-		} ?>
+        }
+        else {
+            $post_image = null;
+        }?>
         
         <meta charset="<?php bloginfo( 'charset' ); ?>" />
         <meta name="twitter:dnt" content="on">
@@ -102,9 +101,15 @@
         } elseif ($post_image) {
             echo '<meta property="og:image" content="' . $post_image . '"/>';  
         } ?>
+    
+        <?php
+        if ( is_home() || is_front_page() ) {
+            echo '<meta property="og:url" content="' . $site_url . '/"/>';
+        } else {
+            echo '<meta property="og:url" content="' . $post_link . '"/>';
+        }?>
         
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="<?php echo $post_link ?>" />
         <meta property="og:site_name" content="<?php bloginfo('name') ?>" />
 
 		<link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri() ?>/assets/images/icons/apple-icon-57x57.png">
