@@ -18,7 +18,7 @@
 		$menu_id = PROJECT_PAGE_PARENT_ID;
 	}
 	if (!is_front_page() && !is_page_template('page-templates/focus-page.php')) {
-		echo '<div class="coenv_base_subnav show-for-medium">';
+		echo '<div class="coenv_base_subnav">';
 		  echo coenv_base_section_title($GLOBALS['post']->ID);
 			echo coenv_base_hierarchical_submenu($menu_id);
 		echo '</div>';
