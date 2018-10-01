@@ -102,6 +102,10 @@
         } elseif ($post_image) {
             echo '<meta property="og:image" content="' . $post_image . '"/>';  
         } ?>
+        
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="<?php echo $post_link ?>" />
+        <meta property="og:site_name" content="<?php bloginfo('name') ?>" />
 
 		<link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri() ?>/assets/images/icons/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri() ?>/assets/images/icons/apple-icon-60x60.png">
