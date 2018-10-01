@@ -70,3 +70,8 @@ require_once('library/gdpr.php');
 if( function_exists('acf_add_options_page')) {
     acf_add_options_page();
 }
+
+// Remove meta title from wp_head, we will add it manually
+if (has_action('wp_head','_wp_render_title_tag') == 1) {
+    remove_action('wp_head','_wp_render_title_tag',1);
+}

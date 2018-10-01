@@ -12,54 +12,96 @@
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?> >
 	<head>
-		<meta charset="<?php bloginfo( 'charset' ); ?>" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	   <?php global $wp;
+        
+        // Post info
+        $post_link = home_url( $wp->request );
+        $post_title = get_the_title();
+        
+        // SEO and Social Meta Customizations
+        $meta_title = get_field('meta_title');
+        $meta_description = get_field('meta_description');
+        $facebook_share_title = get_field('facebook_share_title');
+        $facebook_share_description = get_field('facebook_share_description');
+        $facebook_share_image = get_field('facebook_share_image');
+        
+        // Default Image for Social/FB Meta
+        $post = get_queried_object();
+        if(get_post_type() == 'post') {
+            $ancestor = NEWS_PAGE_PARENT_ID;
+        } elseif(get_post_type() == 'project') {
+            $ancestor = PROJECT_PAGE_PARENT_ID;
+        } elseif(is_search() || is_404()) {
+            $ancestor = 608;
+        } else {
+            $ancestor = coenv_get_ancestor();
+        }
+        if ( has_post_thumbnail( get_the_id() )) { 
+            $thumb_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+            $post_image = $thumb_src[0];
+        } elseif($ancestor) {
+            $post_image = get_the_post_thumbnail_url($ancestor, 'full');
+        } else {
+            $post_image = get_template_directory_uri().'/assets/images/logo-1200x1200.png';
+		} ?>
+        
+        <meta charset="<?php bloginfo( 'charset' ); ?>" />
         <meta name="twitter:dnt" content="on">
-		<title><?php if ( is_category() ) { 
-		  echo 'Category Archive for &quot;'; single_cat_title(); echo '&quot; | '; bloginfo( 'name' );
-		} elseif ( is_tag() ) { 
-		  echo 'Tag Archive for &quot;'; single_tag_title(); echo '&quot; | '; bloginfo( 'name' );
-		} elseif ( is_archive() ) { 
-		  wp_title(''); echo ' Archive | '; bloginfo( 'name' );
-		} elseif ( is_search() ) { 
-		  echo 'Search for &quot;'.esc_html($s).'&quot; | '; bloginfo( 'name' );
-		} elseif ( is_home() || is_front_page() ) { 
-		  bloginfo( 'name' ); echo ' | '; bloginfo( 'description' );
-		}  elseif ( is_404() ) { 
-		  echo 'Error 404 Not Found | '; bloginfo( 'name' );
-		} elseif ( is_single() ) { 
-		  wp_title('');
-		} else {
-		  echo wp_title( ' | ', 'false', 'right' ); bloginfo( 'name' );
-		} ?></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       
+        <title><?php 
+        // if home or front page
+        if ( is_home() || is_front_page() ) {
+            bloginfo( 'name' ); echo ' | '; bloginfo( 'description' );
+        // if ACF is filled out
+        } elseif ($meta_title) {
+            echo $meta_title;
+        // if search results page
+        } elseif ( is_search() ) {
+            echo 'Search for &quot;'.esc_html($s).'&quot; | '; bloginfo( 'name' );
+        // if 404 page
+        } elseif ( is_404() ) {
+            echo 'Error 404 Not Found | '; bloginfo( 'name' );
+        // everything else 
+        } else {
+            echo wp_title( '|', 'false', 'right' ); bloginfo( 'name' );
+        } 
+        echo '</title>'; ?>
+        
+        <?php         
+        // custom meta description for homepage
+        if ( is_home() || is_front_page() ) {
+            echo '<meta name="description" content="Equal parts research engine and community catalyst, EarthLab harnesses the power of co-created solutions to our most imminent environmental challenges."/>';
+        }
+        // add meta description if declared in ACF
+        elseif ($meta_description) {
+            echo '<meta name="description" content="' . $meta_description . '"/>';
+        }  ?>
 
         <?php
-            $ancestor = coenv_get_ancestor();
-            $post = get_queried_object();
-			$post_title = get_the_title().' | ' . get_bloginfo( 'name' );
-			if (!is_front_page() ) {
-				$advancedExcerpt = strip_tags(get_the_excerpt());
-			} else {
-				$advancedExcerpt = 'EarthLab reimagines the world as it should be, while impacting the world as it is. Equal parts research engine and community catalyst, EarthLab harnesses the power of co-created solutions to our most imminent environmental challenges.';
-			}
-			$post_description = $advancedExcerpt;
-			$post_link = get_permalink();
-			if ( has_post_thumbnail( get_the_id() )) { 
-				$thumb_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
-				$post_image = $thumb_src[0];
-            } elseif($ancestor) {
-                $post_image = get_the_post_thumbnail_url($ancestor, 'full');
-			} else {
-				$post_image = get_template_directory_uri().'/assets/images/logo-1200x1200.png';
-			}
-        ?>
-
-		<meta property="og:title" content="<?php echo $post_title ?>" />
-		<meta property="og:description" content="<?php echo $coenv_excerpt; ?>" />
-		<meta property="og:type" content="article" />
-		<meta property="og:url" content="<?php echo $post_link ?>" />
-		<meta property="og:image" content="<?php echo $post_image ?>" />
-		<meta property="og:site_name" content="<?php bloginfo('name') ?>" /
+        // custom facebook title for homepage
+        if ( is_home() || is_front_page() ) {
+            echo '<meta property="og:title" content="'; bloginfo( 'name' ); echo ' | '; bloginfo( 'description' ); echo '"/>';
+        } elseif ($facebook_share_title) {
+        // add facebook title if declared in ACF. Default will use meta title 
+             echo '<meta property="og:title" content="' . $facebook_share_title . '"/>';
+        } ?>
+        
+        <?php
+        // custom facebook description for homepage
+        if ( is_home() || is_front_page() ) {
+            echo '<meta property="og:description" content="Equal parts research engine and community catalyst, EarthLab harnesses the power of co-created solutions to our most imminent environmental challenges."/>';
+        } elseif ($facebook_share_description) {
+            // add facebook description if declared in ACF. 
+            echo '<meta property="og:description" content="' . $facebook_share_description . '"/>';
+        } ?>
+     
+       <?php
+        if ($facebook_share_image) {
+            echo '<meta property="og:image" content="' . $facebook_share_image . '"/>'; 
+        } elseif ($post_image) {
+            echo '<meta property="og:image" content="' . $post_image . '"/>';  
+        } ?>
 
 		<link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri() ?>/assets/images/icons/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri() ?>/assets/images/icons/apple-icon-60x60.png">
