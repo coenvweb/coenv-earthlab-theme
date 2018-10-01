@@ -7093,7 +7093,7 @@ a.thumbnail {
   .top-bar-wrapper .top-bar-right ul li {
     margin-bottom: -1px;
     position: relative; }
-    .top-bar-wrapper .top-bar-right ul li.menu-item-has-children > a:before {
+    .top-bar-wrapper .top-bar-right ul li:nth-of-type(-n+3) > a:before {
       content: '';
       position: absolute;
       bottom: -5px;
@@ -7101,7 +7101,7 @@ a.thumbnail {
       height: 5px;
       background-color: #f86b61;
       width: 100%; }
-    .top-bar-wrapper .top-bar-right ul li.menu-item-has-children:hover a:before, .top-bar-wrapper .top-bar-right ul li.menu-item-has-children.current-menu-item a:before {
+    .top-bar-wrapper .top-bar-right ul li:nth-of-type(-n+3):hover a:before, .top-bar-wrapper .top-bar-right ul li:nth-of-type(-n+3).current-menu-item a:before {
       background-color: #931a12; }
     .top-bar-wrapper .top-bar-right ul li .dropdown li a {
       padding-top: 1rem !important;

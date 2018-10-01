@@ -52,7 +52,7 @@ Template Name: Homepage
 							echo '</div>';
 							echo '<div class="medium-offset-4 medium-8 large-offset-6 large-6 columns feature-excerpt">';
 								echo '<p>' . $feature_excerpt . '</p>';
-                echo '<a class="button" href="#do-this">▼ Learn more</i></a>';
+                echo '<a class="button" href="/about">Learn more</i></a>';
 							echo '</div>';
 						echo '</div><!-- .feature-content -->';
 
