@@ -7565,8 +7565,10 @@ a.thumbnail {
 .sidebar .coenv_base_subnav {
   font-family: "montserratbold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  margin-bottom: 3rem;
-  margin-top: 3rem; }
+  margin-bottom: 3rem; }
+  @media screen and (max-width: 39.9375em) {
+    .sidebar .coenv_base_subnav {
+      margin-top: 3rem; } }
   .sidebar .coenv_base_subnav h2 {
     background-color: #0a0a0a;
     text-transform: uppercase;

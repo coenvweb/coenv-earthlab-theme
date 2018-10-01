@@ -22,7 +22,7 @@
     .coenv_base_subnav {
         @include montserrat_b;
         margin-bottom: 3rem;
-        @include breakpoint(small) {
+        @include breakpoint(small only) {
             margin-top: 3rem;
         }
         h2 {
