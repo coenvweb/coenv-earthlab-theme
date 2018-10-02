@@ -8510,11 +8510,13 @@ article .more-about-member {
     margin-right: 1rem; }
   .main-content figure .source {
     text-align: right;
-    background-color: #cacaca;
+    background-color: rgba(0, 0, 0, 0.8);
     font-size: 0.75rem;
     padding-right: 0.5rem;
     margin-top: -1rem;
-    z-index: -1; }
+    z-index: 2;
+    position: relative;
+    color: white; }
   .main-content figure figcaption.wp-caption-text {
     font-size: 0.75rem;
     text-align: center;
