@@ -118,6 +118,7 @@ $tax_obj = get_taxonomy($tax);
 $tax_str = $tax_obj->labels->name;
 
 $cats = wp_list_categories_for_post_type($tax);
+    print_r($cats);
     if ($cats) {
         if ($tax == 'topic') {
             echo '<label class="hide" for="select-category">Select a Focus Area:</label>';
