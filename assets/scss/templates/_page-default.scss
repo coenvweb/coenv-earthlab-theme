@@ -21,20 +21,24 @@
     figure {
         margin-bottom: 1rem;
         border: 5px solid #cacaca;
+        &.alignright {
+            padding-left: 0;
+            margin-left: 1rem;
+        }
         .source {
             text-align: right;
             background-color: #cacaca;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             padding-right: 0.5rem;
             margin-top: -1rem;
             z-index: -1;
         }
         figcaption.wp-caption-text {
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             text-align: center;
             color: $white;
             padding: .5rem;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: #cacaca;
             @include montserrat_b;
         }
     }
