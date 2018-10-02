@@ -117,8 +117,12 @@ function coenv_base_cat_filter($tax,$tax_value) {
 $tax_obj = get_taxonomy($tax);
 $tax_str = $tax_obj->labels->name;
 
+$cats_args  = array(
+    'orderby' => 'name',
+    'order' => 'ASC',
+    'taxonomy' => $tax
+);
 $cats = wp_list_categories_for_post_type($tax);
-    print_r($cats);
     if ($cats) {
         if ($tax == 'topic') {
             echo '<label class="hide" for="select-category">Select a Focus Area:</label>';
@@ -163,7 +167,7 @@ function wp_list_categories_for_post_type($post_type, $args = '') {
     }
 
     // List categories
-    wp_list_categories($args);
+    get_categories($args);
 }
 
 /* 
