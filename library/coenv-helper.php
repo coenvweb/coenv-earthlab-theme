@@ -112,7 +112,7 @@ function coenv_base_acf_toolbar( $toolbars ) {
 /* 
  * Category filters for WPQuery templates (blog, publications, faculty, etc.)
  */
-function coenv_base_cat_filter($tax,$tax_value,$custom_post_type = 'posts') {
+function coenv_base_cat_filter($tax,$tax_value,$custom_post_type = 'post') {
 
 $tax_obj = get_taxonomy($tax);
 $tax_str = $tax_obj->labels->name;
