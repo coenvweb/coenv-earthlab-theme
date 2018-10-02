@@ -6,7 +6,7 @@
  */
 
 /** Various clean up functions */
-require_once( 'library/cleanup.php' );
+// require_once( 'library/cleanup.php' );
 
 /** Required for Foundation to work properly */
 require_once( 'library/foundation.php' );
@@ -73,5 +73,5 @@ if( function_exists('acf_add_options_page')) {
 
 // Remove meta title from wp_head, we will add it manually
 if (has_action('wp_head','_wp_render_title_tag') == 1) {
-    remove_action('wp_head','_wp_render_title_tag',1);
+    remove_action('wp_head','_wp_render_title_tag', 1);
 }
