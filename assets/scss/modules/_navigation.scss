@@ -93,7 +93,7 @@
             }
           }
           
-          & > .desktop-menu > .is-dropdown-submenu-parent {
+          & > .desktop-menu > .menu-item {
               @include breakpoint(medium only) {
                 max-width: 110px;
                 max-height: 106px;

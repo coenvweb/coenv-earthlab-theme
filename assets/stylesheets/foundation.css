@@ -7317,10 +7317,10 @@ a.thumbnail {
   .top-bar-wrapper .top-bar .top-bar-right li:hover:not(.button), .top-bar-wrapper .top-bar .top-bar-right li.current-menu-item {
     background-color: #f0f0f0; }
   @media screen and (min-width: 40em) and (max-width: 63.9375em) {
-    .top-bar-wrapper .top-bar .top-bar-right > .desktop-menu > .is-dropdown-submenu-parent {
+    .top-bar-wrapper .top-bar .top-bar-right > .desktop-menu > .menu-item {
       max-width: 110px;
       max-height: 106px; }
-      .top-bar-wrapper .top-bar .top-bar-right > .desktop-menu > .is-dropdown-submenu-parent > a {
+      .top-bar-wrapper .top-bar .top-bar-right > .desktop-menu > .menu-item > a {
         padding: 2.3rem .4rem;
         height: 106px; } }
   .top-bar-wrapper .top-bar .top-bar-right .menu .active > a {
