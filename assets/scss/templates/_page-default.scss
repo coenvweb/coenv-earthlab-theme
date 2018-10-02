@@ -25,6 +25,10 @@
             padding-left: 0;
             margin-left: 1rem;
         }
+        &.alignleft {
+            padding-right: 0;
+            margin-right: 1rem;
+        }
         .source {
             text-align: right;
             background-color: #cacaca;

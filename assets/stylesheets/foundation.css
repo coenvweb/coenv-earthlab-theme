@@ -8505,6 +8505,9 @@ article .more-about-member {
   .main-content figure.alignright {
     padding-left: 0;
     margin-left: 1rem; }
+  .main-content figure.alignleft {
+    padding-right: 0;
+    margin-right: 1rem; }
   .main-content figure .source {
     text-align: right;
     background-color: #cacaca;
