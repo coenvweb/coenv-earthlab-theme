@@ -60,9 +60,6 @@
 	</header>
 	<?php do_action( 'foundationpress_post_before_entry_content' ); ?>
 	<div class="entry-content article__content">
-    <?php if(( !is_page() ) && (has_post_thumbnail())) { ?>
-          <div class="coenv-thumb"><a href="<?php the_post_thumbnail_url(); ?>"><?php the_post_thumbnail( 'medium' ) ?></a></div>
-    <?php }; ?>
 		<?php the_content(); ?>
 		<?php if ( get_field('story_link_(url)') && get_field('story_source_name') ): ?>
         <a href="<?php the_field('story_link_(url)'); ?>" class="button" target="_blank"><?php the_field('story_source_name'); ?></a>
