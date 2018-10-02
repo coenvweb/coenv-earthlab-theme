@@ -61,7 +61,9 @@ if(isset($wp_query->query_vars['case-search'])) {
                     'post_status' => 'publish',
                     'posts_per_page' => 10,
                     'ignore_sticky_posts' => 1,
-                    'paged' => $paged
+                    'paged' => $paged,
+                    'orderby'=> 'title',
+                    'order' => 'ASC'
                 );
 
                 if($coenv_cat_term_2) {

@@ -7546,6 +7546,12 @@ a.thumbnail {
     .uw-footer .menu-footer-links {
       text-align: center; } }
 
+.sidenav-shortcut {
+  margin-left: .7rem;
+  margin-top: 1rem;
+  margin-bottom: -2.4rem;
+  display: block; }
+
 @media print, screen and (min-width: 40em) {
   .sidebar {
     margin-top: 0rem !important; } }

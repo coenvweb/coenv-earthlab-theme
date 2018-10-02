@@ -26,3 +26,4 @@ if(get_post_type() == 'post') {
     </div>
 </header>
 
+<a class="show-for-small-only sidenav-shortcut" href="#sidenav"><i class="fa fa-bars"></i> Other pages in this section</a>
