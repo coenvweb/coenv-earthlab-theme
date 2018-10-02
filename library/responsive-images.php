@@ -18,6 +18,9 @@ add_image_size( 'featured-xlarge', 1920, 800, true );
 
 add_image_size( 'excerpt', 770, 300, true );
 
+add_image_size( 'half', 375 );
+add_image_size( 'one-third', 250 );
+
 // Add additional image sizes
 add_image_size( 'fp-small', 640 );
 add_image_size( 'fp-medium', 1024 );
@@ -32,6 +35,8 @@ function foundationpress_custom_sizes( $sizes ) {
 		'fp-large'  => __( 'FP Large' ),
 		'fp-xlarge'  => __( 'FP XLarge' ),
     'excerpt' => __( 'Excerpt Rectangle' ),
+    "half" => __( "50% of column"),
+    "one-third" => __( "33% of column"),
 	) );
 }
 add_filter( 'image_size_names_choose', 'foundationpress_custom_sizes' );
