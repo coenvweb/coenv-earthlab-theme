@@ -505,7 +505,7 @@ class newsletter_widget extends WP_Widget {
                         <script type="text/javascript" src="https://subscribe.gifts.washington.edu/Scripts/SubManBuilder/submanbuilder.js" id="uwSubscriptionManager"></script>
                         <script type="text/javascript">
                             SUBMANBUILDER.makeIframe({
-                                subscriptionID: [378],           //REQUIRED: Subscription ID(s) for sign up e.g. [25, 27] for sign up to multiple sub prefs
+                                subscriptionID: [1234],           //REQUIRED: Subscription ID(s) for sign up e.g. [25, 27] for sign up to multiple sub prefs
                                 fromName: "UW Email Sign Up",   //RECOMMENDED: From name of the confirmation email
                                 fromEmail: "mktosubp@uw.edu",   //RECOMMENDED: From email of the confirmation email
                                 showPlaceHolders: false,        //OPTIONAL: Show placeholder text inside the text boxes
