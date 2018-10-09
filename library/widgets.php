@@ -506,8 +506,8 @@ class newsletter_widget extends WP_Widget {
                         <script type="text/javascript">
                             SUBMANBUILDER.makeIframe({
                                 subscriptionID: [1234],           //REQUIRED: Subscription ID(s) for sign up e.g. [25, 27] for sign up to multiple sub prefs
-                                fromName: "UW Email Sign Up",   //RECOMMENDED: From name of the confirmation email
-                                fromEmail: "mktosubp@uw.edu",   //RECOMMENDED: From email of the confirmation email
+                                fromName: "UW Earthlab Email Sign Up",   //RECOMMENDED: From name of the confirmation email
+                                fromEmail: "earthlab@uw.edu",   //RECOMMENDED: From email of the confirmation email
                                 showPlaceHolders: false,        //OPTIONAL: Show placeholder text inside the text boxes
                                 hideLabels: false,              //OPTIONAL: Hide form labels
                                 returnURL: "",                  //OPTIONAL: Set if confirmation page is different than sign up page
