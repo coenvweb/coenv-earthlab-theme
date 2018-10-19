@@ -29,12 +29,15 @@
         
         // Default Image for Social/FB Meta
         $post = get_queried_object();
+
         if(get_post_type() == 'post') {
             $ancestor = NEWS_PAGE_PARENT_ID;
         } elseif(get_post_type() == 'project') {
             $ancestor = PROJECT_PAGE_PARENT_ID;
         } elseif(is_search() || is_404()) {
             $ancestor = 608;
+        } elseif(is_home() || is_front_page()) {
+            $ancestor = 0;
         } else {
             $ancestor = coenv_get_ancestor();
         }
@@ -45,9 +48,8 @@
             $post_image = get_the_post_thumbnail_url($ancestor, $facebook_image_size);
         }
         else {
-            $post_image = null;
+            $post_image = get_template_directory_uri() . '/assets/images/earthlab-bg.jpg';
         }?>
-        
         <meta charset="<?php bloginfo( 'charset' ); ?>" />
         <meta name="twitter:dnt" content="on">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
