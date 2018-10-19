@@ -24,9 +24,9 @@
         $facebook_share_description = get_field('facebook_share_description');
         $facebook_share_image_full = get_field('facebook_share_image');
         $facebook_share_image = $facebook_share_image_full['sizes'][$facebook_image_size];
-        $facebook_share_width = $facebook_share_image_full['sizes'][$facebook_image_size . '-width'];
-        $facebook_share_height = $facebook_share_image_full['sizes'][$facebook_image_size . '-height'];
-        
+//        $facebook_share_width = $facebook_share_image_full['sizes'][$facebook_image_size . '-width'];
+//        $facebook_share_height = $facebook_share_image_full['sizes'][$facebook_image_size . '-height'];
+//        
         // Default Image for Social/FB Meta
         $post = get_queried_object();
 
@@ -49,7 +49,11 @@
         }
         else {
             $post_image = get_template_directory_uri() . '/assets/images/earthlab-bg.jpg';
-        }?>
+        }
+        // get post_image width and height 
+        list($post_image_width,$post_image_height,$post_image_type,$post_image_attr) = getimagesize($post_image);
+        
+        ?>
         <meta charset="<?php bloginfo( 'charset' ); ?>" />
         <meta name="twitter:dnt" content="on">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -104,12 +108,12 @@
        <?php
         if ($facebook_share_image) {
             echo '<meta property="og:image" content="' . $facebook_share_image . '"/>
-            <meta property="og:image:width" content="' . $facebook_share_width . '" />
-            <meta property="og:image:height" content="' . $facebook_share_height . '" />';
+            <meta property="og:image:width" content="'. $post_image_width . '" />
+            <meta property="og:image:height" content="'. $post_image_height . '" />';  
         } elseif ($post_image) {
             echo '<meta property="og:image" content="' . $post_image . '"/>
-            <meta property="og:image:width" content="1280" />
-            <meta property="og:image:height" content="800" />';  
+            <meta property="og:image:width" content="'. $post_image_width . '" />
+            <meta property="og:image:height" content="'. $post_image_height . '" />';  
         } ?>
     
         <?php
