@@ -29,7 +29,10 @@
                                 <p class="member-org-title">Member Organizations</p>
                                 <ul class="links">
                                     <?php 
-                                       $member_terms = get_terms('member-affiliates');
+                                       $member_terms = get_terms('member-affiliates', array( 
+                                                'exclude' => array( 32 ),
+                                                'hide_empty' => false,
+                                            ));
                                             foreach ($member_terms as $member_term) {
                                                 $member_terms_arr[] = '<li><a href="' . site_url() . '/members-and-affiliates/' . $member_term->slug . '">' . $member_term->name . '</a></li>';
                                             }
