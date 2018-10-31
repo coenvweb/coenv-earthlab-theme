@@ -20,20 +20,32 @@
 
     figure {
         margin-bottom: 1rem;
+        border: 5px solid #cacaca;
+        &.alignright {
+            padding-left: 0;
+            margin-left: 1rem;
+        }
+        &.alignleft {
+            padding-right: 0;
+            margin-right: 1rem;
+        }
         .source {
             text-align: right;
-            background-color: rgba(0, 0, 0, 0.8);
-            font-size: 0.8rem;
+            background-color: rgba(0,0,0,.8);
+            font-size: 0.75rem;
             padding-right: 0.5rem;
-            margin-top: -1rem;
-            z-index: -1;
+            padding-bottom: 0.15rem;
+            margin-top: -1.15rem;
+            z-index: 2;
+            position: relative;
+            color: white;
         }
         figcaption.wp-caption-text {
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             text-align: center;
-            color: $white;
+            color: $text;
             padding: .5rem;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: #cacaca;
             @include montserrat_b;
         }
     }
@@ -207,6 +219,7 @@
             }
             .contact-list {
                 box-shadow: 0px 3px 0px #fff inset;
+                min-width: 175px;
                 font-size: 85%;
                 position: absolute;
                 @include breakpoint(small) {

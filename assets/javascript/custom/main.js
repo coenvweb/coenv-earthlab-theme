@@ -52,6 +52,15 @@ jQuery(function ($) {
 
         
 	});
+    
+    //search field
+    $('.menu-item-search-button').click(function() {
+        $(this).toggleClass('active');
+        $('.desktop-main-menu').toggleClass('show-for-sr');
+        $('.search-bar').toggleClass('show-for-sr');
+        $('.menu-item-search-button .fa-search').toggleClass('hide');
+        $('.menu-item-search-button .fa-times').toggleClass('hide');
+    });
 
     // share buttons
     $('.share').coenvshare();

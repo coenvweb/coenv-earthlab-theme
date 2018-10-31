@@ -17,26 +17,8 @@
     
     .right-college {
         padding-top: 1rem;
-        #college_black_logo {
-            height: 20px;
-            width: 225px;
-            stroke: $white;
-            fill: $white;
-            border-bottom: 1px solid $white;
-        }
-        #university_logo_black {
-            height: 16px;
-            width: 200px;
-            stroke: $white;
-            fill: $white;
-        }
-        #desktop-logo {
-            stroke: $white;
-            fill: $white;
-            float: left;
-            height: 40px;
-            width: 50px;
-            margin-right: .5rem;
+        svg {
+            width: 250px;
         }
     }
     
@@ -57,7 +39,7 @@
                 background: #fff;
                 color: $black;
 				width: 95%;
-                margin-bottom: 0px;
+                margin-bottom: .75rem;
                 @include breakpoint(medium only) {
                     width: 82%;
                 }
@@ -85,20 +67,16 @@
             display: none;
         } 
     }
-    
-    .logo-headers {
-        border-bottom: 1px solid darken( $uw-purple, 5% );
-        @include rem('margin-bottom', 1);
-        &:after {
-            content: "";
-            display: block;
-            z-index: -1;
-            top: 50%;
-            width: 100%;
-            height: 1px;
-            background: lighten( $uw-purple, 5% );
-
+    .social-icon-box {
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+        .social-icon {
+            font-size: 1.2rem;
+            margin-right: .5rem;
         }
+    }
+    .logo-headers {
+        @include rem('margin-bottom', 1);
     }
 	
     .site-footer__header {
@@ -116,32 +94,30 @@
 
 	} // header
 
-	.footer-nav {
-
-		.footer-nav__title {
-			display: none;
-		}
+    .member-org-title {
+        margin-top: .75rem;
+        margin-bottom: .25rem;
+        font-size: .9rem;
+        @include o_sans_bold;
+    }
 		ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
+        margin: 0;
+        padding: 0;
+        list-style: none;
 
-            @media print {
-                display: none;
-            }   
+        @media print {
+            display: none;
+        }   
 
-            a { 
-                text-decoration: none;
-                color: $white;
-            }   
+        a { 
+            text-decoration: none;
+            color: $white;
+        }   
 
-        }
-
-	} // .footer-nav
+    }
 
     
 
-	.footer__info {
 		color: $white;
         
         a {
@@ -171,7 +147,6 @@
 
 		} // .top-links
         
-	} // .footer__info
 
 } // .site-footer
 

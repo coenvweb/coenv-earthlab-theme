@@ -112,7 +112,7 @@ function coenv_base_acf_toolbar( $toolbars ) {
 /* 
  * Category filters for WPQuery templates (blog, publications, faculty, etc.)
  */
-function coenv_base_cat_filter($tax,$tax_value) {
+function coenv_base_cat_filter($tax,$tax_value,$custom_post_type = 'post') {
 
 $tax_obj = get_taxonomy($tax);
 $tax_str = $tax_obj->labels->name;
@@ -120,11 +120,12 @@ $tax_str = $tax_obj->labels->name;
 $cats_args  = array(
     'orderby' => 'name',
     'order' => 'ASC',
-    'taxonomy' => $tax
+    'taxonomy' => $tax,
+    'hide_empty' => 1
 );
 $cats = get_categories($cats_args);
     if ($cats) {
-        if ($tax == 'focus-area') {
+        if ($tax == 'topic') {
             echo '<label class="hide" for="select-category">Select a Focus Area:</label>';
             echo '<div class="" data-url="'.get_the_permalink().'">';
         } else {
@@ -133,17 +134,36 @@ $cats = get_categories($cats_args);
         echo '<select name="select-category" class="select-category" id="select-category">';
         echo '<option class="level-0" value="' . get_the_permalink() . '">All ' . $tax_str . '</option>';
         foreach($cats as $cat) {
-            $selected = $cat->slug == $tax_value ? ' selected="selected"' : '';
-            echo $cat->slug;
-            echo "</br>";
-            echo $tax_value;
-            echo '<option value="' . $tax . '/' . $cat->slug . '/"' . $selected . '>' . $cat->name . '</option>';
+            if (get_term_post_count_by_type($cat->slug, $tax, $custom_post_type) > 0) {
+                $selected = $cat->slug == $tax_value ? ' selected="selected"' : '';
+                echo $cat->slug;
+                echo "</br>";
+                echo $tax_value;
+                echo '<option value="' . $tax . '/' . $cat->slug . '/#page-sidebar-left"' . $selected . '>' . $cat->name . '</option>';
+            }
         }
         echo '</select>';
-        if ($tax == 'focus-area') {
+        if ($tax == 'topic') {
             echo '</div>';
         }
     }
+}
+
+function get_term_post_count_by_type($term,$taxonomy,$type){
+    $args = array( 
+        'fields' =>'ids', //we don't really need all post data so just id wil do fine.
+        'posts_per_page' => -1, //-1 to get all post
+        'post_type' => $type, 
+        'tax_query' => array(
+            array(
+                'taxonomy' => $taxonomy,
+                'field' => 'slug',
+                'terms' => $term
+            )
+        )
+     );
+    $ps = get_posts( $args );
+    if (count($ps) > 0){return count($ps);}else{return 0;}
 }
 
 /* 
@@ -167,7 +187,7 @@ function coenv_base_date_filter($post_type,$coenv_month,$coenv_year) {
                 } else {
                     $selected = '';
                 }
-                echo '<option value="coenv-year/' . $year_num . '/coenv-month/' . $month_num  . '"' . $selected . '>' . $month_str . ' ' . $year_num . '</option>';
+                echo '<option value="coenv-year/' . $year_num . '/coenv-month/' . $month_num  . '/#page-sidebar-left"' . $selected . '>' . $month_str . ' ' . $year_num . '</option>';
                // echo "\n".get_the_date('F Y');
                 $ref_month = get_the_date('mY');
                 $counter = 0;

@@ -1,0 +1,134 @@
+{
+    "key": "group_5baeaa7c153da",
+    "title": "SEO and Social",
+    "fields": [
+        {
+            "key": "field_5baeaa84d6794",
+            "label": "Title Tag",
+            "name": "meta_title",
+            "type": "text",
+            "instructions": "Page title for search engine results. Aim for 60-70 characters. If left empty, the title tag will default to the page title.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 80
+        },
+        {
+            "key": "field_5baeaa92d6795",
+            "label": "Meta Description",
+            "name": "meta_description",
+            "type": "text",
+            "instructions": "Page description for search engine results. Aim for less than 155 characters. If left empty, an excerpt from the page content will be used as the description.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5baeaaa0d6796",
+            "label": "Facebook Share Title",
+            "name": "facebook_share_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5baeaaa8d6797",
+            "label": "Facebook Share Description",
+            "name": "facebook_share_description",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5baeaabad6798",
+            "label": "Facebook Share Image",
+            "name": "facebook_share_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "content_block"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "staff"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "features"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1538427823
+}

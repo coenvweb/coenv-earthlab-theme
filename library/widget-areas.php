@@ -67,19 +67,19 @@ endif;
 if ( ! function_exists( 'homepage_widgets' ) ) :
     function homepage_widgets() {
         register_sidebar(array(
-            'id' => 'homepage-focus',
-            'name' => __( 'Homepage Focus Areas', 'foundationpress' ),
+            'id' => 'homepage-news-sidebar',
+            'name' => __( 'Homepage / News Sidebar', 'foundationpress' ),
             'description' => __( 'Drag widgets to this homepage container.', 'foundationpress' ),
-            'before_widget' => '<div class="columns focus-tile small-12 medium-6 large-3">',
+            'before_widget' => '<div class="homepage-news-sidebar widget">',
             'after_widget' => '</div>',
-            'before_title' => '<h4 class="focus_area_title">',
+            'before_title' => '<h4 class="news-sidebar-title widget-title">',
             'after_title' => '</h4>',
             ));
         register_sidebar(array(
             'id' => 'homepage-do',
-            'name' => __( 'Homepage How We Do This', 'foundationpress' ),
+            'name' => __( 'Homepage / How We Do This', 'foundationpress' ),
             'description' => __( 'Drag widgets to this homepage container.', 'foundationpress' ),
-            'before_widget' => '<div class="columns do-this-tile small-12 medium-6 large-3">',
+            'before_widget' => '<div class="columns do-this-tile small-12 medium-6 large-6">',
             'after_widget' => '</div>',
             'before_title' => '<h4 class="do_area_title">',
             'after_title' => '</h4>',

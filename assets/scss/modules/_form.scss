@@ -34,7 +34,7 @@ form {
         $field-wrap-height: 2.4;
         display: inline-block;
         vertical-align: middle;
-		width: 100%;
+		    width: 100%;
         font-size: 0; // white space hack
         white-space: nowrap;
 
@@ -68,6 +68,10 @@ form {
             background: #ddd;
             border-radius: 0 1px 1px 0;
 
+            &:hover {
+                cursor: pointer;
+            }
+            
             span {
                 display: none;
             }

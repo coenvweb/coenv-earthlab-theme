@@ -117,8 +117,12 @@ function coenv_get_ancestor($attr = 'ID') {
     if ( is_search() ) {
         return false;
     }
+    
+    if (empty($post->post_type)) {
+        return false;
+    }
 
-    if ( ($post->post_type == 'post' || is_archive() || is_search()) && !is_post_type_archive( array( 'case_study' ) ) ) {
+    if ( ($post->post_type == 'post' || is_archive() || is_search()) && !is_post_type_archive( array( 'projects' ) ) ) {
 
         $page_for_posts = get_option( 'page_for_posts' );
 
@@ -129,6 +133,9 @@ function coenv_get_ancestor($attr = 'ID') {
         $ancestor = get_post( $page_for_posts );
         return $ancestor->$attr;
     }
+    
+     if ( $post->post_type == 'project' ) {
+     }
 
     // test for pages
     if ( $post->post_type == 'page' ) {
@@ -194,7 +201,7 @@ function coenv_banner() {
 
     if ( is_singular( 'post' )) { //change news pages' section titles
         unset ($ancestor_id);
-        $ancestor_id = 42;
+        $ancestor_id = 606;
     }
 
     if ( has_post_thumbnail( $ancestor_id ) ) {
@@ -233,10 +240,11 @@ function coenv_base_section_title($id) {
         $section_title = '<div class="section-title"><h2><a href="' . get_site_url() . '/' . $coenv_post_section->post_name . '">' . $coenv_post_section->post_title . '</a></h2></div>';
     endif;
 
-    if ( is_singular( 'post' ) || is_singular( 'case_study' ) || $coenv_post_section->ID == 22) { //change news pages' section titles
+    if ( is_singular( 'post' ) || $coenv_post_section->ID == NEWS_PAGE_PARENT_ID) { //change news pages' section titles
         unset ($section_title);
-        $section_title = '<div class="section-title"><h2><a href="'.get_site_url().'/about/">About</a></h2></div>';
+        $section_title = '<div class="section-title"><h2><a href="'.get_site_url().'/news-and-events/">News and Events</a></h2></div>';
     }
+    
 
     echo $section_title;
 }

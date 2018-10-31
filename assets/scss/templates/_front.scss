@@ -104,10 +104,18 @@
                             font-weight: 600;
                             line-height: 2rem;
                             padding: 2rem 2rem .5rem .5rem;
+                            margin-bottom: 0;
                             @include breakpoint(small only) {
                                 font-size: 0.8rem;
                                 padding: 1rem .5rem .5rem .5rem;
                             }
+                        }
+                        .button {
+                            border-color: white;
+                            color: white;
+                            margin-left: .5rem;
+                            margin-bottom: 1.5rem;
+                            margin-top: 0;
                         }
                     }
                 }
@@ -182,7 +190,7 @@
                 }
             }
         }
-        .focus-title {
+        .news-title {
             background: url('../images/focus-title.png');
             background-size: cover;
             border: 5px solid $focus-red;
@@ -190,14 +198,9 @@
             padding-bottom: 2rem;
         }
         .do-title {
-            background-color: $do-this-blue;
-            border: 5px solid $do-this-blue;
-            background-image: url('../images/how-title.png');
-        }
-        .news-title {
             background-color: $news-yellow;
             border: 5px solid $news-yellow;
-            background-image: url('../images/news-title.png');
+            background-image: url('../images/how-2-title.png');
         }
         .focus-tile, .do-this-tile {
             text-align: center;
@@ -276,11 +279,13 @@
             font-size: 1.1rem;
             margin-top: 2rem;
             margin-bottom: 2rem;
-            background-position: center center;
+            background-position: top left;
             background-size: contain;
             background-repeat: no-repeat;
+            text-align: left;
+            padding-left: 5rem;
             @include breakpoint(large) {
-                min-height: 280px;
+                min-height: 220px;
             }
             .do_container {
                 padding: 0rem;
@@ -297,8 +302,11 @@
                     }
                 }
                 hr {
-                    border-bottom: 3px solid $medium-gray !important;
+                    border-top: 3px solid $medium-gray !important;
                     width: 33%;
+                    margin-left: 0;
+                    margin-top: 0;
+                    margin-bottom: 2.25rem;
                 }
                 .do-description {
                     @include montserrat_b;
@@ -307,42 +315,53 @@
         }
         .news, .events {
             margin-top: 4rem;
-            .home_article {
-                padding-top: 2rem;
-                .article__content {
-                    .article__meta {
-                        font-size: .95rem;
-                        @include montserrat_b;
-                        text-transform: uppercase;
-                        margin-bottom: .25rem;
-                    }
-                    .article__title {
-                        a {
-                            font-size: 1.5rem;
-                            color: $black;
+            margin-bottom: 1rem;
+            .news-main {
+                .article {
+                    margin-bottom: 1rem;
+                    .coenv-thumb {
+                        img {
+                            width: 100%;
+                            margin-bottom: 1rem;
                         }
-                        position: relative;
-                        padding-bottom: .75rem;
-                        &:after {
-                            position: absolute;
-                            content: '';
-                            height: 3px;
-                            width: 3rem;
-                            background-color: $medium-gray;
-                            bottom: 0px;
-                            left: 0px;
+                        @include breakpoint(small only) {
+                            margin-bottom: 1rem;
                         }
                     }
-                    .article__teaser {
-                        margin-top: .75rem;
+                    .article__content {
+                        .article__meta {
+                            font-size: .95rem;
+                            @include montserrat_b;
+                            text-transform: uppercase;
+                            margin-bottom: .25rem;
+                        }
+                        .article__title {
+                            a {
+                                font-size: 1.5rem;
+                                color: $black;
+                            }
+                            position: relative;
+                            padding-bottom: .75rem;
+                            &:after {
+                                position: absolute;
+                                content: '';
+                                height: 3px;
+                                width: 3rem;
+                                background-color: $medium-gray;
+                                bottom: 0px;
+                                left: 0px;
+                            }
+                        }
+                        .article__teaser {
+                            margin-top: .75rem;
+                        }
                     }
                 }
-                .article__image {
-                    img {
-                        border: 5px solid $medium-gray;
-                    }
-                    @include breakpoint(small only) {
-                        margin-bottom: 1rem;
+            }
+            .news-sidebar {
+                .article {
+                    .article__title {
+                        @include montserrat_b;
                     }
                 }
             }
@@ -383,8 +402,9 @@
         background-image: url('../images/how-cross.png');
     }
     .news-texture {
-        background-image: url('../images/news-slant.png');
-        background-size: contain;
+        background-image: url('../images/focus-slant.png');
+        background-size: cover;
+        background-repeat: repeat-x;
     }
     .focus-areas {
         background-image: url('../images/focus-slant.png');
@@ -410,8 +430,7 @@
         }
     }
     .do-this-divider {
-        background-image: url('../images/oyster_divider.jpg');
-        background-position: center 60%;
+        background-image: url('../images/homepage-divider-gasworks.jpg');
     }
     .news-divider {
         background-image: url('../images/news_divider.jpg');

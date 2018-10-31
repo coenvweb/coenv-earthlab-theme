@@ -1,19 +1,28 @@
 <?php
 /*
-Template Name: Case Studies Index
+Template Name: Projects Index
 */
 
 // keep track of whether or not this is the index page
 $filtered = false;
 
 //Focus Areas
-if(isset($wp_query->query_vars['focus-area'])){
-    $coenv_cat_term_2 = urlencode(htmlentities($wp_query->query_vars['focus-area']));
-    $coenv_cat_term_2_arr = get_term_by('slug',$coenv_cat_term_2,'focus-area');
+if(isset($wp_query->query_vars['topic'])){
+    $coenv_cat_term_2 = urlencode(htmlentities($wp_query->query_vars['topic']));
+    $coenv_cat_term_2_arr = get_term_by('slug',$coenv_cat_term_2,'topic');
     $coenv_cat_term_2_val = $coenv_cat_term_2_arr->name;
     $filtered = true;
 } else {
     $coenv_cat_2 = $coenv_cat_term_2 = null;
+}
+
+if(isset($wp_query->query_vars['member-affiliates'])){
+    $coenv_cat_term_3 = urlencode(htmlentities($wp_query->query_vars['member-affiliates']));
+    $coenv_cat_term_3_arr = get_term_by('slug',$coenv_cat_term_3,'member-affiliates');
+    $coenv_cat_term_3_val = $coenv_cat_term_3_arr->name;
+    $filtered = true;
+} else {
+    $coenv_cat_3 = $coenv_cat_term_3 = null;
 }
 
 if(isset($wp_query->query_vars['case-search'])) {
@@ -26,24 +35,18 @@ if(isset($wp_query->query_vars['case-search'])) {
 
 <?php get_template_part( 'template-parts/featured-image' ); ?>
 
-<div id="page-sidebar-left" class="page-template-index page-template-case-studies" role="main">
+<div id="page-sidebar-left" class="page-template-index page-template-projects" role="main">
     <div <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
         <div class="entry-content">
             <h2 class="page-title"><?php the_title(); ?></h2>
             <?php the_content(); ?>
             <div class="row filters">
-                <div class=" large-6 columns" data-url="<?php the_permalink() ?>" data-cat="focus-area">
-                    <?php coenv_base_cat_filter('focus-area', $coenv_cat_term_2); // Category filter ?>
+                <div class=" large-6 columns" data-url="<?php the_permalink() ?>" data-cat="topic">
+                    <?php coenv_base_cat_filter('topic', $coenv_cat_term_2, 'project'); // Category filter ?>
                 </div>
-                <div class="case-search large-6 columns" data-url="<?php the_permalink() ?>" data-cat="case-search">
-                    <form role="search" method="get" class="search-form" action="<?php the_permalink() ?>">
-                        <div class="field-wrap">
-                            <label for="case-search">Search case</label>
-                            <input value="<?= $search ?>" name="case-search" id="s" placeholder="Search case studies" aria-label="Search" title="Search" type="text">
-                            <button type="submit"><i class="fa fa-search"></i><span>Search</span></button>
-                        </div>
-                    </form>
-                </div>
+                <!--<div class="case-search large-6 columns" data-url="<?php the_permalink() ?>" data-cat="case-search">
+                    <?php coenv_base_cat_filter('member-affiliates', $coenv_cat_term_3,  'project'); // Category filter ?>
+                </div>-->
                 <div class="small-12 columns">
                     <hr>
                 </div>
@@ -54,19 +57,26 @@ if(isset($wp_query->query_vars['case-search'])) {
                 */
                 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                 $query_args = array(
-                    'post_type'	=> 'case_study',
+                    'post_type'	=> 'project',
                     'post_status' => 'publish',
                     'posts_per_page' => 10,
                     'ignore_sticky_posts' => 1,
-                    'paged' => $paged
+                    'paged' => $paged,
+                    'orderby'=> 'title',
+                    'order' => 'ASC'
                 );
 
                 if($coenv_cat_term_2) {
-                    $query_args['taxonomy'] = 'focus-area';
+                    $query_args['taxonomy'] = 'topic';
                     $query_args['term'] = $coenv_cat_term_2;
                 }
+                     
+                 if($coenv_cat_term_3) {
+                    $query_args['taxonomy'] = 'member-affiliates';
+                    $query_args['term'] = $coenv_cat_term_3;
+                }
 
-                if($search) {
+                if (isset($search)) {
                     $query_args['s'] = $search;
                 }
 
@@ -74,12 +84,17 @@ if(isset($wp_query->query_vars['case-search'])) {
                 if ($wp_query->have_posts()) {
                     if ($coenv_cat_term_2) { // Category filter ?>
                         <div class="panel">
-                            <div class="left"><?php echo $wp_query->found_posts; ?> case stud<?=($wp_query->found_posts > 1 ? 'ies' : 'y')?> focusing on <span class="term"><?php echo $coenv_cat_term_2_val; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">All Case Studies</a></div>
+                            <div class="left"><?php echo $wp_query->found_posts; ?> project<?=($wp_query->found_posts > 1 ? 's' : '')?> focusing on <span class="term"><?php echo $coenv_cat_term_2_val; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">See All Projects</a></div>
                         </div>
                     <?php }
-                    if ($search) { // Category filter ?>
+                    if ($coenv_cat_term_3) { // Category filter ?>
                         <div class="panel">
-                            <div class="left"><?php echo $wp_query->found_posts; ?> case stud<?=($wp_query->found_posts > 1 ? 'ies' : 'y')?> matching <span class="term"><?php echo $search; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">All Case Studies</a></div>
+                            <div class="left"><?php echo $wp_query->found_posts; ?> project<?=($wp_query->found_posts > 1 ? 's' : '')?> by <span class="term"><?php echo $coenv_cat_term_3_val; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">See All Projects</a></div>
+                        </div>
+                    <?php }
+                    if (isset($search)) { // Category filter ?>
+                        <div class="panel">
+                            <div class="left"><?php echo $wp_query->found_posts; ?> project<?=($wp_query->found_posts > 1 ? 's' : '')?> matching <span class="term"><?php echo $search; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">See All Projects</a></div>
                         </div>
                     <?php } ?>
                     <?php
@@ -101,7 +116,7 @@ if(isset($wp_query->query_vars['case-search'])) {
                     <?php } ?>
                     </div>
                 <?php } else { ?>
-                    <p>We're sorry. Your crtieria did not match any case studies. <a href="/about/case-studies">Return to all case studies &raquo;</a></p>
+                    <p>We're sorry. Your crtieria did not match any projects. <a href="/projects">Return to all projects &raquo;</a></p>
                 <?php } ?>
             </div>		
             <?php if ( is_active_sidebar( 'after-content' ) ) { ?>

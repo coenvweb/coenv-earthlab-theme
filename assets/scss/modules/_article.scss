@@ -1,4 +1,5 @@
-.article {
+article {
+    
     .event { 
         display: block;
         border: 5px solid $medium-gray;
@@ -31,7 +32,7 @@
             font-size: .8rem;
             @include montserrat_b;
             text-transform: uppercase;
-            margin-bottom: .25rem;
+            margin-bottom: .5rem;
             .article__categories {
                 display: inline-block;
             }
@@ -56,9 +57,16 @@
         .article__teaser {
             margin-top: .75rem;
         }
+        .coenv-thumb {
+            float: none;
+            img {
+                margin: .5rem 0rem 1rem 0rem;
+            }
+        }
     }
     .article__content {
         .coenv-thumb {
+            float: right;
             img {
                 margin: 0rem 0rem .5rem .5rem;
                 border: 5px solid $medium-gray;
@@ -85,6 +93,50 @@
                 width: 37.5%;
                 margin: 0rem 0rem .5rem .94rem;
                 float: right;
+            }
+        }    
+    }
+    
+    .related-news {
+        .article__title {
+            @include montserrat_b();
+        }
+    }
+    
+    .more-about-member {
+        margin-bottom: 1rem;
+        h3 {
+            a {
+                color: $text;
+                &:hover {
+                    color: $text;
+                    text-decoration: underline;
+                }
+            }
+            @include montserrat_b;
+            @include grid-column(10);
+            float: none;
+            margin-bottom: 0;
+            font-size: .8rem;
+            padding-top: 1rem;
+            padding-bottom: .5rem;
+            background-color: $news-yellow;
+            color: $text;
+            text-transform: uppercase;
+        }
+        .text-box {
+            background: white;
+            border: 5px solid $news-yellow;
+            .text-box-inner {
+                padding: 1.5rem;
+                @include montserrat_b;
+                .button {
+                    margin-bottom: 0;
+                    border-color: $news-yellow;
+                    &:hover {
+                        background-color: darken($news-yellow, 15%);
+                    }
+                }
             }
         }
     }

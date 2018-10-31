@@ -1,3 +1,10 @@
+.sidenav-shortcut {
+    margin-left: .7rem;
+    margin-top: 1rem;
+    margin-bottom: -2.4rem;
+    display: block;
+}
+
 .sidebar {
     @include breakpoint(medium) {
         margin-top: 0rem !important;
@@ -22,19 +29,22 @@
     .coenv_base_subnav {
         @include montserrat_b;
         margin-bottom: 3rem;
+        @include breakpoint(small only) {
+            margin-top: 3rem;
+        }
         h2 {
             background-color: $black;
             text-transform: uppercase;
             color: $white;
-            width: 100%;
             margin-top: -5.75rem;
             margin-bottom: 0rem;
-            font-size: 1.25rem;
-            width: 70%;
+            font-size: 1.1rem;
+            display: table;
+            min-width: 70%;
             a {
                 display: block;
                 width: 100%;
-                padding: .5rem;
+                padding: .61rem .5rem;
                 color: $white;
             }
         }
@@ -168,6 +178,60 @@
         ul.widget-case-list {
             margin-top: 5rem;
             li.case-preview {
+            }
+        }
+    }
+}
+
+.widget-newsletter-signup, .widget-earthlab-text {
+    margin-bottom: 1rem;
+    .widget-title, h3 {
+        a {
+            color: $white;
+            &:hover {
+                color: $white;
+                text-decoration: underline;
+            }
+        }
+        @include montserrat_b;
+        @include grid-column(10);
+        float: none;
+        margin-bottom: 0;
+        font-size: .8rem;
+        padding-top: 1rem;
+        padding-bottom: .5rem;
+        background-color: $focus-red;
+        color: $white;
+        text-transform: uppercase;
+    }
+    .text-box {
+        border: 5px solid $focus-red;
+        .text-box-inner {
+            padding: 1rem 1rem 0 1rem;
+            @include montserrat_b;
+            .button {
+                margin-bottom: 0;
+            }
+        }
+    }
+    #uwSubscriptionManagerFrame {
+        margin-bottom: -1rem;
+    }
+    .social-area {
+        //border-top: 5px solid $focus-red;
+        margin: -1.2rem;
+        padding: 1.2rem;
+        
+        p {
+            display: flex;
+        }
+        .social-icon-box {
+            a {
+                margin-left: 1rem;
+            }
+            i {
+                margin-bottom: -5px;
+                font-size: 1.5rem;
             }
         }
     }

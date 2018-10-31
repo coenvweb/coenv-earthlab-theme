@@ -4,11 +4,8 @@
  *
  *
  */
-
-
-// Prevent YouTube Cookies
-
-function youtube_nocookie( $data, $url, $args ){
+ // Prevent YouTube Cookies
+ function youtube_nocookie( $data, $url, $args ){
   
   $data = str_replace( 'www.youtube.com', 'www.youtube-nocookie.com', $data );
   
@@ -16,5 +13,4 @@ function youtube_nocookie( $data, $url, $args ){
   
 }
  add_filter( 'oembed_result', 'youtube_nocookie', 10, 3 );
- 
  

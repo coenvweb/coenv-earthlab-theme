@@ -6,7 +6,7 @@
  */
 
 /** Various clean up functions */
-require_once( 'library/cleanup.php' );
+// require_once( 'library/cleanup.php' );
 
 /** Required for Foundation to work properly */
 require_once( 'library/foundation.php' );
@@ -64,9 +64,14 @@ require_once( 'library/rewrites.php' );
 /** Shortcodes */
 require_once( 'library/shortcodes.php' );
 
+// GDPR Compliance
+require_once('library/gdpr.php');
+
 if( function_exists('acf_add_options_page')) {
     acf_add_options_page();
 }
 
-// GDPR Compliance
-require_once('library/gdpr.php');
+// Remove meta title from wp_head, we will add it manually
+if (has_action('wp_head','_wp_render_title_tag') == 1) {
+    remove_action('wp_head','_wp_render_title_tag', 1);
+}

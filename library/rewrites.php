@@ -53,16 +53,16 @@ function generate_cpt_rewrite_rules( $post_type, $index_path, $query_vars = arra
 }
 
 function add_cpt_rewrites($wp_rewrite) {
-    $a_rules = generate_cpt_rewrite_rules('post', 'about/news-and-events', array('news-search'));
-    $b_rules = generate_cpt_rewrite_rules('case_study', 'about/case-studies', array('case-search'));
+    $a_rules = generate_cpt_rewrite_rules('post', 'news-and-events', array('news-search'));
+    $b_rules = generate_cpt_rewrite_rules('project', 'projects', array('project-search'));
     $wp_rewrite->rules = $a_rules + $b_rules + $wp_rewrite->rules;
 }
 add_action('generate_rewrite_rules', 'add_cpt_rewrites');
 
 function add_query_vars() {
-    add_rewrite_tag('%focus-area%', '(.+?)/');
+    add_rewrite_tag('%topic%', '(.+?)/');
     add_rewrite_tag('%news-search%', '(.+?)/');
-    add_rewrite_tag('%case-search%', '(.+?)/');
+    add_rewrite_tag('%project-search%', '(.+?)/');
 }
 add_action('init', 'add_query_vars');
 
