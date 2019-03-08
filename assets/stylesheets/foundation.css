@@ -7593,18 +7593,20 @@ a.thumbnail {
     list-style-type: none;
     margin: 0px; }
     .sidebar .coenv_base_subnav ul.side-nav li {
-      border-bottom: 1px solid #cacaca;
       font-size: 1.1rem; }
-      .sidebar .coenv_base_subnav ul.side-nav li.active {
+      .sidebar .coenv_base_subnav ul.side-nav li a.active {
         border-bottom: 1px solid #f86b61; }
-      .sidebar .coenv_base_subnav ul.side-nav li:hover {
+      .sidebar .coenv_base_subnav ul.side-nav li a:hover {
         background-color: #fff;
         border-bottom: 1px solid #f86b61; }
       .sidebar .coenv_base_subnav ul.side-nav li a {
         display: block;
         width: 100%;
         padding: .5rem;
-        color: #0a0a0a; }
+        color: #0a0a0a;
+        border-bottom: 1px solid #cacaca; }
+    .sidebar .coenv_base_subnav ul.side-nav .side-nav li {
+      padding-left: 1rem; }
 
 .sidebar .widget_coenv_base_news_cats {
   overflow: hidden; }

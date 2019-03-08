@@ -52,12 +52,11 @@
             list-style-type: none;
             margin: 0px;
             li {
-                border-bottom: 1px solid $medium-gray;
                 font-size: 1.1rem;
-                &.active {
+                a.active {
                     border-bottom: 1px solid $focus-red;
                 }
-                &:hover {
+                a:hover {
                     background-color: $white;
                     border-bottom: 1px solid $focus-red;
                 }
@@ -66,7 +65,11 @@
                     width: 100%;
                     padding: .5rem;
                     color: $black;
+                    border-bottom: 1px solid $medium-gray;
                 }
+            }
+            .side-nav li {
+                padding-left: 1rem;
             }
             
         }
