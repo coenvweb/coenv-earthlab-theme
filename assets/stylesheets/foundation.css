@@ -8529,6 +8529,11 @@ article .more-about-member {
     font-family: "montserratbold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased; }
 
+.main-content iframe {
+  width: 100% !important;
+  max-height: 430px !important;
+  height: 50vw !important; }
+
 .main-content ul, .main-content ol {
   list-style-position: inside;
   list-style-type: none;

@@ -49,6 +49,12 @@
             @include montserrat_b;
         }
     }
+    
+    iframe {
+        width: 100%!important;
+        max-height: 430px!important;
+        height: 50vw!important;
+    }
 
     ul, ol {
        list-style-position: inside;
