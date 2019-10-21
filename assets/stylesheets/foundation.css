@@ -7955,6 +7955,19 @@ article .more-about-member {
         article .more-about-member .text-box .text-box-inner .button:hover {
           background-color: #d9a910; }
 
+.accordion {
+  background: transparent; }
+  .accordion .accordion-title {
+    background: #fefefe; }
+    .accordion .accordion-title:before {
+      margin-top: -0.75rem; }
+    .accordion .accordion-title:hover {
+      cursor: pointer; }
+    .accordion .accordion-title.open:before {
+      content: '-'; }
+  .accordion .accordion-content {
+    padding: 0 1rem 1rem 1rem; }
+
 .button {
   padding: .5rem;
   color: #0a0a0a;
