@@ -3987,7 +3987,7 @@ select {
   line-height: 1;
   text-align: center;
   cursor: pointer;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   color: #fff; }
   [data-whatinput='mouse'] .button {
     outline: 0; }
@@ -4124,7 +4124,7 @@ select {
     float: right;
     margin-left: 0.5rem; }
   .button.dropdown.hollow::after {
-    border-top-color: transparent; }
+    border-top-color: rgba(0, 0, 0, 0); }
   .button.dropdown.hollow.primary::after {
     border-top-color: #1779ba; }
   .button.dropdown.hollow.secondary::after {
@@ -5744,34 +5744,34 @@ table {
   width: 100%;
   margin-bottom: 1rem;
   border-radius: 2px; }
-  table thead,
-  table tbody,
-  table tfoot {
+  thead,
+  tbody,
+  tfoot {
     border: 1px solid #cacaca;
     background-color: #fff; }
-  table caption {
+  caption {
     padding: 0.5rem 0.625rem 0.625rem;
     font-weight: bold; }
-  table thead {
+  thead {
     background: #f9f9f9;
     color: #0a0a0a; }
-  table tfoot {
+  tfoot {
     background: #f2f2f2;
     color: #0a0a0a; }
-  table thead tr,
-  table tfoot tr {
+  thead tr,
+  tfoot tr {
     background: transparent; }
-  table thead th,
-  table thead td,
-  table tfoot th,
-  table tfoot td {
+  thead th,
+  thead td,
+  tfoot th,
+  tfoot td {
     padding: 0.5rem 0.625rem 0.625rem;
     font-weight: bold;
     text-align: left; }
-  table tbody th,
-  table tbody td {
+  tbody th,
+  tbody td {
     padding: 0.5rem 0.625rem 0.625rem; }
-  table tbody tr:nth-child(even) {
+  tbody tr:nth-child(even) {
     border-bottom: 0;
     background-color: #f2f2f2; }
   table.unstriped tbody {
@@ -7973,7 +7973,7 @@ article .more-about-member {
   color: #0a0a0a;
   border: 3px solid #f86b61;
   border-radius: 0px;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   font-family: "montserratbold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -webkit-transition: all .5s ease;
@@ -8176,7 +8176,7 @@ article .more-about-member {
       -webkit-font-smoothing: antialiased;
       color: #0a0a0a;
       padding: 0.5rem;
-      background-color: transparent; }
+      background-color: rgba(0, 0, 0, 0); }
       .homepage .focus-areas .block-title .button:hover, .homepage .do-this .block-title .button:hover, .homepage .news-events .block-title .button:hover {
         color: #fff;
         background-color: rgba(0, 0, 0, 0.8); }
@@ -9001,6 +9001,16 @@ article .more-about-member {
     background: white;
     color: black;
     margin: 0; }
+  a[href]:after {
+    content: none !important; }
+  .sidenav-shortcut {
+    display: none; }
+  .desktop_logo svg {
+    fill: #4b2e83 !important; }
+  .university_logo svg {
+    fill: #000 !important; }
+  #site-navigation {
+    display: block !important; }
   .playpause {
     display: none; }
   .divider {

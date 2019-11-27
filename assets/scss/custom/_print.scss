@@ -4,7 +4,27 @@
         color: black;
         margin: 0;
     }
-
+    a[href] {
+        &:after {
+            content: none!important;
+        }
+    }
+    
+    .sidenav-shortcut {
+        display: none;
+    }
+    
+    .desktop_logo svg {
+        fill: $accent!important;
+    }
+    .university_logo svg {
+        fill: #000!important;
+    }
+    
+    #site-navigation {
+        display: block!important;
+    }
+    
     .playpause {
         display: none;
     }
