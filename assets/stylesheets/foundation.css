@@ -9003,8 +9003,17 @@ article .more-about-member {
     margin: 0; }
   a[href]:after {
     content: none !important; }
-  .sidenav-shortcut {
+  .sidenav-shortcut, .sidebar {
     display: none; }
+  #page-sidebar-left {
+    max-width: none; }
+    #page-sidebar-left .main-content {
+      width: 100% !important;
+      left: auto; }
+  p {
+    margin-bottom: 1.2rem; }
+  .accordion-content {
+    display: block !important; }
   .desktop_logo svg {
     fill: #4b2e83 !important; }
   .university_logo svg {
@@ -9062,9 +9071,25 @@ article .more-about-member {
   .site-footer__header {
     display: none; }
   .site-footer {
-    padding-bottom: 0; }
+    padding-bottom: 0;
+    text-align: center; }
     .site-footer .right-college {
-      display: none; } }
+      display: none; }
+    .site-footer .left-college {
+      width: 100%;
+      text-align: center;
+      margin-bottom: -2rem;
+      margin-top: -4rem;
+      display: block; }
+      .site-footer .left-college .site-footer__header {
+        display: block; }
+      .site-footer .left-college > a {
+        display: none; }
+  .boundless-logo {
+    display: none; }
+  .copyright {
+    width: 100% !important;
+    text-align: center; } }
 
 /*
  * Nivo Lightbox Default Theme v1.0

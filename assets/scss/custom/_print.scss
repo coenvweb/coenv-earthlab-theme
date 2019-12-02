@@ -10,8 +10,24 @@
         }
     }
     
-    .sidenav-shortcut {
+    .sidenav-shortcut, .sidebar {
         display: none;
+    }
+    
+    #page-sidebar-left {
+        max-width: none;
+        .main-content {
+            width: 100%!important;
+            left: auto;
+        }
+    }
+    
+    p {
+        margin-bottom: 1.2rem;
+    }
+    
+    .accordion-content {
+        display: block!important;
     }
     
     .desktop_logo svg {
@@ -121,8 +137,29 @@
 
     .site-footer {
         padding-bottom: 0;
+        text-align: center;
         .right-college {
             display: none;
         }
+        .left-college {
+            width: 100%;
+            text-align: center;
+            margin-bottom: -2rem;
+            margin-top: -4rem;
+            .site-footer__header {
+                display: block;
+            }
+            & > a {
+                display: none;
+            }
+            display: block;
+        }
+    }
+    .boundless-logo {
+        display: none;
+    }
+    .copyright {
+        width: 100%!important;
+        text-align: center;
     }
 }
