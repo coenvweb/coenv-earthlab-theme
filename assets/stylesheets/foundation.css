@@ -9029,8 +9029,10 @@ article .more-about-member {
     position: relative !important; }
   #featured-hero {
     padding: 4vw; }
-    #featured-hero h1:after {
-      display: none; }
+    #featured-hero h1 {
+      font-size: 1.5rem; }
+      #featured-hero h1:after {
+        display: none; }
   ul.two-col {
     height: 110% !important; }
     ul.two-col li {
