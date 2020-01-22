@@ -108,7 +108,7 @@
     }
     .top-bar-right {
         ul {
-            li {
+            & > li {
                 margin-bottom: -1px;
                 position: relative;
                 &:nth-of-type(-n+3) {
