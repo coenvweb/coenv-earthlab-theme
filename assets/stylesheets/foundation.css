@@ -7521,7 +7521,8 @@ a.thumbnail {
       width: 200px; }
     .uw-footer .be-boundless .boundless-logo {
       margin: 1.75rem 0;
-      width: 325px; }
+      width: 325px;
+      height: 94px; }
     @media print {
       .uw-footer .be-boundless {
         padding: 0;
@@ -7704,9 +7705,9 @@ a.thumbnail {
   .sidebar .widget_coenv_base_case_cats ul.widget-case-list {
     margin-top: 5rem; }
 
-.widget-newsletter-signup, .widget-earthlab-text {
+.widget-newsletter-signup, .widget-earthlab-text, .widget-events {
   margin-bottom: 1rem; }
-  .widget-newsletter-signup .widget-title, .widget-newsletter-signup h3, .widget-earthlab-text .widget-title, .widget-earthlab-text h3 {
+  .widget-newsletter-signup .widget-title, .widget-newsletter-signup h3, .widget-earthlab-text .widget-title, .widget-earthlab-text h3, .widget-events .widget-title, .widget-events h3 {
     font-family: "montserratbold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     width: 83.33333%;
@@ -7721,39 +7722,51 @@ a.thumbnail {
     background-color: #f86b61;
     color: #fff;
     text-transform: uppercase; }
-    .widget-newsletter-signup .widget-title a, .widget-newsletter-signup h3 a, .widget-earthlab-text .widget-title a, .widget-earthlab-text h3 a {
+    .widget-newsletter-signup .widget-title a, .widget-newsletter-signup h3 a, .widget-earthlab-text .widget-title a, .widget-earthlab-text h3 a, .widget-events .widget-title a, .widget-events h3 a {
       color: #fff; }
-      .widget-newsletter-signup .widget-title a:hover, .widget-newsletter-signup h3 a:hover, .widget-earthlab-text .widget-title a:hover, .widget-earthlab-text h3 a:hover {
+      .widget-newsletter-signup .widget-title a:hover, .widget-newsletter-signup h3 a:hover, .widget-earthlab-text .widget-title a:hover, .widget-earthlab-text h3 a:hover, .widget-events .widget-title a:hover, .widget-events h3 a:hover {
         color: #fff;
         text-decoration: underline; }
     @media print, screen and (min-width: 40em) {
-      .widget-newsletter-signup .widget-title, .widget-newsletter-signup h3, .widget-earthlab-text .widget-title, .widget-earthlab-text h3 {
+      .widget-newsletter-signup .widget-title, .widget-newsletter-signup h3, .widget-earthlab-text .widget-title, .widget-earthlab-text h3, .widget-events .widget-title, .widget-events h3 {
         padding-right: 0.9375rem;
         padding-left: 0.9375rem; } }
-    .widget-newsletter-signup .widget-title:last-child:not(:first-child), .widget-newsletter-signup h3:last-child:not(:first-child), .widget-earthlab-text .widget-title:last-child:not(:first-child), .widget-earthlab-text h3:last-child:not(:first-child) {
+    .widget-newsletter-signup .widget-title:last-child:not(:first-child), .widget-newsletter-signup h3:last-child:not(:first-child), .widget-earthlab-text .widget-title:last-child:not(:first-child), .widget-earthlab-text h3:last-child:not(:first-child), .widget-events .widget-title:last-child:not(:first-child), .widget-events h3:last-child:not(:first-child) {
       float: right; }
-  .widget-newsletter-signup .text-box, .widget-earthlab-text .text-box {
+  .widget-newsletter-signup .text-box, .widget-earthlab-text .text-box, .widget-events .text-box {
     border: 5px solid #f86b61; }
-    .widget-newsletter-signup .text-box .text-box-inner, .widget-earthlab-text .text-box .text-box-inner {
+    .widget-newsletter-signup .text-box .text-box-inner, .widget-earthlab-text .text-box .text-box-inner, .widget-events .text-box .text-box-inner {
       padding: 1rem 1rem 0 1rem;
       font-family: "montserratbold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
       -webkit-font-smoothing: antialiased; }
-      .widget-newsletter-signup .text-box .text-box-inner .button, .widget-earthlab-text .text-box .text-box-inner .button {
+      .widget-newsletter-signup .text-box .text-box-inner .button, .widget-earthlab-text .text-box .text-box-inner .button, .widget-events .text-box .text-box-inner .button {
         margin-bottom: 0; }
-  .widget-newsletter-signup #uwSubscriptionManagerFrame, .widget-earthlab-text #uwSubscriptionManagerFrame {
+  .widget-newsletter-signup #uwSubscriptionManagerFrame, .widget-earthlab-text #uwSubscriptionManagerFrame, .widget-events #uwSubscriptionManagerFrame {
     margin-bottom: -1rem; }
-  .widget-newsletter-signup .social-area, .widget-earthlab-text .social-area {
+  .widget-newsletter-signup .social-area, .widget-earthlab-text .social-area, .widget-events .social-area {
     margin: -1.2rem;
     padding: 1.2rem; }
-    .widget-newsletter-signup .social-area p, .widget-earthlab-text .social-area p {
+    .widget-newsletter-signup .social-area p, .widget-earthlab-text .social-area p, .widget-events .social-area p {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex; }
-    .widget-newsletter-signup .social-area .social-icon-box a, .widget-earthlab-text .social-area .social-icon-box a {
+    .widget-newsletter-signup .social-area .social-icon-box a, .widget-earthlab-text .social-area .social-icon-box a, .widget-events .social-area .social-icon-box a {
       margin-left: 1rem; }
-    .widget-newsletter-signup .social-area .social-icon-box i, .widget-earthlab-text .social-area .social-icon-box i {
+    .widget-newsletter-signup .social-area .social-icon-box i, .widget-earthlab-text .social-area .social-icon-box i, .widget-events .social-area .social-icon-box i {
       margin-bottom: -5px;
       font-size: 1.5rem; }
+
+.widget-events .text-box {
+  padding: .75rem .75rem 0 .75rem; }
+  .widget-events .text-box .event-list {
+    list-style: none;
+    margin-left: 0; }
+  .widget-events .text-box .date {
+    color: #333;
+    font-weight: 800;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-size: .8rem; }
 
 body#tinymce {
   height: auto;

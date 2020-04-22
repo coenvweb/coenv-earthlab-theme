@@ -863,3 +863,170 @@ function unregister_default_wp_widgets() {
     unregister_widget('WP_Nav_Menu_Widget');
 }
 add_action('widgets_init', 'unregister_default_wp_widgets', 1);
+
+/**
+ * Events Widget
+ */
+register_widget( 'CoEnv_Widget_Events' );
+class CoEnv_Widget_Events extends WP_Widget {
+
+  public function __construct() {
+    $args = array(
+      'classname' => 'widget widget-events',
+      'description' => __( 'Display a short list of Trumba calendar events.', 'coenv' )
+    );
+ 
+    parent::__construct(
+      'trumba_events', // base ID
+      'Trumba Events', // name
+      $args
+    );
+  }
+
+  public function widget( $args, $instance ) {
+    extract( $args );
+
+   if (isset($instance['title'])) {
+        $title = apply_filters( 'widget_title', $instance['title'] );
+    } else {
+        $title = null;
+    }
+    if (isset($instance['feed_url'])) {
+        $feed_url = apply_filters( 'feed_url', $instance['feed_url'] );
+        $feed_url = str_replace('http://', 'https://', $feed_url ); 
+    }
+    if (isset($instance['events_url'])) {
+        $events_url = apply_filters( 'events_url', $instance['events_url'] );
+    } else {
+        $events_url = null;
+    }
+    if (isset($instance['posts_per_page'])) {
+        $posts_per_page = (int) $instance['posts_per_page'];
+    } else {
+        $posts_per_page = 3;
+    }
+
+    if ( !isset( $feed_url ) || empty( $feed_url ) ) {
+      return;
+    }
+
+    // get cached XML from WP transient API
+    $events_xml = get_transient( 'trumba_events_xml' );
+    if ( $events_xml === false || $events_xml === '' ) {
+        $ctx = stream_context_create(array('http'=>
+            array(
+                'timeout' => 3,  //1200 Seconds is 20 Minutes
+            )
+        ));
+
+        if ($events_xml = file_get_contents( $feed_url, false, $ctx )) {
+
+        } else {
+            return;
+        };
+      set_transient( 'trumba_events_xml', $events_xml, 1 * MINUTE_IN_SECONDS );
+    }
+    
+    $xml = new SimpleXmlElement($events_xml);
+    
+    $events = array();
+
+    foreach ($xml->channel->item as $item) {     
+      $events[] = array(
+        'title' => $item->title,
+        'date'  => $item->category,
+        'url' => $item->link
+      );
+    }
+
+    $events = array_slice( $events, 0, $posts_per_page );
+
+    ?>
+      <?php echo $before_widget; ?>
+      <div class="events widget widget-events">
+      <?php echo $args['before_title']; ?>
+            <?=$title?>
+        <?php echo $args['after_title']; ?>
+        <div class="text-box">
+
+      <ul class="event-list">
+
+      <?php if ( count( $events ) ) : ?>
+
+        <?php foreach ( $events as $key => $event ) : ?>
+
+
+            <li>
+            <?php
+            $date = substr($event['date'], 0, -6);
+            $date = strtotime($date);
+            $date = date('F j', $date);
+            ?>
+              <a href="<?php echo $event['url'] ?>">
+              <p class="date"><i class="fa fa-calendar"></i> <?php echo $date ?></p>
+              <p class="title"><?php echo $event['title'] ?></p>
+              </a>
+            </li>
+
+      
+
+        <?php endforeach ?>
+
+      <?php else : ?>
+
+        <li><p class="title">No upcoming events.</p>
+            <p class="small">Additional events can be found on the <a href="http://environment.washington.edu/alumni-and-community/calendar-events/" title="College of the Environment Calendar">College of the Environment Events Calendar</a>.</p></li>
+
+      <?php endif ?>
+        
+      </ul>
+
+      <?php if ( $events_url != '' ) : ?>        
+            <a href="<?php echo $events_url; ?>" class="button right" title="View All Events">More</a>
+      <?php endif ?>
+
+      </div>
+        </div>
+      <?php echo $after_widget ?>
+    
+    <?php
+  }
+
+  public function form( $instance ) {
+
+    $title = isset( $instance['title'] ) ? $instance['title'] : __( 'Events', 'coenv' );
+    $feed_url = $instance['feed_url'];
+    $events_url = $instance['events_url'];
+    $posts_per_page = isset( $instance['posts_per_page'] ) ? (int) $instance['posts_per_page'] : 5;
+ 
+    ?>
+      <p>
+        <label for="<?php echo $this->get_field_name( 'title' ) ?>"><?php _e( 'Title:' ) ?></label>
+        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ) ?>" name="<?php echo $this->get_field_name( 'title' ) ?>" value="<?php echo esc_attr( $title ) ?>" />
+      </p>
+      <p>
+        <label for="<?php echo $this->get_field_name( 'feed_url' ) ?>"><?php _e( 'Feed URL:' ) ?></label>
+        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'feed_url' ) ?>" name="<?php echo $this->get_field_name( 'feed_url' ) ?>" value="<?php echo esc_attr( $feed_url ) ?>" />
+      </p>
+      <p>
+        <label for="<?php echo $this->get_field_name( 'events_url' ) ?>"><?php _e( 'More link (URL):' ) ?></label>
+        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'events_url' ) ?>" name="<?php echo $this->get_field_name( 'events_url' ) ?>" value="<?php echo esc_attr( $events_url ) ?>" />
+      </p>
+      <p>
+        <label for="<?php echo $this->get_field_name( 'posts_per_page' ) ?>">Number of events to show: </label>
+        <input name="<?php echo $this->get_field_name( 'posts_per_page' ) ?>" type="text" size="3" value="<?php echo $posts_per_page ?>" />
+      </p>
+    <?php
+  }
+
+  public function update( $new_instance, $old_instance ) {
+    $instance = array();
+    $instance['title'] = strip_tags( $new_instance['title'] );
+    $instance['feed_url'] = strip_tags( $new_instance['feed_url'] );
+    $instance['posts_per_page'] = strip_tags( $new_instance['posts_per_page'] );
+    $instance['events_url'] = strip_tags( $new_instance['events_url'] );
+     
+    return $instance;
+  }
+
+}

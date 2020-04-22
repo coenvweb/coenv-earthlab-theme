@@ -186,7 +186,7 @@
     }
 }
 
-.widget-newsletter-signup, .widget-earthlab-text {
+.widget-newsletter-signup, .widget-earthlab-text, .widget-events {
     margin-bottom: 1rem;
     .widget-title, h3 {
         a {
@@ -236,6 +236,23 @@
                 margin-bottom: -5px;
                 font-size: 1.5rem;
             }
+        }
+    }
+}
+
+.widget-events {
+    .text-box {
+        padding: .75rem .75rem 0 .75rem;
+        .event-list {
+            list-style: none;
+            margin-left: 0;
+        }
+        .date {
+            color: $text;
+            font-weight: 800;
+            margin-bottom: 0;
+            text-transform: uppercase;
+            font-size: .8rem;
         }
     }
 }
