@@ -51,7 +51,7 @@
             $post_image = get_template_directory_uri() . '/assets/images/earthlab-bg.jpg';
         }
         // get post_image width and height 
-        list($post_image_width,$post_image_height,$post_image_type,$post_image_attr) = getimagesize($post_image);
+        list($post_image_width,$post_image_height,$post_image_type,$post_image_attr) = @getimagesize($post_image);
         
         ?>
         <meta charset="<?php bloginfo( 'charset' ); ?>" />

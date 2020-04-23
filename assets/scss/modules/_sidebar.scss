@@ -180,8 +180,6 @@
         }
         ul.widget-case-list {
             margin-top: 5rem;
-            li.case-preview {
-            }
         }
     }
 }
@@ -248,11 +246,18 @@
             margin-left: 0;
         }
         .date {
-            color: $text;
+            color: $focus-red;
             font-weight: 800;
-            margin-bottom: 0;
+            margin-bottom: .25rem;
             text-transform: uppercase;
             font-size: .8rem;
+            font-family: "montserratbold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        p.title {
+            color: $text;
+            &:hover {
+                color: $focus-red-dark;
+            }
         }
     }
 }

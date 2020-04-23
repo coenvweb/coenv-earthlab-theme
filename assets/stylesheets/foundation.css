@@ -7762,11 +7762,16 @@ a.thumbnail {
     list-style: none;
     margin-left: 0; }
   .widget-events .text-box .date {
-    color: #333;
+    color: #f86b61;
     font-weight: 800;
-    margin-bottom: 0;
+    margin-bottom: .25rem;
     text-transform: uppercase;
-    font-size: .8rem; }
+    font-size: .8rem;
+    font-family: "montserratbold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .widget-events .text-box p.title {
+    color: #333; }
+    .widget-events .text-box p.title:hover {
+      color: #931a12; }
 
 body#tinymce {
   height: auto;
