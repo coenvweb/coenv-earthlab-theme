@@ -13,7 +13,7 @@
                             $more_terms_arr[] = '<a href="' . site_url() . '/news-and-events/topic/' . $term->slug . '">' . $term->name . '</a>';
                         }
                         if(get_post_type() == 'project') {
-                            $more_terms_arr[] = '<a href="' . site_url() . '/projects/topic/' . $term->slug . '">' . $term->name . '</a>';
+                            $more_terms_arr[] = '<a href="' . site_url() . '/about/projects/topic/' . $term->slug . '">' . $term->name . '</a>';
                         }
                     }
                 }
