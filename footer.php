@@ -30,10 +30,11 @@
                                 <ul class="links">
                                     <li><a href="https://cig.uw.edu/">Climate Impacts Group</a></li>
                                     <li><a href="http://uwconservationscholars.org/">Doris Duke Conservation Scholars</a></li>
-                                    <li><a href="https://nwcasc.uw.edu/">Northwest Climate Adaptation Science Center</a></li>
-                                    <li><a href="https://environment.uw.edu/oacenter/">Washington Ocean Acidification Center</a></li>
+                                    <li><a href="https://earthlab.uw.edu/members-and-affiliates/future-rivers">Future Rivers</a></li>   
                                     <li><a href="https://natureandhealth.uw.edu/">Nature and Health</a></li>
-                                    <li><a href="https://earthlab.uw.edu/members-and-affiliates/future-rivers">Future Rivers</a></li>            
+                                    <li><a href="https://nwcasc.uw.edu/">Northwest Climate Adaptation Science Center</a></li>
+                                    <li><a href="https://earthlab.uw.edu/members-and-affiliates/ocean-nexus/">Ocean Nexus Center</a></li>   
+                                    <li><a href="https://environment.uw.edu/oacenter/">Washington Ocean Acidification Center</a></li>         
                                 </ul>
                             </div>
                         </div>
