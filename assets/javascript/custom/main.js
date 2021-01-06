@@ -10,7 +10,7 @@ jQuery(function ($) {
 	$(document).ready(function() {
 		var sticky = new Foundation.Sticky($('.sticky'));
 
-        $('a').nivoLightbox();
+        $('a:not([href*=youtube]):not([href*=youtu]):not([href*=vimeo])').nivoLightbox();
 
 		if($('.feature-image').length) {
             //how often to rotate img in milliseconds
