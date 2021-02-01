@@ -144,6 +144,16 @@
 		<meta name="theme-color" content="#4b2e84">
         <meta name="keywords" content="EarthLab, Earth Lab, UW, Environment, Climate, Ocean, Ecosystems, Hazards" />
 
+        <!-- Global site tag (gtag.js) - Google Analytics 4 -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NLLG4VWYZN"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-NLLG4VWYZN');
+        </script>
+
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
