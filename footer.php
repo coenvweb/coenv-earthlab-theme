@@ -33,7 +33,7 @@
                                     <li><a href="http://uwconservationscholars.org/">Doris Duke Conservation Scholars</a></li>
                                     <li><a href="https://futurerivers.uw.edu/">Future Rivers</a></li>   
                                     <li><a href="https://natureandhealth.uw.edu/">Nature and Health</a></li>
-                                    <li><a href="https://oceannexus.uw.edu/">The Nippon Foundation Ocean Nexus Center</a></li> 
+                                    <li><a href="https://oceannexus.uw.edu/">Nippon Foundation Ocean Nexus Center</a></li> 
                                     <li><a href="https://nwcasc.uw.edu/">Northwest Climate Adaptation Science Center</a></li>  
                                     <li><a href="https://oceanacidification.uw.edu/">Washington Ocean Acidification Center</a></li>   
                                 </ul>
