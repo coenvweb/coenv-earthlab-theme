@@ -28,12 +28,13 @@
                                 </a>
                                 <p class="member-org-title">Member Organizations</p>
                                 <ul class="links">
+                                    <li><a href="https://deohs.washington.edu/change/">Center for Health and the Global Environment</a></li>
                                     <li><a href="https://cig.uw.edu/">Climate Impacts Group</a></li>
                                     <li><a href="http://uwconservationscholars.org/">Doris Duke Conservation Scholars</a></li>
                                     <li><a href="https://futurerivers.uw.edu/">Future Rivers</a></li>   
                                     <li><a href="https://natureandhealth.uw.edu/">Nature and Health</a></li>
-                                    <li><a href="https://nwcasc.uw.edu/">Northwest Climate Adaptation Science Center</a></li>
-                                    <li><a href="https://oceannexus.uw.edu/">Ocean Nexus Center</a></li>   
+                                    <li><a href="https://oceannexus.uw.edu/">The Nippon Foundation Ocean Nexus Center</a></li> 
+                                    <li><a href="https://nwcasc.uw.edu/">Northwest Climate Adaptation Science Center</a></li>  
                                     <li><a href="https://oceanacidification.uw.edu/">Washington Ocean Acidification Center</a></li>   
                                 </ul>
                             </div>
