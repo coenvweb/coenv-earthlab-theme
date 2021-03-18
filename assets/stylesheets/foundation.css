@@ -37,6 +37,9 @@ body.admin-bar #mobile-menu {
   margin-left: auto;
   margin-right: auto; }
 
+body p:empty::before {
+  content: none; }
+
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute !important;
@@ -3987,7 +3990,7 @@ select {
   line-height: 1;
   text-align: center;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   color: #fff; }
   [data-whatinput='mouse'] .button {
     outline: 0; }
@@ -4124,7 +4127,7 @@ select {
     float: right;
     margin-left: 0.5rem; }
   .button.dropdown.hollow::after {
-    border-top-color: rgba(0, 0, 0, 0); }
+    border-top-color: transparent; }
   .button.dropdown.hollow.primary::after {
     border-top-color: #1779ba; }
   .button.dropdown.hollow.secondary::after {
@@ -5744,34 +5747,34 @@ table {
   width: 100%;
   margin-bottom: 1rem;
   border-radius: 2px; }
-  thead,
-  tbody,
-  tfoot {
+  table thead,
+  table tbody,
+  table tfoot {
     border: 1px solid #cacaca;
     background-color: #fff; }
-  caption {
+  table caption {
     padding: 0.5rem 0.625rem 0.625rem;
     font-weight: bold; }
-  thead {
+  table thead {
     background: #f9f9f9;
     color: #0a0a0a; }
-  tfoot {
+  table tfoot {
     background: #f2f2f2;
     color: #0a0a0a; }
-  thead tr,
-  tfoot tr {
+  table thead tr,
+  table tfoot tr {
     background: transparent; }
-  thead th,
-  thead td,
-  tfoot th,
-  tfoot td {
+  table thead th,
+  table thead td,
+  table tfoot th,
+  table tfoot td {
     padding: 0.5rem 0.625rem 0.625rem;
     font-weight: bold;
     text-align: left; }
-  tbody th,
-  tbody td {
+  table tbody th,
+  table tbody td {
     padding: 0.5rem 0.625rem 0.625rem; }
-  tbody tr:nth-child(even) {
+  table tbody tr:nth-child(even) {
     border-bottom: 0;
     background-color: #f2f2f2; }
   table.unstriped tbody {
@@ -7991,7 +7994,7 @@ article .more-about-member {
   color: #0a0a0a;
   border: 3px solid #f86b61;
   border-radius: 0px;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   font-family: "montserratbold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -webkit-transition: all .5s ease;
@@ -8194,7 +8197,7 @@ article .more-about-member {
       -webkit-font-smoothing: antialiased;
       color: #0a0a0a;
       padding: 0.5rem;
-      background-color: rgba(0, 0, 0, 0); }
+      background-color: transparent; }
       .homepage .focus-areas .block-title .button:hover, .homepage .do-this .block-title .button:hover, .homepage .news-events .block-title .button:hover {
         color: #fff;
         background-color: rgba(0, 0, 0, 0.8); }
