@@ -14,7 +14,7 @@ var cleanCSS    = require('gulp-clean-css');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
-var URL = 'http://earthlab.local';
+var URL = 'http://earthlab.uw.local';
 
 // Check for --production flag
 var isProduction = !!(argv.production);
