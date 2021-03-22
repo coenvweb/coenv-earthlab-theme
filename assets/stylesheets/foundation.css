@@ -7517,7 +7517,8 @@ a.thumbnail {
     padding: 3rem 0; }
     .uw-footer .be-boundless img:first-of-type {
       padding-bottom: 18.2pxpx;
-      padding-bottom: 1.3rem; }
+      padding-bottom: 1.3rem;
+      height: 45px; }
     .uw-footer .be-boundless svg:hover #be-boundless-svg {
       fill: #fff; }
     .uw-footer .be-boundless .be-boundless-svg-whole {

@@ -15,12 +15,13 @@
                                 <?php endif; ?>
                                 <p><a href="mailto:<?=antispambot(get_field('email', 'options'))?>" title="Send us an Email"><?php echo antispambot(get_field('email', 'options')) ?></a></p>
                                 <p><a href="tel:<?=antispambot(get_field('phone_number', 'options'))?>" title="Call us"><?php echo antispambot(get_field('phone_number', 'options')) ?></a></p>
-                                <div class="social-icon-box right"><a class="social-icon" href="https://www.facebook.com/UWEarthLab/"><i class="fa fa-facebook"></i></a> <a class="social-icon" href="https://twitter.com/uwearthlab"><i class="fa fa-twitter"></i></a><a class="social-icon" href="https://www.linkedin.com/company/uwearthlab"><i class="fa fa-linkedin"></i></a></div>
+                                <div class="social-icon-box right"><a class="social-icon" href="https://www.facebook.com/UWEarthLab/"><i class="fa fa-facebook"></i></a> <a class="social-icon" href="https://twitter.com/uwearthlab"><i class="fa fa-twitter"></i></a><a class="social-icon" href="https://www.instagram.com/uwearthlab"><i class="fa fa-instagram"></i></a><a class="social-icon" href="https://www.linkedin.com/company/uwearthlab"><i class="fa fa-linkedin"></i></a></div>
                                 <?php if (is_user_logged_in()) { ?>
-                                  <a href="<?php echo wp_logout_url( home_url() ); ?>" title="Logout">Log out</a>
+                                    <p><a href="<?php echo wp_logout_url( home_url() ); ?>" title="Logout">Log out</a></p>
                                 <?php } else { ?>
-                                  <a href="<?php echo wp_login_url(); ?>" title="Staff Login">Staff login</a>
+                                    <p><a href="<?php echo wp_login_url(); ?>" title="Staff Login">Staff login</a></p>
                                 <?php } ?>
+                                <p><a href="/intranet">Intranet</a></p>
                             </div>
                             <div class="right-college medium-6 columns offset-medium-3 large-4 large-offset-5 small-12">
                                 <a href="https://earthlab.uw.edu/">
