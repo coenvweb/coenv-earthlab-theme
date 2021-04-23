@@ -5,17 +5,6 @@ Template Name: Homepage
 ?>
 <?php get_header(); ?>
 <div class="homepage">
-	<?php
-	/**
-	 * Loop for homepage features.
-	 */
-	$feature_args = array(
-		'post_type' => 'features',
-		'post_status' => 'publish',
-		'posts_per_page' => 1,
-		'orderby' => 'menu_order',
-		);
-	$feature_query = new WP_Query( $feature_args ); ?>
 	<div class="homepage-features">
         <div class="playpause">
             <i class="fa fa-pause running"></i>
@@ -24,44 +13,43 @@ Template Name: Homepage
             </div>
         </div>
 		<?php
-		# The Loop
-		while ( $feature_query->have_posts() ) : 
-			$feature_query->the_post();
-			if (get_field('feature_excerpt')) {
-				$feature_excerpt = get_field('feature_excerpt');
-			}
-            $feature_images = get_field('hero_images');
-			$images = array();
-			$count = 0;
-			while(have_rows('hero_images')) : the_row();
-				$image = get_sub_field('image');
-				if($count == 0) {
-					echo '<div class="feature-image active" id="'.$image['id'].'" style="background-image:url('.$image['url'].');" >';
-				} else {
-					echo '<div class="feature-image inactive" id="'.$image['id'].'" style="background-image:url('.$image['url'].');" >';
-				}
-				echo '</div>';
-				$count++;
-			endwhile;
-			echo '<div class="feature row">';
-				echo '<div class="feature-info-container small-offset-1 small-10 columns">';
-					echo '<div class="feature-info">';
-						echo '<div class="feature-content">';
-							echo '<div class="feature-title">';
-								echo '<h2>' . get_the_title() . '</h2>';
-							echo '</div>';
-							echo '<div class="medium-offset-4 medium-8 large-offset-6 large-6 columns feature-excerpt">';
-								echo '<p>' . $feature_excerpt . '</p>';
-                echo '<a class="button" href="/about">Learn more</i></a>';
-							echo '</div>';
-						echo '</div><!-- .feature-content -->';
+        $hero = get_field('hero');
+        if ($hero['feature_excerpt']) {
+            $feature_excerpt = $hero['feature_excerpt'];
+        }
+        $feature_images = $hero['hero_images'];
+        $images = array();
+        $count = 0;
+        while(have_rows('hero')) : the_row();
+            while(have_rows('hero_images')) : the_row();
+                $image = get_sub_field('image');
+                if($count == 0) {
+                    echo '<div class="feature-image active" id="'.$image['id'].'" style="background-image:url('.$image['url'].');" >';
+                } else {
+                    echo '<div class="feature-image inactive" id="'.$image['id'].'" style="background-image:url('.$image['url'].');" >';
+                }
+                echo '</div>';
+                $count++;
+            endwhile;
+        endwhile;
+        echo '<div class="feature row">';
+            echo '<div class="feature-info-container small-offset-1 small-10 columns">';
+                echo '<div class="feature-info">';
+                    echo '<div class="feature-content">';
+                        echo '<div class="feature-title">';
+                            echo '<h2>' . get_field('hero_headline') . '</h2>';
+                        echo '</div>';
+                        echo '<div class="medium-offset-4 medium-8 large-offset-6 large-6 columns feature-excerpt">';
+                            echo '<p>' . $feature_excerpt . '</p>';
+            echo '<a class="button" href="'.get_field('hero_link').'">Learn more</i></a>';
+                        echo '</div>';
+                    echo '</div><!-- .feature-content -->';
 
-					echo '</div><!-- .feature-info -->';
-					echo '<div class="hero-texture">';
-					echo '</div>';
-				echo '</div><!-- .feature-info-container -->';
-			echo '</div><!-- .feature -->';	
-		endwhile;
+                echo '</div><!-- .feature-info -->';
+                echo '<div class="hero-texture">';
+                echo '</div>';
+            echo '</div><!-- .feature-info-container -->';
+        echo '</div><!-- .feature -->';	
 		wp_reset_postdata();
 		?>
 	</div>
@@ -138,13 +126,49 @@ Template Name: Homepage
         </div>
 	</div>
 
-	<div id="do-this" class="divider do-this-divider">
-	</div>
-
-	<div class="do-this">
-        <div class="do-this-texture">
+    <?php 
+    wp_reset_query();
+    $featured_work = get_field('featured_work'); ?>
+    <div class="featured-work">
+        <div class="featured-work-texture">
             <div class="row ">
-                <div class="large-offset-1 large-2 medium-offset-2 medium-4 small-offset-3 small-6 columns block-title do-title">
+                <div class="large-offset-1 large-2 medium-offset-2 medium-4 small-offset-3 small-6 columns block-title approach-title">
+                    <h2>
+                        <?php echo $featured_work['featured_work_section_title'] ?>
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="widgets-area">
+            <div class="row">
+            <?php 
+                while(have_rows('featured_work')) : the_row();
+                    while(have_rows('featured_work_items')) : the_row();
+                        echo '<h3>' . get_sub_field('featured_work_item_title') . '</h3>';
+                        echo '<p>' . get_sub_field('featured_work_item_description') . '</p>';
+                        $image = get_sub_field('featured_work_item_image');
+                        if( !empty( $image ) ) {
+                            echo '<img src="' . esc_url($image['url']).'" alt="'. esc_attr($image['alt']) .'" />';
+                        };
+                        $link = get_sub_field('featured_work_item_link');
+                        if( $link ) {
+                            $link_url = $link['url'];
+                            $link_title = $link['title'];
+                            $link_target = $link['target'] ? $link['target'] : '_self';
+                            echo '<a class="button" href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '">' . esc_html( $link_title ) . '</a>';
+                        };
+                    endwhile;
+                endwhile;
+            ?>
+            </div>
+        </div>
+    </div>
+
+    <?php $black_boxes = get_field('black_boxes_statement'); ?>
+	<div class="approach">
+        <div class="approach-texture">
+            <div class="row ">
+                <div class="large-offset-1 large-2 medium-offset-2 medium-4 small-offset-3 small-6 columns block-title approach-title">
                     <h3>
                         Our<br> 
                         Approach
@@ -154,11 +178,16 @@ Template Name: Homepage
             </div>
         </div>
         <div class="widgets-area">
-            <div class="row">
-                <?php dynamic_sidebar('homepage-do'); ?>
+            <div class="row small-up-2 medium-up-4">
+                <?php 
+                    while(have_rows('black_boxes_statement')) : the_row();
+                        while(have_rows('black_boxes')) : the_row();
+                            echo '<div class="column column-block"><h3>' . get_sub_field('black_box_title') . '</h3>';
+                            echo '<p>' . get_sub_field('black_box_description') . '</p></div>';
+                        endwhile;
+                    endwhile;
+                ?>
             </div>
-        </div>
-        <div class="do-this-texture">
         </div>
     </div>
 

@@ -692,22 +692,22 @@ class earthlab_text_widget extends WP_Widget {
     }
 }
 
-function register_coenv_do_this_widget() {
-    register_widget( 'do_this_widget' );
+function register_coenv_black_block_widget() {
+    register_widget( 'black_block_widget' );
 }
-add_action( 'widgets_init', 'register_coenv_do_this_widget' );
+add_action( 'widgets_init', 'register_coenv_black_block_widget' );
 
-class do_this_widget extends WP_Widget {
+class black_block_widget extends WP_Widget {
 
     /**
      * Sets up the widgets name etc
      */
     public function __construct() {
         $widget_ops = array( 
-            'classname' => 'do-this-tile',
-            'description' => 'Display a single "How We Do This" tile for the homepage',
+            'classname' => 'black-block-tile',
+            'description' => 'Display a single "Black Blocks Widget" tile for the homepage',
         );
-        parent::__construct( 'do_this_widget', 'How We Do This Widget', $widget_ops );
+        parent::__construct( 'black_block_widget', 'Black Blocks Widget', $widget_ops );
     }
 
     /**
@@ -719,12 +719,12 @@ class do_this_widget extends WP_Widget {
     public function widget( $args, $instance ) {
         echo $args['before_widget'];
     ?>
-        <div class="do_container">
+        <div class="tile_container">
             <?php echo $args['before_title']; ?>
                 <?=$instance['title']?>
             <?php echo $args['after_title']; ?>
             <hr>
-            <p class="do-description"><?=$instance['description']?></p>
+            <p class="tile-description"><?=$instance['description']?></p>
         </div>
     <?php   
         echo $args['after_widget'];

@@ -140,7 +140,7 @@
         }
     }
     
-    .focus-areas, .do-this, .news-events {
+    .focus-areas, .approach, .news-events {
         .row {
             position: relative;
             height: 100%;
@@ -150,7 +150,7 @@
             background: $light-gray;
         }
 
-        .focus-texture, .do-this-texture, .news-texture {
+        .focus-texture, .approach-texture, .news-texture {
             height: 5rem;
         }
         .block-title {
@@ -197,12 +197,12 @@
             padding-top: 2rem;
             padding-bottom: 2rem;
         }
-        .do-title {
+        .black-block-title {
             background-color: $news-yellow;
             border: 5px solid $news-yellow;
             background-image: url('../images/how-2-title.png');
         }
-        .focus-tile, .do-this-tile {
+        .focus-tile, .black-block-tile {
             text-align: center;
             &:nth-child(3) {
                 @include breakpoint(medium only) {
@@ -263,7 +263,7 @@
                 }
             }
         }
-        .do-this-tile {
+        .black-block-tile {
             &:nth-of-type(1) {
                 background-image: url('../images/1.png');
             }
@@ -287,12 +287,12 @@
             @include breakpoint(large) {
                 min-height: 220px;
             }
-            .do_container {
+            .tile_container {
                 padding: 0rem;
                 @include breakpoint(small only) {
                     padding: 0rem 5%;
                 }
-                .do_area_title {
+                .tile_area_title {
                     font-size: 1.4rem;
                     padding-top: 1rem;
                     vertical-align: bottom;
@@ -308,7 +308,7 @@
                     margin-top: 0;
                     margin-bottom: 2.25rem;
                 }
-                .do-description {
+                .tile-description {
                     @include montserrat_b;
                 }
             }
@@ -398,7 +398,7 @@
             }
         }
     }
-    .do-this-texture {
+    .approach-texture {
         background-image: url('../images/how-cross.png');
     }
     .news-texture {
@@ -429,7 +429,7 @@
             background-size: cover;
         }
     }
-    .do-this-divider {
+    .approach-divider {
         background-image: url('../images/homepage-divider-gasworks.jpg');
     }
     .news-divider {
