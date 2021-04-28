@@ -90,6 +90,7 @@
                                 font-size: 1.5rem;
                             }
                             @include breakpoint(medium) {
+    
                                 font-size: 2rem;
                             }
                             @include breakpoint(large) {
@@ -139,8 +140,99 @@
             }
         }
     }
+
+
+    .news-events {
+        .news-title {
+            background: url('../images/focus-title.png');
+            background-size: cover;
+            border: 5px solid $focus-red;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        .block-title {
+            top: -100%;
+        }
+        
+    }
+
+    .tab-title {
+        padding-left: 0;
+        position: relative;
+        h2 {
+            position: absolute;
+            background-color: $focus-red;
+            top: -7rem;
+            padding: 1rem;
+            margin-left: 0;
+            text-transform: uppercase;
+            font-size: 1.25rem;
+        }
+    }
+
+    .featured-work {
+        border: 6px solid $focus-red;
+        background-position: center!important;
+        background-size: cover!important;
+        padding: 3rem 3rem;
+        background: $light-gray;
+        h3 {
+            text-transform: uppercase;
+            font-size: 1rem;
+        }
+        .inner-black-box {
+            border: 2px solid white;
+            background-color: black;
+            color: white;
+            padding: 3rem;
+            @include montserrat_b;
+            a {
+                color: white;
+                margin-bottom: 0;
+                border-color: white;
+            }
+        }
+    }
+
+    .approach {
+        .approach-title {
+            background: url('../images/how-2-title.png');
+            background-size: cover;
+            border: 5px solid $focus-red;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            top: 2rem;
+        }
+        .widgets-area {
+            background-position: center!important;
+            background-size: cover!important;
+            padding-top: 10rem!important;
+        }
+        .row {
+            display: flex;
+        }
+        .column-block {
+            flex: 1;
+        }
+        .inner-box {
+            background-color: black;
+            border: 3px solid white;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+
+            h3 {
+                text-transform: uppercase;
+                font-size: 1rem;
+            }
+        }
+    }
     
-    .focus-areas, .approach, .news-events {
+    .featured-work, .approach, .news-events {
         .row {
             position: relative;
             height: 100%;
@@ -149,14 +241,9 @@
             padding: 3rem 0rem;
             background: $light-gray;
         }
-
-        .focus-texture, .approach-texture, .news-texture {
-            height: 5rem;
-        }
         .block-title {
             text-align: center;
             position: absolute;
-            top: -100%;
             @include breakpoint(small only) {
                 width: 190px;
                 left: 0;
@@ -190,129 +277,10 @@
                 }
             }
         }
-        .news-title {
-            background: url('../images/focus-title.png');
-            background-size: cover;
-            border: 5px solid $focus-red;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
+        .focus-texture, .approach-texture, .news-texture {
+            height: 5rem;
         }
-        .black-block-title {
-            background-color: $news-yellow;
-            border: 5px solid $news-yellow;
-            background-image: url('../images/how-2-title.png');
-        }
-        .focus-tile, .black-block-tile {
-            text-align: center;
-            &:nth-child(3) {
-                @include breakpoint(medium only) {
-                    clear: both;
-                }
-            }
-        }
-        .focus-tile {
-            border-right: 3px solid $white;
-            &:first-child {
-                border-left: 3px solid $white;
-            }
-            @include breakpoint(medium only) {
-                border-bottom: 3px solid $white;
-                min-height: 375px;
-            }
-            @include breakpoint(small only) {
-                border-bottom: 3px solid $white;
-                &:first-child {
-                    border-top: 3px solid $white;
-                }
-            }
-            &:hover {
-                background-color: rgba(0, 0, 0, 0.85);
-                a {
-                    .focus_area_title {
-                        color: $white;
-                    }
-                    hr {
-                        border-bottom: 3px solid $white;
-                    }
-                }
-            }
-            a {
-                display: block;
-                padding: 4rem 0rem;
-                
-                @include breakpoint(large) {
-                }
-                .focus-icon {
-                    height: 7rem;
-                }
-                hr {
-                    border-bottom: 3px solid $medium-gray;
-                    width: 33%;
-                }
-                .focus_area_title {
-                    @include breakpoint(small only) {
-                        font-size: 1.25rem;
-                    }
-                    color: $black;
-                    text-transform: uppercase;
-                    vertical-align: middle;
-                    margin: .5rem;
-                    @include breakpoint(large) {
-                        min-height: 5.5rem;
-                    }
-                }
-            }
-        }
-        .black-block-tile {
-            &:nth-of-type(1) {
-                background-image: url('../images/1.png');
-            }
-            &:nth-of-type(2) {
-                background-image: url('../images/2.png');
-            }
-            &:nth-of-type(3) {
-                background-image: url('../images/3.png');
-            }
-            &:nth-of-type(4) {
-                background-image: url('../images/4.png');
-            }
-            font-size: 1.1rem;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-            background-position: top left;
-            background-size: contain;
-            background-repeat: no-repeat;
-            text-align: left;
-            padding-left: 5rem;
-            @include breakpoint(large) {
-                min-height: 220px;
-            }
-            .tile_container {
-                padding: 0rem;
-                @include breakpoint(small only) {
-                    padding: 0rem 5%;
-                }
-                .tile_area_title {
-                    font-size: 1.4rem;
-                    padding-top: 1rem;
-                    vertical-align: bottom;
-                    margin-bottom: 0rem;
-                    @include breakpoint(medium) {
-                        min-height: 70px;
-                    }
-                }
-                hr {
-                    border-top: 3px solid $medium-gray !important;
-                    width: 33%;
-                    margin-left: 0;
-                    margin-top: 0;
-                    margin-bottom: 2.25rem;
-                }
-                .tile-description {
-                    @include montserrat_b;
-                }
-            }
-        }
+        
         .news, .events {
             margin-top: 4rem;
             margin-bottom: 1rem;

@@ -273,6 +273,30 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_6088981e9375d",
+                    "label": "Image Background",
+                    "name": "image_background",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
                     "key": "field_6081f4b7ece52",
                     "label": "Black boxes",
                     "name": "black_boxes",
@@ -362,5 +386,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1619133288
+    "modified": 1619564596
 }

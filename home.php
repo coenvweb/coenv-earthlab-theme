@@ -128,28 +128,26 @@ Template Name: Homepage
 
     <?php 
     wp_reset_query();
-    $featured_work = get_field('featured_work'); ?>
-    <div class="featured-work">
+    $featured_work = get_field('featured_work');
+    while(have_rows('featured_work')) : the_row();
+    while(have_rows('featured_work_items')) : the_row();
+    $image = get_sub_field('featured_work_item_image'); ?>
+    <div class="featured-work" style="background-image:url('<?php echo $image['url'] ?>');">
+        <?php $image = get_sub_field('featured_work_item_image'); ?>
         <div class="featured-work-texture">
             <div class="row ">
-                <div class="large-offset-1 large-2 medium-offset-2 medium-4 small-offset-3 small-6 columns block-title approach-title">
+                <div class="large-3 medium-4 small-6 columns tab-title">
                     <h2>
                         <?php echo $featured_work['featured_work_section_title'] ?>
                     </h2>
                 </div>
             </div>
         </div>
-        <div class="widgets-area">
-            <div class="row">
+        <div class="row">
+            <div class="inner-black-box large-7 medium-9 small-12">
             <?php 
-                while(have_rows('featured_work')) : the_row();
-                    while(have_rows('featured_work_items')) : the_row();
                         echo '<h3>' . get_sub_field('featured_work_item_title') . '</h3>';
                         echo '<p>' . get_sub_field('featured_work_item_description') . '</p>';
-                        $image = get_sub_field('featured_work_item_image');
-                        if( !empty( $image ) ) {
-                            echo '<img src="' . esc_url($image['url']).'" alt="'. esc_attr($image['alt']) .'" />';
-                        };
                         $link = get_sub_field('featured_work_item_link');
                         if( $link ) {
                             $link_url = $link['url'];
@@ -157,14 +155,17 @@ Template Name: Homepage
                             $link_target = $link['target'] ? $link['target'] : '_self';
                             echo '<a class="button" href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '">' . esc_html( $link_title ) . '</a>';
                         };
-                    endwhile;
-                endwhile;
             ?>
             </div>
         </div>
     </div>
+    <?php endwhile;
+      endwhile;
+    ?>
 
-    <?php $black_boxes = get_field('black_boxes_statement'); ?>
+    <?php $black_boxes = get_field('black_boxes_statement'); 
+    while(have_rows('black_boxes_statement')) : the_row();
+    $background_image = get_sub_field('image_background');?>
 	<div class="approach">
         <div class="approach-texture">
             <div class="row ">
@@ -177,19 +178,20 @@ Template Name: Homepage
                 </div>
             </div>
         </div>
-        <div class="widgets-area">
+        <div class="widgets-area" style="background-image:url('<?php echo $background_image['url'] ?>');">
             <div class="row small-up-2 medium-up-4">
                 <?php 
-                    while(have_rows('black_boxes_statement')) : the_row();
-                        while(have_rows('black_boxes')) : the_row();
-                            echo '<div class="column column-block"><h3>' . get_sub_field('black_box_title') . '</h3>';
-                            echo '<p>' . get_sub_field('black_box_description') . '</p></div>';
-                        endwhile;
+                    while(have_rows('black_boxes')) : the_row();
+                        echo '<div class="column column-block align-self-middle"><div class="inner-box"><span>';
+                        echo '<h3>' . get_sub_field('black_box_title') . '</h3>';
+                        echo '<p>' . get_sub_field('black_box_description') . '</p>';
+                        echo '</span></div></div>';
                     endwhile;
                 ?>
             </div>
         </div>
     </div>
+    <?php endwhile; ?>
 
 </div>
 
