@@ -179,7 +179,7 @@ Template Name: Homepage
             </div>
         </div>
         <div class="widgets-area" style="background-image:url('<?php echo $background_image['url'] ?>');">
-            <div class="row small-up-2 medium-up-4">
+            <div class="row small-up-1 medium-up-2 large-up-4">
                 <?php 
                     while(have_rows('black_boxes')) : the_row();
                         echo '<div class="column column-block align-self-middle"><div class="inner-box"><span>';
