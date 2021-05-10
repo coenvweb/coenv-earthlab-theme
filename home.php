@@ -130,10 +130,10 @@ Template Name: Homepage
     wp_reset_query();
     $featured_work = get_field('featured_work');
     while(have_rows('featured_work')) : the_row();
-    while(have_rows('featured_work_items')) : the_row();
-    $image = get_sub_field('featured_work_item_image'); ?>
+    $featured_work_items = get_sub_field('featured_work_items');
+    $random_row = array_rand($featured_work_items, 1);
+    $image = $featured_work_items[$random_row]['featured_work_item_image']; ?>
     <div class="featured-work" style="background-image:url('<?php echo $image['url'] ?>');">
-        <?php $image = get_sub_field('featured_work_item_image'); ?>
         <div class="featured-work-texture">
             <div class="row ">
                 <div class="large-3 medium-4 small-6 columns tab-title">
@@ -146,9 +146,9 @@ Template Name: Homepage
         <div class="row">
             <div class="inner-black-box large-7 medium-9 small-12">
             <?php 
-                        echo '<h3>' . get_sub_field('featured_work_item_title') . '</h3>';
-                        echo '<p>' . get_sub_field('featured_work_item_description') . '</p>';
-                        $link = get_sub_field('featured_work_item_link');
+                        echo '<h3>' . $featured_work_items[$random_row]['featured_work_item_title'] . '</h3>';
+                        echo '<p>' . $featured_work_items[$random_row]['featured_work_item_description'] . '</p>';
+                        $link = $featured_work_items[$random_row]['featured_work_item_link'];
                         if( $link ) {
                             $link_url = $link['url'];
                             $link_title = $link['title'];
@@ -159,7 +159,7 @@ Template Name: Homepage
             </div>
         </div>
     </div>
-    <?php endwhile;
+    <?php 
       endwhile;
     ?>
 
