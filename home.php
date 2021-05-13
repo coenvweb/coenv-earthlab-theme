@@ -144,7 +144,8 @@ Template Name: Homepage
             </div>
         </div>
         <div class="row">
-            <div class="inner-black-box large-7 medium-9 small-12">
+            <div class="outer-feature-wrap large-7 medium-9 small-12 right">
+            <div class="inner-black-box ">
             <?php 
                         echo '<h3>' . $featured_work_items[$random_row]['featured_work_item_title'] . '</h3>';
                         echo '<p>' . $featured_work_items[$random_row]['featured_work_item_description'] . '</p>';
@@ -156,6 +157,7 @@ Template Name: Homepage
                             echo '<a class="button" href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '">' . esc_html( $link_title ) . '</a>';
                         };
             ?>
+            </div>
             </div>
         </div>
     </div>
