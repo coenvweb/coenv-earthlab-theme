@@ -154,7 +154,7 @@ Template Name: Homepage
                             $link_url = $link['url'];
                             $link_title = $link['title'];
                             $link_target = $link['target'] ? $link['target'] : '_self';
-                            echo '<a class="button" href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '">More about ' . esc_html( $link_title ) . '</a>';
+                            echo '<a class="button" href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '">' . esc_html( $link_title ) . '</a>';
                         };
                         $type = $featured_work_items[$random_row]['feature_type'];
                         if( $type ) {
@@ -163,7 +163,7 @@ Template Name: Homepage
                             } elseif ($type == 'members-and-affiliates') {
                                 $type_label = 'Member Organization';
                             }
-                            echo ' <a class="button" href="/' . $type . '">See more ' . $type_label . 's</a>';
+                            echo ' <a class="button" href="/' . $type . '">All ' . $type_label . 's</a>';
                         };
             ?>
             </div>
