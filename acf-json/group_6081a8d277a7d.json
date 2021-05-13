@@ -177,6 +177,30 @@
                     "button_label": "",
                     "sub_fields": [
                         {
+                            "key": "field_609d89e68d9ff",
+                            "label": "Feature Type",
+                            "name": "feature_type",
+                            "type": "radio",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "members-and-affiliates": "Member Organization",
+                                "grants": "Project"
+                            },
+                            "allow_null": 0,
+                            "other_choice": 0,
+                            "default_value": "",
+                            "layout": "vertical",
+                            "return_format": "value",
+                            "save_other_choice": 0
+                        },
+                        {
                             "key": "field_6081f3becd40a",
                             "label": "Featured Work Item Title",
                             "name": "featured_work_item_title",
@@ -386,5 +410,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1619564596
+    "modified": 1620937497
 }
