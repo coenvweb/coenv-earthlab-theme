@@ -37,7 +37,7 @@ Template Name: Homepage
                 echo '<div class="feature-info">';
                     echo '<div class="feature-content">';
                         echo '<div class="feature-title">';
-                            echo '<h2>' . get_field('hero_headline') . '</h2>';
+                            echo '<h2>' . $hero['hero_headline'] . '</h2>';
                         echo '</div>';
                         echo '<div class="medium-offset-4 medium-8 large-offset-6 large-6 columns feature-excerpt">';
                             echo '<p>' . $feature_excerpt . '</p>';

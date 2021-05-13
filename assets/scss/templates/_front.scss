@@ -181,7 +181,7 @@
             font-size: 1rem;
         }
         .inner-black-box {
-            border: 2px solid white;
+            border: 5px solid white;
             background-color: black;
             color: white;
             padding: 3rem;
@@ -213,17 +213,17 @@
                 display: flex;
             }
         }
-        .column-block {
-        }
+
         .inner-box {
             background-color: black;
-            border: 3px solid white;
+            border: 5px solid white;
             color: white;
             padding: 1rem;
             text-align: center;
             height: 100%;
             align-items: center;
             justify-content: center;
+            display: flex;
 
             h3 {
                 text-transform: uppercase;
