@@ -144,7 +144,8 @@ Template Name: Homepage
             </div>
         </div>
         <div class="row">
-            <div class="inner-black-box large-7 medium-9 small-12">
+            <div class="outer-feature-wrap large-7 medium-9 small-12 right">
+            <div class="inner-black-box ">
             <?php 
                         echo '<h3>' . $featured_work_items[$random_row]['featured_work_item_title'] . '</h3>';
                         echo '<p>' . $featured_work_items[$random_row]['featured_work_item_description'] . '</p>';
@@ -155,7 +156,17 @@ Template Name: Homepage
                             $link_target = $link['target'] ? $link['target'] : '_self';
                             echo '<a class="button" href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '">' . esc_html( $link_title ) . '</a>';
                         };
+                        $type = $featured_work_items[$random_row]['feature_type'];
+                        if( $type ) {
+                            if ($type == 'project') {
+                                $type_label = 'Project';
+                            } elseif ($type == 'members-and-affiliates') {
+                                $type_label = 'Member Organization';
+                            }
+                            echo ' <a class="button" href="/' . $type . '">All ' . $type_label . 's</a>';
+                        };
             ?>
+            </div>
             </div>
         </div>
     </div>

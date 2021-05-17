@@ -8438,13 +8438,25 @@ article .more-about-member {
     .homepage .featured-work h3 {
       text-transform: uppercase;
       font-size: 1rem; }
-    .homepage .featured-work .inner-black-box {
-      border: 2px solid white;
-      background-color: black;
-      color: white;
-      padding: 3rem;
+    .homepage .featured-work .outer-feature-wrap {
+      float: right !important;
       font-family: "montserratbold", "open-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      -webkit-font-smoothing: antialiased; }
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+      z-index: 2; }
+      .homepage .featured-work .outer-feature-wrap:before {
+        content: '';
+        background: url("../images/hero-slant.png");
+        position: absolute;
+        width: 60%;
+        height: 6rem;
+        z-index: -1;
+        left: -10%;
+        bottom: -1.75rem; }
+    .homepage .featured-work .inner-black-box {
+      background-color: rgba(0, 0, 0, 0.75);
+      color: white;
+      padding: 3rem; }
       .homepage .featured-work .inner-black-box a {
         color: white;
         margin-bottom: 0;
@@ -8456,7 +8468,8 @@ article .more-about-member {
     border: 5px solid #f86b61;
     padding-top: 2rem;
     padding-bottom: 2rem;
-    top: 2rem; }
+    top: 2rem;
+    background-color: #f86b61; }
   .homepage .approach .widgets-area {
     background-position: center !important;
     -webkit-background-size: cover !important;
@@ -8469,7 +8482,7 @@ article .more-about-member {
       display: flex; } }
   .homepage .approach .inner-box {
     background-color: black;
-    border: 3px solid white;
+    border: 5px solid white;
     color: white;
     padding: 1rem;
     text-align: center;
@@ -8479,7 +8492,10 @@ article .more-about-member {
             align-items: center;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
-            justify-content: center; }
+            justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
     .homepage .approach .inner-box h3 {
       text-transform: uppercase;
       font-size: 1rem; }

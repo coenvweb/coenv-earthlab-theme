@@ -180,12 +180,27 @@
             text-transform: uppercase;
             font-size: 1rem;
         }
+        .outer-feature-wrap {
+            float: right!important;
+            
+            @include montserrat_b;
+            position: relative;
+            z-index: 2;
+            &:before {
+                content: '';
+                background: url('../images/hero-slant.png');
+                position: absolute;
+                width: 60%;
+                height: 6rem;
+                z-index: -1;
+                left: -10%;
+                bottom: -1.75rem;
+            }
+        }
         .inner-black-box {
-            border: 2px solid white;
-            background-color: black;
+            background-color: rgba(0,0,0,.75);
             color: white;
             padding: 3rem;
-            @include montserrat_b;
             a {
                 color: white;
                 margin-bottom: 0;
@@ -202,6 +217,7 @@
             padding-top: 2rem;
             padding-bottom: 2rem;
             top: 2rem;
+            background-color: $focus-red;
         }
         .widgets-area {
             background-position: center!important;
@@ -213,17 +229,17 @@
                 display: flex;
             }
         }
-        .column-block {
-        }
+
         .inner-box {
             background-color: black;
-            border: 3px solid white;
+            border: 5px solid white;
             color: white;
             padding: 1rem;
             text-align: center;
             height: 100%;
             align-items: center;
             justify-content: center;
+            display: flex;
 
             h3 {
                 text-transform: uppercase;
