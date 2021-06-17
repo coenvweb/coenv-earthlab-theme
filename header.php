@@ -144,6 +144,12 @@
 		<meta name="theme-color" content="#4b2e84">
         <meta name="keywords" content="EarthLab, Earth Lab, UW, Environment, Climate, Ocean, Ecosystems, Hazards" />
 
+        <link rel="preload" href="<?php echo get_template_directory_uri() ?>/assets/fonts/opensans-regular-webfont.woff2" as="font" crossorigin="anonymous" />
+        <link rel="preload" href="<?php echo get_template_directory_uri() ?>/assets/fonts/opensans-600-webfont.woff2" as="font" crossorigin="anonymous" />
+        <link rel="preload" href="<?php echo get_template_directory_uri() ?>/assets/fonts/fontawesome-webfont.woff2?v=4.5.0" as="font" crossorigin="anonymous" />
+        <link rel="preload" href="<?php echo get_template_directory_uri() ?>/assets/fonts/Montserrat-SemiBold.woff" as="font" crossorigin="anonymous" />
+        <link rel="preload" href="<?php echo get_template_directory_uri() ?>/assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" crossorigin="anonymous" />
+
         <!-- Global site tag (gtag.js) - Google Analytics 4 -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-NLLG4VWYZN"></script>
         <script>
