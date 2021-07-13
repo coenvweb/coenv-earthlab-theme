@@ -52,6 +52,9 @@ jQuery(function ($) {
 
         
 	});
+
+    var random = Math.floor(Math.random() * $('.featured-work').length);
+    $('.featured-work').hide().eq(random).show();
     
     //search field
     $('.menu-item-search-button').click(function() {

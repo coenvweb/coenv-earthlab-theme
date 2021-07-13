@@ -8429,6 +8429,7 @@ article .more-about-member {
       text-transform: uppercase;
       font-size: 1.25rem; }
   .homepage .featured-work {
+    display: none;
     border: 6px solid #f86b61;
     background-position: center !important;
     -webkit-background-size: cover !important;
