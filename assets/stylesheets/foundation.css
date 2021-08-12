@@ -7999,14 +7999,17 @@ a.thumbnail {
     margin: -1.2rem;
     padding: 1.2rem; }
     .widget-newsletter-signup .social-area p, .widget-earthlab-text .social-area p, .widget-events .social-area p {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex; }
-    .widget-newsletter-signup .social-area .social-icon-box a, .widget-earthlab-text .social-area .social-icon-box a, .widget-events .social-area .social-icon-box a {
-      margin-left: 1rem; }
-    .widget-newsletter-signup .social-area .social-icon-box i, .widget-earthlab-text .social-area .social-icon-box i, .widget-events .social-area .social-icon-box i {
-      margin-bottom: -5px;
-      font-size: 1.5rem; }
+      margin-bottom: .5rem; }
+    .widget-newsletter-signup .social-area .social-icon-box, .widget-earthlab-text .social-area .social-icon-box, .widget-events .social-area .social-icon-box {
+      margin-bottom: .5rem; }
+      .widget-newsletter-signup .social-area .social-icon-box a:first-of-type, .widget-earthlab-text .social-area .social-icon-box a:first-of-type, .widget-events .social-area .social-icon-box a:first-of-type {
+        margin-left: 0; }
+      .widget-newsletter-signup .social-area .social-icon-box a, .widget-earthlab-text .social-area .social-icon-box a, .widget-events .social-area .social-icon-box a {
+        margin-left: 1rem;
+        margin-bottom: 1rem; }
+      .widget-newsletter-signup .social-area .social-icon-box i, .widget-earthlab-text .social-area .social-icon-box i, .widget-events .social-area .social-icon-box i {
+        margin-bottom: -5px;
+        font-size: 1.5rem; }
 
 .widget-events .text-box {
   padding: .75rem .75rem 0 .75rem; }

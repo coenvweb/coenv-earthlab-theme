@@ -224,11 +224,16 @@
         padding: 1.2rem;
         
         p {
-            display: flex;
+            margin-bottom: .5rem;
         }
         .social-icon-box {
+            margin-bottom: .5rem;
+            a:first-of-type {
+                margin-left: 0;
+            }
             a {
                 margin-left: 1rem;
+                margin-bottom: 1rem;
             }
             i {
                 margin-bottom: -5px;

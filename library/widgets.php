@@ -514,8 +514,9 @@ class newsletter_widget extends WP_Widget {
                             });
                         </script>
                         <div class="social-area">
-                        <p>Follow EarthLab <span class="social-icon-box right"><a class="social-icon" href="https://www.facebook.com/UWEarthLab/"><i class="fa fa-facebook"></i></a> <a class="social-icon" href="https://twitter.com/uwearthlab"><i class="fa fa-twitter"></i></a>
-                        <a class="social-icon" href="https://www.instagram.com/uwearthlab"><i class="fa fa-instagram"></i></a><a class="social-icon" href="https://www.linkedin.com/company/uwearthlab"><i class="fa fa-linkedin"></i></a></span></p>
+                        <p>Follow EarthLab</p>
+                        <div class="social-icon-box"><a class="social-icon" href="https://www.facebook.com/UWEarthLab/"><i class="fa fa-facebook"></i></a> <a class="social-icon" href="https://twitter.com/uwearthlab"><i class="fa fa-twitter"></i></a>
+                        <a class="social-icon" href="https://www.instagram.com/uwearthlab"><i class="fa fa-instagram"></i></a><a class="social-icon" href="https://www.linkedin.com/company/uwearthlab"><i class="fa fa-linkedin"></i></a></div>
                         
                         </div>
                         
