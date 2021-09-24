@@ -25,7 +25,7 @@
                 //}
                 ?>
                 <div class="article__categories">
-                     <?php echo implode(', ', $more_terms_arr) ?>
+                     <?php if(isset($more_terms_arr)){ echo implode(', ', $more_terms_arr); }; ?>
                      <?php if(isset($member_terms)){ echo '| ' . implode(', ', $member_terms_arr); }; ?>
                 </div>
             </div>
