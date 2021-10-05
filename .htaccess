@@ -14,3 +14,27 @@ RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress
+
+# Earthlab Redirects
+RewriteCond %{HTTP_HOST} !^earthlab.uw\.edu [NC]
+RewriteRule .? - [S=19]
+RewriteRule ^about/case-studies/$ projects/ [R=301,L]
+RewriteRule ^about/case-studies/combating-global-climate-change-is-fun-and-games-for-earthgamesuw/$ projects/ [R=301,L]
+RewriteRule ^about/case-studies/focus-area/ecosystems/$ projects/topic/ecosystems/ [R=301,L]
+RewriteRule ^about/case-studies/focus-area/hazards/$ projects/topic/hazards/ [R=301,L]
+RewriteRule ^about/case-studies/focus-area/oceans/$ projects/topic/oceans/ [R=301,L]
+RewriteRule ^about/case-studies/megaquakes-planning-for-the-next-big-one-in-cascadia/$ projects/ [R=301,L]
+RewriteRule ^about/case-studies/protecting-a-place-for-the-people-by-the-water/$ projects/ [R=301,L]
+RewriteRule ^about/case-studies/washington-meets-ocean-acidification-head-on/$ projects/ [R=301,L]
+RewriteRule ^about/contact-us/$ about/contact/ [R=301,L]
+RewriteRule ^about/leadership/$ about/people/ [R=301,L]
+RewriteRule ^about/news-and-events/focus-area/ecosystems/$ news-and-events/topic/ecosystems/ [R=301,L]
+RewriteRule ^about/news-and-events/focus-area/hazards/$ news-and-events/topic/hazards/ [R=301,L]
+RewriteRule ^about/news-and-events/focus-area/oceans/$ news-and-events/topic/oceans/ [R=301,L]
+RewriteRule ^building-climate-security-and-resilience/$ members-and-affiliates/climate-impacts-group/ [R=301,L]
+RewriteRule ^planning-wisely-for-natural-hazards/$ news-and-events/topic/hazards/ [R=301,L]
+RewriteRule ^protecting-ocean-health/$ members-and-affiliates/washington-ocean-acidification-center/ [R=301,L]
+RewriteRule ^sustaining-healthy-ecosystems/$ members-and-affiliates/doris-duke-conservation-scholars/ [R=301,L]
+RewriteRule ^walker2019 news-and-events/walker-lecture-series/ [R=302,L]
+RewriteRule ^walker-lecture-series/$ https://environment.uw.edu/alumni-and-community/calendar-events/2020-doug-walker-lecture/ [R=302,L]
+
