@@ -37,7 +37,7 @@ function coenv_earthlab_post_types_init() {
       ),
     'hierarchical' => false,
     'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
-    'public' => true,
+    'public' => false,
     'has_archive' => false,
     'show_ui' => true,
     'rewrite' => false,
