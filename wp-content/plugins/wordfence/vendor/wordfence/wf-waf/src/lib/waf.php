@@ -301,9 +301,9 @@ auEa+7b+FGTKs7dUo2BNGR7OVifK4GZ8w/ajS0TelhrSRi3BBQCGXLzUO/UURUAh
 
 		$ping = $this->getRequest()->getBody('ping');
 		$pingResponse = $this->getRequest()->getBody('ping_response');
-		$pingIsApiKey = wfWAFUtils::hash_equals($ping, sha1($this->getStorageEngine()->getConfig('apiKey', null, 'synced')));
 
-		if ($ping && $pingResponse && $pingIsApiKey &&
+		if ($ping && $pingResponse &&
+			wfWAFUtils::hash_equals($ping, sha1($this->getStorageEngine()->getConfig('apiKey', null, 'synced'))) &&
 			$this->verifySignedRequest($this->getRequest()->getBody('signature'), $this->getStorageEngine()->getConfig('apiKey', null, 'synced'))
 		) {
 			// $this->updateRuleSet(base64_decode($this->getRequest()->body('ping')));
@@ -325,11 +325,13 @@ auEa+7b+FGTKs7dUo2BNGR7OVifK4GZ8w/ajS0TelhrSRi3BBQCGXLzUO/UURUAh
 		if ($storageEngine instanceof wfWAFStorageFile) {
 			// Acquire lock on this file so we're not including it while it's being written in another process.
 			$handle = fopen($storageEngine->getRulesFile(), 'r');
-			flock($handle, LOCK_SH);
+			$locked = $handle !== false && flock($handle, LOCK_SH);
 			/** @noinspection PhpIncludeInspection */
 			include $storageEngine->getRulesFile();
-			flock($handle, LOCK_UN);
-			fclose($handle);
+			if ($locked)
+				flock($handle, LOCK_UN);
+			if ($handle !== false)
+				fclose($handle);
 		} else {
 			$wafRules = $storageEngine->getRules();
 			if (is_array($wafRules)) {
@@ -433,7 +435,7 @@ auEa+7b+FGTKs7dUo2BNGR7OVifK4GZ8w/ajS0TelhrSRi3BBQCGXLzUO/UURUAh
 
 	protected function runMigrations() {
 		$currentVersion = $this->getStorageEngine()->getConfig('version');
-		if (!$currentVersion || version_compare($currentVersion, WFWAF_VERSION) === -1) {
+		if (wfWAFUtils::isVersionBelow(WFWAF_VERSION, $currentVersion)) {
 			if (!$currentVersion) {
 				$cron = array(
 					new wfWAFCronFetchRulesEvent(time() +
@@ -453,13 +455,13 @@ auEa+7b+FGTKs7dUo2BNGR7OVifK4GZ8w/ajS0TelhrSRi3BBQCGXLzUO/UURUAh
 				$this->getStorageEngine()->setConfig('cron', $cron, 'livewaf');
 			}
 			
-			if (version_compare($currentVersion, '1.0.2') === -1) {
+			if (wfWAFUtils::isVersionBelow('1.0.2', $currentVersion)) {
 				$event = new wfWAFCronFetchRulesEvent(time() - 2);
 				$event->setWaf($this);
 				$event->fire();
 			}
 			
-			if (version_compare($currentVersion, '1.0.3') === -1) {
+			if (wfWAFUtils::isVersionBelow('1.0.3', $currentVersion)) {
 				$this->getStorageEngine()->purgeIPBlocks();
 				
 				$cron = (array) $this->getStorageEngine()->getConfig('cron', null, 'livewaf');
@@ -473,7 +475,7 @@ auEa+7b+FGTKs7dUo2BNGR7OVifK4GZ8w/ajS0TelhrSRi3BBQCGXLzUO/UURUAh
 				$event->fire();
 			}
 			
-			if (version_compare($currentVersion, '1.0.4') === -1) {
+			if (wfWAFUtils::isVersionBelow('1.0.4', $currentVersion)) {
 				$movedKeys = array(
 					'whitelistedURLParams' => 'livewaf',
 					'cron' => 'livewaf',
@@ -1384,7 +1386,7 @@ HTML
 								sprintf('%s://%s/', $this->getRequest()->getProtocol(), rawurlencode($this->getRequest()->getHost())),
 							't'		 => microtime(true),
 							'lang'   => $this->getStorageEngine()->getConfig('WPLANG', null, 'synced'),
-						), null, '&'), $this->getStorageEngine()->getAttackData(), $request);
+						), '', '&'), $this->getStorageEngine()->getAttackData(), $request);
 
 					if ($response instanceof wfWAFHTTPResponse && $response->getBody()) {
 						$jsonData = wfWAFUtils::json_decode($response->getBody(), true);
@@ -1440,7 +1442,10 @@ HTML
 	}
 	
 	public function fileList() {
-		$fileList = array($this->getCompiledRulesFile());
+		$fileList = array();
+		$rulesFile = $this->getCompiledRulesFile();
+		if ($rulesFile !== null)
+			array_push($fileList, $rulesFile);
 		if (method_exists($this->getStorageEngine(), 'fileList')) {
 			$fileList = array_merge($fileList, $this->getStorageEngine()->fileList());
 		}
@@ -1851,7 +1856,7 @@ class wfWAFCronFetchRulesEvent extends wfWAFCronEvent {
 				$payload['disabled'] = implode('|', $waf->getDisabledRuleIDs());
 			}
 			
-			$this->response = wfWAFHTTP::get(WFWAF_API_URL_SEC . "?" . http_build_query($payload, null, '&'), null, 10, 5);
+			$this->response = wfWAFHTTP::get(WFWAF_API_URL_SEC . "?" . http_build_query($payload, '', '&'), null, 10, 5);
 			if ($this->response) {
 				if($this->response->getStatusCode() !== 304){
 					$jsonData = wfWAFUtils::json_decode($this->response->getBody(), true);
@@ -1908,7 +1913,7 @@ class wfWAFCronFetchRulesEvent extends wfWAFCronEvent {
 						'hash'	   => $this->forceUpdate ? null : $waf->getStorageEngine()->getConfig('lastMalwareHash', null, 'transient'),
 						'cs-hash'  => $this->forceUpdate ? null : $waf->getStorageEngine()->getConfig('lastMalwareHashCommonStrings', null, 'transient'),
 						'lang'   => $waf->getStorageEngine()->getConfig('WPLANG', null, 'synced')
-					), null, '&'), null, 15, 5);
+					), '', '&'), null, 15, 5);
 				if ($this->response) {
 					if($this->response->getStatusCode() !== 304){
 						$jsonData = wfWAFUtils::json_decode($this->response->getBody(), true);
@@ -2033,7 +2038,7 @@ class wfWAFCronFetchIPListEvent extends wfWAFCronEvent {
 					'h'      => $waf->getStorageEngine()->getConfig('homeURL', null, 'synced') ? $waf->getStorageEngine()->getConfig('homeURL', null, 'synced') : $guessSiteURL,
 					't'		 => microtime(true),
 					'lang'   => $waf->getStorageEngine()->getConfig('WPLANG', null, 'synced'),
-				), null, '&'), '[]', $request);
+				), '', '&'), '[]', $request);
 			
 			if ($response instanceof wfWAFHTTPResponse && $response->getBody()) {
 				$jsonData = wfWAFUtils::json_decode($response->getBody(), true);
@@ -2076,7 +2081,7 @@ class wfWAFCronFetchBlacklistPrefixesEvent extends wfWAFCronEvent {
 						'h'      => $waf->getStorageEngine()->getConfig('homeURL', null, 'synced') ? $waf->getStorageEngine()->getConfig('homeURL', null, 'synced') : $guessSiteURL,
 						't'		 => microtime(true),
 						'lang'   => $waf->getStorageEngine()->getConfig('WPLANG', null, 'synced'),
-					), null, '&'), $request);
+					), '', '&'), $request);
 				
 				if ($response instanceof wfWAFHTTPResponse && $response->getBody()) {
 					$waf->getStorageEngine()->setConfig('blockedPrefixes', base64_encode($response->getBody()), 'transient');

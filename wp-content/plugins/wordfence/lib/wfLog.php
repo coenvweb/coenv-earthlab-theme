@@ -40,7 +40,7 @@ class wfLog {
 			$IP = wfUtils::getIP();
 		}
 		
-		if ($UA === false) {
+		if ($UA === false || $UA === null) {
 			$UA = (isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '');
 		}
 		
@@ -757,7 +757,7 @@ class wfLog {
 		$timeOffset = 3600 * get_option('gmt_offset');
 		foreach($results as &$rec){
 			//$rec['timeAgo'] = wfUtils::makeTimeAgo(time() - $rec['ctime']);
-			$rec['date'] = date('M d H:i:s', $rec['ctime'] + $timeOffset);
+			$rec['date'] = date('M d H:i:s', (int) $rec['ctime'] + $timeOffset);
 			$rec['msg'] = wp_kses_data( (string) $rec['msg']);
 		}
 		return $results;
@@ -766,7 +766,7 @@ class wfLog {
 		$results = $this->getDB()->querySelect("select ctime, level, type, msg from " . $this->statusTable . " where level = 10 order by ctime desc limit 100");
 		$timeOffset = 3600 * get_option('gmt_offset');
 		foreach($results as &$rec){
-			$rec['date'] = date('M d H:i:s', $rec['ctime'] + $timeOffset);
+			$rec['date'] = date('M d H:i:s', (int) $rec['ctime'] + $timeOffset);
 			if(strpos($rec['msg'], 'SUM_PREP:') === 0){
 				break;
 			}
@@ -1021,6 +1021,8 @@ class wfUserIPRange {
 	}
 
 	protected function _sanitizeIPRange($ip_string) {
+		if (!is_string($ip_string))
+			return null;
 		$ip_string = preg_replace('/\s/', '', $ip_string); //Strip whitespace
 		$ip_string = preg_replace('/[\\x{2013}-\\x{2015}]/u', '-', $ip_string); //Non-hyphen dashes to hyphen
 		$ip_string = strtolower($ip_string);
@@ -1283,6 +1285,9 @@ class wfRequestModel extends wfModel {
 				}
 			}
 		}
+		else {
+			$actionData = array();
+		}
 		return $actionData;
 	}
 
@@ -1446,8 +1451,8 @@ class wfLiveTrafficQuery {
 					continue;
 				}
 			}
-			
-			$row['actionData'] = (array) json_decode($row['actionData'], true);
+
+			$row['actionData'] = $row['actionData'] === null ? array() : (array) json_decode($row['actionData'], true);
 		}
 		return array_values($results);
 	}

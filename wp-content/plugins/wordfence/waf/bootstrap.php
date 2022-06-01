@@ -122,7 +122,8 @@ class wfWAFWordPressRequest extends wfWAFRequest {
 				continue; //This was an array so we can skip to the next item
 			}
 			$skipToNext = false;
-			$trustedProxies = explode("\n", wfWAF::getInstance()->getStorageEngine()->getConfig('howGetIPs_trusted_proxies', '', 'synced'));
+			$trustedProxyConfig = wfWAF::getInstance()->getStorageEngine()->getConfig('howGetIPs_trusted_proxies', null, 'synced');
+			$trustedProxies = $trustedProxyConfig === null ? array() : explode("\n", $trustedProxyConfig);
 			foreach (array(',', ' ', "\t") as $char) {
 				if (strpos($item, $char) !== false) {
 					$sp = explode($char, $item);
@@ -295,7 +296,7 @@ class wfWAFWordPressObserver extends wfWAFBaseObserver {
 									'h'      => wfWAF::getInstance()->getStorageEngine()->getConfig('homeURL', null, 'synced') ? wfWAF::getInstance()->getStorageEngine()->getConfig('homeURL', null, 'synced') : $guessSiteURL,
 									't'		 => microtime(true),
 									'lang'   => wfWAF::getInstance()->getStorageEngine()->getConfig('WPLANG', null, 'synced'),
-								), null, '&'), $request);
+								), '', '&'), $request);
 							
 							if ($response instanceof wfWAFHTTPResponse && $response->getBody()) {
 								$jsonData = wfWAFUtils::json_decode($response->getBody(), true);
@@ -882,7 +883,7 @@ try {
 				}
 
 				if (!empty($wfWAFDBCredentials)) {
-					$wfWAFStorageEngine = new wfWAFWordPressStorageMySQL(new wfWAFStorageEngineMySQLi(), $wfWAFDBCredentials['tablePrefix']);
+					$wfWAFStorageEngine = new wfWAFWordPressStorageMySQL(new wfWAFStorageEngineMySQLi(), $wfWAFDBCredentials['tablePrefix'], wfShutdownRegistry::getDefaultInstance());
 					$wfWAFStorageEngine->getDb()->connect(
 						$wfWAFDBCredentials['user'],
 						$wfWAFDBCredentials['pass'],
