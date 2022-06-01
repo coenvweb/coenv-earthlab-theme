@@ -39,7 +39,7 @@ function coenv_earthlab_post_types_init() {
     'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
     'public' => false,
     'has_archive' => false,
-    'show_ui' => true,
+    //'show_ui' => true,
     'rewrite' => false,
     'menu_icon' => 'dashicons-admin-users',
 	//'parent_page' => 'about/staff',
