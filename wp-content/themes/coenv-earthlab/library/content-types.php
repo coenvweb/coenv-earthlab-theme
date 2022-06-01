@@ -40,9 +40,9 @@ function coenv_earthlab_post_types_init() {
     'public' => true,
     'has_archive' => false,
     'show_ui' => true,
-    'rewrite' => array('slug' => 'about/staff'),
+    'rewrite' => false,
     'menu_icon' => 'dashicons-admin-users',
-	'parent_page' => 'about/staff',
+	//'parent_page' => 'about/staff',
     )
   ); 
 }
