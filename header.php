@@ -20,12 +20,16 @@
         $meta_title = get_field('meta_title');
         $meta_description = get_field('meta_description');
         $facebook_image_size = 'featured-medium';
-        $facebook_share_title = get_field('facebook_share_title');
-        $facebook_share_description = get_field('facebook_share_description');
-        $facebook_share_image_full = get_field('facebook_share_image');
-        $facebook_share_image = $facebook_share_image_full['sizes'][$facebook_image_size];
-//        $facebook_share_width = $facebook_share_image_full['sizes'][$facebook_image_size . '-width'];
-//        $facebook_share_height = $facebook_share_image_full['sizes'][$facebook_image_size . '-height'];
+        if(!empty(get_field('facebook_share_title'))) {
+            $facebook_share_title = get_field('facebook_share_title');
+            $facebook_share_description = get_field('facebook_share_description');
+            $facebook_share_image_full = get_field('facebook_share_image');
+            $facebook_share_image = $facebook_share_image_full['sizes'][$facebook_image_size];
+            $facebook_share_width = $facebook_share_image_full['sizes']['large-width'];
+            $facebook_share_height = $facebook_share_image_full['sizes']['large-height'];
+        } else {
+            $facebook_share_title = $facebook_share_description = $facebook_share_image = null;
+        }
 //        
         // Default Image for Social/FB Meta
         $post = get_queried_object();
