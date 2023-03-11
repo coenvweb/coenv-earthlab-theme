@@ -6,6 +6,7 @@
             "key": "field_6081f33cf836e",
             "label": "Hero",
             "name": "hero",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -21,6 +22,7 @@
                     "key": "field_6081aa2e705d1",
                     "label": "Hero Headline",
                     "name": "hero_headline",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -40,6 +42,7 @@
                     "key": "field_6081a8d27bc4c",
                     "label": "Excerpt \/ Summary",
                     "name": "feature_excerpt",
+                    "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
                     "required": 1,
@@ -59,6 +62,7 @@
                     "key": "field_6081f26d859b0",
                     "label": "Hero link",
                     "name": "hero_link",
+                    "aria-label": "",
                     "type": "page_link",
                     "instructions": "",
                     "required": 0,
@@ -72,14 +76,15 @@
                         "page"
                     ],
                     "taxonomy": "",
-                    "allow_null": 0,
                     "allow_archives": 1,
-                    "multiple": 0
+                    "multiple": 0,
+                    "allow_null": 0
                 },
                 {
                     "key": "field_6081a8d27bc67",
                     "label": "Hero Images",
                     "name": "hero_images",
+                    "aria-label": "",
                     "type": "repeater",
                     "instructions": "",
                     "required": 1,
@@ -91,14 +96,15 @@
                     },
                     "collapsed": "",
                     "min": 1,
-                    "max": 3,
+                    "max": 4,
                     "layout": "block",
-                    "button_label": "",
+                    "button_label": "Add Row",
                     "sub_fields": [
                         {
                             "key": "field_6081a8d28131a",
                             "label": "Image",
                             "name": "image",
+                            "aria-label": "",
                             "type": "image",
                             "instructions": "",
                             "required": 1,
@@ -117,9 +123,11 @@
                             "max_width": "",
                             "max_height": "",
                             "max_size": "",
-                            "mime_types": ""
+                            "mime_types": "",
+                            "parent_repeater": "field_6081a8d27bc67"
                         }
-                    ]
+                    ],
+                    "rows_per_page": 20
                 }
             ]
         },
@@ -127,6 +135,7 @@
             "key": "field_6081f30311306",
             "label": "Featured Work",
             "name": "featured_work",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -142,6 +151,7 @@
                     "key": "field_6081f38b5f224",
                     "label": "Featured work section title",
                     "name": "featured_work_section_title",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -161,6 +171,7 @@
                     "key": "field_6081f398cd409",
                     "label": "Featured work items",
                     "name": "featured_work_items",
+                    "aria-label": "",
                     "type": "repeater",
                     "instructions": "",
                     "required": 0,
@@ -174,36 +185,13 @@
                     "min": 0,
                     "max": 0,
                     "layout": "block",
-                    "button_label": "",
+                    "button_label": "Add Row",
                     "sub_fields": [
-                        {
-                            "key": "field_609d89e68d9ff",
-                            "label": "Feature Type",
-                            "name": "feature_type",
-                            "type": "radio",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "members-and-affiliates": "Member Organization",
-                                "grants": "Project"
-                            },
-                            "allow_null": 0,
-                            "other_choice": 0,
-                            "default_value": "",
-                            "layout": "vertical",
-                            "return_format": "value",
-                            "save_other_choice": 0
-                        },
                         {
                             "key": "field_6081f3becd40a",
                             "label": "Featured Work Item Title",
                             "name": "featured_work_item_title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -217,12 +205,14 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": "",
-                            "maxlength": ""
+                            "maxlength": "",
+                            "parent_repeater": "field_6081f398cd409"
                         },
                         {
                             "key": "field_6081f3d2cd40b",
                             "label": "Featured Work Item Description",
                             "name": "featured_work_item_description",
+                            "aria-label": "",
                             "type": "textarea",
                             "instructions": "",
                             "required": 0,
@@ -236,12 +226,14 @@
                             "placeholder": "",
                             "maxlength": "",
                             "rows": 3,
-                            "new_lines": ""
+                            "new_lines": "",
+                            "parent_repeater": "field_6081f398cd409"
                         },
                         {
                             "key": "field_6081f3e2cd40c",
                             "label": "Featured Work Item Image",
                             "name": "featured_work_item_image",
+                            "aria-label": "",
                             "type": "image",
                             "instructions": "",
                             "required": 0,
@@ -260,12 +252,14 @@
                             "max_width": "",
                             "max_height": "",
                             "max_size": "",
-                            "mime_types": ""
+                            "mime_types": "",
+                            "parent_repeater": "field_6081f398cd409"
                         },
                         {
                             "key": "field_6081f3f0cd40d",
                             "label": "Featured Work Item Link",
                             "name": "featured_work_item_link",
+                            "aria-label": "",
                             "type": "link",
                             "instructions": "",
                             "required": 0,
@@ -275,9 +269,11 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array"
+                            "return_format": "array",
+                            "parent_repeater": "field_6081f398cd409"
                         }
-                    ]
+                    ],
+                    "rows_per_page": 20
                 }
             ]
         },
@@ -285,6 +281,7 @@
             "key": "field_6081f36f75c0d",
             "label": "Black boxes statement",
             "name": "black_boxes_statement",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -300,6 +297,7 @@
                     "key": "field_6088981e9375d",
                     "label": "Image Background",
                     "name": "image_background",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -324,6 +322,7 @@
                     "key": "field_6081f4b7ece52",
                     "label": "Black boxes",
                     "name": "black_boxes",
+                    "aria-label": "",
                     "type": "repeater",
                     "instructions": "",
                     "required": 0,
@@ -337,12 +336,13 @@
                     "min": 4,
                     "max": 4,
                     "layout": "block",
-                    "button_label": "",
+                    "button_label": "Add Row",
                     "sub_fields": [
                         {
                             "key": "field_6081f4ee6285c",
                             "label": "Black Box Title",
                             "name": "black_box_title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -356,12 +356,14 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": "",
-                            "maxlength": ""
+                            "maxlength": "",
+                            "parent_repeater": "field_6081f4b7ece52"
                         },
                         {
                             "key": "field_6081f4f66285d",
                             "label": "Black Box Description",
                             "name": "black_box_description",
+                            "aria-label": "",
                             "type": "textarea",
                             "instructions": "",
                             "required": 0,
@@ -375,9 +377,11 @@
                             "placeholder": "",
                             "maxlength": "",
                             "rows": 3,
-                            "new_lines": ""
+                            "new_lines": "",
+                            "parent_repeater": "field_6081f4b7ece52"
                         }
-                    ]
+                    ],
+                    "rows_per_page": 20
                 }
             ]
         }
@@ -410,5 +414,6 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1620937497
+    "show_in_rest": 0,
+    "modified": 1673384150
 }
