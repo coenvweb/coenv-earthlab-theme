@@ -1,5 +1,10 @@
 <?php
 
+// Disables the block editor from managing widgets in the Gutenberg plugin.
+add_filter( 'gutenberg_use_widgets_block_editor', '__return_false' );
+// Disables the block editor from managing widgets.
+add_filter( 'use_widgets_block_editor', '__return_false' );
+
 /*
  * Project Focus Areas
  */
@@ -496,10 +501,10 @@ class newsletter_widget extends WP_Widget {
     ?>
             <div class="newsletter-signup widget widget-newsletter-signup">
                 <?php echo $args['before_title']; ?>
-                    <?=$instance['title']?>
+                    <?php echo $instance['title']?>
                 <?php echo $args['after_title']; ?>
                 <div class="text-box">
-                    <img class="widget-image" src="<?=$instance['image_uri']?>" alt="<?=$instance['image_alt']?>" />
+                    <img class="widget-image" src="<?php echo $instance['image_uri']; ?>" alt="<?php echo $instance['image_alt']?>" />
                     <div class="text-box-inner">
                         <p>Sign up for our newsletter</p>
                         <script type="text/javascript" src="https://subscribe.gifts.washington.edu/Scripts/SubManBuilder/submanbuilder.js" id="uwSubscriptionManager"></script>
@@ -913,6 +918,7 @@ class CoEnv_Widget_Events extends WP_Widget {
 
     // get cached XML from WP transient API
     $events_xml = get_transient( 'trumba_events_xml' );
+    print_r ($events_xml);
     if ( $events_xml === false || $events_xml === '' ) {
         $ctx = stream_context_create(array('http'=>
             array(

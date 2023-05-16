@@ -23,10 +23,12 @@
         $facebook_share_title = get_field('facebook_share_title');
         $facebook_share_description = get_field('facebook_share_description');
         $facebook_share_image_full = get_field('facebook_share_image');
-        $facebook_share_image = $facebook_share_image_full['sizes'][$facebook_image_size];
-//        $facebook_share_width = $facebook_share_image_full['sizes'][$facebook_image_size . '-width'];
-//        $facebook_share_height = $facebook_share_image_full['sizes'][$facebook_image_size . '-height'];
-//        
+        if (!empty($facebook_share_image_full)) {
+            $facebook_share_image = $facebook_share_image_full['sizes'][$facebook_image_size];
+            $facebook_share_width = $facebook_share_image_full['sizes'][$facebook_image_size . '-width'];
+            $facebook_share_height = $facebook_share_image_full['sizes'][$facebook_image_size . '-height'];
+        }
+        
         // Default Image for Social/FB Meta
         $post = get_queried_object();
 
@@ -106,7 +108,7 @@
         } ?>
      
        <?php
-        if ($facebook_share_image) {
+        if (!empty($facebook_share_image)) {
             echo '<meta property="og:image" content="' . $facebook_share_image . '"/>
             <meta property="og:image:width" content="'. $post_image_width . '" />
             <meta property="og:image:height" content="'. $post_image_height . '" />';  
