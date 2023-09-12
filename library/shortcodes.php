@@ -134,4 +134,33 @@ function news_section($args) {
     };
 }
 add_shortcode('news_section', 'news_section');
+
+function trumba_func( $atts ) {
+    
+    $trumba = shortcode_atts( array(
+        'webname' => 'coenveventscalendar',
+        'spudtype' => 'main',
+        'url' => null,
+        'teaserbase' => null
+    ), $atts );
+
+    return '
+       <div role="region" aria-labelledby="calendar_view">
+    <h2 class="visuallyhidden" id="calendar_view">
+    Main Calendar View
+    </h2>
+    <script type="text/javascript" src="//www.trumba.com/scripts/spuds.js"></script>
+    <script type="text/javascript">
+    $Trumba.addSpud({
+    webName: "' . $trumba['webname'] . '",
+    spudType : "' . $trumba['spudtype'] .'",
+    url: {' . $trumba['url'] . '},
+    teaserBase: "' . $trumba['teaserbase'] . '"});
+    </script>
+    <noscript>Your browser must support JavaScript to view this content. 
+    Please enable JavaScript in your browser settings then try again. 
+    <a href="http://www.trumba.com">Events calendar powered by Trumba</a></noscript>
+    </div>';
+}
+add_shortcode( 'trumba', 'trumba_func' );
 ?>

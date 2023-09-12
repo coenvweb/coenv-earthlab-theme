@@ -63,7 +63,7 @@ Template Name: Homepage
                        News &<br>
                        Events
                     </h3>
-                    <a class="button" href="/news-and-events">More News</a>
+                    <a class="button" href="/about/news">More News</a>
                 </div>
             </div> 
         </div>
