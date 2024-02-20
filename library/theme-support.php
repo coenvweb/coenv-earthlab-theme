@@ -261,3 +261,6 @@ function coenv_url_ssl($url)
   return $url;
 }
 add_filter('wp_get_attachment_url', 'coenv_url_ssl');
+
+
+add_filter( 'acf/the_field/escape_html_optin', '__return_true' );
