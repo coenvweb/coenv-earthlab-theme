@@ -62,7 +62,7 @@
 	<div class="entry-content article__content">
 		<?php the_content(); ?>
 		<?php if ( get_field('story_link_(url)') && get_field('story_source_name') ): ?>
-        <a href="<?php echo wp_kses_post( get_field('story_link_(url)'); ?>" class="button" target="_blank"><?php echo wp_kses_post( get_field('story_source_name'); ?></a>
+        <a href="<?php echo wp_kses_post( get_field('story_link_(url)')); ?>" class="button" target="_blank"><?php echo wp_kses_post( get_field('story_source_name')); ?></a>
     <?php endif; ?>  
     <?php if(get_post_type() == 'project') {
         echo implode( '', $member_info);
