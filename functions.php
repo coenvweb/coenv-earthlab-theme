@@ -5,6 +5,23 @@
  * @package EarthLab
  */
 
+ //fix for wp 6.7 auto image size
+ add_filter(
+	'wp_content_img_tag',
+	static function ( $image ) {
+			return str_replace( 'sizes="auto, ', ' sizes="', $image );
+	}
+);
+add_filter(
+	'wp_get_attachment_image_attributes',
+	static function ( $attr ) {
+			if ( isset( $attr['sizes'] ) ) {
+					$attr['sizes'] = preg_replace( '/^auto, /', '', $attr['sizes'] );
+			}
+			return $attr;
+	}
+);
+
 /** Various clean up functions */
 // require_once( 'library/cleanup.php' );
 
