@@ -74,7 +74,7 @@ function gift_frame($args) {
     $atts = shortcode_atts(array(
         'fund_codes' => 'ENVINS',
     ), $args);
-    $output = '<div class="make-a-gift"><iframe src="https://online.gifts.washington.edu/secure/makeagift/givingOpps.aspx?nobanner=true&amp;source_typ=3&amp;source='.$atts['fund_codes'].'" style="width: 100%; height: 700px;" frameborder="0"></iframe></div>';
+    $output = '<div class="make-a-gift"><iframe src="https://online.gifts.washington.edu/secure/?nobanner=true&amp;source_typ=3&amp;source='.$atts['fund_codes'].'" style="width: 100%; height: 700px;" frameborder="0"></iframe></div>';
     return $output;
 }
 add_shortcode('make_a_gift', 'gift_frame');
