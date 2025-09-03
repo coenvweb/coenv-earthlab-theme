@@ -34,7 +34,7 @@
 
                     foreach ($more_terms as &$term) {
                         if(get_post_type() == 'post') {
-                            $more_terms_arr[] = '<a href="' . site_url() . '/news-and-events/topic/' . $term->slug . '">' . $term->name . '</a>';
+                            $more_terms_arr[] = '<a href="' . site_url() . '/news/topic/' . $term->slug . '">' . $term->name . '</a>';
                         }
                         if(get_post_type() == 'project') {
                             $more_terms_arr[] = '<a href="' . site_url() . '/projects/topic/' . $term->slug . '">' . $term->name . '</a>';
@@ -65,7 +65,7 @@
         <a href="<?php echo wp_kses_post( get_field('story_link_(url)')); ?>" class="button" target="_blank"><?php echo wp_kses_post( get_field('story_source_name')); ?></a>
     <?php endif; ?>  
     <?php if(get_post_type() == 'project') {
-        echo implode( '', $member_info);
+        echo $member_info;
     } ?>
 	</div>
 	<?php do_action( 'foundationpress_post_after_entry_content' ); ?>

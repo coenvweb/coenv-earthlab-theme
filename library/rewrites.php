@@ -53,7 +53,7 @@ function generate_cpt_rewrite_rules( $post_type, $index_path, $query_vars = arra
 }
 
 function add_cpt_rewrites($wp_rewrite) {
-    $a_rules = generate_cpt_rewrite_rules('post', 'news-and-events', array('news-search'));
+    $a_rules = generate_cpt_rewrite_rules('post', 'about/news', array('news-search', 'topic'));
     $b_rules = generate_cpt_rewrite_rules('project', 'about/projects', array('project-search'));
     $wp_rewrite->rules = $a_rules + $b_rules + $wp_rewrite->rules;
 }

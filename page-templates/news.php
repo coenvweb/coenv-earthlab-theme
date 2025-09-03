@@ -122,7 +122,7 @@ if(isset($wp_query->query_vars['news-search'])) {
                     <?php } ?>
                     </div>
                 <?php } else { ?>
-                    <p>We're sorry. Your crtieria did not match any news. <a href="/about/news-and-events">Return to all news &raquo;</a></p>
+                    <p>We're sorry. Your crtieria did not match any news. <a href="/about/news">Return to all news &raquo;</a></p>
                 <?php } ?>
             </div>      
             <?php if ( is_active_sidebar( 'after-content' ) ) { ?>
