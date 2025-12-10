@@ -10,7 +10,7 @@ function coenv_earthlab_post_types_init() {
   register_post_type( 'project',
     array(
       'labels' => array(
-      'name' => __( 'Projects' ),
+      'name' => __( 'Funded Projects' ),
       'singular_name' => __( 'Project' ),
       'add_new_item' => __( 'Add Project'),
       'edit_item' => __( 'Edit Project'),
@@ -49,7 +49,7 @@ function coenv_earthlab_post_types_init() {
 
 add_action( 'init', 'coenv_earthlab_post_types_init' );
 
-function project_tax() {
+function post_tax() {
     
     $topic_labels = array(
         'name'                       => _x( 'Topics', 'Taxonomy General Name', 'text_domain' ),
@@ -79,8 +79,8 @@ function project_tax() {
         //args below prevent default wp permalinks from messing up our index pages
         'rewrite'                    => false,
     );
-    register_taxonomy( 'topic', array( 'project', 'post' ), $topic_args );
-    
+    register_taxonomy( 'topic', array(  'post' ), $topic_args );
+
     $affiliated_members_labels = array(
         'name'                       => _x( 'Member/Affiliates', 'Taxonomy General Name', 'text_domain' ),
         'singular_name'              => _x( 'Member/Affiliates', 'Taxonomy Singular Name', 'text_domain' ),
@@ -109,7 +109,77 @@ function project_tax() {
         //args below prevent default wp permalinks from messing up our index pages
         'rewrite'                    => false,
     );
-    register_taxonomy( 'member-affiliates', array( 'project', 'post' ), $affiliated_members_args );
+    register_taxonomy( 'member-affiliates', array( 'post' ), $affiliated_members_args );
+
+}
+
+add_action('init', 'post_tax');
+
+    
+
+function project_tax() {
+    
+    $project_topic_labels = array(
+        'name'                       => _x( 'Project Topics', 'Taxonomy General Name', 'text_domain' ),
+        'singular_name'              => _x( 'Project Topic', 'Taxonomy Singular Name', 'text_domain' ),
+        'menu_name'                  => __( 'Project Topics', 'text_domain' ),
+        'all_items'                  => __( 'All Project Topics', 'text_domain' ),
+        'parent_item'                => __( 'Parent Project Topic', 'text_domain' ),
+        'parent_item_colon'          => __( 'Parent Project Topic:', 'text_domain' ),
+        'new_item_name'              => __( 'New Project Topic', 'text_domain' ),
+        'add_new_item'               => __( 'Add Project Topic', 'text_domain' ),
+        'edit_item'                  => __( 'Edit Project Topic', 'text_domain' ),
+        'update_item'                => __( 'Update Project Topic', 'text_domain' ),
+        'separate_items_with_commas' => __( 'Separate topics with commas', 'text_domain' ),
+        'search_items'               => __( 'Search Topics', 'text_domain' ),
+        'add_or_remove_items'        => __( 'Add or remove topics', 'text_domain' ),
+        'choose_from_most_used'      => __( 'Choose from the most popular topics', 'text_domain' ),
+        'not_found'                  => __( 'Not Found', 'text_domain' ),
+    );
+    $project_topic_args = array(
+        'labels'                     => $project_topic_labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+        //args below prevent default wp permalinks from messing up our index pages
+        'rewrite'                    => false,
+    );
+    register_taxonomy( 'project_topic', array( 'project' ), $project_topic_args );
+
+    $project_type_labels = array(
+        'name'                       => _x( 'Project Types', 'Taxonomy General Name', 'text_domain' ),
+        'singular_name'              => _x( 'Project Type', 'Taxonomy Singular Name', 'text_domain' ),
+        'menu_name'                  => __( 'Project Types', 'text_domain' ),
+        'all_items'                  => __( 'All Project Types', 'text_domain' ),
+        'parent_item'                => __( 'Parent Project Type', 'text_domain' ),
+        'parent_item_colon'          => __( 'Parent Project Type:', 'text_domain' ),
+        'new_item_name'              => __( 'New Project Type', 'text_domain' ),
+        'add_new_item'               => __( 'Add Project Type', 'text_domain' ),
+        'edit_item'                  => __( 'Edit Project Type', 'text_domain' ),
+        'update_item'                => __( 'Update Project Type', 'text_domain' ),
+        'separate_items_with_commas' => __( 'Separate topics with commas', 'text_domain' ),
+        'search_items'               => __( 'Search Project Type', 'text_domain' ),
+        'add_or_remove_items'        => __( 'Add or remove Project Types', 'text_domain' ),
+        'choose_from_most_used'      => __( 'Choose from the most popular Project Types', 'text_domain' ),
+        'not_found'                  => __( 'Not Found', 'text_domain' ),
+    );
+    $project_type_args = array(
+        'labels'                     => $project_type_labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+        //args below prevent default wp permalinks from messing up our index pages
+        'rewrite'                    => false,
+    );
+    register_taxonomy( 'project_type', array( 'project' ), $project_type_args );
+    
+    
 }
 
 add_action('init', 'project_tax');
