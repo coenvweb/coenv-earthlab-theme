@@ -4,10 +4,10 @@
                     <div id="footer-container" class="layout-container">
                         <div class="logo-headers row">
                             <div class="left-college medium-3 columns small-12">
-                               <header class="site-footer__header">
+                               <div class="site-footer__header">
                                     <h1><span><?php bloginfo('name') ?></span></h1>
                                     <?php get_search_form(); ?>
-                                </header>
+                                </div>
                                 <?php if( have_rows('address', 'options') ): ?>
                                     <?php while( have_rows('address', 'options') ): the_row(); ?>
                                         <p><a href="<?php echo get_sub_field('maps_link'); ?>" title="Google Maps link"><?php echo get_sub_field('mail_address'); ?></a></p>
