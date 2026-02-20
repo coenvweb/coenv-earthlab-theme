@@ -40,7 +40,7 @@
                             </div>
                         </div>
 
-                </footer><!-- #footer -->
+                
 
                     <div class="uw-footer">
                         <div class="layout-container row medium-collapse">
@@ -60,6 +60,8 @@
                             </ul>
                         </div>
                     </div>
+
+                </footer><!-- #footer -->
                     
             </div><!-- #wrapper -->
 

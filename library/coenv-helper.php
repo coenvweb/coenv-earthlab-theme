@@ -131,7 +131,7 @@ $cats = get_categories($cats_args);
         } else {
             echo '<label class="hide" for="select-category">Select a category:</label>';
         }
-        echo '<select name="select-category" class="select-category" id="select-category">';
+        echo '<select name="select-category" aria-label="Select a category" class="select-category" id="select-category">';
         echo '<option class="level-0" value="' . get_the_permalink() . '">All ' . $tax_str . '</option>';
         foreach($cats as $cat) {
             if (get_term_post_count_by_type($cat->slug, $tax, $custom_post_type) > 0) {

@@ -7,7 +7,7 @@
  */
 
 ?>
-<aside class="sidebar">
+<div class="sidebar">
 	<?php
 	do_action( 'foundationpress_before_sidebar' );
 	$menu_id = $GLOBALS['post']->ID;
@@ -34,4 +34,4 @@
 	endif;
 
 	do_action( 'foundationpress_after_sidebar' ); ?>
-</aside>
+</div>
