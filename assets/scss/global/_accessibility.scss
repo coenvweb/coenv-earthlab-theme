@@ -27,3 +27,12 @@
   width: auto;
   z-index: 100000; // Above WP toolbar.
 }
+
+.entry-content {
+  p a, li a {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    color: $focus-red-text;
+    text-underline-offset: 2px;
+  }
+}

@@ -35,6 +35,9 @@ article {
             margin-bottom: .5rem;
             .article__categories {
                 display: inline-block;
+                a {
+                    color: $focus-red-text;
+                }
             }
         }
         .article__title {

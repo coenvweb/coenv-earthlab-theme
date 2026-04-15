@@ -346,6 +346,10 @@
         }
         a {
             padding: .375rem 1.25rem !important;
+            text-decoration: none;
+            &:hover {
+                color: white;
+            }
         }
     }
 }

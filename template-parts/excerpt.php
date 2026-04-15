@@ -45,7 +45,7 @@
     </header>
     <section class="article__content">
         <?php the_excerpt(); ?>
-        <a href="<?php echo the_permalink(); ?>" class="button">Read more</a>
+        <a href="<?php echo the_permalink(); ?>" class="button" aria-label="Read more about <?php the_title(); ?>">Read more</a>
 
     </section>
     <?php remove_filter( 'the_title', 'wptexturize' );
