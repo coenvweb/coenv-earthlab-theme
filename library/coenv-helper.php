@@ -138,7 +138,6 @@ $cats = get_categories($cats_args);
                 $selected = $cat->slug == $tax_value ? ' selected="selected"' : '';
                 echo $cat->slug;
                 echo "</br>";
-                echo $tax_value;
                 echo '<option value="' . $tax . '/' . $cat->slug . '/#page-sidebar-left"' . $selected . '>' . $cat->name . '</option>';
             }
         }
