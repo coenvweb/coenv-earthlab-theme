@@ -136,7 +136,6 @@ $cats = get_categories($cats_args);
         foreach($cats as $cat) {
             if (get_term_post_count_by_type($cat->slug, $tax, $custom_post_type) > 0) {
                 $selected = $cat->slug == $tax_value ? ' selected="selected"' : '';
-                echo $cat->slug;
                 echo "</br>";
                 echo '<option value="' . $tax . '/' . $cat->slug . '/#page-sidebar-left"' . $selected . '>' . $cat->name . '</option>';
             }
