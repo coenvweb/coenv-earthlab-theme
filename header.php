@@ -158,8 +158,14 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        
-        gtag('config', 'G-NLLG4VWYZN');
+
+        gtag('config', 'G-NLLG4VWYZN', {
+            anonymize_ip: true,
+            cookie_domain: location.hostname, // host-only scope
+            cookie_expires: 60 * 60 * 24 * 30, // 30 days
+            cookie_update: false // don't keep extending expiry on every hit
+        });
+
         </script>
 
         <!-- uw munchkin -->
