@@ -19,6 +19,9 @@ function generate_cpt_rewrite_rules( $post_type, $index_path, $query_vars = arra
     $taxonomies = get_object_taxonomies( $post_type->name, 'objects' );
 
     $index_page = get_page_by_path($index_path);
+    if (empty($index_page) || empty($index_page->ID)) {
+        return array();
+    }
 
     // all possible taxonomies for each cpt to queryvars
     foreach( $taxonomies as $taxonomy )
@@ -52,9 +55,24 @@ function generate_cpt_rewrite_rules( $post_type, $index_path, $query_vars = arra
     return $new_rewrite_rules;
 }
 
+function coenv_get_projects_index_path() {
+    if (defined('PROJECT_PAGE_PARENT_ID')) {
+        $project_page = get_post((int) PROJECT_PAGE_PARENT_ID);
+        if (!empty($project_page)) {
+            $project_uri = get_page_uri($project_page->ID);
+            if (!empty($project_uri)) {
+                return $project_uri;
+            }
+        }
+    }
+
+    return 'grants/projects';
+}
+
 function add_cpt_rewrites($wp_rewrite) {
+    $projects_index_path = coenv_get_projects_index_path();
     $a_rules = generate_cpt_rewrite_rules('post', 'about/news', array('news-search', 'topic'));
-    $b_rules = generate_cpt_rewrite_rules('project', 'about/projects', array('project-search'));
+    $b_rules = generate_cpt_rewrite_rules('project', $projects_index_path, array('project-search'));
     $wp_rewrite->rules = $a_rules + $b_rules + $wp_rewrite->rules;
 }
 add_action('generate_rewrite_rules', 'add_cpt_rewrites');
@@ -63,6 +81,8 @@ function add_query_vars() {
     add_rewrite_tag('%topic%', '(.+?)/');
     add_rewrite_tag('%news-search%', '(.+?)/');
     add_rewrite_tag('%project-search%', '(.+?)/');
+    add_rewrite_tag('%project_topic%', '(.+?)/');
+    add_rewrite_tag('%project_type%', '(.+?)/');
 }
 add_action('init', 'add_query_vars');
 

@@ -147,6 +147,43 @@ $cats = get_categories($cats_args);
     }
 }
 
+/*
+ * Resolve the projects index URL in one place for taxonomy links.
+ */
+function coenv_get_project_index_url($post_id = 0) {
+    $project_index_url = '';
+
+    if (defined('PROJECT_PAGE_PARENT_ID')) {
+        $configured_project_index_url = get_permalink((int) PROJECT_PAGE_PARENT_ID);
+        if (!empty($configured_project_index_url)) {
+            $project_index_url = untrailingslashit($configured_project_index_url);
+        }
+    }
+
+    if (empty($project_index_url)) {
+        $archive_url = get_post_type_archive_link('project');
+        if (!empty($archive_url)) {
+            $project_index_url = untrailingslashit($archive_url);
+        }
+    }
+
+    if (empty($project_index_url) && !empty($post_id)) {
+        $project_parent_id = wp_get_post_parent_id($post_id);
+        if (!empty($project_parent_id)) {
+            $project_parent_url = get_permalink($project_parent_id);
+            if (!empty($project_parent_url)) {
+                $project_index_url = untrailingslashit($project_parent_url);
+            }
+        }
+    }
+
+    if (empty($project_index_url)) {
+        $project_index_url = untrailingslashit(site_url('/grants/projects'));
+    }
+
+    return $project_index_url;
+}
+
 function get_term_post_count_by_type($term,$taxonomy,$type){
     $args = array( 
         'fields' =>'ids', //we don't really need all post data so just id wil do fine.

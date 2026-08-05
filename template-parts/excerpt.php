@@ -4,29 +4,36 @@
         <?php if ( !is_page() ) : ?>
             <div class="post-info">
                 <?php
-                $more_terms = get_the_terms(get_the_id(), 'topic');
-                if (!empty($more_terms)) {
-                    $more_terms_arr = array();
+                $taxonomy_links = array();
+                $project_index_url = coenv_get_project_index_url(get_the_id());
 
-                    foreach ($more_terms as &$term) {
-                        if(get_post_type() == 'post') {
-                            $more_terms_arr[] = '<a href="' . site_url() . '/about/news/topic/' . $term->slug . '">' . $term->name . '</a>';
-                        }
-                        if(get_post_type() == 'project') {
-                            $more_terms_arr[] = '<a href="' . site_url() . '/about/projects/topic/' . $term->slug . '">' . $term->name . '</a>';
+                if (get_post_type() == 'post') {
+                    $news_terms = get_the_terms(get_the_id(), 'topic');
+                    if (!empty($news_terms) && !is_wp_error($news_terms)) {
+                        foreach ($news_terms as $term) {
+                            $taxonomy_links[] = '<a href="' . site_url() . '/about/news/topic/' . $term->slug . '">' . $term->name . '</a>';
                         }
                     }
                 }
-                //if(get_post_type() == 'project') {
-                //    $member_terms = get_the_terms(get_the_id(), 'member-affiliates');
-                //    foreach ($member_terms as &$member_term) {
-                //        $member_terms_arr[] = '<a href="' . site_url() . '/projects/member-affiliates/' . $member_term->slug . '">' . $member_term->name . '</a>';
-                //    }
-                //}
+
+                if (get_post_type() == 'project') {
+                    $project_topics = get_the_terms(get_the_id(), 'project_topic');
+                    if (!empty($project_topics) && !is_wp_error($project_topics)) {
+                        foreach ($project_topics as $project_topic) {
+                            $taxonomy_links[] = '<a href="' . $project_index_url . '/project_topic/' . $project_topic->slug . '">' . $project_topic->name . '</a>';
+                        }
+                    }
+
+                    $project_types = get_the_terms(get_the_id(), 'project_type');
+                    if (!empty($project_types) && !is_wp_error($project_types)) {
+                        foreach ($project_types as $project_type) {
+                            $taxonomy_links[] = '<a href="' . $project_index_url . '/project_type/' . $project_type->slug . '">' . $project_type->name . '</a>';
+                        }
+                    }
+                }
                 ?>
                 <div class="article__categories">
-                     <?php if(isset($more_terms_arr)){ echo implode(', ', $more_terms_arr); }; ?>
-                     <?php if(isset($member_terms)){ echo '| ' . implode(', ', $member_terms_arr); }; ?>
+                     <?php if(!empty($taxonomy_links)){ echo implode(', ', $taxonomy_links); } ?>
                 </div>
             </div>
         <?php endif ?>

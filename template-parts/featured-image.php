@@ -17,7 +17,7 @@ if(get_post_type() == 'post') {
 <?php } elseif (is_404()) { ?>
             <h1 class="small-offset-1 small-10 columns page-title"><?php _e( 'File Not Found', 'foundationpress' ); ?></h1>
 <?php } elseif (get_post_type() == 'project') { ?>
-            <h1 class="small-offset-1 small-10 columns page-title">Projects</h1>
+            <h1 class="small-offset-1 small-10 columns page-title">Grants</h1>
 <?php } elseif (get_post_type() == 'post') { ?>
             <h1 class="small-offset-1 small-10 columns page-title">News and Events</h1>
 <?php } else {?>

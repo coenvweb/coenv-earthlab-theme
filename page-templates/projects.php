@@ -7,9 +7,9 @@ Template Name: Projects Index
 $filtered = false;
 
 //Focus Areas
-if(isset($wp_query->query_vars['topic'])){
-    $coenv_cat_term_2 = urlencode(htmlentities($wp_query->query_vars['topic']));
-    $coenv_cat_term_2_arr = get_term_by('slug',$coenv_cat_term_2,'topic');
+if(isset($wp_query->query_vars['project_topic'])){
+    $coenv_cat_term_2 = urlencode(htmlentities($wp_query->query_vars['project_topic']));
+    $coenv_cat_term_2_arr = get_term_by('slug',$coenv_cat_term_2,'project_topic');
     $coenv_cat_term_2_val = $coenv_cat_term_2_arr->name;
     $filtered = true;
 } else {
@@ -23,6 +23,15 @@ if(isset($wp_query->query_vars['member-affiliates'])){
     $filtered = true;
 } else {
     $coenv_cat_3 = $coenv_cat_term_3 = null;
+}
+
+if(isset($wp_query->query_vars['project_type'])){
+    $coenv_cat_term_4 = urlencode(htmlentities($wp_query->query_vars['project_type']));
+    $coenv_cat_term_4_arr = get_term_by('slug',$coenv_cat_term_4,'project_type');
+    $coenv_cat_term_4_val = $coenv_cat_term_4_arr->name;
+    $filtered = true;
+} else {
+    $coenv_cat_4 = $coenv_cat_term_4 = null;
 }
 
 if(isset($wp_query->query_vars['case-search'])) {
@@ -41,12 +50,12 @@ if(isset($wp_query->query_vars['case-search'])) {
             <h2 class="page-title"><?php the_title(); ?></h2>
             <?php the_content(); ?>
             <div class="row filters">
-                <div class=" large-6 columns" data-url="<?php the_permalink() ?>" data-cat="topic">
-                    <?php coenv_base_cat_filter('topic', $coenv_cat_term_2, 'project'); // Category filter ?>
+                <div class=" large-6 columns" data-url="<?php the_permalink() ?>" data-cat="project_topic">
+                    <?php coenv_base_cat_filter('project_topic', $coenv_cat_term_2, 'project'); // Category filter ?>
                 </div>
-                <!--<div class="case-search large-6 columns" data-url="<?php the_permalink() ?>" data-cat="case-search">
-                    <?php coenv_base_cat_filter('member-affiliates', $coenv_cat_term_3,  'project'); // Category filter ?>
-                </div>-->
+                <div class="large-6 columns" data-url="<?php the_permalink() ?>" data-cat="project_type">
+                    <?php coenv_base_cat_filter('project_type', $coenv_cat_term_4, 'project'); // Project type filter ?>
+                </div>
                 <div class="small-12 columns">
                     <hr>
                 </div>
@@ -66,14 +75,37 @@ if(isset($wp_query->query_vars['case-search'])) {
                     'order' => 'ASC'
                 );
 
+                $tax_query = array();
+
                 if($coenv_cat_term_2) {
-                    $query_args['taxonomy'] = 'topic';
-                    $query_args['term'] = $coenv_cat_term_2;
+                    $tax_query[] = array(
+                        'taxonomy' => 'project_topic',
+                        'field' => 'slug',
+                        'terms' => $coenv_cat_term_2
+                    );
                 }
-                     
-                 if($coenv_cat_term_3) {
-                    $query_args['taxonomy'] = 'member-affiliates';
-                    $query_args['term'] = $coenv_cat_term_3;
+
+                if($coenv_cat_term_3) {
+                    $tax_query[] = array(
+                        'taxonomy' => 'member-affiliates',
+                        'field' => 'slug',
+                        'terms' => $coenv_cat_term_3
+                    );
+                }
+
+                if($coenv_cat_term_4) {
+                    $tax_query[] = array(
+                        'taxonomy' => 'project_type',
+                        'field' => 'slug',
+                        'terms' => $coenv_cat_term_4
+                    );
+                }
+
+                if(!empty($tax_query)) {
+                    if(count($tax_query) > 1) {
+                        $tax_query['relation'] = 'AND';
+                    }
+                    $query_args['tax_query'] = $tax_query;
                 }
 
                 if (isset($search)) {
@@ -90,6 +122,11 @@ if(isset($wp_query->query_vars['case-search'])) {
                     if ($coenv_cat_term_3) { // Category filter ?>
                         <div class="panel">
                             <div class="left"><?php echo $wp_query->found_posts; ?> project<?=($wp_query->found_posts > 1 ? 's' : '')?> by <span class="term"><?php echo $coenv_cat_term_3_val; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">See All Projects</a></div>
+                        </div>
+                    <?php }
+                    if ($coenv_cat_term_4) { // Project type filter ?>
+                        <div class="panel">
+                            <div class="left"><?php echo $wp_query->found_posts; ?> project<?=($wp_query->found_posts > 1 ? 's' : '')?> in <span class="term"><?php echo $coenv_cat_term_4_val; ?></span></div> <div class="right"><a class="button" href="<?php the_permalink() ?>">See All Projects</a></div>
                         </div>
                     <?php }
                     if (isset($search)) { // Category filter ?>
