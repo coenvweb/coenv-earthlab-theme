@@ -180,15 +180,4 @@ function add_query_vars() {
 }
 add_action('init', 'add_query_vars');
 
-function coenv_maybe_flush_project_rewrites() {
-    $rewrite_version = 'coenv_project_rewrites_v4';
-    $stored_version = get_option('coenv_project_rewrites_version');
-
-    if ($stored_version !== $rewrite_version) {
-        flush_rewrite_rules(false);
-        update_option('coenv_project_rewrites_version', $rewrite_version);
-    }
-}
-add_action('init', 'coenv_maybe_flush_project_rewrites', 30);
-
 ?>

@@ -14,13 +14,23 @@
 	if (is_singular('post')) {
 		$menu_id = NEWS_PAGE_PARENT_ID;
 	}
-	if (is_singular('projects')) {
+	if (is_singular('project')) {
 		$menu_id = PROJECT_PAGE_PARENT_ID;
 	}
 	if (!is_front_page() && !is_page_template('page-templates/focus-page.php')) {
 		echo '<div class="coenv_base_subnav" id="sidenav">';
-		  echo coenv_base_section_title($GLOBALS['post']->ID);
-			echo coenv_base_hierarchical_submenu($menu_id);
+		  if (is_singular('project')) {
+			  $projects_page_id = (int) PROJECT_PAGE_PARENT_ID;
+			  $grants_root_id = (int) wp_get_post_parent_id($projects_page_id);
+			  if (empty($grants_root_id)) {
+				  $grants_root_id = $projects_page_id;
+			  }
+			  echo coenv_base_section_title($grants_root_id);
+			  echo coenv_base_hierarchical_submenu_get_children(get_post($grants_root_id), get_post($projects_page_id));
+		  } else {
+			  echo coenv_base_section_title($GLOBALS['post']->ID);
+			  echo coenv_base_hierarchical_submenu($menu_id);
+		  }
 		echo '</div>';
 	}
 	?>
