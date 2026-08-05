@@ -56,16 +56,6 @@ function generate_cpt_rewrite_rules( $post_type, $index_path, $query_vars = arra
 }
 
 function coenv_get_projects_index_path() {
-    if (defined('PROJECT_PAGE_PARENT_ID')) {
-        $project_page = get_post((int) PROJECT_PAGE_PARENT_ID);
-        if (!empty($project_page)) {
-            $project_uri = get_page_uri($project_page->ID);
-            if (!empty($project_uri)) {
-                return $project_uri;
-            }
-        }
-    }
-
     $projects_index_pages = get_posts(array(
         'post_type' => 'page',
         'posts_per_page' => 1,
@@ -80,57 +70,104 @@ function coenv_get_projects_index_path() {
         }
     }
 
-    return 'grants/projects';
-}
-
-function add_cpt_rewrites($wp_rewrite) {
-    $projects_index_path = coenv_get_projects_index_path();
-    $a_rules = generate_cpt_rewrite_rules('post', 'about/news', array('news-search', 'topic'));
-    $b_rules = generate_cpt_rewrite_rules('project', $projects_index_path, array('project-search', 'project_topic', 'project_type'));
-    if (empty($b_rules)) {
-        $fallback_paths = array('grants/projects', 'about/projects', 'projects');
-        foreach ($fallback_paths as $fallback_path) {
-            $b_rules = generate_cpt_rewrite_rules('project', $fallback_path, array('project-search', 'project_topic', 'project_type'));
-            if (!empty($b_rules)) {
-                break;
+    if (defined('PROJECT_PAGE_PARENT_ID')) {
+        $project_page_id = (int) PROJECT_PAGE_PARENT_ID;
+        $project_page = get_post($project_page_id);
+        if (!empty($project_page) && $project_page->post_type === 'page') {
+            $template_slug = get_page_template_slug($project_page_id);
+            if ($template_slug === 'page-templates/projects.php') {
+                $project_uri = get_page_uri($project_page_id);
+                if (!empty($project_uri)) {
+                    return $project_uri;
+                }
             }
         }
     }
+
+    return 'grants/projects';
+}
+
+function coenv_get_projects_index_path_candidates() {
+    $candidates = array();
+
+    $primary_path = coenv_get_projects_index_path();
+    if (!empty($primary_path)) {
+        $candidates[] = trim($primary_path, '/');
+    }
+
+    $projects_index_pages = get_posts(array(
+        'post_type' => 'page',
+        'posts_per_page' => -1,
+        'meta_key' => '_wp_page_template',
+        'meta_value' => 'page-templates/projects.php',
+        'post_status' => 'publish'
+    ));
+    if (!empty($projects_index_pages)) {
+        foreach ($projects_index_pages as $projects_index_page) {
+            $candidate_uri = get_page_uri($projects_index_page->ID);
+            if (!empty($candidate_uri)) {
+                $candidates[] = trim($candidate_uri, '/');
+            }
+        }
+    }
+
+    $candidates[] = 'grants/projects';
+    $candidates[] = 'about/projects';
+    $candidates[] = 'projects';
+
+    $candidates = array_filter(array_unique($candidates));
+    return $candidates;
+}
+
+function add_cpt_rewrites($wp_rewrite) {
+    $projects_index_paths = coenv_get_projects_index_path_candidates();
+    $a_rules = generate_cpt_rewrite_rules('post', 'about/news', array('news-search', 'topic'));
+    $b_rules = array();
+
+    foreach ($projects_index_paths as $projects_index_path) {
+        $generated_rules = generate_cpt_rewrite_rules('project', $projects_index_path, array('project-search', 'project_topic', 'project_type'));
+        if (!empty($generated_rules)) {
+            $b_rules = $generated_rules + $b_rules;
+        }
+    }
+
     $wp_rewrite->rules = $a_rules + $b_rules + $wp_rewrite->rules;
 }
 add_action('generate_rewrite_rules', 'add_cpt_rewrites');
 
 function coenv_add_explicit_project_filter_rewrites() {
-    $projects_index_path = coenv_get_projects_index_path();
-    $index_page = get_page_by_path($projects_index_path);
+    $projects_index_paths = coenv_get_projects_index_path_candidates();
 
-    if (empty($index_page) || empty($index_page->ID)) {
-        return;
+    foreach ($projects_index_paths as $projects_index_path) {
+        $index_page = get_page_by_path($projects_index_path);
+        if (empty($index_page) || empty($index_page->ID)) {
+            continue;
+        }
+
+        $page_id = (int) $index_page->ID;
+        $path_regex = preg_quote(trim($projects_index_path, '/'), '/');
+
+        add_rewrite_rule(
+            '^' . $path_regex . '/project_topic/([^/]+)/?$',
+            'index.php?page_id=' . $page_id . '&project_topic=$matches[1]',
+            'top'
+        );
+        add_rewrite_rule(
+            '^' . $path_regex . '/project_type/([^/]+)/?$',
+            'index.php?page_id=' . $page_id . '&project_type=$matches[1]',
+            'top'
+        );
+        add_rewrite_rule(
+            '^' . $path_regex . '/project_topic/([^/]+)/page/([0-9]{1,})/?$',
+            'index.php?page_id=' . $page_id . '&project_topic=$matches[1]&paged=$matches[2]',
+            'top'
+        );
+        add_rewrite_rule(
+            '^' . $path_regex . '/project_type/([^/]+)/page/([0-9]{1,})/?$',
+            'index.php?page_id=' . $page_id . '&project_type=$matches[1]&paged=$matches[2]',
+            'top'
+        );
     }
-
-    $page_id = (int) $index_page->ID;
-    $path_regex = preg_quote(trim($projects_index_path, '/'), '/');
-
-    add_rewrite_rule(
-        '^' . $path_regex . '/project_topic/([^/]+)/?$',
-        'index.php?page_id=' . $page_id . '&project_topic=$matches[1]',
-        'top'
-    );
-    add_rewrite_rule(
-        '^' . $path_regex . '/project_type/([^/]+)/?$',
-        'index.php?page_id=' . $page_id . '&project_type=$matches[1]',
-        'top'
-    );
-    add_rewrite_rule(
-        '^' . $path_regex . '/project_topic/([^/]+)/page/([0-9]{1,})/?$',
-        'index.php?page_id=' . $page_id . '&project_topic=$matches[1]&paged=$matches[2]',
-        'top'
-    );
-    add_rewrite_rule(
-        '^' . $path_regex . '/project_type/([^/]+)/page/([0-9]{1,})/?$',
-        'index.php?page_id=' . $page_id . '&project_type=$matches[1]&paged=$matches[2]',
-        'top'
-    );
 }
 add_action('init', 'coenv_add_explicit_project_filter_rewrites', 20);
 
@@ -144,7 +181,7 @@ function add_query_vars() {
 add_action('init', 'add_query_vars');
 
 function coenv_maybe_flush_project_rewrites() {
-    $rewrite_version = 'coenv_project_rewrites_v3';
+    $rewrite_version = 'coenv_project_rewrites_v4';
     $stored_version = get_option('coenv_project_rewrites_version');
 
     if ($stored_version !== $rewrite_version) {
