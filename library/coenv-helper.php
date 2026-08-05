@@ -161,6 +161,22 @@ function coenv_get_project_index_url($post_id = 0) {
     }
 
     if (empty($project_index_url)) {
+        $projects_index_pages = get_posts(array(
+            'post_type' => 'page',
+            'posts_per_page' => 1,
+            'meta_key' => '_wp_page_template',
+            'meta_value' => 'page-templates/projects.php',
+            'post_status' => 'publish'
+        ));
+        if (!empty($projects_index_pages)) {
+            $template_page_url = get_permalink($projects_index_pages[0]->ID);
+            if (!empty($template_page_url)) {
+                $project_index_url = untrailingslashit($template_page_url);
+            }
+        }
+    }
+
+    if (empty($project_index_url)) {
         $archive_url = get_post_type_archive_link('project');
         if (!empty($archive_url)) {
             $project_index_url = untrailingslashit($archive_url);

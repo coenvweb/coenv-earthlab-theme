@@ -66,6 +66,20 @@ function coenv_get_projects_index_path() {
         }
     }
 
+    $projects_index_pages = get_posts(array(
+        'post_type' => 'page',
+        'posts_per_page' => 1,
+        'meta_key' => '_wp_page_template',
+        'meta_value' => 'page-templates/projects.php',
+        'post_status' => 'publish'
+    ));
+    if (!empty($projects_index_pages)) {
+        $project_uri = get_page_uri($projects_index_pages[0]->ID);
+        if (!empty($project_uri)) {
+            return $project_uri;
+        }
+    }
+
     return 'grants/projects';
 }
 
@@ -73,6 +87,15 @@ function add_cpt_rewrites($wp_rewrite) {
     $projects_index_path = coenv_get_projects_index_path();
     $a_rules = generate_cpt_rewrite_rules('post', 'about/news', array('news-search', 'topic'));
     $b_rules = generate_cpt_rewrite_rules('project', $projects_index_path, array('project-search', 'project_topic', 'project_type'));
+    if (empty($b_rules)) {
+        $fallback_paths = array('grants/projects', 'about/projects', 'projects');
+        foreach ($fallback_paths as $fallback_path) {
+            $b_rules = generate_cpt_rewrite_rules('project', $fallback_path, array('project-search', 'project_topic', 'project_type'));
+            if (!empty($b_rules)) {
+                break;
+            }
+        }
+    }
     $wp_rewrite->rules = $a_rules + $b_rules + $wp_rewrite->rules;
 }
 add_action('generate_rewrite_rules', 'add_cpt_rewrites');
