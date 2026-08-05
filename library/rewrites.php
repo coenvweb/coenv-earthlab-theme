@@ -72,7 +72,7 @@ function coenv_get_projects_index_path() {
 function add_cpt_rewrites($wp_rewrite) {
     $projects_index_path = coenv_get_projects_index_path();
     $a_rules = generate_cpt_rewrite_rules('post', 'about/news', array('news-search', 'topic'));
-    $b_rules = generate_cpt_rewrite_rules('project', $projects_index_path, array('project-search'));
+    $b_rules = generate_cpt_rewrite_rules('project', $projects_index_path, array('project-search', 'project_topic', 'project_type'));
     $wp_rewrite->rules = $a_rules + $b_rules + $wp_rewrite->rules;
 }
 add_action('generate_rewrite_rules', 'add_cpt_rewrites');
