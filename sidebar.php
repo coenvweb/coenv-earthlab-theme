@@ -25,7 +25,7 @@
 			  if (empty($grants_root_id)) {
 				  $grants_root_id = $projects_page_id;
 			  }
-			  echo coenv_base_section_title($grants_root_id);
+			  echo '<h2 class="section-title"><a href="' . esc_url(get_permalink($grants_root_id)) . '">' . esc_html(get_the_title($grants_root_id)) . '</a></h2>';
 			  echo coenv_base_hierarchical_submenu_get_children(get_post($grants_root_id), get_post($projects_page_id));
 		  } else {
 			  echo coenv_base_section_title($GLOBALS['post']->ID);
