@@ -34,8 +34,12 @@ if(isset($wp_query->query_vars['project_type'])){
     $coenv_cat_4 = $coenv_cat_term_4 = null;
 }
 
-if(isset($wp_query->query_vars['case-search'])) {
+if(isset($wp_query->query_vars['project-search'])) {
+    $search = urldecode($wp_query->query_vars['project-search']);
+} elseif(isset($wp_query->query_vars['case-search'])) {
     $search = urldecode($wp_query->query_vars['case-search']);
+} elseif(isset($_GET['project-search'])) {
+    $search = sanitize_text_field(wp_unslash($_GET['project-search']));
 }
 
 ?>
@@ -55,6 +59,15 @@ if(isset($wp_query->query_vars['case-search'])) {
                 </div>
                 <div class="large-6 columns" data-url="<?php the_permalink() ?>" data-cat="project_type">
                     <?php coenv_base_cat_filter('project_type', $coenv_cat_term_4, 'project'); // Project type filter ?>
+                </div>
+                <div class="small-12 columns">
+                    <form class="project-search" method="get" action="<?php echo esc_url(get_permalink()); ?>">
+                        <label class="hide" for="project-search">Search projects</label>
+                        <div class="field-wrap">
+                            <input id="project-search" type="text" name="project-search" value="<?php if (isset($search)) { echo esc_attr($search); } ?>" placeholder="Search projects" />
+                            <button type="submit" class="button">Search</button>
+                        </div>
+                    </form>
                 </div>
                 <div class="small-12 columns">
                     <hr>
