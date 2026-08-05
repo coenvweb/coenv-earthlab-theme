@@ -133,17 +133,36 @@ $cats = get_categories($cats_args);
         }
         echo '<select name="select-category" aria-label="Select a category" class="select-category" id="select-category">';
         echo '<option class="level-0" value="' . get_the_permalink() . '">All ' . $tax_str . '</option>';
-        foreach($cats as $cat) {
-            if (get_term_post_count_by_type($cat->slug, $tax, $custom_post_type) > 0) {
-                $selected = $cat->slug == $tax_value ? ' selected="selected"' : '';
-                echo "</br>";
-                echo '<option value="' . $tax . '/' . $cat->slug . '/#page-sidebar-left"' . $selected . '>' . $cat->name . '</option>';
+        $terms_by_parent = array();
+        foreach ($cats as $cat) {
+            $parent_id = (int) $cat->parent;
+            if (!isset($terms_by_parent[$parent_id])) {
+                $terms_by_parent[$parent_id] = array();
             }
+            $terms_by_parent[$parent_id][] = $cat;
         }
+
+        coenv_base_render_taxonomy_filter_options($terms_by_parent, 0, $tax, $tax_value, $custom_post_type);
         echo '</select>';
         if ($tax == 'topic') {
             echo '</div>';
         }
+    }
+}
+
+function coenv_base_render_taxonomy_filter_options($terms_by_parent, $parent_id, $tax, $tax_value, $custom_post_type, $depth = 0) {
+    if (empty($terms_by_parent[$parent_id])) {
+        return;
+    }
+
+    foreach ($terms_by_parent[$parent_id] as $term) {
+        if (get_term_post_count_by_type($term->slug, $tax, $custom_post_type) > 0) {
+            $selected = $term->slug == $tax_value ? ' selected="selected"' : '';
+            $indent = $depth > 0 ? str_repeat('&nbsp;&nbsp;', $depth) . '- ' : '';
+            echo '<option value="' . $tax . '/' . $term->slug . '/#page-sidebar-left"' . $selected . '>' . $indent . esc_html($term->name) . '</option>';
+        }
+
+        coenv_base_render_taxonomy_filter_options($terms_by_parent, (int) $term->term_id, $tax, $tax_value, $custom_post_type, $depth + 1);
     }
 }
 
