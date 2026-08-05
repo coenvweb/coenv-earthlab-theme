@@ -100,6 +100,40 @@ function add_cpt_rewrites($wp_rewrite) {
 }
 add_action('generate_rewrite_rules', 'add_cpt_rewrites');
 
+function coenv_add_explicit_project_filter_rewrites() {
+    $projects_index_path = coenv_get_projects_index_path();
+    $index_page = get_page_by_path($projects_index_path);
+
+    if (empty($index_page) || empty($index_page->ID)) {
+        return;
+    }
+
+    $page_id = (int) $index_page->ID;
+    $path_regex = preg_quote(trim($projects_index_path, '/'), '/');
+
+    add_rewrite_rule(
+        '^' . $path_regex . '/project_topic/([^/]+)/?$',
+        'index.php?page_id=' . $page_id . '&project_topic=$matches[1]',
+        'top'
+    );
+    add_rewrite_rule(
+        '^' . $path_regex . '/project_type/([^/]+)/?$',
+        'index.php?page_id=' . $page_id . '&project_type=$matches[1]',
+        'top'
+    );
+    add_rewrite_rule(
+        '^' . $path_regex . '/project_topic/([^/]+)/page/([0-9]{1,})/?$',
+        'index.php?page_id=' . $page_id . '&project_topic=$matches[1]&paged=$matches[2]',
+        'top'
+    );
+    add_rewrite_rule(
+        '^' . $path_regex . '/project_type/([^/]+)/page/([0-9]{1,})/?$',
+        'index.php?page_id=' . $page_id . '&project_type=$matches[1]&paged=$matches[2]',
+        'top'
+    );
+}
+add_action('init', 'coenv_add_explicit_project_filter_rewrites', 20);
+
 function add_query_vars() {
     add_rewrite_tag('%topic%', '(.+?)/');
     add_rewrite_tag('%news-search%', '(.+?)/');
@@ -108,5 +142,16 @@ function add_query_vars() {
     add_rewrite_tag('%project_type%', '(.+?)/');
 }
 add_action('init', 'add_query_vars');
+
+function coenv_maybe_flush_project_rewrites() {
+    $rewrite_version = 'coenv_project_rewrites_v3';
+    $stored_version = get_option('coenv_project_rewrites_version');
+
+    if ($stored_version !== $rewrite_version) {
+        flush_rewrite_rules(false);
+        update_option('coenv_project_rewrites_version', $rewrite_version);
+    }
+}
+add_action('init', 'coenv_maybe_flush_project_rewrites', 30);
 
 ?>
